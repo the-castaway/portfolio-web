@@ -1,0 +1,15 @@
+.CarouselBG {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: -1;
+}
+
+.CarouselBGCircle {
+    position: inherit;
+    left: -89px;
+    bottom: 0;
+    height: 164px;
+    width: 164px;
+}
