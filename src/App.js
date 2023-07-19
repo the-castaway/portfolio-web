@@ -1,12 +1,15 @@
-import Carousel from './components/Carousel.react';
-import Drawers from './components/Drawers.react';
-import './styles/App.css';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Carousel/>
-      <Drawers/>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          JC Portfolio WIP
+        </p>
+      </header>
     </div>
   );
 }
