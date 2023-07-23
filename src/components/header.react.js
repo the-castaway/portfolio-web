@@ -1,16 +1,32 @@
+import React, { useEffect, useRef } from 'react';
 import logo from '../media/logo.svg';
 import '../styles/App.css';
+import { gsap } from 'gsap';
 
-function Header() {
+const Header = ({ headerContent }) => {
+  let header = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      header,
+      {
+        y: 200,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+      },
+    )
+  }, header)
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Header
-        </p>
-      </header>
-    </div>
+    <h1>
+      <div ref={el => header = el} className='header'>
+        {headerContent}
+      </div>
+    </h1>
   );
 }
 
