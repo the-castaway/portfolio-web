@@ -1,11 +1,8 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
   Routes,
   useLocation,
-  useParams
 } from "react-router-dom"
 import {
   TransitionGroup,
@@ -13,25 +10,26 @@ import {
 } from "react-transition-group";
 import { gsap } from "gsap";
 //pages
+import RouteHelper from "./pages/routeHelper";
 import Home from './pages/home';
 import About from './pages/about';
 //components
 import Nav from './components/nav.react'
 
-const routes = [
-  { path: '/', name: 'Home', Element: Home },
-  { path: '/about', name: 'About', Element: About },
-]
-
 function App() {
+  const location = useLocation();
   return (
-    <>
+    <div>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </>
+      <TransitionGroup component={null}>
+        <CSSTransition key={location.key} classNames="page" timeout={1200}>
+          <Routes location={location}>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/about" exact element={<About />} />
+          </Routes>
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
   );
 }
 

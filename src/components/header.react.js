@@ -18,7 +18,7 @@ const Header = ({ headerContent }) => {
         opacity: 1,
       },
     )
-  }, header)
+  }, [header])
 
 
   return (
