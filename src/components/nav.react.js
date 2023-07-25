@@ -18,6 +18,13 @@ const Nav = () => {
             }}>
                 About
             </NavLink>
+            <NavLink to="/showcase" exact='true' style={({ isActive, isPending }) => {
+                return {
+                    color: isActive ? "red" : "inherit",
+                };
+            }}>
+                Showcase
+            </NavLink>
         </nav>
     );
 }

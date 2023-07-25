@@ -10,7 +10,7 @@ const Header = ({ headerContent }) => {
     gsap.fromTo(
       header,
       {
-        y: 200,
+        y: 50,
         opacity: 0,
       },
       {

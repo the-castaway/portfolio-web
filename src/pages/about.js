@@ -5,7 +5,7 @@ import Header from '../components/header.react';
 const About = () => {
   return (
     <div>
-      <Header headerContent= "About"/>
+      <Header headerContent="About" />
       About Page
     </div>
   );

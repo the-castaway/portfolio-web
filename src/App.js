@@ -10,9 +10,9 @@ import {
 } from "react-transition-group";
 import { gsap } from "gsap";
 //pages
-import RouteHelper from "./pages/routeHelper";
 import Home from './pages/home';
 import About from './pages/about';
+import Showcase from './pages/showcase';
 //components
 import Nav from './components/nav.react'
 
@@ -26,6 +26,7 @@ function App() {
           <Routes location={location}>
             <Route path="/" exact element={<Home />} />
             <Route path="/about" exact element={<About />} />
+            <Route path="/showcase/*" exact element={<Showcase />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
