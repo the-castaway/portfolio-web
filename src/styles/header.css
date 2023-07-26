@@ -3,6 +3,10 @@
     font-size: 13.8vw;
 }
 
+.header-container {
+    overflow: hidden;
+}
+
 @media (max-width: 1750px) {
     .header {
         font-size: 13.7vw;
