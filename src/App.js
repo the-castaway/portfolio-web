@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import {
   Route,
   Routes,
@@ -10,10 +11,10 @@ import {
 } from "react-transition-group";
 import { gsap } from "gsap";
 //pages
+import Loader from "./pages/loader";
 import Home from './pages/home';
 import About from './pages/about';
 import Showcase from './pages/showcase';
-//pages
 import Project1 from './pages/projects/project1';
 import Project2 from './pages/projects/project2';
 //components
@@ -22,23 +23,45 @@ import Nav from './components/nav.react'
 function App() {
   const location = useLocation();
   console.log(location, location.key);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Loading function to load data or
+    // fake it using setTimeout;
+    const loadData = async () => {
+
+      // Wait for two second
+      await new Promise((r) => setTimeout(r, 5000));
+
+      // Toggle loading state
+      setLoading((loading) => !loading);
+    };
+
+    loadData();
+  }, [])
+
+
+  // if (loading) {
+  //   return (
+  //     <>
+
+  //       <Loader />
+  //     </>
+  //   )
+  // }
+
+
+
   return (
     <>
-      <Nav />
-      {/* <TransitionGroup component={null}>
-        <CSSTransition key={location.key} classNames="page" timeout={300}>
-          <Routes location={location}>
-            <Route path="/" exact element={<Home />} />
-            <Route path="about" exact element={<About />} />
-            <Route path="showcase/*" exact element={<Showcase />} />
-          </Routes>
-        </CSSTransition>
-      </TransitionGroup> */}
+      <Loader />
 
+      <Nav />
       <TransitionGroup component={null}>
         <CSSTransition key={location.key} classNames="page" timeout={3000}>
           <Routes location={location}>
-            <Route path="/" exact element={<Home />} />
+            <Route index path="/" exact element={<Home />} />
             <Route path="about" exact element={<About />} />
             <Route path="showcase" exact element={<Showcase />}>
               <Route path="project1" element={<Project1 />} />
@@ -49,6 +72,7 @@ function App() {
       </TransitionGroup>
     </>
   );
+
 }
 
 export default App;

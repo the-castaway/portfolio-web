@@ -1,12 +1,30 @@
 import React, { useEffect, useRef } from 'react';
-import logo from '../media/logo.svg';
-import '../styles/App.css';
 import { gsap } from 'gsap';
+//import { SplitText } from "gsap/SplitText";
+//styles
+import '../styles/header.css';
+import '../styles/App.css';
 
 const Header = ({ headerContent }) => {
+  //gsap.registerPlugin(SplitText);
   let header = useRef(null);
 
+
+
+
+
+
+
+
   useEffect(() => {
+
+    // var tl = gsap.timeline(),
+    //   mySplitText = new SplitText(header, { type: "words,chars" }),
+    //   chars = mySplitText.chars; //an array of all the divs that wrap each character
+
+    // console.log(chars);
+
+
     gsap.fromTo(
       header,
       {
@@ -22,8 +40,8 @@ const Header = ({ headerContent }) => {
 
 
   return (
-    <h1>
-      <div ref={el => header = el} className='header'>
+    <h1 className='header'>
+      <div ref={el => header = el}>
         {headerContent}
       </div>
     </h1>
