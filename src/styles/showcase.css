@@ -1,0 +1,19 @@
+.project-enter {
+    opacity: .5;
+    z-index: 1;
+}
+
+.project-enter.project-enter-active {
+    opacity: 1;
+    transition: opacity 250ms ease-out, transform 300ms ease;
+}
+
+.project-exit {
+    opacity: 1;
+}
+
+.project-exit.project-exit-active {
+    opacity: .5;
+
+    transition: opacity 250ms ease-out, transform 300ms ease;
+}

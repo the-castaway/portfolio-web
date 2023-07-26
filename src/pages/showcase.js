@@ -3,7 +3,8 @@ import {
     Route,
     Routes,
     useLocation,
-    NavLink
+    Link,
+    Outlet
 } from "react-router-dom"
 import {
     TransitionGroup,
@@ -11,43 +12,49 @@ import {
 } from "react-transition-group";
 import { gsap } from "gsap";
 //pages
-import Home from './home';
-import About from './about';
 import Project1 from './projects/project1';
 import Project2 from './projects/project2';
 //components
 import Header from '../components/header.react';
+//styles
+import '../styles/showcase.css';
 
 const Showcase = () => {
+    //const location = useLocation();
+    //console.log(location, location.key);
     const location = useLocation();
+    const onExit = () => {
+        //console.log("hellp")
+    }
     return (
-        <div>
+        <div id="showcase">
             <Header headerContent="Showcase" />
-            <nav>
-                <NavLink to="/showcase/project1" style={({ isActive, isPending }) => {
-                    return {
-                        color: isActive ? "red" : "black",
-                    };
-                }}>
+            <div>
+                <Link to="project1">
                     Project 1
-                </NavLink>
-                <NavLink to="/showcase/project2" style={({ isActive, isPending }) => {
-                    return {
-                        color: isActive ? "red" : "black",
-                    };
-                }}>
+                </Link>
+                <Link to="project2">
                     Project 2
-                </NavLink>
-
-            </nav>
+                </Link>
+            </div>
             <TransitionGroup component={null}>
-                <CSSTransition key={location.key} classNames="page" timeout={1200}>
-                    <Routes location={location}>
+                <CSSTransition
+                    key={location.key}
+                    classNames="page"
+                    timeout={3000}
+                    onExit={onExit()}
+                >
+                    <Outlet />
+                </CSSTransition>
+            </TransitionGroup>
+            {/* <TransitionGroup component={null}>
+                <CSSTransition classNames="project" timeout={300}>
+                    <Routes>
                         <Route path="/project1" element={<Project1 />} />
                         <Route path="/project2" element={<Project2 />} />
                     </Routes>
                 </CSSTransition>
-            </TransitionGroup>
+            </TransitionGroup> */}
         </div>
     );
 }
