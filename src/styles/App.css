@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
   font-family: 'Urbanist';
   src: url('../fonts/Urbanist-ThinItalic.woff2') format('woff2'),
     url('../fonts/Urbanist-Thin.woff2') format('woff2'),
@@ -19,62 +19,30 @@
     url('../fonts/Urbanist-Black.woff2') format('woff2'),
     url('../fonts/Urbanist-BlackItalic.woff2') format('woff2'),
   ;
-} */
-
-
-@font-face {
-  font-family: 'Urbanist Thin';
-  src: url('../fonts/Urbanist-ThinItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Thin.woff2') format('woff2');
-  font-weight: normal;
 }
-
-@font-face {
-  font-family: 'Urbanist Light';
-  src: url('../fonts/Urbanist-LightItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Light.woff2') format('woff2');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Urbanist Regular';
-  src: url('../fonts/Urbanist-Regular.woff2') format('woff2'),
-    url('../fonts/Urbanist-Italic.woff2') format('woff2');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Urbanist Semibold';
-  src: url('../fonts/Urbanist-SemiBold.woff2') format('woff2'),
-    url('../fonts/Urbanist-SemiBoldItalic.woff2') format('woff2');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Urbanist Bold';
-  src: url('../fonts/Urbanist-Bold.woff2') format('woff2'),
-    url('../fonts/Urbanist-BoldItalic.woff2') format('woff2');
-  font-weight: normal;
-}
-
 
 body {
   background-color: #000000;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: "Urbanist", Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
 h1 {
-  font-family: "Urbanist Semibold";
+  font-weight: 600;
   margin: 0;
 }
 
 h2 {
-  font-family: "Urbanist Semibold";
+  font-weight: 600;
   font-size: 32px;
-  margin: 0;
-}
-
-p {
-  font-family: "Urbanist Regular", Arial, Helvetica, sans-serif;
   margin: 0;
 }
 

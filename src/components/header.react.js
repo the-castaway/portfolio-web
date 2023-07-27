@@ -12,7 +12,7 @@ const Header = ({ headerContent }) => {
   useEffect(() => {
 
     var tl = gsap.timeline(),
-      mySplitText = new SplitText(header, { type: "words,chars" }),
+      mySplitText = new SplitText(header, { type: "chars" }),
       chars = mySplitText.chars; //an array of all the divs that wrap each character
 
     tl.from(chars, {
