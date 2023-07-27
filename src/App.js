@@ -58,18 +58,18 @@ function App() {
       <Loader />
 
       <Nav />
-      <TransitionGroup component={null}>
-        <CSSTransition key={location.key} classNames="page" timeout={3000}>
-          <Routes location={location}>
-            <Route index path="/" exact element={<Home />} />
-            <Route path="about" exact element={<About />} />
-            <Route path="showcase" exact element={<Showcase />}>
-              <Route path="project1" element={<Project1 />} />
-              <Route path="project2" element={<Project2 />} />
-            </Route>
-          </Routes>
-        </CSSTransition>
-      </TransitionGroup>
+      {/* <TransitionGroup component={null}>
+        <CSSTransition key={location.key} classNames="page" timeout={3000}> */}
+      <Routes location={location}>
+        <Route index path="/" exact element={<Home />} />
+        <Route path="about" exact element={<About />} />
+        <Route path="showcase" exact element={<Showcase />}>
+          <Route path="project1" element={<Project1 />} />
+          <Route path="project2" element={<Project2 />} />
+        </Route>
+      </Routes>
+      {/* </CSSTransition>
+      </TransitionGroup> */}
     </>
   );
 
