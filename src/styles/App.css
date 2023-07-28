@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: 'Urbanist';
   src: url('../fonts/Urbanist-ThinItalic.woff2') format('woff2'),
     url('../fonts/Urbanist-Thin.woff2') format('woff2'),
@@ -19,7 +19,9 @@
     url('../fonts/Urbanist-Black.woff2') format('woff2'),
     url('../fonts/Urbanist-BlackItalic.woff2') format('woff2'),
   ;
-}
+} */
+
+@import url('https: //fonts.googleapis.com/css?family=Urbanist:ExtraLight,ExtralightItalic,Light,LightItalic,Regular,Italic,Medium,Semibold,Bold');
 
 body {
   background-color: #000000;
