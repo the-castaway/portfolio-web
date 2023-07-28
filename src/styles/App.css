@@ -1,54 +1,21 @@
-/* @font-face {
-  font-family: 'Urbanist';
-  src: url('../fonts/Urbanist-ThinItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Thin.woff2') format('woff2'),
-    url('../fonts/Urbanist-SemiBold.woff2') format('woff2'),
-    url('../fonts/Urbanist-SemiBoldItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Regular.woff2') format('woff2'),
-    url('../fonts/Urbanist-Medium.woff2') format('woff2'),
-    url('../fonts/Urbanist-MediumItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Light.woff2') format('woff2'),
-    url('../fonts/Urbanist-LightItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Italic.woff2') format('woff2'),
-    url('../fonts/Urbanist-ExtraLight.woff2') format('woff2'),
-    url('../fonts/Urbanist-ExtraLightItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-ExtraBold.woff2') format('woff2'),
-    url('../fonts/Urbanist-ExtraBoldItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Bold.woff2') format('woff2'),
-    url('../fonts/Urbanist-BoldItalic.woff2') format('woff2'),
-    url('../fonts/Urbanist-Black.woff2') format('woff2'),
-    url('../fonts/Urbanist-BlackItalic.woff2') format('woff2'),
-  ;
-} */
+/* Global CSS */
+
+@import './global.css';
+
+/* Fonts & Text */
 
 @import url('https: //fonts.googleapis.com/css?family=Urbanist:ExtraLight,ExtralightItalic,Light,LightItalic,Regular,Italic,Medium,Semibold,Bold');
 
+/* Overall */
+
 body {
-  background-color: #000000;
+  background-color: var(--jc-black);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  font-family: "Urbanist", Arial, Helvetica, sans-serif;
-  margin: 0;
-}
 
-h1 {
-  font-weight: 600;
-  margin: 0;
-}
 
-h2 {
-  font-weight: 600;
-  font-size: 32px;
-  margin: 0;
-}
 
-.page-enter {
+/* .page-enter {
   opacity: 0;
   transform: translate(0, 25px);
   z-index: 1;
@@ -71,4 +38,4 @@ h2 {
   transform: translate(0, 30px);
 
   transition: opacity 250ms ease-out, transform 300ms ease;
-}
+} */

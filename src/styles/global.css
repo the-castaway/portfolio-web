@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+
+/* ------------------ Constants ------------------ */
+
+:root {
+    /* Fonts */
+    --jc-font-family: 'Urbanist', helvetica, sans-serif;
+
+    /* Colors */
+    --jc-black: #000000;
+    --jc-off-black: #303030;
+    --jc-dark-grey: #4a4a4a;
+    --jc-grey: #7f7f7f;
+    --jc-light-grey: #dcdcdc;
+    --jc-off-white: #ececec;
+    --jc-white: #ffffff;
+
+    /* Breakpoints */
+    --jc-breakpoint-tablet: 'max-width: 768px';
+    --jc-breakpoint-mobile: 'max-width: 360px';
+}
+
+/* ------------------ Global CSS ------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: var(--jc-font-family);
+    margin: 0;
+}
+
+h1 {
+    font-weight: 600;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 32px;
+    margin: 0;
+}
