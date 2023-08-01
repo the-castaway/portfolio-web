@@ -41,7 +41,7 @@ const Showcase = () => {
                 <CSSTransition
                     key={location.key}
                     classNames="page"
-                    timeout={3000}
+                    timeout={0}
                     onExit={onExit()}
                 >
                     <Outlet />

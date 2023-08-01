@@ -22,54 +22,36 @@ import Nav from './components/nav.react'
 
 function App() {
   const location = useLocation();
-  console.log(location, location.key);
-
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // Loading function to load data or
-  //   // fake it using setTimeout;
-  //   const loadData = async () => {
-
-  //     // Wait for two second
-  //     await new Promise((r) => setTimeout(r, 5000));
-
-  //     // Toggle loading state
-  //     setLoading((loading) => !loading);
-  //   };
-
-  //   loadData();
-  // }, [])
-
-
-  // if (loading) {
-  //   return (
-  //     <>
-
-  //       <Loader />
-  //     </>
-  //   )
-  // }
-
+  useEffect(() => {
+    // Loading function to load data or
+    // fake it using setTimeout;
+    const loadData = async () => {
+      // Wait for two second
+      await new Promise((r) => setTimeout(r, 5000));
+      // Toggle loading state
+      setLoading((loading) => !loading);
+    };
+    loadData();
+  }, [])
 
 
   return (
     <>
-      <Loader />
-
       <Nav />
-      {/* <TransitionGroup component={null}>
-        <CSSTransition key={location.key} classNames="page" timeout={3000}> */}
-      <Routes location={location}>
-        <Route index path="/" exact element={<Home />} />
-        <Route path="about" exact element={<About />} />
-        <Route path="showcase" exact element={<Showcase />}>
-          <Route path="project1" element={<Project1 />} />
-          <Route path="project2" element={<Project2 />} />
-        </Route>
-      </Routes>
-      {/* </CSSTransition>
-      </TransitionGroup> */}
+      {loading ? (
+        <Loader />
+      ) : (
+        <Routes location={location}>
+          <Route index path="/" exact element={<Home />} />
+          <Route path="about" exact element={<About />} />
+          <Route path="showcase" exact element={<Showcase />}>
+            <Route path="project1" element={<Project1 />} />
+            <Route path="project2" element={<Project2 />} />
+          </Route>
+        </Routes>
+      )}
     </>
   );
 

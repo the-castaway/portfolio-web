@@ -1,0 +1,29 @@
+.nav {
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0px 40px;
+}
+
+.nav-title {
+    color: var(--jc-light-grey);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.nav-social {
+    gap: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-links {
+    border: 1px solid var(--jc-white-transparent);
+    border-radius: 50px;
+    gap: 30px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 30px;
+}
