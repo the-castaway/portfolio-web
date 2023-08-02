@@ -35,7 +35,7 @@ const Loader = () => {
                 </div>
                 <div ref={el => loaderInfo3 = el} className='loader-info-right'>
                     <h2>
-                        Portfolio ©2023
+                        Portfolio ©{new Date().getFullYear()}
                     </h2>
                 </div>
             </div>

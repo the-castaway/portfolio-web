@@ -1,62 +1,61 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
+import { SwitchTransition, Transition, CSSTransition } from 'react-transition-group';
 import {
-    Route,
-    Routes,
-    useLocation,
     Link,
-    Outlet
+    Outlet,
+    useLocation
 } from "react-router-dom"
-import {
-    TransitionGroup,
-    CSSTransition
-} from "react-transition-group";
-import { gsap } from "gsap";
-//pages
-import Project1 from './projects/project1';
-import Project2 from './projects/project2';
 //components
 import Header from '../components/header.react';
 //styles
-import '../styles/showcase.css';
+import '../styles/home.css';
 
 const Showcase = () => {
-    //const location = useLocation();
-    //console.log(location, location.key);
     const location = useLocation();
-    const onExit = () => {
-        //console.log("hellp")
-    }
+    const [isActive, setIsActive] = useState(false);
+
     return (
-        <div id="showcase">
-            <Header headerContent="Showcase" />
-            <div>
-                <Link to="project1">
-                    Project 1
-                </Link>
-                <Link to="project2">
-                    Project 2
-                </Link>
-            </div>
-            <TransitionGroup component={null}>
-                <CSSTransition
-                    key={location.key}
-                    classNames="page"
-                    timeout={0}
-                    onExit={onExit()}
-                >
+        <SwitchTransition>
+            <Transition key={location.key}
+                timeout={3000}
+                onEnter={() => {
+                    console.log('enter', "isActive" + isActive)
+                    setIsActive((prevIsActive) => !prevIsActive)
+
+                }}
+                onExit={() => {
+                    console.log('exit', "isActive" + isActive)
+                    setIsActive((prevIsActive) => !prevIsActive)
+                }}>
+                <div id="showcase">
+                    <Header headerContent="Showcase" isActive={isActive} />
+                    <div>
+                        <Link to="project1">
+                            Project 1
+                        </Link>
+                        <Link to="project2">
+                            Project 2
+                        </Link>
+                    </div>
                     <Outlet />
-                </CSSTransition>
-            </TransitionGroup>
-            {/* <TransitionGroup component={null}>
-                <CSSTransition classNames="project" timeout={300}>
-                    <Routes>
-                        <Route path="/project1" element={<Project1 />} />
-                        <Route path="/project2" element={<Project2 />} />
-                    </Routes>
-                </CSSTransition>
-            </TransitionGroup> */}
-        </div>
+                </div>
+            </Transition>
+        </SwitchTransition>
     );
 }
 
 export default Showcase;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

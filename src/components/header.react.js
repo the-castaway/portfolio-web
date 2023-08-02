@@ -5,26 +5,48 @@ import { SplitText } from "gsap/SplitText";
 import '../styles/header.css';
 import '../styles/App.css';
 
-const Header = ({ headerContent }) => {
+const Header = ({ headerContent, isActive }) => {
   gsap.registerPlugin(SplitText);
   let header = useRef(null);
 
   useEffect(() => {
+    // const tl = gsap.timeline(),
+    //   mySplitText = new SplitText(header, { type: "chars" }),
+    //   chars = mySplitText.chars; //an array of all the divs that wrap each character
 
-    var tl = gsap.timeline(),
-      mySplitText = new SplitText(header, { type: "chars" }),
-      chars = mySplitText.chars; //an array of all the divs that wrap each character
+    // tl.from(chars, {
+    //   duration: 0.8,
+    //   opacity: 0,
+    //   y: 200,
+    //   rotationX: 0,
+    //   ease: "ease",
+    //   stagger: 0.1
+    // });
+  });
 
-    tl.from(chars, {
-      duration: 0.8,
-      opacity: 0,
-      y: 200,
-      rotationX: 0,
-      ease: "ease",
-      stagger: 0.1
-    });
-
-  }, [header])
+  // if (isActive) {
+  //   console.log("header triggered on")
+  //   tl.from(chars, {
+  //     duration: 0.8,
+  //     opacity: 0,
+  //     y: 200,
+  //     rotationX: 0,
+  //     ease: "ease",
+  //     stagger: 0.1
+  //   });
+  // }
+  //   else if (!isActive) {
+  //     console.log("header triggered off")
+  //     tl.to(chars, {
+  //       duration: 0.8,
+  //       opacity: 0,
+  //       y: -200,
+  //       rotationX: 0,
+  //       ease: "ease",
+  //       stagger: 0.1
+  //     });
+  //   }
+  // }, [isActive])
 
 
   return (
