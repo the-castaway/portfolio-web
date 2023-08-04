@@ -8,37 +8,42 @@ import { ShowcaseTransitionEnter, ShowcaseTransitionExit } from './showcase/show
 
 const TransitionTrigger = ({ children }) => {
     const location = useLocation();
+    let timeout;
+    if (location.pathname === "/") {
+        timeout = 1600;
+    }
+    else if (location.pathname === "/about") {
+        timeout = 700;
+    }
+    else if (location.pathname === "/showcase") {
+        timeout = 1000;
+    }
+    else { timeout = 500 }
+
     return (
         <SwitchTransition>
             <Transition
                 key={location.pathname}
-                timeout={1600}
+                timeout={timeout}
                 onEnter={(node) => {
-                    console.log(location.pathname)
                     if (location.pathname === "/") {
-                        console.log("trigger:" + { node });
                         HomeTransitionEnter({ node });
                     }
                     else if (location.pathname === "/about") {
-                        console.log("trigger:" + { node });
                         AboutTransitionEnter({ node });
                     }
                     else if (location.pathname === "/showcase") {
-                        console.log("trigger:" + { node });
                         ShowcaseTransitionEnter({ node });
                     }
                 }}
                 onExit={(node) => {
                     if (location.pathname === "/") {
-                        console.log("trigger:" + { node });
                         HomeTransitionExit({ node });
                     }
                     else if (location.pathname === "/about") {
-                        console.log("trigger:" + { node });
                         AboutTransitionExit({ node });
                     }
                     else if (location.pathname === "/showcase") {
-                        console.log("trigger:" + { node });
                         ShowcaseTransitionExit({ node });
                     }
                 }}

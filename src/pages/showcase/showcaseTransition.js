@@ -3,7 +3,6 @@ import { SplitText } from "gsap/SplitText";
 
 const ShowcaseTransitionEnter = ({ node }) => {
     gsap.registerPlugin(SplitText);
-    console.log(node);
     const header = node.querySelectorAll('.header');
     const tl = gsap.timeline(),
         mySplitText = new SplitText(header, { type: "chars" }),
@@ -21,7 +20,6 @@ const ShowcaseTransitionEnter = ({ node }) => {
 
 const ShowcaseTransitionExit = ({ node }) => {
     gsap.registerPlugin(SplitText);
-    console.log(node);
     const header = node.querySelectorAll('.header');
     const tl = gsap.timeline(),
         mySplitText = new SplitText(header, { type: "chars" }),
