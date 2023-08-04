@@ -2,7 +2,6 @@ import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 
 const HomeTransitionEnter = ({ node }) => {
-    //header transition
     gsap.registerPlugin(SplitText);
     const header = node.querySelectorAll('.header');
     const tl = gsap.timeline(),

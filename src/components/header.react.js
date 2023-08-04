@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 //styles
@@ -9,19 +9,22 @@ const Header = ({ headerContent, isActive }) => {
   gsap.registerPlugin(SplitText);
   let header = useRef(null);
 
-  useEffect(() => {
-    // const tl = gsap.timeline(),
-    //   mySplitText = new SplitText(header, { type: "chars" }),
-    //   chars = mySplitText.chars; //an array of all the divs that wrap each character
+  useLayoutEffect(() => {
+    // let ctx = gsap.context(() => {
+    //   const tl = gsap.timeline(),
+    //     mySplitText = new SplitText(header, { type: "chars" }),
+    //     chars = mySplitText.chars; //an array of all the divs that wrap each character
 
-    // tl.from(chars, {
-    //   duration: 0.8,
-    //   opacity: 0,
-    //   y: 200,
-    //   rotationX: 0,
-    //   ease: "ease",
-    //   stagger: 0.1
-    // });
+    //   tl.from(chars, {
+    //     duration: 0.4,
+    //     opacity: 0,
+    //     y: 100,
+    //     rotationX: 0,
+    //     ease: "ease",
+    //     stagger: 0.1
+    //   });
+    // })
+    // return () => ctx.revert();
   });
 
   // if (isActive) {

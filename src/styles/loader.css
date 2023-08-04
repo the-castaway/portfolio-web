@@ -16,10 +16,31 @@
 }
 
 .loader-counter {
-    padding-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 40px;
     width: 100%;
+    max-width: 33%;
     height: auto;
 }
+
+.loader-number {
+    position: relative;
+    font-size: 13.8vw;
+    width: 100%;
+    height: 100%;
+}
+
+.loader-percent {
+    flex-shrink: 0;
+    font-size: 13.8vw;
+}
+
+.loader-number-step {
+    position: absolute;
+    right: 0;
+}
+
 
 .loader-info {
     display: flex;

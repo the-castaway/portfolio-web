@@ -26,7 +26,7 @@ function App() {
     // fake it using setTimeout;
     const loadData = async () => {
       // Wait for two second
-      await new Promise((r) => setTimeout(r, 1000));
+      await new Promise((r) => setTimeout(r, 7000));
       // Toggle loading state
       setLoading((loading) => !loading);
     };
@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <Nav />
-      {/* {loading ? (
+      {loading ? (
         <Loader />
       ) : (
         <Routes location={location}>
@@ -48,16 +48,7 @@ function App() {
             <Route path="project2" element={<Project2 />} />
           </Route>
         </Routes>
-      )} */}
-
-      <Routes location={location}>
-        <Route index path="/" exact element={<TransitionTrigger><Home /></TransitionTrigger>} />
-        <Route path="about" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
-        <Route path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>}>
-          <Route path="project1" element={<Project1 />} />
-          <Route path="project2" element={<Project2 />} />
-        </Route>
-      </Routes>
+      )}
     </>
   );
 
