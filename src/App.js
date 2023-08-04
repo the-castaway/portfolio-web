@@ -5,20 +5,16 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom"
-import {
-  TransitionGroup,
-  CSSTransition
-} from "react-transition-group";
-import { gsap } from "gsap";
 //pages
-import Loader from "./pages/loader";
-import Home from './pages/home';
-import About from './pages/about';
-import Showcase from './pages/showcase';
+import Loader from "./pages/loader/loader";
+import Home from './pages/home/home';
+import About from './pages/about/about';
+import Showcase from './pages/showcase/showcase';
 import Project1 from './pages/projects/project1';
 import Project2 from './pages/projects/project2';
 //components
 import Nav from './components/nav.react'
+//transitions
 import TransitionTrigger from "./pages/transitionTrigger";
 
 function App() {

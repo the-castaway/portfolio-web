@@ -1,53 +1,46 @@
-import { React, useState } from 'react';
-import { gsap } from 'gsap';
-import { SplitText } from "gsap/SplitText";
+import { React } from 'react';
 import { SwitchTransition, Transition, CSSTransition } from 'react-transition-group';
 import { useLocation } from "react-router-dom"
+//transitions
+import { HomeTransitionEnter, HomeTransitionExit } from './home/homeTransition';
+import { AboutTransitionEnter, AboutTransitionExit } from './about/aboutTransition';
+import { ShowcaseTransitionEnter, ShowcaseTransitionExit } from './showcase/showcaseTransition';
 
 const TransitionTrigger = ({ children }) => {
-    gsap.registerPlugin(SplitText);
     const location = useLocation();
-    //const header = children[0].children[0].children[0];
-    //const [isActive, setIsActive] = useState(false);
     return (
         <SwitchTransition>
             <Transition
                 key={location.pathname}
                 timeout={1600}
                 onEnter={(node) => {
-                    const header = node.querySelectorAll('.header');
-                    console.log(header)
-
-                    const tl = gsap.timeline(),
-                        mySplitText = new SplitText(header, { type: "chars" }),
-                        chars = mySplitText.chars; //an array of all the divs that wrap each character
-
-                    tl.from(chars, {
-                        duration: 0.8,
-                        opacity: 0,
-                        y: 200,
-                        rotationX: 0,
-                        ease: "ease",
-                        stagger: 0.1
-                    });
-
+                    console.log(location.pathname)
+                    if (location.pathname === "/") {
+                        console.log("trigger:" + { node });
+                        HomeTransitionEnter({ node });
+                    }
+                    else if (location.pathname === "/about") {
+                        console.log("trigger:" + { node });
+                        AboutTransitionEnter({ node });
+                    }
+                    else if (location.pathname === "/showcase") {
+                        console.log("trigger:" + { node });
+                        ShowcaseTransitionEnter({ node });
+                    }
                 }}
                 onExit={(node) => {
-                    const header = node.querySelectorAll('.header');
-                    console.log(header)
-
-                    const tl = gsap.timeline(),
-                        mySplitText = new SplitText(header, { type: "chars" }),
-                        chars = mySplitText.chars; //an array of all the divs that wrap each character
-
-                    tl.to(chars, {
-                        duration: 0.8,
-                        opacity: 0,
-                        y: -200,
-                        rotationX: 0,
-                        ease: "ease",
-                        stagger: 0.1
-                    });
+                    if (location.pathname === "/") {
+                        console.log("trigger:" + { node });
+                        HomeTransitionExit({ node });
+                    }
+                    else if (location.pathname === "/about") {
+                        console.log("trigger:" + { node });
+                        AboutTransitionExit({ node });
+                    }
+                    else if (location.pathname === "/showcase") {
+                        console.log("trigger:" + { node });
+                        ShowcaseTransitionExit({ node });
+                    }
                 }}
             >
                 {children}

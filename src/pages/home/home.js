@@ -2,9 +2,9 @@ import { React, useEffect, useState } from 'react';
 import { SwitchTransition, Transition, CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useLocation } from "react-router-dom"
 //components
-import Header from '../components/header.react';
+import Header from '../../components/header.react';
 //styles
-import '../styles/home.css';
+import '../../styles/home.css';
 
 const Home = () => {
   const location = useLocation();

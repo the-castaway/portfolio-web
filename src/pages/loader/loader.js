@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from "gsap";
 //components
-import Header from '../components/header.react';
+import Header from '../../components/header.react';
 //styles
-import '../styles/loader.css';
+import '../../styles/loader.css';
 
 const Loader = () => {
     let loaderInfo1 = useRef(null);
