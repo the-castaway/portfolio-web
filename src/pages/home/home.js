@@ -5,15 +5,21 @@ import { useLocation } from "react-router-dom"
 import Header from '../../components/header.react';
 //styles
 import '../../styles/home.css';
+//assets
+import Video from '../../media/home/home_sizzle.mp4'
 
 const Home = () => {
   const location = useLocation();
-  //const [isActive, setIsActive] = useState(false);
 
   return (
     <div className='home'>
       <div className='home-header'>
         <Header headerContent="Hello, I'm Jaime" />
+      </div>
+      <div className='home-video-container'>
+        <video className="home-video-content" loop autoPlay muted>
+          <source src={Video} type="video/mp4"></source>
+        </video>
       </div>
     </div>
   );
