@@ -14,11 +14,13 @@
     --jc-light-grey: #dcdcdc;
     --jc-off-white: #ececec;
     --jc-white: #ffffff;
-    --jc-white-transparent: #ffffff20;
 
     /* Breakpoints */
     --jc-breakpoint-tablet: 'max-width: 768px';
     --jc-breakpoint-mobile: 'max-width: 360px';
+
+    /* UI */
+    --jc-ui-border: 1px solid #ffffff20;
 }
 
 /* ------------------ Global CSS ------------------ */
@@ -39,13 +41,18 @@ p {
 h1 {
     font-weight: 600;
     margin: 0;
-    letter-spacing: 1%;
+    letter-spacing: 0.1rem;
 }
 
 h2 {
     font-weight: 600;
     font-size: 32px;
     margin: 0;
+}
+
+p {
+    font-size: 18px;
+    letter-spacing: 0.05rem;
 }
 
 a {

@@ -1,5 +1,4 @@
-import { React, useEffect, useState } from 'react';
-import { SwitchTransition, Transition, CSSTransition, TransitionGroup } from 'react-transition-group';
+import { React } from 'react';
 import { useLocation } from "react-router-dom"
 //components
 import Header from '../../components/header.react';
@@ -17,9 +16,24 @@ const Home = () => {
         <Header headerContent="Hello, I'm Jaime" />
       </div>
       <div className='home-video-container'>
-        <video className="home-video-content" loop autoPlay muted>
-          <source src={Video} type="video/mp4"></source>
-        </video>
+        <div className='home-video-content'>
+          <video className="home-video" loop autoPlay muted>
+            <source src={Video} type="video/mp4"></source>
+          </video>
+        </div>
+      </div>
+      <div className='home-footer'>
+        <div className='home-footer-instruction'>
+          <p>
+            Click to Enter
+          </p>
+        </div>
+        <div className='home-footer-location'>
+          <div className='home-footer-location-pin' />
+          <p>
+            SF Bay Area
+          </p>
+        </div>
       </div>
     </div>
   );
