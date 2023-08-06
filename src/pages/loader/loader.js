@@ -149,8 +149,8 @@ const Loader = () => {
 
     return (
         <div id="loader" className='loader'>
-            <div className='loader-counter'>
-                <h1 className='loader-number'>
+            <h1 className='loader-counter'>
+                <div className='loader-number'>
                     <span ref={el => loaderNumber100 = el} className='loader-number-step'>
                         100
                     </span>
@@ -160,14 +160,16 @@ const Loader = () => {
                     <span ref={el => loaderNumber22 = el} className='loader-number-step'>
                         22
                     </span>
-                    <div ref={el => loaderNumber0 = el} className='loader-number-step'>
+                    <span ref={el => loaderNumber0 = el} className='loader-number-step'>
                         0
-                    </div>
-                </h1>
-                <h1 ref={el => loaderNumberPercent = el} className='loader-percent'>
-                    %
-                </h1>
-            </div>
+                    </span>
+                </div>
+                <div ref={el => loaderNumberPercent = el} className='loader-percent'>
+                    <span>
+                        %
+                    </span>
+                </div>
+            </h1>
             <div ref={el => loaderInfo = el} className='loader-info'>
                 <div className='loader-info-left'>
                     <h2>
