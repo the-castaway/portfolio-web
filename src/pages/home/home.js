@@ -17,9 +17,9 @@ const Home = () => {
       </div>
       <div className='home-video-container'>
         <div className='home-video-content'>
-          <video className="home-video" loop autoPlay muted playsInline>
-            <source src={Video} type="video/mp4"></source>
-          </video>
+          <video src={Video} id="video" className="home-video" playsInline={1} loop={1} autoPlay={1} muted={1} controlsList='nodowload' />
+          {/* <source src={Video} type="video/mp4"></source>
+          </video> */}
         </div>
       </div>
       <div className='home-footer'>
