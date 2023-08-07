@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useRef, useEffect } from 'react';
 import { useLocation } from "react-router-dom"
 //components
 import Header from '../../components/header.react';
@@ -9,6 +9,18 @@ import Video from '../../media/home/home_sizzle.mp4'
 
 const Home = () => {
   const location = useLocation();
+  //let video = useRef(null);
+
+  useEffect(() => {
+    const video = document.getElementById("home-video");
+
+    video.setAttribute("playsinline", "");
+    video.setAttribute("muted", "");
+    video.play();
+    console.log(video)
+    //video.play();
+  })
+
 
   return (
     <div className='home'>
@@ -17,9 +29,9 @@ const Home = () => {
       </div>
       <div className='home-video-container'>
         <div className='home-video-content'>
-          <video src={Video} id="video" className="home-video" playsInline={1} loop={1} autoPlay={1} muted={1} controlsList='nodowload' />
-          {/* <source src={Video} type="video/mp4"></source>
-          </video> */}
+          <video id="home-video" className="home-video" loop autoPlay muted playsInline controlsList='nodowload'>
+            <source src={Video} type="video/mp4"></source>
+          </video>
         </div>
       </div>
       <div className='home-footer'>
@@ -35,7 +47,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
