@@ -16,9 +16,10 @@
 .loader-counter {
     display: flex;
     justify-content: flex-start;
-    padding-top: 40px;
+    margin-top: 40px;
     width: 100%;
     height: auto;
+    overflow: hidden;
 }
 
 .loader-number {

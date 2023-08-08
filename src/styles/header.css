@@ -1,5 +1,6 @@
 .header {
-    font-size: 13.8vw;
+    font-size: 12.5vw;
+    letter-spacing: 0.4rem;
 }
 
 .header-container {
@@ -8,7 +9,7 @@
 
 @media (max-width: 1750px) {
     .header {
-        font-size: 13.7vw;
+        font-size: 13.2vw;
     }
 }
 

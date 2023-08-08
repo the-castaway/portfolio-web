@@ -9,12 +9,11 @@ const HomeTransitionEnter = ({ node }) => {
         chars = mySplitText.chars; //an array of all the divs that wrap each character
 
     tl.from(chars, {
-        duration: 0.5,
+        duration: 0.4,
         opacity: 0,
-        y: 200,
-        rotationZ: 10,
+        y: 100,
         ease: "ease",
-        stagger: 0.1
+        stagger: 0.05
     });
 }
 
@@ -26,12 +25,11 @@ const HomeTransitionExit = ({ node }) => {
         chars = mySplitText.chars; //an array of all the divs that wrap each character
 
     tl.to(chars, {
-        duration: 0.8,
+        duration: 0.4,
         opacity: 0,
-        y: -200,
-        rotationZ: -10,
+        y: -100,
         ease: "ease",
-        stagger: 0.1
+        stagger: 0.05
     });
 }
 

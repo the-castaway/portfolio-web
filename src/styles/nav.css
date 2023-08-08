@@ -29,3 +29,14 @@
     justify-content: flex-start;
     padding: 10px 30px;
 }
+
+@media (max-width: 600px) {
+    .nav {
+        box-sizing: border-box;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        padding: 0px 20px;
+    }
+}
