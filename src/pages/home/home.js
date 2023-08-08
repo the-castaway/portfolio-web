@@ -10,10 +10,10 @@ import Video from '../../media/home/home_sizzle.mp4'
 const Home = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    const video = document.getElementById("home-video");
-    video.play();
-  })
+  // useEffect(() => {
+  //   const video = document.getElementById("home-video");
+  //   video.play();
+  // })
 
 
   return (
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
       <div className='home-video-container'>
         <div className='home-video-content'>
-          <video id="home-video" className="home-video" loop muted controlsList='nodowload'>
+          <video id="home-video" className="home-video" autoPlay loop muted>
             <source src={Video} type="video/mp4"></source>
           </video>
         </div>
