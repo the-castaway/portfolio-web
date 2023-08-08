@@ -9,16 +9,10 @@ import Video from '../../media/home/home_sizzle.mp4'
 
 const Home = () => {
   const location = useLocation();
-  //let video = useRef(null);
 
   useEffect(() => {
     const video = document.getElementById("home-video");
-
-    video.setAttribute("playsinline", "");
-    video.setAttribute("muted", "");
     video.play();
-    console.log(video)
-    //video.play();
   })
 
 
