@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { SwitchTransition, Transition, CSSTransition } from 'react-transition-group';
+import { SwitchTransition, Transition } from 'react-transition-group';
 import { useLocation } from "react-router-dom"
 //transitions
 import { HomeTransitionEnter, HomeTransitionExit } from './home/homeTransition';
@@ -10,7 +10,7 @@ const TransitionTrigger = ({ children }) => {
     const location = useLocation();
     let timeout;
     if (location.pathname === "/") {
-        timeout = 1300;
+        timeout = 1600;
     }
     else if (location.pathname === "/about") {
         timeout = 700;

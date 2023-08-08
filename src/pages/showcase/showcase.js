@@ -27,6 +27,7 @@ const Showcase = () => {
             </div>
             <Outlet />
         </div>
+
     );
 }
 

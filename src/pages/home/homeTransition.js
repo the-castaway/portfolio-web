@@ -4,7 +4,7 @@ import { SplitText } from "gsap/SplitText";
 const HomeTransitionEnter = ({ node }) => {
     gsap.registerPlugin(SplitText);
     const header = node.querySelectorAll('.header');
-    const video = node.querySelectorAll('.home-video-container');
+    const video = node.querySelectorAll('.home-video-content');
     const tl = gsap.timeline(),
         mySplitText = new SplitText(header, { type: "chars" }),
         chars = mySplitText.chars; //an array of all the divs that wrap each character
@@ -28,13 +28,18 @@ const HomeTransitionEnter = ({ node }) => {
 const HomeTransitionExit = ({ node }) => {
     gsap.registerPlugin(SplitText);
     const header = node.querySelectorAll('.header');
-    const video = node.querySelectorAll('.home-video-container');
+    const video = node.querySelectorAll('.home-video-content');
 
     console.log("home out" + video);
     const tl = gsap.timeline(),
         mySplitText = new SplitText(header, { type: "chars" }),
         chars = mySplitText.chars; //an array of all the divs that wrap each character
 
+    tl.to(video, {
+        duration: 0.8,
+        width: 300,
+        ease: "ease",
+    });
     tl.to(chars, {
         duration: 0.4,
         opacity: 0,
@@ -44,9 +49,7 @@ const HomeTransitionExit = ({ node }) => {
     });
     tl.to(video, {
         duration: 0.4,
-        delay: -0.3,
         opacity: 0,
-        y: -100,
         ease: "ease",
     });
 }
