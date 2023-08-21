@@ -14,7 +14,7 @@ const ShowcaseTransitionEnter = ({ node }) => {
         y: 100,
         rotationX: 0,
         ease: "ease",
-        stagger: 0.5
+        stagger: 0.05
     });
 }
 
@@ -31,7 +31,7 @@ const ShowcaseTransitionExit = ({ node }) => {
         y: -100,
         rotationX: 0,
         ease: "ease",
-        stagger: 0.5
+        stagger: 0.05
     });
 }
 
