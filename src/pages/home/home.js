@@ -6,6 +6,7 @@ import Header from '../../components/header.react';
 import '../../styles/home.css';
 //assets
 import Video from '../../media/home/home_sizzle.mp4'
+//import Sizzle from '../../../public/media/home_sizzle.mp4'
 
 const Home = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const Home = () => {
       <div className='home-video-container'>
         <div className='home-video-content'>
           <video id="home-video" className="home-video" autoPlay loop muted>
-            <source src={Video} type="video/mp4" />
+            <source src='media/home_sizzle.mp4' type="video/mp4" />
           </video>
         </div>
       </div>

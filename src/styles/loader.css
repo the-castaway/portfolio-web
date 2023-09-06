@@ -24,7 +24,7 @@
 
 .loader-number {
     position: relative;
-    font-size: 13.8vw;
+    font-size: 12.6vw;
     height: 100%;
 }
 
@@ -40,7 +40,7 @@
 
 .loader-percent {
     flex-shrink: 0;
-    font-size: 13.8vw;
+    font-size: 12.6vw;
 }
 
 .loader-info {
