@@ -13,12 +13,12 @@ const Home = () => {
   return (
     <div className='home'>
       <div className='home-header'>
-        <Header headerContent="I'm Jaime" />
+        <Header headerContent="Hello, I am Jaime" />
       </div>
       <div className='home-video-container'>
         <div className='home-video-content'>
           <video id="home-video" className="home-video" autoPlay loop muted>
-            <source src={Video} type="video/mp4"></source>
+            <source src={Video} type="video/mp4" />
           </video>
         </div>
       </div>

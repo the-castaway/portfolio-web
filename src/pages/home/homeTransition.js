@@ -39,14 +39,14 @@ const HomeTransitionExit = ({ node }) => {
         duration: 0.8,
         width: 300,
         ease: "ease",
-    });
+    }, 0);
     tl.to(chars, {
         duration: 0.4,
         opacity: 0,
         y: -100,
         ease: "ease",
         stagger: 0.05
-    });
+    }, 0);
     tl.to(video, {
         duration: 0.4,
         opacity: 0,
