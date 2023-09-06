@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { useLocation } from "react-router-dom"
 //styles
 import '../../styles/loader.css';
 

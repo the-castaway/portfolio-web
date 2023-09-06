@@ -19,7 +19,8 @@ const Home = () => {
       <div className='home-video-container'>
         <div className='home-video-content'>
           <video id="home-video" className="home-video" autoPlay loop muted>
-            <source src='media/home_sizzle.mp4' type="video/mp4" />
+            <source src={Video} type="video/mp4" />
+            Your browser does not support the video tag.
           </video>
         </div>
       </div>
