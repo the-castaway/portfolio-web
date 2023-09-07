@@ -9,6 +9,7 @@ import {
 import Header from '../../components/header.react';
 //styles
 import '../../styles/home.css';
+import '../../styles/showcase.css';
 
 const Showcase = () => {
     const location = useLocation();
@@ -16,7 +17,9 @@ const Showcase = () => {
 
     return (
         <div id="showcase">
-            <Header headerContent="Showcase" isActive={isActive} />
+            <div className='showcase-header'>
+                <Header headerContent="Showcase" />
+            </div>
             <div>
                 <Link to="project1">
                     Project 1

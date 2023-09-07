@@ -1,20 +1,17 @@
-import { React, useRef, useEffect } from 'react';
-import { useLocation } from "react-router-dom"
+import { React } from 'react';
 //components
 import Header from '../../components/header.react';
 //styles
 import '../../styles/home.css';
 //assets
 import Video from '../../media/home/home_sizzle.mp4'
-//import Sizzle from '../../../public/media/home_sizzle.mp4'
 
 const Home = () => {
-  const location = useLocation();
 
   return (
     <div className='home'>
       <div className='home-header'>
-        <Header headerContent="Hello, I am Jaime" />
+        <Header headerContent="Hello, I'm Jaime" />
       </div>
       <div className='home-video-container'>
         <div className='home-video-content'>
