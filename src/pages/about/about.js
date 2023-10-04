@@ -26,6 +26,144 @@ const About = () => {
             </p>
           </div>
         </div>
+        <div className="about-experience">
+          {/* Work Experience */}
+          <div className='about-experience-group'>
+            <div className='about-experience-header'>
+              <h2>
+                Experience
+              </h2>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+          </div>
+          {/* Education Experience */}
+          <div className='about-experience-group'>
+            <div className='about-experience-header'>
+              <h2>
+                Education
+              </h2>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+            <div className='about-experiece-node'>
+              <h3>
+                Design and Engineering Lead for Web @Meta
+              </h3>
+              <h4>
+                March 2019 - Present
+              </h4>
+              <p>
+                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className='about-right'>
         <div className='about-headshot-container'>

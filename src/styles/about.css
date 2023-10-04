@@ -14,9 +14,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: calc(100vh - 80px);
     min-height: calc(100vh - 80px);
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 .about-description {
@@ -24,7 +24,23 @@
     max-width: 450px;
 }
 
+.about-experience {
+    padding-top: 60px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.about-experience-group {
+    margin-bottom: 120px;
+}
+
+.about-experiece-node {
+    margin-bottom: 20px;
+}
+
 .about-right {
+    position: sticky;
+    top: 80px;
     display: flex;
     flex-direction: column;
     width: 50%;
