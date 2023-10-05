@@ -24,7 +24,7 @@ const Home = () => {
       <div className='home-footer'>
         <div className='home-footer-instruction'>
           <p>
-            Click to Enter
+            Click to start
           </p>
         </div>
         <div className='home-footer-location'>

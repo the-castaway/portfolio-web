@@ -1,6 +1,7 @@
 .about {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .about-left {
@@ -43,7 +44,7 @@
     top: 80px;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
     height: auto;
     padding: 0px 40px;
     max-height: calc(100vh - 80px);

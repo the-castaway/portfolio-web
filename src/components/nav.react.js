@@ -21,13 +21,6 @@ const Nav = () => {
                 </a>
             </div>
             <div className="nav-links">
-                <NavLink to="/about" exact='true' style={({ isActive, isPending }) => {
-                    return {
-                        color: isActive ? "Blue" : "#DCDCDC",
-                    };
-                }}>
-                    about
-                </NavLink>
                 <NavLink to="/showcase" exact='true' style={({ isActive, isPending }) => {
                     return {
                         color: isActive ? "Blue" : "#DCDCDC",
@@ -35,13 +28,16 @@ const Nav = () => {
                 }}>
                     showcase
                 </NavLink>
-                <NavLink to="/showcase" exact='true' style={({ isActive, isPending }) => {
+                <NavLink to="/about" exact='true' style={({ isActive, isPending }) => {
                     return {
                         color: isActive ? "Blue" : "#DCDCDC",
                     };
                 }}>
-                    contact
+                    about
                 </NavLink>
+                <a href="mailto:jccd.designs@gmail.com">
+                    contact
+                </a>
             </div>
         </nav>
     );
