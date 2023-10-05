@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Urbanist:ExtraLight,ExtralightItalic,Light,LightItalic,Regular,Italic,Medium,Semibold,Bold&display=swap');
 
-
 /* ------------------ Constants ------------------ */
 
 :root {
@@ -74,4 +73,14 @@ p {
 a {
     text-decoration: none;
     letter-spacing: .1rem;
+}
+
+/* ------------------ Global Containers ------------------ */
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    padding-top: 80px;
 }

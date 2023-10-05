@@ -44,7 +44,7 @@
     top: 80px;
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     height: auto;
     padding: 0px 40px;
     max-height: calc(100vh - 80px);

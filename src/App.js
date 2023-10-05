@@ -35,18 +35,20 @@ function App() {
 
   return (
     <>
-      <Nav />
+      <Nav location={location} />
       {loading ? (
         <Loader />
       ) : (
-        <Routes location={location}>
-          <Route index path="/" exact element={<TransitionTrigger><Home /></TransitionTrigger>} />
-          <Route path="about" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
-          <Route path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>}>
-            <Route path="project1" element={<Project1 />} />
-            <Route path="project2" element={<Project2 />} />
-          </Route>
-        </Routes>
+        <div className="content">
+          <Routes location={location}>
+            <Route index path="/" exact element={<TransitionTrigger><Home /></TransitionTrigger>} />
+            <Route path="about" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
+            <Route path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>}>
+              <Route path="project1" element={<Project1 />} />
+              <Route path="project2" element={<Project2 />} />
+            </Route>
+          </Routes>
+        </div>
       )}
     </>
   );

@@ -141,7 +141,7 @@ const About = () => {
             hello@jaimecastaneda.com
           </a>
           <a className='threads'>
-            Threads
+            threads
           </a>
         </div>
       </div>

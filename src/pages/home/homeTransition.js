@@ -29,8 +29,6 @@ const HomeTransitionExit = ({ node }) => {
     gsap.registerPlugin(SplitText);
     const header = node.querySelectorAll('.header');
     const video = node.querySelectorAll('.home-video-content');
-
-    console.log("home out" + video);
     const tl = gsap.timeline(),
         mySplitText = new SplitText(header, { type: "chars" }),
         chars = mySplitText.chars; //an array of all the divs that wrap each character
