@@ -49,7 +49,7 @@ const Nav = ({ location }) => {
                 //social timeline
                 const social_tl = gsap.timeline();
                 social_tl.to(social_fade, {
-                    delay: 0.5,
+                    delay: 0,
                     duration: 0.4,
                     opacity: 1,
                     display: 'flex',
@@ -71,19 +71,19 @@ const Nav = ({ location }) => {
                     duration: 0.3,
                     opacity: 1,
                     display: 'block',
-                    delay: 0.6
+                    delay: 0.3
                 }, 0)
                 link_tl.to(link_2, {
                     duration: 0.3,
                     opacity: 1,
                     display: 'block',
-                    delay: 0.4
+                    delay: 0.2
                 }, 0)
                 link_tl.to(link_3, {
                     duration: 0.3,
                     opacity: 1,
                     display: 'block',
-                    delay: 0.2
+                    delay: 0.1
                 }, 0)
             })
         }
@@ -99,18 +99,18 @@ const Nav = ({ location }) => {
                     opacity: 0,
                 }, 0)
                 title_tl.to(title_fade_2, {
-                    duration: 0.3,
+                    duration: 0.2,
                     opacity: 0,
                 }, 0)
                 title_tl.to(title_move, {
-                    delay: 0.2,
+                    delay: 0.1,
                     duration: 0.4,
                     x: -47,
                 }, 0)
                 //social timeline
                 const social_tl = gsap.timeline();
                 social_tl.to(social_fade, {
-                    delay: 0.5,
+                    delay: 0,
                     duration: 0.4,
                     opacity: 0,
                     display: 'none',
