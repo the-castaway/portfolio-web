@@ -9,6 +9,7 @@ const Nav = ({ location }) => {
     const pathname = location.pathname;
     const [previousPath, setPreviousPath] = useState(pathname);
     const [collapsed, setCollapsed] = useState(true)
+    const [mediaMatched, setMediaMatched] = useState()
     gsap.registerPlugin(SplitText);
     //nav refs
     let nav = useRef(null);
@@ -28,7 +29,11 @@ const Nav = ({ location }) => {
     //modal refs
     let modal = useRef(null);
 
+    // const matchWindow = window.matchMedia("(max-width: 600px)");
+    // matchWindow.addEventListener("change", () => { setMediaMatched(matchWindow) });
+
     useLayoutEffect(() => {
+        console.log(mediaMatched)
         if (["/"].includes(pathname) && pathname !== previousPath) {
             //container styling
             nav.style = "padding: 0px 40px";
@@ -220,10 +225,10 @@ const Nav = ({ location }) => {
         <>
             <nav ref={el => nav = el} className='nav'>
                 <NavLink onClick={() => { collapseModal(); }} to="/" exact='true' className='nav-title'>
-                    <div>J</div>
-                    <div ref={el => title_fade_1 = el}>aime</div>
-                    <div ref={el => title_move = el}>C</div>
-                    <div ref={el => title_fade_2 = el}>astaneda</div>
+                    <div className='nav-title-j'>J</div>
+                    <div className='nav-title-aime' ref={el => title_fade_1 = el}>aime</div>
+                    <div className='nav-title-c' ref={el => title_move = el}>C</div>
+                    <div className='nav-title-astaneda' ref={el => title_fade_2 = el}>astaneda</div>
                 </NavLink>
                 <div className="nav-social" ref={el => social_fade = el}>
                     <a href="https://www.linkedin.com/in/jaime-castaneda-956154a8/">

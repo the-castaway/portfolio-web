@@ -68,6 +68,10 @@
     width: 33%;
 }
 
+.loader-info h2 {
+    margin: 0;
+}
+
 @media (max-width: 1200px) {
     .loader-info {
         display: flex;
