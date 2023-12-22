@@ -17,6 +17,8 @@ import Nav from './components/nav.react'
 //transitions
 import TransitionTrigger from "./pages/transitionTrigger";
 
+
+
 function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);

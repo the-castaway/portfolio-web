@@ -14,7 +14,8 @@
     --jc-light-grey: #dcdcdc;
     --jc-off-white: #ececec;
     --jc-white: #ffffff;
-
+    --jc-blue: #4552D9;
+    --jc-purple: #53229F;
     /* Breakpoints */
     --jc-breakpoint-tablet: 'max-width: 768px';
     --jc-breakpoint-mobile: 'max-width: 360px';
@@ -41,6 +42,10 @@ p {
 
 h1 {
     font-weight: 600;
+    font-size: 64px;
+    letter-spacing: 0;
+    font-kerning: none;
+    line-height: 1.1;
 }
 
 h2 {
@@ -73,6 +78,8 @@ p {
 a {
     text-decoration: none;
     letter-spacing: .1rem;
+    font-kerning: none;
+
 }
 
 /* ------------------ Global Containers ------------------ */

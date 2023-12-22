@@ -6,7 +6,6 @@
     width: 100%;
     height: 100%;
     background-color: var(--jc-black);
-    color: var(--jc-light-grey);
     padding: 40px;
     position: absolute;
     top: 0;
@@ -14,90 +13,29 @@
     z-index: 1002;
 }
 
+.loader-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 .loader-counter {
     display: flex;
-    justify-content: flex-start;
-    margin-top: 40px;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
-
-.loader-number {
-    position: relative;
-    font-size: 12.6vw;
-    height: 100%;
-}
-
-.loader-number-step {
-    position: absolute;
-    right: 0;
-}
-
-.loader-number-step:first-of-type {
-    position: relative;
-    right: 0;
-}
-
-.loader-percent {
-    flex-shrink: 0;
-    font-size: 12.6vw;
-}
-
-.loader-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.loader-info-left {
-    display: flex;
-    justify-content: flex-start;
-    width: 33%;
-}
-
-.loader-info-center {
-    display: flex;
-    justify-content: center;
-    width: 33%;
-}
-
-.loader-info-right {
-    display: flex;
     justify-content: flex-end;
-    width: 33%;
+    color: var(--jc-blue);
+    line-height: 1.1;
+    letter-spacing: 0;
+    font-kerning: none;
+    width: 35px;
 }
 
-.loader-info h2 {
-    margin: 0;
+.loader-header {
+    color: var(--jc-off-white);
 }
 
-@media (max-width: 1200px) {
-    .loader-info {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .loader-info-left {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
-    }
-
-    .loader-info-center {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
-    }
-
-    .loader-info-right {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
-    }
-}
 
 @media (max-width: 600px) {
     .loader {
@@ -108,7 +46,6 @@
         width: 100%;
         min-height: -webkit-fill-available;
         background-color: var(--jc-black);
-        color: var(--jc-light-grey);
         padding: 20px;
     }
 }
