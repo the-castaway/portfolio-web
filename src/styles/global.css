@@ -87,7 +87,3 @@ a {
 body::-webkit-scrollbar {
     display: none;
 }
-
-.content {
-    padding-top: 80px;
-}

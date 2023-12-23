@@ -33,7 +33,6 @@ const Nav = ({ location }) => {
     // matchWindow.addEventListener("change", () => { setMediaMatched(matchWindow) });
 
     useLayoutEffect(() => {
-        console.log(mediaMatched)
         if (["/"].includes(pathname) && pathname !== previousPath) {
             //container styling
             nav.style = "padding: 0px 40px";
