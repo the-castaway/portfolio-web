@@ -2,54 +2,50 @@ import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 
 const HomeTransitionEnter = ({ node }) => {
-    // gsap.registerPlugin(SplitText);
-    // const header = node.querySelectorAll('.header');
-    // const video = node.querySelectorAll('.home-video-content');
-    // const tl = gsap.timeline(),
-    //     mySplitText = new SplitText(header, { type: "chars" }),
-    //     chars = mySplitText.chars; //an array of all the divs that wrap each character
+    gsap.registerPlugin(SplitText);
+    const marquee = node.querySelectorAll('.home-marquee');
+    const tl = gsap.timeline(),
+        marqueeSplitText = new SplitText(marquee, { type: "words" }),
+        marqueeWords = marqueeSplitText.words; //an array of all the divs that wrap each character
 
-    // tl.from(chars, {
-    //     duration: 0.4,
-    //     opacity: 0,
-    //     y: 100,
-    //     ease: "ease",
-    //     stagger: 0.05
-    // });
-    // tl.from(video, {
-    //     duration: 0.4,
-    //     delay: -0.3,
-    //     opacity: 0,
-    //     y: 100,
-    //     ease: "ease",
-    // });
+    tl.from(marqueeWords, {
+        duration: 0.4,
+        opacity: 0,
+        y: 20,
+        ease: "ease",
+        stagger: 0.1
+    });
 }
 
 const HomeTransitionExit = ({ node }) => {
-    // gsap.registerPlugin(SplitText);
-    // const header = node.querySelectorAll('.header');
-    // const video = node.querySelectorAll('.home-video-content');
-    // const tl = gsap.timeline(),
-    //     mySplitText = new SplitText(header, { type: "chars" }),
-    //     chars = mySplitText.chars; //an array of all the divs that wrap each character
+    gsap.registerPlugin(SplitText);
+    const marquee = node.querySelectorAll('.home-marquee');
+    const tl = gsap.timeline(),
+        marqueeSplitText = new SplitText(marquee, { type: "words" }),
+        marqueeWords = marqueeSplitText.words; //an array of all the divs that wrap each character
 
-    // tl.to(video, {
-    //     duration: 0.8,
-    //     width: 300,
-    //     ease: "ease",
-    // }, 0);
-    // tl.to(chars, {
-    //     duration: 0.4,
-    //     opacity: 0,
-    //     y: -100,
-    //     ease: "ease",
-    //     stagger: 0.05
-    // }, 0);
-    // tl.to(video, {
-    //     duration: 0.4,
-    //     opacity: 0,
-    //     ease: "ease",
-    // });
+    tl.to(marqueeWords, {
+        duration: 0.4,
+        opacity: 0,
+        y: -20,
+        ease: "ease",
+        stagger: 0.1
+    }, 0);
 }
 
-export { HomeTransitionEnter, HomeTransitionExit };
+const HomeTransitionEntered = ({ node }) => {
+    const marquee = node.querySelectorAll('.home-marquee');
+    const tl = gsap.timeline();
+
+    console.log('entered');
+
+    tl.to(marquee, {
+        duration: 30,
+        x: '100%',
+        ease: "power1.in",
+        repeat: -1,
+
+    });
+}
+
+export { HomeTransitionEnter, HomeTransitionEntered, HomeTransitionExit };

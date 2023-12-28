@@ -1,5 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import {
   Route,
   Routes,
@@ -16,31 +19,17 @@ import Project2 from './pages/projects/project2';
 import Nav from './components/nav.react'
 //transitions
 import TransitionTrigger from "./pages/transitionTrigger";
+import { TransitionProvider } from "./context/transitionContext";
 
-
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function App() {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Loading function to load data or
-    // fake it using setTimeout;
-    const loadData = async () => {
-      // Wait for two second
-      await new Promise((r) => setTimeout(r, 7000));
-      // Toggle loading state
-      setLoading((loading) => !loading);
-    };
-    loadData();
-  }, [])
 
   return (
     <>
       <Nav location={location} />
-      {loading ? (
-        <Loader />
-      ) : (
+      <TransitionProvider>
         <Routes location={location}>
           <Route index path="/" exact element={<TransitionTrigger><Home /></TransitionTrigger>} />
           <Route path="about" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
@@ -49,7 +38,8 @@ function App() {
             <Route path="project2" element={<Project2 />} />
           </Route>
         </Routes>
-      )}
+      </TransitionProvider>
+
     </>
   );
 

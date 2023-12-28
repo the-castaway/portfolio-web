@@ -7,6 +7,7 @@ import '../../styles/loader.css';
 const TIME = 4;
 
 const Loader = () => {
+
     //refs
     let loaderCounter = useRef(null);
     let loaderHeader = useRef(null);

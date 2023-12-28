@@ -1,32 +1,15 @@
 import React, { useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { SplitText } from "gsap/SplitText";
 //components
 import Header from '../../components/header.react';
 //styles
 import '../../styles/home.css';
 //assets
-import Video from '../../media/home/home_sizzle.mp4'
-
-import { gsap } from 'gsap';
-import { SplitText } from "gsap/SplitText";
 
 const Home = () => {
   //refs
   let homeMarquee = useRef(null);
-
-  useLayoutEffect(() => {
-    console.log('home');
-    // const tl = gsap.timeline();
-    // tl.from(homeMarquee, {
-    //   duration: 0.5,
-    //   opacity: 0,
-    //   rotateZ: '15deg',
-    //   y: 20,
-    //   ease: "ease",
-    //   stagger: 0.05
-    // });
-  })
-
-
 
   return (
     <div className='home'>
@@ -46,7 +29,6 @@ const Home = () => {
           </span>
         </div>
       </div>
-
     </div >
   );
 }
