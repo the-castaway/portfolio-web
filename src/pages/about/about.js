@@ -1,4 +1,6 @@
-import { React, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { SplitText } from "gsap/SplitText";
 //components
 import Header from '../../components/header.react';
 //styles
@@ -7,11 +9,35 @@ import '../../styles/about.css';
 //assets
 import Headshot from '../../media/about/about_headshot.jpg'
 
+
+
+
 const About = () => {
+  //refs
+  let about = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
+  useEffect(() => {
+    // Loading function to load data or
+    // fake it using setTimeout;
+    gsap.registerPlugin(SplitText);
+    const header = about.querySelectorAll('.header');
+    const tl = gsap.timeline(),
+      mySplitText = new SplitText(header, { type: "chars" }),
+      chars = mySplitText.chars; //an array of all the divs that wrap each character
+
+    tl.from(chars, {
+      duration: 0.4,
+      opacity: 0,
+      y: 100,
+      rotationX: 0,
+      ease: "ease",
+      stagger: 0.05
+    });
+  }, []);
+
   return (
-    <div className='about'>
+    <div className='about' ref={el => about = el}>
       <div className='about-left'>
         <div className='about-fold'>
           <div className='about-header'>

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { SwitchTransition, Transition } from 'react-transition-group';
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 //transitionContext
 import TransitionContext from '../context/transitionContext';
 //transitions
@@ -14,6 +14,7 @@ const TransitionTrigger = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
     const { toggleCompleted } = useContext(TransitionContext);
+    const navigate = useNavigate();
     let timeout;
     if (location.pathname === "/") {
         timeout = 1600;
@@ -34,9 +35,15 @@ const TransitionTrigger = ({ children }) => {
             await new Promise((r) => setTimeout(r, 7000));
             // Toggle loading state
             setLoading((loading) => !loading);
+            triggerEnterTransition();
         };
         loadData();
-    }, [])
+
+    }, []);
+
+    const triggerEnterTransition = () => {
+        navigate(location.pathname);
+    }
 
     return (
         <>
@@ -47,24 +54,11 @@ const TransitionTrigger = ({ children }) => {
                     <Transition
                         key={location.pathname}
                         timeout={timeout}
-                        onEnter={(node) => {
+                        onEnter={() => {
                             toggleCompleted(false);
-                            if (location.pathname === "/") {
-                                HomeTransitionEnter({ node });
-                            }
-                            else if (location.pathname === "/about") {
-                                AboutTransitionEnter({ node });
-                            }
-                            else if (location.pathname === "/showcase") {
-                                ShowcaseTransitionEnter({ node });
-                            }
                         }}
                         onEntered={(node) => {
-                            console.log('transition-entered');
                             toggleCompleted(true);
-                            if (location.pathname === "/") {
-                                HomeTransitionEntered({ node });
-                            }
                         }}
                         onExit={(node) => {
                             if (location.pathname === "/") {
