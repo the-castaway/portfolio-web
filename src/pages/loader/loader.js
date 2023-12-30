@@ -30,7 +30,7 @@ const Loader = () => {
             tl.from(loaderHeaderChars, {
                 duration: 0.5,
                 opacity: 0,
-                y: 20,
+                y: '25%',
                 ease: "ease",
                 stagger: 0.05,
                 delay: 0.5,
@@ -68,7 +68,7 @@ const Loader = () => {
             tl.to(loaderHeaderChars, {
                 duration: 0.5,
                 opacity: 0,
-                y: -20,
+                y: '-25%',
                 ease: "ease",
                 stagger: 0.05,
                 delay: -0.5,
