@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom"
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
+//components
+import Link from '../components/link.react';
 //styles
 import '../styles/nav.css';
 
@@ -11,6 +13,7 @@ const Nav = () => {
     //refs
     let nav = useRef(null);
     let navModal = useRef(null);
+    let navModalShowcase = useRef(HTMLElement);
     let navButton = useRef(null);
     let navButtonBorder = useRef(null);
     let navButtonText = useRef(null);
@@ -31,19 +34,19 @@ const Nav = () => {
         titleTL.pause();
 
         titleTL.to(navTitleDefaultChars, {
-            duration: 0.2,
+            duration: 0.3,
             opacity: 0,
-            y: -10,
+            y: '-25%',
             ease: "ease",
-            stagger: 0.05,
+            stagger: 0.03,
         }, 0);
         titleTL.from(navTitleHoverChars, {
-            duration: 0.2,
+            duration: 0.3,
             opacity: 0,
-            y: 10,
+            y: '25%',
             ease: "ease",
-            stagger: 0.05,
-            delay: 0.05,
+            stagger: 0.03,
+            delay: 0.01,
         }, 0);
 
         navTitle.addEventListener('mouseenter', () => { titleTL.play() })
@@ -76,7 +79,7 @@ const Nav = () => {
         let ctx = gsap.context(() => {
             const modalTL = gsap.timeline();
             modalTL.to(navModal, {
-                duration: 1,
+                duration: 0.2,
                 opacity: 1,
                 display: 'flex',
             }, 0)
@@ -98,7 +101,7 @@ const Nav = () => {
             let ctx = gsap.context(() => {
                 const modalTL = gsap.timeline();
                 modalTL.to(navModal, {
-                    duration: 1,
+                    duration: 0.2,
                     opacity: 0,
                     display: 'none',
                 }, 0)
@@ -149,33 +152,37 @@ const Nav = () => {
                 </div>
             </nav>
             <div ref={el => navModal = el} className="nav-modal">
-                <ul>
-                    <li>
-                        <h2>
-                            <NavLink onClick={() => { collapseModal(); }} to="/showcase" exact='true'>
-                                Showcase
-                            </NavLink>
-                        </h2>
-                    </li>
-                    <li>
-                        <h2>
-                            <NavLink onClick={() => { collapseModal(); }} to="/about" exact='true'>
-                                About
-                            </NavLink>
-                        </h2>
-                    </li>
-                    <li>
+                <div className="nav-modal-links">
+
+                    <NavLink ref={el => navModalShowcase = el} onClick={() => { collapseModal(); }} to="/showcase" exact='true'>
+                        <Link header={'Showcase'} />
+                    </NavLink>
+
+                    <p className="nav-modal-link">
+                        <NavLink onClick={() => { collapseModal(); }} to="/about" exact='true'>
+                            About
+                        </NavLink>
+                    </p>
+                </div>
+                <hr className="nav-modal-divider" />
+                <div className="nav-modal-contact">
+                    <h2 className="nav-modal-contact-header">
+                        Let's Chat
+                    </h2>
+                    <div className="nav-modal-contact-links">
                         <a href="mailto:jccd.designs@gmail.com">
-                            <h2>
+                            <p className="nav-modal-contact-link-email">
                                 hello@jaimecastaneda.com
-                            </h2>
-                        </a></li>
-                    <li>
-                        <h2>
-                            +1.408.828.3020
-                        </h2>
-                    </li>
-                </ul>
+                            </p>
+                        </a>
+                        <a href="tel:408-828-3020">
+                            <p className="nav-modal-contact-link-phone">
+                                +1.408.828.3020
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </>
     );

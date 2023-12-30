@@ -22,11 +22,11 @@ const Home = () => {
       marqueeWords = marqueeSplitText.words; //an array of all the divs that wrap each character
 
     tl.from(marqueeWords, {
-      duration: 0.4,
+      duration: 0.2,
       opacity: 0,
-      y: 20,
+      y: '25%',
       ease: "ease",
-      stagger: 0.1
+      stagger: 0.05
     });
     tl.to(marquee, {
       duration: 30,

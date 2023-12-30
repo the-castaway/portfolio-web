@@ -35,15 +35,10 @@ const TransitionTrigger = ({ children }) => {
             await new Promise((r) => setTimeout(r, 7000));
             // Toggle loading state
             setLoading((loading) => !loading);
-            triggerEnterTransition();
         };
         loadData();
 
     }, []);
-
-    const triggerEnterTransition = () => {
-        navigate(location.pathname);
-    }
 
     return (
         <>
