@@ -28,6 +28,12 @@ const Home = () => {
       ease: "ease",
       stagger: 0.1
     });
+    tl.to(marquee, {
+      duration: 30,
+      x: '100%',
+      ease: "power1.in",
+      repeat: -1,
+    });
 
   }, []);
 
