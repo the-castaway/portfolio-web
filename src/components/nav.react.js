@@ -158,7 +158,7 @@ const Nav = () => {
                         <Link header={'Showcase'} description={"Let's get it"} />
                     </NavLink>
                     <NavLink ref={el => navModalAbout = el} onClick={() => { collapseModal(); }} to="/about" exact='true'>
-                        <Link header={'About'} description={"New friends?"} />
+                        <Link header={'About'} description={"Wanna be frens?"} />
                     </NavLink>
                 </div>
                 <hr className="nav-modal-divider" />
