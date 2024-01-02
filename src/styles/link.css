@@ -55,9 +55,7 @@
     align-items: center;
     height: 58px;
     width: 58px;
-    padding: 18px;
     opacity: 1;
-    box-sizing: border-box;
 }
 
 
@@ -113,9 +111,6 @@
         height: 35px;
         width: 35px;
         opacity: 1;
-        padding: 12px;
-        opacity: 1;
-        box-sizing: border-box;
     }
 
 }

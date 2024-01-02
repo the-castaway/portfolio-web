@@ -8,7 +8,7 @@ import Link from '../components/link.react';
 import '../styles/nav.css';
 
 const Nav = () => {
-    const [collapsed, setCollapsed] = useState(true)
+    const [collapsed, setCollapsed] = useState(true);
     gsap.registerPlugin(SplitText);
     //refs
     let nav = useRef(null);
