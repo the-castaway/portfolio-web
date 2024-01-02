@@ -46,7 +46,7 @@ const Nav = () => {
             opacity: 0,
             y: '25%',
             ease: "ease",
-            stagger: 0.03,
+            stagger: 0.05,
             delay: 0.01,
         }, 0);
 

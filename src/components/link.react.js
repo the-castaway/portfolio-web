@@ -13,13 +13,14 @@ const Link = ({ header, description }) => {
     let linkIconText = useRef(null);
     let linkIconVector = useRef(null);
 
+
     useEffect(() => {
         const linkTL = gsap.timeline();
         linkTL.pause();
 
         linkTL.to(linkIcon, {
             duration: 0.3,
-            width: 'auto',
+            width: () => { return 'auto' },
             ease: "ease",
         }, 0);
         linkTL.to(linkIconVector, {
@@ -45,7 +46,7 @@ const Link = ({ header, description }) => {
             <div ref={el => linkIcon = el} className="link-icon"  >
                 <div ref={el => linkIconBorder = el} className="link-icon-border" />
                 <div ref={el => linkIconVector = el} className="link-icon-vector">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
                         <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
                     </svg>
