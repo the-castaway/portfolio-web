@@ -82,6 +82,24 @@ a {
 
 }
 
+@media (max-width: 600px) {
+
+    h1 {
+        font-weight: 600;
+        font-size: 48px;
+        letter-spacing: 0;
+        font-kerning: none;
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 24px;
+        margin: 0 0 30px 0;
+        letter-spacing: 0.035rem;
+    }
+}
+
 /* ------------------ Global Containers ------------------ */
 
 body::-webkit-scrollbar {

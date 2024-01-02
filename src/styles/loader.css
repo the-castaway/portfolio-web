@@ -34,8 +34,6 @@
 
 .loader-header {
     color: var(--jc-off-white);
-    font-weight: 600;
-    font-size: 64px;
     letter-spacing: 0;
     font-kerning: none;
     line-height: 1.1;
