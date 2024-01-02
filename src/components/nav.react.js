@@ -15,6 +15,7 @@ const Nav = () => {
     let navModal = useRef(null);
     let navModalShowcase = useRef(HTMLElement);
     let navModalAbout = useRef(HTMLElement);
+    let navModalContact = useRef(HTMLElement);
     let navButton = useRef(null);
     let navButtonBorder = useRef(null);
     let navButtonText = useRef(null);
@@ -92,6 +93,27 @@ const Nav = () => {
                 duration: 0.4,
                 rotate: -90,
             }, 0)
+            modalTL.from(navModalShowcase, {
+                duration: 0.3,
+                y: '25%',
+                opacity: 0,
+                ease: "ease",
+                delay: 0.2,
+            }, 0)
+            modalTL.from(navModalAbout, {
+                duration: 0.3,
+                y: '25%',
+                opacity: 0,
+                ease: "ease",
+                delay: 0.3,
+            }, 0)
+            modalTL.from(navModalContact, {
+                duration: 0.3,
+                y: '25%',
+                opacity: 0,
+                ease: "ease",
+                delay: 0.4,
+            }, 0)
         })
     }
 
@@ -162,7 +184,7 @@ const Nav = () => {
                     </NavLink>
                 </div>
                 <hr className="nav-modal-divider" />
-                <div className="nav-modal-contact">
+                <div className="nav-modal-contact" ref={el => navModalContact = el} >
                     <h2 className="nav-modal-contact-header">
                         Let's Chat
                     </h2>
