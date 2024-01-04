@@ -23,23 +23,18 @@ const Home = () => {
   let homeCard4 = useRef(HTMLElement);
   //plugins
   gsap.registerPlugin(SplitText);
-  //date
+  //date-------------------------------
   const now = new Date();
-  const pstOffset = -8 * 60; // PST is UTC-8
   const pstTime = new Date(now.getTime());
-
   let hours = pstTime.getHours();
   const minutes = pstTime.getMinutes();
   const period = hours >= 12 ? 'pm' : 'am';
-
-  // Convert to 12-hour format
   hours = hours % 12 || 12;
-
-  const formattedTime = formatTime(hours, minutes < 10 ? '0' + minutes : minutes, period);
-
-  function formatTime(hours, minutes, period) {
+  const formatTime = (hours, minutes, period) => {
     return `${hours}:${minutes}${period}`;
   }
+  const formattedTime = formatTime(hours, minutes < 10 ? '0' + minutes : minutes, period);
+
 
   //enter animation
   useEffect(() => {
@@ -151,6 +146,7 @@ const Home = () => {
         setEnabled(true);
       },
     }, 0);
+
     marqueeTL.fromTo(homeMarquee.children, {
       x: 0,
     }, {
@@ -212,7 +208,7 @@ const Home = () => {
       </div>
       <div className='home-info-container'>
         <h2 className='home-info-description'>
-          Jaime Castaneda <span className='home-info-description-dark'>Portfolio’24</span>
+          Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>
         </h2>
         <div className='home-info-footer'>
           <div className='home-info-footer-cta'>
@@ -223,8 +219,6 @@ const Home = () => {
             SF Bay Area, {formattedTime}
           </div>
         </div>
-
-
       </div>
     </div >
   );

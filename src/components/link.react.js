@@ -14,7 +14,6 @@ const Link = ({ header, description }) => {
     let linkIconVector = useRef(null);
 
     useEffect(() => {
-
         const linkTL = gsap.timeline();
         linkTL.pause();
         linkTL.fromTo(
@@ -41,21 +40,17 @@ const Link = ({ header, description }) => {
             ease: "ease",
             delay: 0.2,
         }, 0);
-
-        link.addEventListener('mouseenter', () => { console.log(linkTL.play()); linkTL.play(); })
-        link.addEventListener('mouseleave', () => { linkTL.reverse() })
-
+        link.addEventListener('mouseenter', () => { linkTL.play(); })
+        link.addEventListener('mouseleave', () => { linkTL.reverse(); })
     }, [matches]);
 
 
     useEffect(() => {
-
         const onMediaChange = () => {
             setMatches(mediaQuery.matches);
             mediaQuery.addEventListener("change", onMediaChange);
         }
         window.matchMedia(`(max-width: 600px)`).addEventListener('change', onMediaChange);
-
     }, [mediaQuery]);
 
 
