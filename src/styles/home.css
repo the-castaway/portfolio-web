@@ -147,12 +147,6 @@
     border-radius: 4px;
 }
 
-
-
-
-
-
-
 @media (max-width: 600px) {
     .home-cards {
         aspect-ratio: 4/5;

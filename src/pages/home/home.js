@@ -80,51 +80,58 @@ const Home = () => {
       yPos = event.clientY / window.innerHeight - 0.5;
 
     const parallaxTL = gsap.timeline();
-    parallaxTL.to(homeCard1, {
-      duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotate: xPos * 40,
-      y: yPos * 400,
-      x: xPos * 400,
-    }, 0)
-    parallaxTL.to(homeCard2, {
-      duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotate: xPos * 30,
-      y: yPos * 300,
-      x: xPos * 300,
-    }, 0)
-    parallaxTL.to(homeCard3, {
-      duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotate: xPos * 20,
-      y: yPos * 200,
-      x: xPos * 200,
-    }, 0)
-    parallaxTL.to(homeCard4, {
-      duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotate: xPos * 10,
-      y: yPos * 100,
-      x: xPos * 100,
-    }, 0)
-    parallaxTL.to(homeMarquee, {
-      duration: 0.5,
-      rotate: xPos * 10,
-    }, 0)
+
+    if (homeCard1 && homeCard2 && homeCard3 && homeCard4 && homeMarquee) {
+      parallaxTL.to(homeCard1, {
+        duration: 0.5,
+        rotationY: xPos * 50,
+        rotationX: yPos * -50,
+        rotate: xPos * 40,
+        y: yPos * 400,
+        x: xPos * 400,
+      }, 0)
+      parallaxTL.to(homeCard2, {
+        duration: 0.5,
+        rotationY: xPos * 50,
+        rotationX: yPos * -50,
+        rotate: xPos * 30,
+        y: yPos * 300,
+        x: xPos * 300,
+      }, 0)
+      parallaxTL.to(homeCard3, {
+        duration: 0.5,
+        rotationY: xPos * 50,
+        rotationX: yPos * -50,
+        rotate: xPos * 20,
+        y: yPos * 200,
+        x: xPos * 200,
+      }, 0)
+      parallaxTL.to(homeCard4, {
+        duration: 0.5,
+        rotationY: xPos * 50,
+        rotationX: yPos * -50,
+        rotate: xPos * 10,
+        y: yPos * 100,
+        x: xPos * 100,
+      }, 0)
+      parallaxTL.to(homeMarquee, {
+        duration: 0.5,
+        rotate: xPos * 10,
+      }, 0)
+    }
   }
 
   //parallax trigger
   useEffect(() => {
-    window.addEventListener('mousemove', (event) => {
+    const handleMouseMove = (event) => {
       if (!enabled) return;
       mouseAnimation(event);
-    });
-  }, [enabled]);
+    };
+    window.addEventListener('mousemove', (event) => handleMouseMove(event));
+    return () => {
+      window.removeEventListener('mousemove', (event) => handleMouseMove(event));
+    }
+  });
 
   //marquee trigger
   useEffect(() => {
