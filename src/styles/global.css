@@ -102,6 +102,12 @@ a {
 
 /* ------------------ Global Containers ------------------ */
 
+html,
+body,
+#root {
+    height: 100%;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
