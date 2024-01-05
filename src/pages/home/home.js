@@ -5,12 +5,13 @@ import { SplitText } from "gsap/SplitText";
 //styles
 import '../../styles/home.css';
 //assets
-import metaNews from '../../media/thumbnails/thumbnail_meta_news.webp'
-import vr4g from '../../media/thumbnails/thumbnail_vr4g.webp'
-import rbs from '../../media/thumbnails/thumbnail_rbs_uth.webp'
-import rsvp from '../../media/thumbnails/thumbnail_rsvp.webp'
+// import metaNews from '../../media/thumbnails/thumbnail_meta_news.webp'
+// import vr4g from '../../media/thumbnails/thumbnail_vr4g.webp'
+// import rbs from '../../media/thumbnails/thumbnail_rbs_uth.webp'
+// import rsvp from '../../media/thumbnails/thumbnail_rsvp.webp'
+//import logo from '/logo192.png'
 
-const Home = () => {
+const Home = (media) => {
   //state
   const [enabled, setEnabled] = useState(false);
   //refs
@@ -155,6 +156,7 @@ const Home = () => {
       ease: "none",
       repeat: -1,
     }, 0);
+    console.log(media.media[0])
 
   }, []);
 
@@ -163,16 +165,16 @@ const Home = () => {
       <div className='home-cards-container'>
         <div ref={el => homeCards = el} className='home-cards'>
           <div ref={el => homeCard4 = el} className='home-card'>
-            <img className='about-headshot' src={rsvp} />
+            <img className='about-headshot' key={media.media[3].key} src={media.media[3].src} />
           </div>
           <div ref={el => homeCard3 = el} className='home-card'>
-            <img className='about-headshot' src={rbs} />
+            <img className='about-headshot' key={media.media[2].key} src={media.media[2].src} />
           </div>
           <div ref={el => homeCard2 = el} className='home-card'>
-            <img className='about-headshot' src={vr4g} />
+            <img className='about-headshot' key={media.media[1].key} src={media.media[1].src} />
           </div>
           <div ref={el => homeCard1 = el} className='home-card'>
-            <img className='about-headshot' src={metaNews} />
+            <img className='about-headshot' key={media.media[0].key} src={media.media[0].src} />
           </div>
         </div>
       </div>

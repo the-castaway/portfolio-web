@@ -11,7 +11,7 @@ import { ShowcaseTransitionEnter, ShowcaseTransitionExit } from './showcase/show
 import Loader from "./loader/loader";
 
 const TransitionTrigger = ({ children }) => {
-    const [loading, setLoading] = useState(true);
+    //const [loading, setLoading] = useState(true);
     const location = useLocation();
     const { toggleCompleted } = useContext(TransitionContext);
     const navigate = useNavigate();
@@ -27,50 +27,50 @@ const TransitionTrigger = ({ children }) => {
     }
     else { timeout = 500 }
 
-    useEffect(() => {
-        // Loading function to load data or
-        // fake it using setTimeout;
-        const loadData = async () => {
-            // Wait for two second
-            await new Promise((r) => setTimeout(r, 7000));
-            // Toggle loading state
-            setLoading((loading) => !loading);
-        };
-        loadData();
+    // useEffect(() => {
+    //     // Loading function to load data or
+    //     // fake it using setTimeout;
+    //     const loadData = async () => {
+    //         // Wait for two second
+    //         await new Promise((r) => setTimeout(r, 7000));
+    //         // Toggle loading state
+    //         setLoading((loading) => !loading);
+    //     };
+    //     loadData();
 
-    }, []);
+    // }, []);
 
     return (
         <>
-            {loading ? (
+            {/* {loading ? (
                 <Loader />
-            ) : (
-                <SwitchTransition>
-                    <Transition
-                        key={location.pathname}
-                        timeout={timeout}
-                        onEnter={() => {
-                            toggleCompleted(false);
-                        }}
-                        onEntered={(node) => {
-                            toggleCompleted(true);
-                        }}
-                        onExit={(node) => {
-                            if (location.pathname === "/") {
-                                HomeTransitionExit({ node });
-                            }
-                            else if (location.pathname === "/about") {
-                                AboutTransitionExit({ node });
-                            }
-                            else if (location.pathname === "/showcase") {
-                                ShowcaseTransitionExit({ node });
-                            }
-                        }}
-                    >
-                        {children}
-                    </Transition>
-                </SwitchTransition>
-            )}
+            ) : ( */}
+            <SwitchTransition>
+                <Transition
+                    key={location.pathname}
+                    timeout={timeout}
+                    onEnter={() => {
+                        toggleCompleted(false);
+                    }}
+                    onEntered={(node) => {
+                        toggleCompleted(true);
+                    }}
+                    onExit={(node) => {
+                        if (location.pathname === "/") {
+                            HomeTransitionExit({ node });
+                        }
+                        else if (location.pathname === "/about") {
+                            AboutTransitionExit({ node });
+                        }
+                        else if (location.pathname === "/showcase") {
+                            ShowcaseTransitionExit({ node });
+                        }
+                    }}
+                >
+                    {children}
+                </Transition>
+            </SwitchTransition>
+            {/* )} */}
         </>
     );
 }

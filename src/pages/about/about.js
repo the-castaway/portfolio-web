@@ -7,12 +7,12 @@ import Header from '../../components/header.react';
 import '../../styles/home.css';
 import '../../styles/about.css';
 //assets
-import Headshot from '../../media/about/about_headshot.jpg'
+// import Headshot from '../../media/about/about_headshot.jpg'
 
 
 
 
-const About = () => {
+const About = (media) => {
   //refs
   let about = useRef(null);
   const [isActive, setIsActive] = useState(false);
@@ -157,7 +157,7 @@ const About = () => {
       </div>
       <div className='about-right'>
         <div className='about-headshot-container'>
-          <img className='about-headshot' src={Headshot} />
+          <img className='about-headshot' key={media.media[4].key} src={media.media[4].src} />
         </div>
         <div className='about-social'>
           <a className='linkedin'>
