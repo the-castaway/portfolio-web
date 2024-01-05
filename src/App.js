@@ -29,8 +29,8 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadMedia = async (media) => {
-      await new Promise((resolve, reject) => {
+    const loadMedia = media => {
+      return new Promise((resolve, reject) => {
         const loadMedia = new Image()
         loadMedia.src = media.src
         // wait 2 seconds to simulate loading time
@@ -45,6 +45,8 @@ function App() {
     Promise.all(Media.map(media => loadMedia(media)))
       .then(() => setLoading((loading) => !loading))
       .catch(err => console.log("Failed to load images", err))
+
+
   }, [])
 
   return (
