@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 //components
+import Location from '../../components/location.react';
 //styles
 import '../../styles/home.css';
 //assets
@@ -20,17 +21,6 @@ const Home = () => {
   let homeCard4 = useRef(HTMLElement);
   //plugins
   gsap.registerPlugin(SplitText);
-  //date-------------------------------
-  const now = new Date();
-  const pstTime = new Date(now.getTime());
-  let hours = pstTime.getHours();
-  const minutes = pstTime.getMinutes();
-  const period = hours >= 12 ? 'pm' : 'am';
-  hours = hours % 12 || 12;
-  const formatTime = (hours, minutes, period) => {
-    return `${hours}:${minutes}${period}`;
-  }
-  const formattedTime = formatTime(hours, minutes < 10 ? '0' + minutes : minutes, period);
 
 
   //enter animation
@@ -212,10 +202,7 @@ const Home = () => {
           <div className='home-info-footer-cta'>
             <span>Click to Start</span>
           </div>
-          <div className='home-info-footer-location'>
-            <div className='home-info-footer-location-icon' />
-            SF Bay Area, {formattedTime}
-          </div>
+          <Location />
         </div>
       </div>
     </div >

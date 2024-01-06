@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom"
 //transitionContext
 import TransitionContext from '../context/transitionContext';
 //transitions
-import { HomeTransitionEnter, HomeTransitionEntered, HomeTransitionExit } from './home/homeTransition';
-import { AboutTransitionEnter, AboutTransitionExit } from './about/aboutTransition';
-import { ShowcaseTransitionEnter, ShowcaseTransitionExit } from './showcase/showcaseTransition';
+import { HomeTransitionExit } from './home/homeTransition';
+import { AboutTransitionExit } from './about/aboutTransition';
+import { ShowcaseTransitionExit } from './showcase/showcaseTransition';
 
 const TransitionTrigger = ({ children }) => {
     const location = useLocation();
