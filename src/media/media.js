@@ -4,7 +4,7 @@ import vr4g from './thumbnails/thumbnail_vr4g.webp'
 import rbs from './thumbnails/thumbnail_rbs_uth.webp'
 import rsvp from './thumbnails/thumbnail_rsvp.webp'
 //about
-import headshot from './about/about_headshot.jpg'
+import headshot from './about/about_headshot.webp'
 
 export const Media = [
     {

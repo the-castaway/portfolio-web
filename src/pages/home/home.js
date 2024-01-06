@@ -5,13 +5,9 @@ import { SplitText } from "gsap/SplitText";
 //styles
 import '../../styles/home.css';
 //assets
-// import metaNews from '../../media/thumbnails/thumbnail_meta_news.webp'
-// import vr4g from '../../media/thumbnails/thumbnail_vr4g.webp'
-// import rbs from '../../media/thumbnails/thumbnail_rbs_uth.webp'
-// import rsvp from '../../media/thumbnails/thumbnail_rsvp.webp'
-//import logo from '/logo192.png'
+import { Media } from "../../media/media";
 
-const Home = (media) => {
+const Home = () => {
   //state
   const [enabled, setEnabled] = useState(false);
   //refs
@@ -127,6 +123,7 @@ const Home = (media) => {
     return () => {
       window.removeEventListener('mousemove', (event) => handleMouseMove(event));
     }
+    console.log(Media)
   });
 
   //marquee trigger
@@ -156,7 +153,6 @@ const Home = (media) => {
       ease: "none",
       repeat: -1,
     }, 0);
-    console.log(media.media[0])
 
   }, []);
 
@@ -165,16 +161,16 @@ const Home = (media) => {
       <div className='home-cards-container'>
         <div ref={el => homeCards = el} className='home-cards'>
           <div ref={el => homeCard4 = el} className='home-card'>
-            <img className='about-headshot' key={media.media[3].key} src={media.media[3].src} />
+            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
           </div>
           <div ref={el => homeCard3 = el} className='home-card'>
-            <img className='about-headshot' key={media.media[2].key} src={media.media[2].src} />
+            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
           </div>
           <div ref={el => homeCard2 = el} className='home-card'>
-            <img className='about-headshot' key={media.media[1].key} src={media.media[1].src} />
+            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
           </div>
           <div ref={el => homeCard1 = el} className='home-card'>
-            <img className='about-headshot' key={media.media[0].key} src={media.media[0].src} />
+            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
           </div>
         </div>
       </div>

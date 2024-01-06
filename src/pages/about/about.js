@@ -1,47 +1,44 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 //components
-import Header from '../../components/header.react';
 //styles
 import '../../styles/home.css';
 import '../../styles/about.css';
 //assets
-// import Headshot from '../../media/about/about_headshot.jpg'
+import { Media } from "../../media/media";
 
 
 
 
-const About = (media) => {
+const About = () => {
   //refs
-  let about = useRef(null);
-  const [isActive, setIsActive] = useState(false);
+  //let about = useRef(null);
 
   useEffect(() => {
     // Loading function to load data or
     // fake it using setTimeout;
     gsap.registerPlugin(SplitText);
-    const header = about.querySelectorAll('.header');
-    const tl = gsap.timeline(),
-      mySplitText = new SplitText(header, { type: "chars" }),
-      chars = mySplitText.chars; //an array of all the divs that wrap each character
+    // const header = about.querySelectorAll('.header');
+    // const tl = gsap.timeline(),
+    //   mySplitText = new SplitText(header, { type: "chars" }),
+    //   chars = mySplitText.chars; //an array of all the divs that wrap each character
 
-    tl.from(chars, {
-      duration: 0.4,
-      opacity: 0,
-      y: 100,
-      rotationX: 0,
-      ease: "ease",
-      stagger: 0.05
-    });
+    // tl.from(chars, {
+    //   duration: 0.4,
+    //   opacity: 0,
+    //   y: 100,
+    //   rotationX: 0,
+    //   ease: "ease",
+    //   stagger: 0.05
+    // });
   }, []);
 
   return (
-    <div className='about' ref={el => about = el}>
+    <div className='about'>
       <div className='about-left'>
         <div className='about-fold'>
           <div className='about-header'>
-            <Header headerContent="About" isActive={isActive} />
           </div>
           <div className='about-description'>
             <h2>
@@ -157,7 +154,7 @@ const About = (media) => {
       </div>
       <div className='about-right'>
         <div className='about-headshot-container'>
-          <img className='about-headshot' key={media.media[4].key} src={media.media[4].src} />
+          <img className='about-headshot' key={Media[4].key} src={Media[4].src} />
         </div>
         <div className='about-social'>
           <a className='linkedin'>
