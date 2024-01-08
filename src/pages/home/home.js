@@ -11,6 +11,7 @@ import { Media } from "../../media/media";
 const Home = () => {
   //state
   const [enabled, setEnabled] = useState(false);
+  const [marqueeWidth, setMarqueeWidth] = useState(null | Number);
   //refs
   let homeMarquee = useRef(HTMLElement);
   let homeMarqueeContent = useRef(HTMLElement);
@@ -113,17 +114,23 @@ const Home = () => {
     return () => {
       window.removeEventListener('mousemove', (event) => handleMouseMove(event));
     }
-    console.log(Media)
   });
 
-  //marquee trigger
+  //marquee animation
+  const marqueeTL = gsap.timeline();
+
+  //marquee initial setup
   useEffect(() => {
+    if (!homeMarquee || !homeMarqueeContent) return;
     const marqueeContentClone = homeMarqueeContent.cloneNode(true);
     homeMarquee.append(marqueeContentClone);
-    const marqueeContentWidth = parseInt(getComputedStyle(homeMarqueeContent).getPropertyValue("width"), 10)
-    const marqueeTL = gsap.timeline();
+    const marqueeContentWidth = parseInt(
+      getComputedStyle(homeMarqueeContent).getPropertyValue("width"),
+      10
+    );
+    setMarqueeWidth(marqueeContentWidth);
 
-    //marquee animation
+
     marqueeTL.to(homeMarquee, {
       duration: 0.5,
       scale: 1,
@@ -134,17 +141,37 @@ const Home = () => {
         setEnabled(true);
       },
     }, 0);
-
-    marqueeTL.fromTo(homeMarquee.children, {
-      x: 0,
-    }, {
-      duration: 30,
-      x: () => { return marqueeContentWidth * -1 },
-      ease: "none",
-      repeat: -1,
-    }, 0);
-
   }, []);
+
+
+  //marquee trigger
+  useEffect(() => {
+    const homeMarqueeID = document.getElementById('homeMarquee')
+    const playMarquee = () => {
+      marqueeTL.fromTo(homeMarqueeID.children, {
+        x: 0,
+      }, {
+        duration: 30,
+        x: marqueeWidth * -1,
+        ease: "none",
+        repeat: -1,
+      }, 0);
+    }
+    const handleResize = () => {
+      if (homeMarqueeID) {
+        const marqueeContentWidth = parseInt(
+          getComputedStyle(homeMarqueeID.children[0]).getPropertyValue("width"),
+          10
+        );
+        setMarqueeWidth(marqueeContentWidth);
+        playMarquee();
+      }
+    }
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+  }, [marqueeWidth]);
 
   return (
     <div className='home'>
@@ -165,7 +192,7 @@ const Home = () => {
         </div>
       </div>
       <div className='home-marquee-container'>
-        <div ref={el => homeMarquee = el} className='home-marquee'>
+        <div id='homeMarquee' ref={el => homeMarquee = el} className='home-marquee'>
           <div ref={el => homeMarqueeContent = el} className='home-marquee-content'>
             <span className='home-marquee-text'>
               designer

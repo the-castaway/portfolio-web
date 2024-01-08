@@ -28,7 +28,6 @@ function App() {
       return new Promise((resolve, reject) => {
         const loadMedia = new Image()
         loadMedia.src = media.src
-        console.log(media.src)
         //wait 7 seconds to simulate loading time
         loadMedia.onload = () =>
           setTimeout(() => {
@@ -43,8 +42,6 @@ function App() {
     ))
       .then(() => setLoading((loading) => !loading))
       .catch(err => console.log("Failed to load images", err))
-
-
   }, [])
 
   return (

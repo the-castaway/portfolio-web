@@ -129,25 +129,6 @@
     color: var(--jc-off-white);
 }
 
-.home-info-footer-location {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--jc-off-white);
-
-}
-
-.home-info-footer-location-icon {
-    height: 8px;
-    width: 8px;
-    background-color: var(--jc-blue);
-    border-radius: 4px;
-}
-
 @media (max-width: 600px) {
     .home-cards {
         aspect-ratio: 4/5;
