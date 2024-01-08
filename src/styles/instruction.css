@@ -1,0 +1,8 @@
+.instruction {
+    width: auto;
+}
+
+.instruction-text {
+    font-size: 16px;
+    color: var(--jc-off-white);
+}

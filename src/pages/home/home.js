@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 //components
 import Location from '../../components/location.react';
+import Instruction from '../../components/instruction.react';
 //styles
 import '../../styles/home.css';
 //assets
@@ -22,7 +23,6 @@ const Home = () => {
   let homeCard4 = useRef(HTMLElement);
   //plugins
   gsap.registerPlugin(SplitText);
-
 
   //enter animation
   useEffect(() => {
@@ -143,7 +143,6 @@ const Home = () => {
     }, 0);
   }, []);
 
-
   //marquee trigger
   useEffect(() => {
     const homeMarqueeID = document.getElementById('homeMarquee')
@@ -226,9 +225,7 @@ const Home = () => {
           Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>
         </h2>
         <div className='home-info-footer'>
-          <div className='home-info-footer-cta'>
-            <span>Click to Start</span>
-          </div>
+          <Instruction />
           <Location />
         </div>
       </div>

@@ -35,16 +35,11 @@ const HomeTransitionExit = ({ node }) => {
         stagger: 0.1
     }, 0);
 
-    // tl.to(homeCards[0], {
-    //     duration: 1,
-    //     rotate: 90,
-    //     y: "50vh",
-    //     x: "50vw",
-    //     scale: 1.5,
-    //     ease: "power1.out",
-    // }, 0);
-
-
+    tl.to(homeCards[0], {
+        duration: 1,
+        scale: 1.5,
+        ease: "power1.out",
+    }, 0);
 
 }
 
