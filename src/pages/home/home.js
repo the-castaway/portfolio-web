@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
+import { NavLink } from "react-router-dom"
 //components
 import Location from '../../components/location.react';
 import Instruction from '../../components/instruction.react';
@@ -173,20 +174,28 @@ const Home = () => {
   }, [marqueeWidth]);
 
   return (
-    <div className='home'>
+    <NavLink className='home' to="showcase" exact='true'>
       <div className='home-cards-container'>
         <div ref={el => homeCards = el} className='home-cards'>
-          <div ref={el => homeCard4 = el} className='home-card'>
-            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+          <div className='home-card-container'>
+            <div ref={el => homeCard4 = el} className='home-card'>
+              <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+            </div>
           </div>
-          <div ref={el => homeCard3 = el} className='home-card'>
-            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+          <div className='home-card-container'>
+            <div ref={el => homeCard3 = el} className='home-card'>
+              <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+            </div>
           </div>
-          <div ref={el => homeCard2 = el} className='home-card'>
-            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+          <div className='home-card-container'>
+            <div ref={el => homeCard2 = el} className='home-card'>
+              <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+            </div>
           </div>
-          <div ref={el => homeCard1 = el} className='home-card'>
-            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+          <div className='home-card-container'>
+            <div ref={el => homeCard1 = el} className='home-card'>
+              <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+            </div>
           </div>
         </div>
       </div>
@@ -229,7 +238,7 @@ const Home = () => {
           <Location />
         </div>
       </div>
-    </div >
+    </NavLink >
   );
 }
 
