@@ -23,28 +23,36 @@ const Showcase = () => {
     //plugins
     gsap.registerPlugin(SplitText, Draggable, ScrollTrigger);
 
-    console.log(SplitText, Draggable, ScrollTrigger)
-
-
+    //intro animations
     useEffect(() => {
         let ctx = gsap.context(() => {
             //define timeline
-            const showcaseTL = gsap.timeline(),
+            const showcaseIntroTL = gsap.timeline(),
                 showcaseHeaderSplit = new SplitText(showcaseHeader, { type: "chars" }),
                 showcaseHeaderChars = showcaseHeaderSplit.chars;
-            showcaseTL.pause();
 
-            showcaseTL.to(showcaseHeaderChars, {
+            showcaseIntroTL.to(showcaseHeaderChars, {
                 duration: 0.5,
                 opacity: 1,
                 y: 0,
                 ease: "ease",
                 stagger: 0.05
             });
-            showcaseTL.play();
         })
+    }, []);
+
+    //set up carousel
+    useEffect(() => {
 
     }, []);
+
+
+
+
+
+
+
+
 
     return (
         <div id="showcase" ref={el => showcase = el}>
