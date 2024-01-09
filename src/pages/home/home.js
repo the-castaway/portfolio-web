@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 //components
 import Location from '../../components/location.react';
 import Instruction from '../../components/instruction.react';
@@ -174,7 +174,7 @@ const Home = () => {
   }, [marqueeWidth]);
 
   return (
-    <NavLink className='home' to="showcase" exact='true'>
+    <Link className='home' to="/showcase" exact='true'>
       <div className='home-cards-container'>
         <div ref={el => homeCards = el} className='home-cards'>
           <div className='home-card-container'>
@@ -238,7 +238,7 @@ const Home = () => {
           <Location />
         </div>
       </div>
-    </NavLink >
+    </Link >
   );
 }
 
