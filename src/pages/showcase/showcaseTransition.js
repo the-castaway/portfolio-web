@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { SplitText } from "gsap/SplitText";
+import { SplitText } from "gsap/SplitText"; import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ShowcaseTransitionEnter = ({ node }) => {
     // gsap.registerPlugin(SplitText);
@@ -20,7 +20,7 @@ const ShowcaseTransitionEnter = ({ node }) => {
 
 const ShowcaseTransitionExit = ({ node }) => {
     gsap.registerPlugin(SplitText);
-    const header = node.querySelectorAll('.header');
+    const header = node.querySelectorAll('.showcase-header');
     const tl = gsap.timeline(),
         mySplitText = new SplitText(header, { type: "chars" }),
         chars = mySplitText.chars; //an array of all the divs that wrap each character
@@ -31,7 +31,11 @@ const ShowcaseTransitionExit = ({ node }) => {
         y: -100,
         rotationX: 0,
         ease: "ease",
-        stagger: 0.05
+        stagger: 0.05,
+        onComplete: () => {
+            ScrollTrigger.getById("showcaseTrigger").kill();
+            console.log('triggerkilled');
+        }
     });
 }
 
