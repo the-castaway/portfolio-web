@@ -10,9 +10,12 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 200px 40px 40px 40px;
+    padding: 40px 40px 40px 40px;
     position: fixed;
-    top: 0;
+    width: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    box-sizing: border-box;
 }
 
 .showcase-header>* {
@@ -22,6 +25,25 @@
 
 .showcase-header-ui {
     font-size: 16px;
+}
+
+/* Project */
+
+.showcase-project-spacer {
+    width: 25%;
+    aspect-ratio: 4/5;
+    max-width: 25vh;
+}
+
+.showcase-project-container {
+    width: 100%;
+    height: auto;
+    padding: 40px 0px;
+    box-sizing: border-box;
+}
+
+.showcase-project-number {
+    width: 100%;
 }
 
 /* Carousel */
@@ -40,9 +62,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    padding-left: 40px;
     width: 25%;
     aspect-ratio: 4/5;
+    max-width: 25vh;
 }
 
 .showcase-carousel-card-container {
@@ -52,6 +74,7 @@
     aspect-ratio: 4/5;
     position: absolute;
     border-radius: 40px;
+    max-width: 25vh;
 }
 
 .showcase-carousel-card {
@@ -69,7 +92,7 @@
 .showcase-project-container {
     width: 100%;
     height: auto;
-    padding: 40px;
+    padding: 40px 0px;
 }
 
 .showcase-project-number {

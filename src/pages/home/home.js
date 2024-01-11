@@ -130,8 +130,6 @@ const Home = () => {
       10
     );
     setMarqueeWidth(marqueeContentWidth);
-
-
     marqueeTL.to(homeMarquee, {
       duration: 0.5,
       scale: 1,
@@ -167,10 +165,8 @@ const Home = () => {
         playMarquee();
       }
     }
-
     handleResize();
     window.addEventListener('resize', handleResize);
-
   }, [marqueeWidth]);
 
   return (

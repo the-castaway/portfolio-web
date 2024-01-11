@@ -1,30 +1,11 @@
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 
-const HomeTransitionEnter = ({ node }) => {
-    // gsap.registerPlugin(SplitText);
-    // const marquee = node.querySelectorAll('.home-marquee');
-    // const tl = gsap.timeline(),
-    //     marqueeSplitText = new SplitText(marquee, { type: "words" }),
-    //     marqueeWords = marqueeSplitText.words; //an array of all the divs that wrap each character
-
-    // tl.from(marqueeWords, {
-    //     duration: 0.4,
-    //     opacity: 0,
-    //     y: 20,
-    //     ease: "ease",
-    //     stagger: 0.1
-    // });
-}
-
 const HomeTransitionExit = ({ node }) => {
     //refs
     const homeMarquee = node.querySelectorAll('.home-marquee');
     const homeCards = node.querySelectorAll('.home-card-container');
     const homeFooter = node.querySelectorAll('.home-info-container ');
-
-
-
     //console.log(homeCards);
     gsap.registerPlugin(SplitText);
     const tl = gsap.timeline(),
@@ -99,15 +80,10 @@ const HomeTransitionExit = ({ node }) => {
     }, ">");
     tl.to(homeFooter, {
         duration: 1,
-        7: '100%',
+        y: '100%',
         opacity: 0,
         ease: "power3.in",
     }, 0);
-
 }
 
-const HomeTransitionEntered = ({ node }) => {
-
-}
-
-export { HomeTransitionEnter, HomeTransitionEntered, HomeTransitionExit };
+export { HomeTransitionExit };
