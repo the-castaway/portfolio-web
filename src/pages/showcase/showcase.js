@@ -19,7 +19,7 @@ import { Media } from "../../media/media";
 
 const Showcase = () => {
     //refs
-    let showcase = useRef(null);
+    let showcaseContainer = useRef(null);
     let showcaseHeader = useRef(HTMLElement);
     let showcaseCarouselContainer = useRef(HTMLElement);
     let showcaseCarouselCards = useRef(HTMLElement);
@@ -31,8 +31,8 @@ const Showcase = () => {
 
 
 
-    const carousel = () => {
-
+    //carousel trigger
+    useEffect(() => {
         if (ScrollTrigger.getById("showcaseTrigger")) {
             ScrollTrigger.getById("showcaseTrigger").kill();
         }
@@ -42,20 +42,8 @@ const Showcase = () => {
         //card setup
         gsap.set(showcaseCarouselCards.children, { x: '100vw' });
         const cards = gsap.utils.toArray(showcaseCarouselCards.children);
-        //const spacing = spacer;
-        const spacing = (showcaseCarouselCards.children[0].getBoundingClientRect().width - (window.innerWidth * 0.01)) / window.innerWidth;
-
-
-        //const minSpacing = 0.15;
-        //const spacer = (showcaseCarouselCards.children[0].getBoundingClientRect().width - 20) / window.innerWidth;
-
-
-
-
-        //const spacing = Math.min(Math.max(parseFloat(spacer), 0.15), 0.18);
-        //const spacing = Math.min(minSpacing, variableSpacing);
-
-        console.log(spacer, "spacing=" + spacing)
+        //const spacing = (showcaseCarouselCards.children[0].getBoundingClientRect().width - (window.innerWidth * 0.01)) / window.innerWidth;
+        const spacing = 0.22;
 
         //timeline setup
         const sideScrollTimeline = element => {
@@ -66,7 +54,10 @@ const Showcase = () => {
                     x: '100vw'
                 },
                 {
-                    x: '-25vw', duration: 1, ease: "none", immediateRender: false
+                    x: '-25vw',
+                    duration: 1,
+                    ease: "none",
+                    immediateRender: false
                 }, 0);
             return sideScrollTL;
         };
@@ -86,13 +77,12 @@ const Showcase = () => {
             let i;
             let index;
 
-
-
+            console.log(cards.length, overlap, l)
             for (i = 0; i < l; i++) {
                 index = i % cards.length;
                 time = i * spacing;
                 rawSequenceTL.add(sideScrollTimeline(cards[index]), time);
-                //i <= cards.length && seamlessLoopTL.add("label" + i, time);
+                i <= cards.length && seamlessLoopTL.add("label" + i, time);
             }
 
             //tween time within rawSequenceTL
@@ -157,8 +147,10 @@ const Showcase = () => {
                 }
             },
             end: "=+3000",
-            pin: showcaseCarouselContainer,
+            pin: showcaseContainer,
         });
+
+        ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
 
         //scroll trigger setup
         const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end);
@@ -189,189 +181,157 @@ const Showcase = () => {
                 scrollToOffset(scrub.vars.offset);
             }
         });
-
-    }
-
-    //intro animations
-    useEffect(() => {
-
-        carousel();
-
-    }, [spacer]);
+    }, []);
 
 
-    //parallax trigger
-    useEffect(() => {
-        const handleReszie = () => {
-            const minSpacer = 0.12;
-            const variableSpacer = ((window.innerWidth * .25) + 20) / window.innerWidth;
-            const spacer = Math.min(minSpacer, variableSpacer);
-            setSpacer(spacer)
+    // //handle resizing
+    // useEffect(() => {
+    //     const handleReszie = () => {
+    //         const minSpacer = 0.12;
+    //         const variableSpacer = ((window.innerWidth * .25) + 20) / window.innerWidth;
+    //         const spacer = Math.min(minSpacer, variableSpacer);
+    //         setSpacer(spacer)
 
-        };
-        window.addEventListener('resize', () => carousel());
-        return () => {
-            window.removeEventListener('resize', () => carousel());
-        }
-    });
+    //     };
+    //     // window.addEventListener('resize', () => carousel());
+    //     // return () => {
+    //     //     window.removeEventListener('resize', () => carousel());
+    //     // }
+    // });
 
     return (
-        <div id="showcase" ref={el => showcase = el}>
-            <div className='showcase-header-container'>
-                <h1 ref={el => showcaseHeader = el} className='showcase-header'>
-                    Showcase
-                </h1>
-                <div className='showcase-header-ui'>
-                    <p>
-                        Carousel - List
-                    </p>
+        <div id="showcase" className='showcase'>
+            <div ref={el => showcaseContainer = el} className='showcase-container'>
+                <div className='showcase-content'>
+                    <div className='showcase-header-container'>
+                        <h1 ref={el => showcaseHeader = el} className='showcase-header'>
+                            Showcase
+                        </h1>
+                        <div className='showcase-header-ui'>
+                            <p>
+                                Carousel - List
+                            </p>
+                        </div>
+                    </div>
+                    <div ref={el => showcaseCarouselContainer = el} className='showcase-carousel-container'>
+                        <div ref={el => showcaseCarouselCards = el} className='showcase-carousel-cards'>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+                                </div>
+                            </div>
+                            <div className='showcase-carousel-card-container'>
+                                <div className='showcase-carousel-card'>
+                                    <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='showcase-project-container'>
+                        <h2 className='showcase-project-number'>
+                            ----016
+                        </h2>
+                    </div>
                 </div>
-                <div className='showcase-project-spacer' />
-                <div className='showcase-project-container'>
-                    <h2 className='showcase-project-number'>
-                        ----016
-                    </h2>
-                </div>
-            </div>
-            <div ref={el => showcaseCarouselContainer = el} className='showcase-carousel-container'>
-                <div ref={el => showcaseCarouselCards = el} className='showcase-carousel-cards'>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
-                        </div>
-                    </div>
-                    <div className='showcase-carousel-card-container'>
-                        <div className='showcase-carousel-card'>
-                            <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
-                        </div>
-                    </div>
-
-                </div>
-                {/* <Link to="project1">
-                    Project 1
-                </Link>
-                <Link to="project2">
-                    Project 2
-                </Link> */}
             </div>
             <div ref={el => showcaseCarouselDragProxy = el} className='showcase-carousel-drag-proxy' />
-            {/* <div className='showcase-project-container'>
-                <h2 className='showcase-project-number'>
-                    ----016
-                </h2>
-            </div>
-            <div className='showcase-info-container'>
-                <div className='showcase-info-footer'>
-                    <Instruction />
-                    <Location />
-                </div>
-            </div> */}
-            {/* <Outlet /> */}
-        </div>
+
+        </div >
 
     );
 }
 
 export default Showcase;
-
-
-
-
-
-
-
-
-
 
 
 

@@ -29,12 +29,12 @@ const TransitionTrigger = ({ children }) => {
                 <Transition
                     key={location.pathname}
                     timeout={timeout}
-                    // onEnter={() => {
-                    //     toggleCompleted(false);
-                    // }}
-                    // onEntered={(node) => {
-                    //     toggleCompleted(true);
-                    // }}
+                    onEnter={() => {
+                        toggleCompleted(false);
+                    }}
+                    onEntered={(node) => {
+                        toggleCompleted(true);
+                    }}
                     onExit={(node) => {
                         if (location.pathname === "/") {
                             HomeTransitionExit({ node });

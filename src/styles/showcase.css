@@ -4,46 +4,39 @@
     position: relative;
 }
 
+.showcase-container {
+    width: 100%;
+    height: 100%;
+    position: inherit;
+}
+
+.showcase-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    bottom: 0;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+    transform: translate(0px, -50%);
+}
+
 /* Header */
 
 .showcase-header-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 40px 40px 40px 40px;
-    position: fixed;
+    padding: 40px;
     width: 100%;
-    top: 50%;
-    transform: translate(0, -50%);
     box-sizing: border-box;
-}
-
-.showcase-header>* {
-    opacity: 0;
-    transform: translate(0px, 25%);
 }
 
 .showcase-header-ui {
     font-size: 16px;
-}
-
-/* Project */
-
-.showcase-project-spacer {
-    width: 25%;
-    aspect-ratio: 4/5;
-    max-width: 25vh;
-}
-
-.showcase-project-container {
-    width: 100%;
-    height: auto;
-    padding: 40px 0px;
-    box-sizing: border-box;
-}
-
-.showcase-project-number {
-    width: 100%;
 }
 
 /* Carousel */
@@ -51,7 +44,7 @@
 .showcase-carousel-container {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -64,7 +57,7 @@
     flex-wrap: nowrap;
     width: 25%;
     aspect-ratio: 4/5;
-    max-width: 25vh;
+    /* max-width: 25vh; */
 }
 
 .showcase-carousel-card-container {
@@ -74,7 +67,7 @@
     aspect-ratio: 4/5;
     position: absolute;
     border-radius: 40px;
-    max-width: 25vh;
+    /* max-width: 25vh; */
 }
 
 .showcase-carousel-card {
@@ -92,7 +85,9 @@
 .showcase-project-container {
     width: 100%;
     height: auto;
-    padding: 40px 0px;
+    padding: 40px;
+    box-sizing: border-box;
+    position: inherit
 }
 
 .showcase-project-number {
@@ -139,4 +134,11 @@
     z-index: 100;
     padding: 0 40px;
     box-sizing: border-box;
+}
+
+/* Drag Proxy */
+
+.showcase-carousel-drag-proxy {
+    visibility: hidden;
+    position: absolute;
 }
