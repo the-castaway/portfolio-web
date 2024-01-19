@@ -9,7 +9,7 @@ import {
     Outlet,
 } from "react-router-dom"
 //components
-import Location from '../../components/location.react';
+//import Location from '../../components/location.react';
 import Instruction from '../../components/instruction.react';
 //styles
 import '../../styles/home.css';
@@ -17,7 +17,7 @@ import '../../styles/showcase.css';
 //assets
 import { Media } from "../../media/media";
 
-const Showcase = () => {
+const Showcase = ({ location }) => {
     //refs
     let showcaseContainer = useRef(null);
     let showcaseHeader = useRef(HTMLElement);
@@ -33,155 +33,169 @@ const Showcase = () => {
 
     //carousel trigger
     useEffect(() => {
-        if (ScrollTrigger.getById("showcaseTrigger")) {
-            ScrollTrigger.getById("showcaseTrigger").kill();
-        }
 
-        //iteration
-        let iteration = 0;
-        //card setup
-        gsap.set(showcaseCarouselCards.children, { x: '100vw' });
-        const cards = gsap.utils.toArray(showcaseCarouselCards.children);
-        //const spacing = (showcaseCarouselCards.children[0].getBoundingClientRect().width - (window.innerWidth * 0.01)) / window.innerWidth;
-        const spacing = 0.22;
+        const handleCarousel = () => {
 
-        //timeline setup
-        const sideScrollTimeline = element => {
-            const sideScrollTL = gsap.timeline();
-            sideScrollTL.fromTo(
-                element,
-                {
-                    x: '100vw'
-                },
-                {
-                    x: '-25vw',
-                    duration: 1,
-                    ease: "none",
-                    immediateRender: false
-                }, 0);
-            return sideScrollTL;
-        };
+            console.log(location.pathname)
+            if (location.pathname !== "/showcase" || !showcaseCarouselCards) { return }
+            //iteration
+            let iteration = 0;
+            //card setup
+            gsap.set(showcaseCarouselCards.children, { x: '100vw' });
+            const cards = gsap.utils.toArray(showcaseCarouselCards.children);
+            //const spacing = (showcaseCarouselCards.children[0].getBoundingClientRect().width - (window.innerWidth * 0.01)) / window.innerWidth;
+            const spacing = 0.22;
 
-        //loop logic
-        const buildSeamlessLoop = (cards, spacing, sideScrollTimeline) => {
-            const overlap = Math.ceil(1 / spacing);
-            const startTime = cards.length * spacing + 0.5;
-            const loopTime = (cards.length + overlap) * spacing + 1;
-            const rawSequenceTL = gsap.timeline({ paused: true })
-            const seamlessLoopTL = gsap.timeline({
-                paused: true,
-                repeat: -1,
-            });
-            const l = cards.length + overlap * 2;
-            let time;
-            let i;
-            let index;
-
-            console.log(cards.length, overlap, l)
-            for (i = 0; i < l; i++) {
-                index = i % cards.length;
-                time = i * spacing;
-                rawSequenceTL.add(sideScrollTimeline(cards[index]), time);
-                i <= cards.length && seamlessLoopTL.add("label" + i, time);
-            }
-
-            //tween time within rawSequenceTL
-            rawSequenceTL.time(startTime);
-            seamlessLoopTL
-                .to(
-                    rawSequenceTL,
+            //timeline setup
+            const sideScrollTimeline = element => {
+                const sideScrollTL = gsap.timeline();
+                sideScrollTL.fromTo(
+                    element,
                     {
-                        time: loopTime,
-                        duration: loopTime - startTime,
-                        ease: "none"
-                    })
-                .fromTo(
-                    rawSequenceTL,
-                    {
-                        time: overlap * spacing + 1
+                        x: '100vw'
                     },
                     {
-                        time: startTime,
-                        duration: startTime - (overlap * spacing + 1),
-                        immediateRender: false,
-                        ease: "none"
-                    });
-            return seamlessLoopTL;
-        }
+                        x: '-25vw',
+                        duration: 1,
+                        ease: "none",
+                        immediateRender: false
+                    }, 0);
+                return sideScrollTL;
+            };
 
-        //trigger loop logic
-        const seamlessLoop = buildSeamlessLoop(cards, spacing, sideScrollTimeline);
+            //loop logic
+            const buildSeamlessLoop = (cards, spacing, sideScrollTimeline) => {
+                const overlap = Math.ceil(1 / spacing);
+                const startTime = cards.length * spacing + 0.5;
+                const loopTime = (cards.length + overlap) * spacing + 1;
+                const rawSequenceTL = gsap.timeline({ paused: true })
+                const seamlessLoopTL = gsap.timeline({
+                    paused: true,
+                    repeat: -1,
+                });
+                const l = cards.length + overlap * 2;
+                let time;
+                let i;
+                let index;
 
-        const playhead = { offset: 0 };
-        const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
-        const scrub = gsap.to(playhead, {
-            offset: 0,
-            onUpdate() {
-                seamlessLoop.time(wrapTime(playhead.offset));
-            },
-            duration: 1,
-            ease: "power3",
-            paused: true
-        });
-
-        //wrap setup
-        const wrap = (iterationDelta, scrollTo) => {
-            iteration += iterationDelta;
-            trigger.scroll(scrollTo);
-            trigger.update();
-        }
-
-        //scroll trigger setup
-        const trigger = ScrollTrigger.create({
-            id: "showcaseTrigger",
-            start: 0,
-            onUpdate(self) {
-                let scroll = self.scroll();
-                if (scroll > self.end - 1) {
-                    wrap(1, 2);
-                } else if (scroll < 1 && self.direction < 0) {
-                    wrap(-1, self.end - 2);
-                } else {
-                    scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
-                    scrub.invalidate().restart();
+                console.log(cards.length, overlap, l)
+                for (i = 0; i < l; i++) {
+                    index = i % cards.length;
+                    time = i * spacing;
+                    rawSequenceTL.add(sideScrollTimeline(cards[index]), time);
+                    i <= cards.length && seamlessLoopTL.add("label" + i, time);
                 }
-            },
-            end: "=+3000",
-            pin: showcaseContainer,
-        });
 
-        ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
-
-        //scroll trigger setup
-        const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end);
-        const snapTime = gsap.utils.snap(spacing);
-        // moves the scroll playhead to the place that corresponds to the totalTime value of the seamlessLoop, and wraps if necessary.
-        const scrollToOffset = (offset) => {
-            let snappedTime = snapTime(offset),
-                progress = (snappedTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration(),
-                scroll = progressToScroll(progress);
-            if (progress >= 1 || progress < 0) {
-                return wrap(Math.floor(progress), scroll);
+                //tween time within rawSequenceTL
+                rawSequenceTL.time(startTime);
+                seamlessLoopTL
+                    .to(
+                        rawSequenceTL,
+                        {
+                            time: loopTime,
+                            duration: loopTime - startTime,
+                            ease: "none"
+                        })
+                    .fromTo(
+                        rawSequenceTL,
+                        {
+                            time: overlap * spacing + 1
+                        },
+                        {
+                            time: startTime,
+                            duration: startTime - (overlap * spacing + 1),
+                            immediateRender: false,
+                            ease: "none"
+                        });
+                return seamlessLoopTL;
             }
-            trigger.scroll(scroll);
+
+            //trigger loop logic
+            const seamlessLoop = buildSeamlessLoop(cards, spacing, sideScrollTimeline);
+
+            const playhead = { offset: 0 };
+            const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
+            const scrub = gsap.to(playhead, {
+                offset: 0,
+                onUpdate() {
+                    seamlessLoop.time(wrapTime(playhead.offset));
+                },
+                duration: 1,
+                ease: "power3",
+                paused: true
+            });
+
+            //wrap setup
+            const wrap = (iterationDelta, scrollTo) => {
+                iteration += iterationDelta;
+                trigger.scroll(scrollTo);
+                trigger.update();
+            }
+
+            //scroll trigger setup
+            const trigger = ScrollTrigger.create({
+                id: "showcaseTrigger",
+                start: 0,
+                onUpdate(self) {
+                    let scroll = self.scroll();
+                    if (scroll > self.end - 1) {
+                        wrap(1, 2);
+                    } else if (scroll < 1 && self.direction < 0) {
+                        wrap(-1, self.end - 2);
+                    } else {
+                        scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
+                        scrub.invalidate().restart();
+                    }
+                },
+                end: "=+3000",
+                pin: showcaseContainer,
+            });
+
+            ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
+
+            //scroll trigger setup
+            const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end);
+            const snapTime = gsap.utils.snap(spacing);
+            // moves the scroll playhead to the place that corresponds to the totalTime value of the seamlessLoop, and wraps if necessary.
+            const scrollToOffset = (offset) => {
+                let snappedTime = snapTime(offset),
+                    progress = (snappedTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration(),
+                    scroll = progressToScroll(progress);
+                if (progress >= 1 || progress < 0) {
+                    return wrap(Math.floor(progress), scroll);
+                }
+                //if (location.pathname === "/showcase") { trigger.scroll(scroll); }
+
+            }
+
+            //below is the dragging functionality (mobile-friendly too)...
+            Draggable.create(showcaseCarouselDragProxy, {
+                type: "x",
+                trigger: showcaseCarouselCards,
+                onPress() {
+                    this.startOffset = scrub.vars.offset;
+                },
+                onDrag() {
+                    scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.001;
+                    scrub.invalidate().restart(); // same thing as we do in the ScrollTrigger's onUpdate
+                },
+                onDragEnd() {
+                    scrollToOffset(scrub.vars.offset);
+                }
+            });
         }
 
-        //below is the dragging functionality (mobile-friendly too)...
-        Draggable.create(showcaseCarouselDragProxy, {
-            type: "x",
-            trigger: showcaseCarouselCards,
-            onPress() {
-                this.startOffset = scrub.vars.offset;
-            },
-            onDrag() {
-                scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.001;
-                scrub.invalidate().restart(); // same thing as we do in the ScrollTrigger's onUpdate
-            },
-            onDragEnd() {
-                scrollToOffset(scrub.vars.offset);
+        handleCarousel();
+
+        return () => {
+            handleCarousel();
+            console.log('return');
+            if (ScrollTrigger.getById("showcaseTrigger")) {
+                ScrollTrigger.getById("showcaseTrigger").kill();
             }
-        });
-    }, []);
+        }
+
+    }, [location.pathname]);
 
 
     // //handle resizing

@@ -16,6 +16,7 @@ const About = () => {
   //let about = useRef(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     // Loading function to load data or
     // fake it using setTimeout;
     gsap.registerPlugin(SplitText);

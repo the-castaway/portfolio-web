@@ -57,7 +57,7 @@
     flex-wrap: nowrap;
     width: 25%;
     aspect-ratio: 4/5;
-    /* max-width: 25vh; */
+    max-width: 30vh;
 }
 
 .showcase-carousel-card-container {
@@ -67,7 +67,7 @@
     aspect-ratio: 4/5;
     position: absolute;
     border-radius: 40px;
-    /* max-width: 25vh; */
+    max-width: 30vh;
 }
 
 .showcase-carousel-card {

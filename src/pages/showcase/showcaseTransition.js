@@ -16,10 +16,10 @@ const ShowcaseTransitionExit = ({ node }) => {
         rotationX: 0,
         ease: "ease",
         stagger: 0.05,
-        onComplete: () => {
-            ScrollTrigger.getById("showcaseTrigger").kill();
-            console.log('triggerkilled');
-        }
+        // onComplete: () => {
+        //     ScrollTrigger.getById("showcaseTrigger").kill();
+        //     console.log('triggerkilled');
+        // }
     });
 }
 
