@@ -47,6 +47,9 @@
     height: 100%;
     overflow: hidden;
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
     align-items: center;
 }
 
@@ -55,9 +58,8 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 25%;
-    aspect-ratio: 4/5;
-    max-width: 30vh;
+    gap: 20px;
+    width: auto;
 }
 
 .showcase-carousel-card-container {
@@ -65,7 +67,6 @@
     width: 25vw;
     position: relative;
     aspect-ratio: 4/5;
-    position: absolute;
     border-radius: 40px;
     max-width: 30vh;
 }

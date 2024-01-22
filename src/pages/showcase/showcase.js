@@ -17,185 +17,190 @@ import '../../styles/showcase.css';
 //assets
 import { Media } from "../../media/media";
 
-const Showcase = ({ location }) => {
+const Showcase = () => {
     //refs
     let showcaseContainer = useRef(null);
+    let showcaseContent = useRef(HTMLElement);
     let showcaseHeader = useRef(HTMLElement);
     let showcaseCarouselContainer = useRef(HTMLElement);
     let showcaseCarouselCards = useRef(HTMLElement);
     let showcaseCarouselDragProxy = useRef(null);
     //state
-    const [spacer, setSpacer] = useState(10000 / window.innerWidth);
+    //const [spacer, setSpacer] = useState(10000 / window.innerWidth);
+    const [invalidateOnRefresh, setInvalidateOnRefresh] = useState(true);
     //plugins
     gsap.registerPlugin(SplitText, Draggable, ScrollTrigger, ScrollSmoother);
 
 
 
-    //carousel trigger
-    useEffect(() => {
 
-        const handleCarousel = () => {
+    //----------------------------------------------------------------------------------
 
-            console.log(location.pathname)
-            if (location.pathname !== "/showcase" || !showcaseCarouselCards) { return }
-            //iteration
-            let iteration = 0;
-            //card setup
-            gsap.set(showcaseCarouselCards.children, { x: '100vw' });
-            const cards = gsap.utils.toArray(showcaseCarouselCards.children);
-            //const spacing = (showcaseCarouselCards.children[0].getBoundingClientRect().width - (window.innerWidth * 0.01)) / window.innerWidth;
-            const spacing = 0.22;
+    // //carousel trigger
+    // useEffect(() => {
 
-            //timeline setup
-            const sideScrollTimeline = element => {
-                const sideScrollTL = gsap.timeline();
-                sideScrollTL.fromTo(
-                    element,
-                    {
-                        x: '100vw'
-                    },
-                    {
-                        x: '-25vw',
-                        duration: 1,
-                        ease: "none",
-                        immediateRender: false
-                    }, 0);
-                return sideScrollTL;
-            };
+    //     const handleCarousel = () => {
 
-            //loop logic
-            const buildSeamlessLoop = (cards, spacing, sideScrollTimeline) => {
-                const overlap = Math.ceil(1 / spacing);
-                const startTime = cards.length * spacing + 0.5;
-                const loopTime = (cards.length + overlap) * spacing + 1;
-                const rawSequenceTL = gsap.timeline({ paused: true })
-                const seamlessLoopTL = gsap.timeline({
-                    paused: true,
-                    repeat: -1,
-                });
-                const l = cards.length + overlap * 2;
-                let time;
-                let i;
-                let index;
+    //         console.log(location.pathname)
+    //         if (location.pathname !== "/showcase" || !showcaseCarouselCards) { return }
+    //         //iteration
+    //         let iteration = 0;
+    //         //card setup
+    //         gsap.set(showcaseCarouselCards.children, { x: '100vw' });
+    //         const cards = gsap.utils.toArray(showcaseCarouselCards.children);
+    //         //const spacing = (showcaseCarouselCards.children[0].getBoundingClientRect().width - (window.innerWidth * 0.01)) / window.innerWidth;
+    //         const spacing = 0.22;
 
-                console.log(cards.length, overlap, l)
-                for (i = 0; i < l; i++) {
-                    index = i % cards.length;
-                    time = i * spacing;
-                    rawSequenceTL.add(sideScrollTimeline(cards[index]), time);
-                    i <= cards.length && seamlessLoopTL.add("label" + i, time);
-                }
+    //         //timeline setup
+    //         const sideScrollTimeline = element => {
+    //             const sideScrollTL = gsap.timeline();
+    //             sideScrollTL.fromTo(
+    //                 element,
+    //                 {
+    //                     x: '100vw'
+    //                 },
+    //                 {
+    //                     x: '-25vw',
+    //                     duration: 1,
+    //                     ease: "none",
+    //                     immediateRender: false
+    //                 }, 0);
+    //             return sideScrollTL;
+    //         };
 
-                //tween time within rawSequenceTL
-                rawSequenceTL.time(startTime);
-                seamlessLoopTL
-                    .to(
-                        rawSequenceTL,
-                        {
-                            time: loopTime,
-                            duration: loopTime - startTime,
-                            ease: "none"
-                        })
-                    .fromTo(
-                        rawSequenceTL,
-                        {
-                            time: overlap * spacing + 1
-                        },
-                        {
-                            time: startTime,
-                            duration: startTime - (overlap * spacing + 1),
-                            immediateRender: false,
-                            ease: "none"
-                        });
-                return seamlessLoopTL;
-            }
+    //         //loop logic
+    //         const buildSeamlessLoop = (cards, spacing, sideScrollTimeline) => {
+    //             const overlap = Math.ceil(1 / spacing);
+    //             const startTime = cards.length * spacing + 0.5;
+    //             const loopTime = (cards.length + overlap) * spacing + 1;
+    //             const rawSequenceTL = gsap.timeline({ paused: true })
+    //             const seamlessLoopTL = gsap.timeline({
+    //                 paused: true,
+    //                 repeat: -1,
+    //             });
+    //             const l = cards.length + overlap * 2;
+    //             let time;
+    //             let i;
+    //             let index;
 
-            //trigger loop logic
-            const seamlessLoop = buildSeamlessLoop(cards, spacing, sideScrollTimeline);
+    //             console.log(cards.length, overlap, l)
+    //             for (i = 0; i < l; i++) {
+    //                 index = i % cards.length;
+    //                 time = i * spacing;
+    //                 rawSequenceTL.add(sideScrollTimeline(cards[index]), time);
+    //                 i <= cards.length && seamlessLoopTL.add("label" + i, time);
+    //             }
 
-            const playhead = { offset: 0 };
-            const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
-            const scrub = gsap.to(playhead, {
-                offset: 0,
-                onUpdate() {
-                    seamlessLoop.time(wrapTime(playhead.offset));
-                },
-                duration: 1,
-                ease: "power3",
-                paused: true
-            });
+    //             //tween time within rawSequenceTL
+    //             rawSequenceTL.time(startTime);
+    //             seamlessLoopTL
+    //                 .to(
+    //                     rawSequenceTL,
+    //                     {
+    //                         time: loopTime,
+    //                         duration: loopTime - startTime,
+    //                         ease: "none"
+    //                     })
+    //                 .fromTo(
+    //                     rawSequenceTL,
+    //                     {
+    //                         time: overlap * spacing + 1
+    //                     },
+    //                     {
+    //                         time: startTime,
+    //                         duration: startTime - (overlap * spacing + 1),
+    //                         immediateRender: false,
+    //                         ease: "none"
+    //                     });
+    //             return seamlessLoopTL;
+    //         }
 
-            //wrap setup
-            const wrap = (iterationDelta, scrollTo) => {
-                iteration += iterationDelta;
-                trigger.scroll(scrollTo);
-                trigger.update();
-            }
+    //         //trigger loop logic
+    //         const seamlessLoop = buildSeamlessLoop(cards, spacing, sideScrollTimeline);
 
-            //scroll trigger setup
-            const trigger = ScrollTrigger.create({
-                id: "showcaseTrigger",
-                start: 0,
-                onUpdate(self) {
-                    let scroll = self.scroll();
-                    if (scroll > self.end - 1) {
-                        wrap(1, 2);
-                    } else if (scroll < 1 && self.direction < 0) {
-                        wrap(-1, self.end - 2);
-                    } else {
-                        scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
-                        scrub.invalidate().restart();
-                    }
-                },
-                end: "=+3000",
-                pin: showcaseContainer,
-            });
+    //         const playhead = { offset: 0 };
+    //         const wrapTime = gsap.utils.wrap(0, seamlessLoop.duration());
+    //         const scrub = gsap.to(playhead, {
+    //             offset: 0,
+    //             onUpdate() {
+    //                 seamlessLoop.time(wrapTime(playhead.offset));
+    //             },
+    //             duration: 1,
+    //             ease: "power3",
+    //             paused: true
+    //         });
 
-            ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
+    //         //wrap setup
+    //         const wrap = (iterationDelta, scrollTo) => {
+    //             iteration += iterationDelta;
+    //             trigger.scroll(scrollTo);
+    //             trigger.update();
+    //         }
 
-            //scroll trigger setup
-            const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end);
-            const snapTime = gsap.utils.snap(spacing);
-            // moves the scroll playhead to the place that corresponds to the totalTime value of the seamlessLoop, and wraps if necessary.
-            const scrollToOffset = (offset) => {
-                let snappedTime = snapTime(offset),
-                    progress = (snappedTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration(),
-                    scroll = progressToScroll(progress);
-                if (progress >= 1 || progress < 0) {
-                    return wrap(Math.floor(progress), scroll);
-                }
-                //if (location.pathname === "/showcase") { trigger.scroll(scroll); }
+    //         //scroll trigger setup
+    //         const trigger = ScrollTrigger.create({
+    //             id: "showcaseTrigger",
+    //             start: 0,
+    //             onUpdate(self) {
+    //                 let scroll = self.scroll();
+    //                 if (scroll > self.end - 1) {
+    //                     wrap(1, 2);
+    //                 } else if (scroll < 1 && self.direction < 0) {
+    //                     wrap(-1, self.end - 2);
+    //                 } else {
+    //                     scrub.vars.offset = (iteration + self.progress) * seamlessLoop.duration();
+    //                     scrub.invalidate().restart();
+    //                 }
+    //             },
+    //             end: "=+3000",
+    //             pin: showcaseContainer,
+    //         });
 
-            }
+    //         ScrollTrigger.addEventListener("scrollEnd", () => scrollToOffset(scrub.vars.offset));
 
-            //below is the dragging functionality (mobile-friendly too)...
-            Draggable.create(showcaseCarouselDragProxy, {
-                type: "x",
-                trigger: showcaseCarouselCards,
-                onPress() {
-                    this.startOffset = scrub.vars.offset;
-                },
-                onDrag() {
-                    scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.001;
-                    scrub.invalidate().restart(); // same thing as we do in the ScrollTrigger's onUpdate
-                },
-                onDragEnd() {
-                    scrollToOffset(scrub.vars.offset);
-                }
-            });
-        }
+    //         //scroll trigger setup
+    //         const progressToScroll = progress => gsap.utils.clamp(1, trigger.end - 1, gsap.utils.wrap(0, 1, progress) * trigger.end);
+    //         const snapTime = gsap.utils.snap(spacing);
+    //         // moves the scroll playhead to the place that corresponds to the totalTime value of the seamlessLoop, and wraps if necessary.
+    //         const scrollToOffset = (offset) => {
+    //             let snappedTime = snapTime(offset),
+    //                 progress = (snappedTime - seamlessLoop.duration() * iteration) / seamlessLoop.duration(),
+    //                 scroll = progressToScroll(progress);
+    //             if (progress >= 1 || progress < 0) {
+    //                 return wrap(Math.floor(progress), scroll);
+    //             }
+    //             //if (location.pathname === "/showcase") { trigger.scroll(scroll); }
 
-        handleCarousel();
+    //         }
 
-        return () => {
-            handleCarousel();
-            console.log('return');
-            if (ScrollTrigger.getById("showcaseTrigger")) {
-                ScrollTrigger.getById("showcaseTrigger").kill();
-            }
-        }
+    //         //below is the dragging functionality (mobile-friendly too)...
+    //         Draggable.create(showcaseCarouselDragProxy, {
+    //             type: "x",
+    //             trigger: showcaseCarouselCards,
+    //             onPress() {
+    //                 this.startOffset = scrub.vars.offset;
+    //             },
+    //             onDrag() {
+    //                 scrub.vars.offset = this.startOffset + (this.startX - this.x) * 0.001;
+    //                 scrub.invalidate().restart(); // same thing as we do in the ScrollTrigger's onUpdate
+    //             },
+    //             onDragEnd() {
+    //                 scrollToOffset(scrub.vars.offset);
+    //             }
+    //         });
+    //     }
 
-    }, [location.pathname]);
+    //     handleCarousel();
+
+    //     return () => {
+    //         handleCarousel();
+    //         console.log('return');
+    //         if (ScrollTrigger.getById("showcaseTrigger")) {
+    //             ScrollTrigger.getById("showcaseTrigger").kill();
+    //         }
+    //     }
+
+    // }, [location.pathname]);
 
 
     // //handle resizing
@@ -213,10 +218,99 @@ const Showcase = ({ location }) => {
     //     // }
     // });
 
+    //----------------------------------------------------------------------------------
+
+
+
+    // const getCarouselWidth = () => {
+    //     let carouselWidthCalc = 0;
+    //     const cards = gsap.utils.toArray(showcaseCarouselCards.children);
+    //     cards.forEach((card) => {
+    //         carouselWidthCalc += card.offsetWidth;
+    //     });
+    //     setCarouselWidth(carouselWidthCalc)
+
+    // }
+
+    useEffect(() => {
+
+        setInvalidateOnRefresh(true);
+
+        //get initial carousel width
+        const getCarouselWidth = () => {
+            if (!showcaseCarouselCards) { return }
+            const showcaseCarouselWidthCalc = showcaseCarouselCards.offsetWidth;
+            return showcaseCarouselWidthCalc;
+        }
+
+        //fill width of screen with clones
+        const fillCarouselContainer = () => {
+            let fill = Math.floor((window.innerWidth * 1.5) / getCarouselWidth());
+
+            for (let i = 0; i <= fill; i++) {
+                const showcaseCarouselCardsClone = showcaseCarouselCards.cloneNode(true);
+                showcaseCarouselContainer.append(showcaseCarouselCardsClone);
+            }
+        }
+
+        //trigger initial clones
+        fillCarouselContainer();
+
+
+        const carouselTL = gsap.timeline();
+        carouselTL.to(showcaseCarouselContainer.children, {
+            x: () => -(getCarouselWidth()),
+            immediateRender: false,
+            ease: "none",
+            scrollTrigger: {
+                trigger: showcaseContainer,
+                pin: true,
+                scrub: true,
+                end: "+=3000",
+                markers: false,
+                invalidateOnRefresh: false,
+            }
+        });
+
+        ScrollTrigger.create({
+            id: "showcaseTrigger",
+            immediateRender: false,
+            markers: false,
+            start: 20,
+            end: () => ScrollTrigger.maxScroll(window) - 1,
+            refreshPriority: -100, // always update last
+            onLeave: self => {
+                self.scroll(self.start + 1);
+                ScrollTrigger.update();
+            },
+            onLeaveBack: self => {
+                self.scroll(self.end - 1);
+                ScrollTrigger.update();
+            }
+        });
+
+        ScrollTrigger.addEventListener("refreshInit", () => {
+            fillCarouselContainer();
+            ScrollTrigger.update();
+            console.log(carouselTL);
+        });
+
+        return () => {
+
+            console.log('return');
+            setInvalidateOnRefresh(false)
+            if (ScrollTrigger.getById("showcaseTrigger")) {
+                ScrollTrigger.getById("showcaseTrigger").kill();
+            }
+        }
+
+    }, []);
+
+
     return (
         <div id="showcase" className='showcase'>
             <div ref={el => showcaseContainer = el} className='showcase-container'>
-                <div className='showcase-content'>
+                <div ref={el => showcaseContent = el} className='showcase-content'>
                     <div className='showcase-header-container'>
                         <h1 ref={el => showcaseHeader = el} className='showcase-header'>
                             Showcase
