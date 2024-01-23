@@ -27,6 +27,7 @@ const Home = () => {
 
   //enter animation
   useEffect(() => {
+    window.scrollTo(0, 0);
     const enterTL = gsap.timeline();
 
     //cards animation

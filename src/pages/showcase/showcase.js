@@ -9,7 +9,7 @@ import {
     Outlet,
 } from "react-router-dom"
 //components
-//import Location from '../../components/location.react';
+import Location from '../../components/location.react';
 import Instruction from '../../components/instruction.react';
 //styles
 import '../../styles/home.css';
@@ -27,7 +27,8 @@ const Showcase = () => {
     let showcaseCarouselDragProxy = useRef(null);
     //state
     //const [spacer, setSpacer] = useState(10000 / window.innerWidth);
-    const [invalidateOnRefresh, setInvalidateOnRefresh] = useState(true);
+    //const [carouselWidth, setCarouselWidth] = useState(0);
+    //const [invalidateOnRefresh, setInvalidateOnRefresh] = useState(true);
     //plugins
     gsap.registerPlugin(SplitText, Draggable, ScrollTrigger, ScrollSmoother);
 
@@ -232,34 +233,46 @@ const Showcase = () => {
 
     // }
 
+
+
     useEffect(() => {
-
-        setInvalidateOnRefresh(true);
-
         //get initial carousel width
         const getCarouselWidth = () => {
+            let carouselWidth = 0;
+            if (!showcaseCarouselContainer) { return }
+            const showcaseCarouselChildren = gsap.utils.toArray(showcaseCarouselContainer.children);
+            showcaseCarouselChildren.forEach((showcaseCarouselChild) => {
+                carouselWidth += showcaseCarouselChild.offsetWidth;
+            });
+            return carouselWidth;
+        }
+
+        const getCarouselTravel = () => {
             if (!showcaseCarouselCards) { return }
-            const showcaseCarouselWidthCalc = showcaseCarouselCards.offsetWidth;
-            return showcaseCarouselWidthCalc;
+            const showcaseCarouselTravel = showcaseCarouselCards.offsetWidth;
+            return showcaseCarouselTravel;
         }
 
         //fill width of screen with clones
         const fillCarouselContainer = () => {
-            let fill = Math.floor((window.innerWidth * 1.5) / getCarouselWidth());
-
-            for (let i = 0; i <= fill; i++) {
-                const showcaseCarouselCardsClone = showcaseCarouselCards.cloneNode(true);
-                showcaseCarouselContainer.append(showcaseCarouselCardsClone);
+            ScrollTrigger.refresh(true);
+            if (!showcaseCarouselContainer) { return }
+            const showcaseCarouselChildren = gsap.utils.toArray(showcaseCarouselContainer.children);
+            let fill = Math.max(2, Math.floor((window.innerWidth * 1.5) / getCarouselWidth()));
+            for (let i = 1; i <= fill; i++) {
+                if (showcaseCarouselChildren.length < fill) {
+                    const showcaseCarouselCardsClone = showcaseCarouselCards.cloneNode(true);
+                    showcaseCarouselContainer.append(showcaseCarouselCardsClone);
+                }
             }
         }
 
         //trigger initial clones
         fillCarouselContainer();
 
-
         const carouselTL = gsap.timeline();
         carouselTL.to(showcaseCarouselContainer.children, {
-            x: () => -(getCarouselWidth()),
+            x: () => -(getCarouselTravel()),
             immediateRender: false,
             ease: "none",
             scrollTrigger: {
@@ -291,19 +304,12 @@ const Showcase = () => {
 
         ScrollTrigger.addEventListener("refreshInit", () => {
             fillCarouselContainer();
-            ScrollTrigger.update();
-            console.log(carouselTL);
         });
-
         return () => {
-
-            console.log('return');
-            setInvalidateOnRefresh(false)
             if (ScrollTrigger.getById("showcaseTrigger")) {
                 ScrollTrigger.getById("showcaseTrigger").kill();
             }
         }
-
     }, []);
 
 
@@ -430,6 +436,10 @@ const Showcase = () => {
                             ----016
                         </h2>
                     </div>
+                </div>
+                <div className='showcase-info-container'>
+                    <Instruction />
+                    <Location />
                 </div>
             </div>
             <div ref={el => showcaseCarouselDragProxy = el} className='showcase-carousel-drag-proxy' />
