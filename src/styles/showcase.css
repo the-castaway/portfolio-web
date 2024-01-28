@@ -59,6 +59,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     gap: 20px;
+    /* padding: 0px 40px; */
     width: auto;
 }
 
