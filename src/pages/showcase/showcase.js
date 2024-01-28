@@ -30,9 +30,6 @@ const Showcase = () => {
     //plugins
     gsap.registerPlugin(SplitText, Draggable, ScrollTrigger, ScrollSmoother);
 
-
-
-
     function horizontalLoop(items, config) {
         items = gsap.utils.toArray(items);
         config = config || {};
@@ -43,7 +40,7 @@ const Showcase = () => {
             widths = [],
             xPercents = [],
             curIndex = 0,
-            pixelsPerSecond = (config.speed || 1) * 100,
+            pixelsPerSecond = (config.speed || 1) * 50,
             snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
             totalWidth, curX, distanceToStart, distanceToLoop, item, i;
         gsap.set(items, { // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
@@ -92,104 +89,41 @@ const Showcase = () => {
     }
 
     useEffect(() => {
-        // //get initial carousel width
-        // const getCarouselWidth = () => {
-        //     let carouselWidth = 0;
-        //     if (!showcaseCarouselContainer) { return }
-        //     const showcaseCarouselChildren = gsap.utils.toArray(showcaseCarouselContainer.children);
-        //     showcaseCarouselChildren.forEach((showcaseCarouselChild) => {
-        //         carouselWidth += showcaseCarouselChild.offsetWidth;
-        //     });
-        //     return carouselWidth;
-        // }
-
-        // const getCarouselTravel = () => {
-        //     if (!showcaseCarouselCards) { return }
-        //     const showcaseCarouselTravel = showcaseCarouselCards.offsetWidth;
-        //     return showcaseCarouselTravel;
-        // }
-
-        // //fill width of screen with clones
-        // const fillCarouselContainer = () => {
-        //     ScrollTrigger.refresh(true);
-        //     if (!showcaseCarouselContainer) { return }
-        //     const showcaseCarouselChildren = gsap.utils.toArray(showcaseCarouselContainer.children);
-        //     let fill = Math.max(2, Math.floor((window.innerWidth * 1.5) / getCarouselWidth()));
-        //     for (let i = 1; i <= fill; i++) {
-        //         if (showcaseCarouselChildren.length < fill) {
-        //             const showcaseCarouselCardsClone = showcaseCarouselCards.cloneNode(true);
-        //             showcaseCarouselContainer.append(showcaseCarouselCardsClone);
-        //         }
-        //     }
-        // }
-
-        // //trigger initial clones
-        // fillCarouselContainer();
-
-        // const carouselTL = gsap.timeline();
-        // carouselTL.to(showcaseCarouselContainer.children, {
-        //     x: () => -(getCarouselTravel()),
-        //     immediateRender: false,
-        //     ease: "none",
-        //     scrollTrigger: {
-        //         trigger: showcaseContainer,
-        //         pin: true,
-        //         scrub: true,
-        //         end: "+=3000",
-        //         markers: false,
-        //         invalidateOnRefresh: false,
-        //     }
-        // });
-
-        // ScrollTrigger.create({
-        //     id: "showcaseTrigger",
-        //     immediateRender: false,
-        //     markers: false,
-        //     start: 20,
-        //     end: () => ScrollTrigger.maxScroll(window) - 1,
-        //     refreshPriority: -100, // always update last
-        //     onLeave: self => {
-        //         self.scroll(self.start + 1);
-        //         ScrollTrigger.update();
-        //     },
-        //     onLeaveBack: self => {
-        //         self.scroll(self.end - 1);
-        //         ScrollTrigger.update();
-        //     }
-        // });
-
-        // ScrollTrigger.addEventListener("refreshInit", () => {
-        //     fillCarouselContainer();
-        // });
-        // return () => {
-        //     if (ScrollTrigger.getById("showcaseTrigger")) {
-        //         ScrollTrigger.getById("showcaseTrigger").kill();
-        //     }
-        // }
-
         const scrollingCards = gsap.utils.toArray(showcaseCarouselCards.children);
-
-        const tl = horizontalLoop(scrollingCards, {
-            repeat: -1,
-        });
+        let tl;
+        const carouselTL = gsap.timeline();
+        carouselTL.fromTo(scrollingCards, {
+            opacity: 0,
+            y: 100,
+        },
+            {
+                y: 0,
+                opacity: 1,
+                ease: 'ease',
+                duration: 1,
+                stagger: 0.11,
+                onComplete: () => {
+                    tl = horizontalLoop(scrollingCards, {
+                        repeat: -1,
+                    });
+                }
+            })
 
         Observer.create({
             onChangeY(self) {
-                let factor = 2.5;
+                let factor = 8;
                 if (self.deltaY < 0) {
                     factor *= -1;
                 }
                 gsap.timeline({
                     defaults: {
-                        ease: "none",
+                        ease: "ease",
                     }
                 })
-                    .to(tl, { timeScale: factor * 2.5, duration: 0.2 })
-                    .to(tl, { timeScale: factor / 2.5, duration: 1 }, "+=0.3");
-            }
+                    .to(tl, { timeScale: factor * 2.5, duration: 0.5 })
+                    .to(tl, { timeScale: factor / 8, duration: 0.5 });
+            },
         });
-
-
 
     }, []);
 
