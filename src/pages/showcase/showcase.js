@@ -19,6 +19,8 @@ import '../../styles/showcase.css';
 import { Media } from "../../media/media";
 
 const Showcase = () => {
+    //state
+    const [enabled, setEnabled] = useState(false);
     //refs
     let showcaseContainer = useRef(null);
     let showcaseContent = useRef(HTMLElement);
@@ -106,6 +108,10 @@ const Showcase = () => {
                     tl = horizontalLoop(scrollingCards, {
                         repeat: -1,
                     });
+
+
+                    setEnabled(true);
+
                 }
             })
 
@@ -126,6 +132,37 @@ const Showcase = () => {
         });
 
     }, []);
+
+
+    //parallax animation
+    const mouseAnimation = (event) => {
+        const scrollingCards = gsap.utils.toArray(showcaseCarouselCards.children);
+        let xPos = event.clientX / window.innerWidth - 0.5,
+            yPos = event.clientY / window.innerHeight - 0.5;
+        const parallaxTL = gsap.timeline();
+
+        if (scrollingCards) {
+            parallaxTL.to(scrollingCards, {
+                duration: 0.5,
+                rotationY: xPos * 10,
+                rotationX: yPos * -25,
+                rotate: xPos * 5,
+            }, 0)
+        }
+    }
+
+    //parallax trigger
+    useEffect(() => {
+        const handleMouseMove = (event) => {
+            if (!enabled) return;
+            mouseAnimation(event);
+        };
+        window.addEventListener('mousemove', (event) => handleMouseMove(event));
+        return () => {
+            window.removeEventListener('mousemove', (event) => handleMouseMove(event));
+        }
+    });
+
 
 
     return (
