@@ -55,6 +55,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     width: auto;
+    height: 100%;
 }
 
 .showcase-carousel-card-container {
