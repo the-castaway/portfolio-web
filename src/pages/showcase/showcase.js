@@ -1,4 +1,4 @@
-import { React, useEffect, useRef, useState } from 'react';
+import { React, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 import { Draggable } from "gsap/Draggable";
@@ -32,9 +32,12 @@ const Showcase = () => {
     //plugins
     gsap.registerPlugin(SplitText, Draggable, ScrollTrigger, ScrollSmoother);
 
+
     function horizontalLoop(items, config) {
+
         items = gsap.utils.toArray(items);
         config = config || {};
+
         let tl = gsap.timeline({ repeat: config.repeat, paused: config.paused, defaults: { ease: "none" }, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100) }),
             length = items.length,
             startX = items[0].offsetLeft,
@@ -87,81 +90,81 @@ const Showcase = () => {
             tl.vars.onReverseComplete();
             tl.reverse();
         }
+
         return tl;
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+
         const scrollingCards = gsap.utils.toArray(showcaseCarouselCards.children);
-        let tl;
-        const carouselTL = gsap.timeline();
-        carouselTL.fromTo(scrollingCards, {
-            opacity: 0,
-            y: 100,
-        },
-            {
-                y: 0,
-                opacity: 1,
-                ease: 'ease',
-                duration: 1,
-                stagger: 0.11,
-                onComplete: () => {
-                    tl = horizontalLoop(scrollingCards, {
-                        repeat: -1,
-                    });
 
-
-                    setEnabled(true);
-
-                }
-            })
-
-        Observer.create({
-            onChangeY(self) {
-                let factor = 8;
-                if (self.deltaY < 0) {
-                    factor *= -1;
-                }
-                gsap.timeline({
-                    defaults: {
-                        ease: "ease",
-                    }
-                })
-                    .to(tl, { timeScale: factor * 2.5, duration: 0.5 })
-                    .to(tl, { timeScale: factor / 8, duration: 0.5 });
+        const ctx = gsap.context(() => {
+            const horizontalLoopTL = horizontalLoop(scrollingCards, {
+                repeat: -1,
+            });
+            const carouselTL = gsap.timeline();
+            carouselTL.fromTo(scrollingCards, {
+                opacity: 0,
+                y: 100,
             },
-        });
+                {
+                    y: 0,
+                    opacity: 1,
+                    ease: 'ease',
+                    duration: 1,
+                    stagger: 0.11,
+                })
+
+            Observer.create({
+                onChangeY(self) {
+                    let factor = 8;
+                    if (self.deltaY < 0) {
+                        factor *= -1;
+                    }
+                    gsap.timeline({
+                        defaults: {
+                            ease: "ease",
+                        }
+                    })
+                        .to(horizontalLoopTL, { timeScale: factor * 2.5, duration: 0.2 })
+                        .to(horizontalLoopTL, { timeScale: factor / 8, duration: 0.2 });
+                },
+            });
+        })
+
+        return () => { ctx.revert(); console.log(ctx) }
 
     }, []);
 
 
     //parallax animation
-    const mouseAnimation = (event) => {
-        const scrollingCards = gsap.utils.toArray(showcaseCarouselCards.children);
-        let xPos = event.clientX / window.innerWidth - 0.5,
-            yPos = event.clientY / window.innerHeight - 0.5;
-        const parallaxTL = gsap.timeline();
+    // const mouseAnimation = (event) => {
+    //     const scrollingCards = gsap.utils.toArray(showcaseCarouselCards.children);
+    //     let xPos = event.clientX / window.innerWidth - 0.5,
+    //         yPos = event.clientY / window.innerHeight - 0.5;
+    //     const parallaxTL = gsap.timeline();
 
-        if (scrollingCards) {
-            parallaxTL.to(scrollingCards, {
-                duration: 0.5,
-                rotationY: xPos * 10,
-                rotationX: yPos * -25,
-                rotate: xPos * 5,
-            }, 0)
-        }
-    }
+    //     if (scrollingCards) {
+    //         parallaxTL.to(scrollingCards, {
+    //             duration: 0.5,
+    //             rotationY: xPos * 10,
+    //             rotationX: yPos * -25,
+    //             rotate: xPos * 5,
+    //         }, 0)
+    //     }
+    // }
 
-    //parallax trigger
-    useEffect(() => {
-        const handleMouseMove = (event) => {
-            if (!enabled) return;
-            mouseAnimation(event);
-        };
-        window.addEventListener('mousemove', (event) => handleMouseMove(event));
-        return () => {
-            window.removeEventListener('mousemove', (event) => handleMouseMove(event));
-        }
-    });
+    // //parallax trigger
+    // useEffect(() => {
+    //     const handleMouseMove = (event) => {
+    //         if (!enabled) return;
+    //         mouseAnimation(event);
+    //     };
+    //     window.addEventListener('mousemove', (event) => handleMouseMove(event));
+    //     return () => {
+    //         window.removeEventListener('mousemove', (event) => handleMouseMove(event));
+    //     }
+    // });
 
 
 
