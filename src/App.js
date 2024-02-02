@@ -13,6 +13,7 @@ import Project1 from './pages/projects/project1';
 import Project2 from './pages/projects/project2';
 //components
 import Nav from './components/nav.react'
+import Cursor from './components/cursor.react'
 //transitions
 import TransitionTrigger from "./pages/transitionTrigger";
 import { TransitionProvider } from "./context/transitionContext";
@@ -61,6 +62,7 @@ function App() {
           </Routes>
         </TransitionProvider>
       )}
+      <Cursor />
     </>
   );
 

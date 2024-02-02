@@ -33,11 +33,10 @@ const Showcase = () => {
     gsap.registerPlugin(SplitText, Draggable, ScrollTrigger, ScrollSmoother);
 
 
+    //carousel default timeline
     function horizontalLoop(items, config) {
-
         items = gsap.utils.toArray(items);
         config = config || {};
-
         let tl = gsap.timeline({ repeat: config.repeat, paused: config.paused, defaults: { ease: "none" }, onReverseComplete: () => tl.totalTime(tl.rawTime() + tl.duration() * 100) }),
             length = items.length,
             startX = items[0].offsetLeft,
@@ -90,31 +89,21 @@ const Showcase = () => {
             tl.vars.onReverseComplete();
             tl.reverse();
         }
-
         return tl;
     }
 
     useLayoutEffect(() => {
-
         const scrollingCards = gsap.utils.toArray(showcaseCarouselCards.children);
-
+        //gsap context
         const ctx = gsap.context(() => {
+
+
+            //carousel default 
             const horizontalLoopTL = horizontalLoop(scrollingCards, {
                 repeat: -1,
             });
-            const carouselTL = gsap.timeline();
-            carouselTL.fromTo(scrollingCards, {
-                opacity: 0,
-                y: 100,
-            },
-                {
-                    y: 0,
-                    opacity: 1,
-                    ease: 'ease',
-                    duration: 1,
-                    stagger: 0.11,
-                })
 
+            //observer
             Observer.create({
                 onChangeY(self) {
                     let factor = 8;
@@ -130,6 +119,28 @@ const Showcase = () => {
                         .to(horizontalLoopTL, { timeScale: factor / 8, duration: 0.2 });
                 },
             });
+
+            const carouselTL = gsap.timeline();
+            carouselTL.fromTo(scrollingCards,
+                {
+                    opacity: 0,
+                    y: 100,
+                },
+                {
+                    y: 0,
+                    opacity: 1,
+                    ease: 'ease',
+                    duration: 1,
+                    stagger: 0.11,
+                })
+
+
+
+
+
+
+
+
         })
 
         return () => { ctx.revert(); console.log(ctx) }
@@ -297,7 +308,6 @@ const Showcase = () => {
                     <Location />
                 </div>
             </div>
-            <div ref={el => showcaseCarouselDragProxy = el} className='showcase-carousel-drag-proxy' />
 
         </div >
 

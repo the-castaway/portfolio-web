@@ -10,4 +10,27 @@
 
 body {
   background-color: var(--jc-black);
+  cursor: none;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  padding: 15px;
+  background-color: #FFFFFF40;
+  border-radius: 50%;
+  border: var(--jc-ui-border);
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
+  z-index: 10000;
+}
+
+a:hover~.cursor {
+  transform: translate(-50%, -50%) scale(0.5);
+  background-color: var(--jc-blue);
+  border: var(--jc-ui-border);
+  cursor: none !important;
+
 }
