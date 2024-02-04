@@ -1,0 +1,50 @@
+.cursor {
+    pointer-events: none;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 30px;
+    background-color: #FFFFFF20;
+    border-radius: 50%;
+    border: var(--jc-ui-border);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease,
+        height 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+    z-index: 10000;
+}
+
+.cursor p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+    opacity: 0;
+}
+
+.home:hover~.cursor {
+    height: 100px;
+    width: 100px;
+    background-color: #FFFFFF20;
+    font-size: 14px;
+    border: var(--jc-ui-border);
+    transform: translate(-50%, -60%);
+}
+
+.home:hover~.cursor p {
+    opacity: 1;
+}
+
+
+.nav:has(a:hover)~.cursor,
+.nav-modal:has(a:hover)~.cursor {
+    transform: translate(-50%, -50%);
+    height: 15px;
+    width: 15px;
+    background-color: var(--jc-blue);
+}

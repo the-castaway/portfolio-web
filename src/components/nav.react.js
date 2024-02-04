@@ -161,7 +161,7 @@ const Nav = () => {
                         Jaime Castaneda
                     </div>
                 </NavLink>
-                <div ref={el => navButton = el} className="nav-button" onClick={() => { toggleModal(); }} >
+                <a ref={el => navButton = el} className="nav-button" onClick={() => { toggleModal(); }} >
                     <div ref={el => navButtonBorder = el} className="nav-button-border" />
                     <div ref={el => navButtonText = el} className="nav-button-text">
                         <p>
@@ -172,7 +172,7 @@ const Nav = () => {
                         <div className="nav-button-icon-horizontal" />
                         <div ref={el => navButtonIconLine = el} className="nav-button-icon-vertical" />
                     </div>
-                </div>
+                </a>
             </nav>
             <div ref={el => navModal = el} className="nav-modal">
                 <div className="nav-modal-links">
@@ -201,7 +201,6 @@ const Nav = () => {
                         </a>
                     </div>
                 </div>
-
             </div>
         </>
     );
