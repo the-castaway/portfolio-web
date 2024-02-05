@@ -9,8 +9,8 @@ const TIME = 4;
 const Loader = () => {
 
     //refs
-    const loaderCounter = useRef();
-    const loaderHeader = useRef();
+    const loaderCounter = useRef(HTMLElement);
+    const loaderHeader = useRef(HTMLElement);
 
     //initialize gsap plugins
     gsap.registerPlugin(SplitText);
