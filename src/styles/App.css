@@ -10,4 +10,9 @@
 
 body {
   background-color: var(--jc-black);
+  cursor: none;
+}
+
+a {
+  cursor: none;
 }
