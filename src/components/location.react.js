@@ -37,7 +37,6 @@ const Location = () => {
                 SF Bay Area, {currentTime}
             </p>
         </div>
-
     );
 }
 

@@ -44,7 +44,6 @@ const Link = ({ header, description }) => {
         link.current.addEventListener('mouseleave', () => { linkTL.reverse(); })
     }, [matches]);
 
-
     useEffect(() => {
         const onMediaChange = () => {
             setMatches(mediaQuery.matches);
