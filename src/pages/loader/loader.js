@@ -9,8 +9,8 @@ const TIME = 4;
 const Loader = () => {
 
     //refs
-    let loaderCounter = useRef(null);
-    let loaderHeader = useRef(null);
+    const loaderCounter = useRef();
+    const loaderHeader = useRef();
 
     //initialize gsap plugins
     gsap.registerPlugin(SplitText);
@@ -24,7 +24,7 @@ const Loader = () => {
         let ctx = gsap.context(() => {
             //define timeline
             const tl = gsap.timeline(),
-                loaderHeaderSplit = new SplitText(loaderHeader, { type: "chars" }),
+                loaderHeaderSplit = new SplitText(loaderHeader.current, { type: "chars" }),
                 loaderHeaderChars = loaderHeaderSplit.chars;
 
             tl.from(loaderHeaderChars, {
@@ -35,7 +35,7 @@ const Loader = () => {
                 stagger: 0.05,
                 delay: 0.5,
             });
-            tl.from(loaderCounter, {
+            tl.from(loaderCounter.current, {
                 duration: 0.5,
                 opacity: 0,
                 ease: "ease",
@@ -48,21 +48,22 @@ const Loader = () => {
                 onUpdate() {
                     let counterVal = Math.ceil(counter.val)
                     if (counter.val <= 9) {
-                        loaderCounter.textContent = '00' + counterVal;
+                        loaderCounter.current.textContent = '00' + counterVal;
                     }
                     else if (counter.val <= 99 && counter.val >= 9) {
-                        loaderCounter.textContent = '0' + counterVal;
+                        loaderCounter.current.textContent = '0' + counterVal;
                     }
                     else {
-                        loaderCounter.textContent = counterVal;
+                        loaderCounter.current.textContent = counterVal;
                     }
                 },
                 ease: 'power3.inOut',
                 delay: 0.5,
             });
-            tl.to(loaderCounter, {
+            tl.to(loaderCounter.current, {
                 duration: 0.5,
                 opacity: 0,
+                y: '-25%',
                 ease: "ease",
             });
             tl.to(loaderHeaderChars, {
@@ -75,18 +76,18 @@ const Loader = () => {
             });
         })
         return () => ctx.revert();
-    });
+    }, []);
 
     return (
         <div id="loader" className='loader'>
             <div className='loader-container'>
                 <p className='loader-counter'>
-                    <span ref={el => loaderCounter = el}>
+                    <span ref={loaderCounter}>
                         000
                     </span>
                 </p>
-                <h1 ref={el => loaderHeader = el} className='loader-header'>
-                    <span ref={el => loaderHeader = el}>
+                <h1 className='loader-header'>
+                    <span ref={loaderHeader}>
                         Hello.
                     </span>
                 </h1>
