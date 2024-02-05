@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
-import { gsap } from 'gsap';
+import React, { useEffect, useState } from 'react';
 //styles
 import '../styles/location.css';
 
@@ -30,8 +29,6 @@ const Location = () => {
         // Clear the interval on component unmount
         return () => clearInterval(intervalId);
     }, []);
-
-
 
     return (
         <div className='location'>
