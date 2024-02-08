@@ -134,6 +134,7 @@ const Home = () => {
       getHomeCardsIntroTL();
       getMarqueeIntroTL();
     })
+
     return () => {
       ctx.revert();
     };

@@ -31,6 +31,7 @@
     opacity: 0;
     perspective: 2000px;
     background-color: var(--jc-black);
+    max-width: 40vh;
 }
 
 .home-cards-container {
@@ -52,6 +53,7 @@
     border: var(--jc-ui-border);
     box-sizing: border-box;
     perspective: 2000px;
+    max-width: 40vh;
 }
 
 /* Marquee */
