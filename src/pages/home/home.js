@@ -14,8 +14,13 @@ const Home = () => {
   //state
   const [enabled, setEnabled] = useState(false);
   //refs
-  const homeMarquee = useRef(HTMLElement);
-  const homeMarqueeContent = useRef(HTMLElement);
+  //const homeMarquee = useRef(HTMLElement);
+  //const homeMarqueeContent = useRef(HTMLElement);
+  const homeHeader = useRef(HTMLElement);
+  const homeHeaderTextLeft = useRef(HTMLElement);
+  const homeHeaderTextRight = useRef(HTMLElement);
+  const homeHeaderLine = useRef(HTMLElement);
+
   const homeCards = useRef(HTMLElement);
   const homeCard1 = useRef(HTMLElement);
   const homeCard2 = useRef(HTMLElement);
@@ -51,6 +56,9 @@ const Home = () => {
       ease: 'ease',
       rotate: '-10deg',
       delay: 0,
+      onComplete: () => {
+        setEnabled(true);
+      },
     }, 0)
     return tl;
   }
@@ -92,47 +100,47 @@ const Home = () => {
       y: yPos * 100,
       x: xPos * 100,
     }, 0)
-    tl.to(homeMarquee.current, {
+    tl.to(homeHeader.current, {
       duration: 0.5,
       rotate: xPos * 10,
     }, 0)
     return tl;
   }
 
-  //marquee animation timeline
-  const getMarqueeIntroTL = () => {
-    //marquee animation
-    const tl = gsap.timeline();
-    tl.to(homeMarquee.current, {
-      duration: 0.5,
-      scale: 1,
-      opacity: 1,
-      ease: "ease",
-      delay: 0.8,
-      onComplete: () => {
-        setEnabled(true);
-      },
-    }, 0);
-    tl.fromTo(homeMarquee.current.children, {
-      x: 0,
-    }, {
-      duration: 30,
-      xPercent: -100,
-      ease: "none",
-      repeat: -1,
-    }, 0);
-    return tl;
-  }
+  // //marquee animation timeline
+  // const getMarqueeIntroTL = () => {
+  //   //marquee animation
+  //   const tl = gsap.timeline();
+  //   tl.to(homeMarquee.current, {
+  //     duration: 0.5,
+  //     scale: 1,
+  //     opacity: 1,
+  //     ease: "ease",
+  //     delay: 0.8,
+  //     onComplete: () => {
+  //       setEnabled(true);
+  //     },
+  //   }, 0);
+  //   tl.fromTo(homeMarquee.current.children, {
+  //     x: 0,
+  //   }, {
+  //     duration: 30,
+  //     xPercent: -100,
+  //     ease: "none",
+  //     repeat: -1,
+  //   }, 0);
+  //   return tl;
+  // }
 
   //intro 
   useLayoutEffect(() => {
     //setup marquee
-    const marqueeContentClone = homeMarqueeContent.current.cloneNode(true);
-    homeMarquee.current.append(marqueeContentClone);
+    //const marqueeContentClone = homeMarqueeContent.current.cloneNode(true);
+    //homeMarquee.current.append(marqueeContentClone);
     //gsap animations
     const ctx = gsap.context((context) => {
       getHomeCardsIntroTL();
-      getMarqueeIntroTL();
+      // getMarqueeIntroTL();
     })
 
     return () => {
@@ -186,7 +194,22 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='home-marquee-container'>
+      <div className='home-header-container'>
+        <div className='home-header' ref={homeHeader}>
+          <h1 className='home-header-text' ref={homeHeaderTextLeft}>
+            <span>
+              2024
+            </span>
+          </h1>
+          <div className='home-header-line' ref={homeHeaderLine} />
+          <h1 className='home-header-text' ref={homeHeaderTextRight}>
+            <span>
+              Folio
+            </span>
+          </h1>
+        </div>
+      </div>
+      {/* <div className='home-marquee-container'>
         <div id='homeMarquee' ref={homeMarquee} className='home-marquee'>
           <div ref={homeMarqueeContent} className='home-marquee-content'>
             <span className='home-marquee-text'>
@@ -215,7 +238,7 @@ const Home = () => {
             </span>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className='home-info-container'>
         <h2 className='home-info-description'>
           Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>

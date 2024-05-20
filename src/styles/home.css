@@ -58,6 +58,38 @@
 
 /* Marquee */
 
+.home-header-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-bottom: 60px;
+}
+
+.home-header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.home-header-text {
+    color: var(--jc-off-white);
+    letter-spacing: 0;
+    font-kerning: none;
+    line-height: 1.1;
+}
+
+.home-header-line {
+    height: 2px;
+    width: 50%;
+    background-color: var(--jc-off-white);
+}
+
 .home-marquee-container {
     height: 100%;
     width: 100%;

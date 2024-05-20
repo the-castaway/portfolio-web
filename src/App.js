@@ -33,7 +33,7 @@ function App() {
         loadMedia.onload = () =>
           setTimeout(() => {
             resolve(media.src)
-          }, 7000);
+          }, 5100);
         loadMedia.onerror = err => reject(err)
       })
     }
@@ -49,7 +49,7 @@ function App() {
     <>
       <Nav location={location} />
       {loading ? (
-        <Loader />
+        <Loader location={location} />
       ) : (
         <TransitionProvider>
           <Routes location={location}>
@@ -64,6 +64,24 @@ function App() {
       )}
       <Cursor />
     </>
+    // <>
+    //   <Nav location={location} />
+
+    //   <Loader />
+
+    //   <TransitionProvider>
+    //     <Routes location={location}>
+    //       <Route index key="home" path="/" exact element={<TransitionTrigger><Home /></TransitionTrigger>} />
+    //       <Route key="about" path="about" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
+    //       <Route key="showcase" path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>}>
+    //         <Route key="project1" path="project1" element={<Project1 />} />
+    //         <Route key="project2" path="project2" element={<Project2 />} />
+    //       </Route>
+    //     </Routes>
+    //   </TransitionProvider>
+
+    //   <Cursor />
+    // </>
   );
 
 }

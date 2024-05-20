@@ -1,16 +1,24 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
+//components
+import Location from '../../components/location.react';
+import Instruction from '../../components/instruction.react';
 //styles
 import '../../styles/loader.css';
+//styles
+import '../../styles/home.css';
 
 const TIME = 4;
 
-const Loader = () => {
+const Loader = ({ location }) => {
 
     //refs
     const loaderCounter = useRef(HTMLElement);
-    const loaderHeader = useRef(HTMLElement);
+    const loaderHeaderLeft = useRef(HTMLElement);
+    const loaderHeaderRight = useRef(HTMLElement);
+    const loaderLine = useRef(HTMLElement);
+    const loaderFooter = useRef(HTMLElement);
 
     //initialize gsap plugins
     gsap.registerPlugin(SplitText);
@@ -23,25 +31,35 @@ const Loader = () => {
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
             //define timeline
-            const tl = gsap.timeline(),
-                loaderHeaderSplit = new SplitText(loaderHeader.current, { type: "chars" }),
-                loaderHeaderChars = loaderHeaderSplit.chars;
+            const tl = gsap.timeline();
 
-            tl.from(loaderHeaderChars, {
-                duration: 0.5,
-                opacity: 0,
-                y: '25%',
-                ease: "ease",
-                stagger: 0.05,
-                delay: 0.5,
-            });
+            //intro animation
             tl.from(loaderCounter.current, {
                 duration: 0.5,
                 opacity: 0,
                 ease: "ease",
-                delay: -0.4,
-
-            });
+            }, 0);
+            tl.from(loaderFooter.current, {
+                duration: 0.5,
+                opacity: 0,
+                ease: "ease",
+            }, 0);
+            tl.from(loaderHeaderLeft.current, {
+                duration: 0.5,
+                xPercent: 25,
+                opacity: 0,
+            }, 0)
+            tl.from(loaderLine.current, {
+                duration: 0.5,
+                width: 0,
+                opacity: 0,
+            }, 0)
+            tl.from(loaderHeaderRight.current, {
+                duration: 0.5,
+                xPercent: -25,
+                opacity: 0,
+            }, 0)
+            //counter animation
             tl.to(counter, {
                 duration: TIME,
                 val: 100,
@@ -58,22 +76,72 @@ const Loader = () => {
                     }
                 },
                 ease: 'power3.inOut',
-                delay: 0.5,
-            });
+                delay: -0.2,
+            }, 1);
+            //exit animation
+            tl.to(loaderHeaderLeft.current, {
+                duration: 0.5,
+                transform: () => {
+                    if (location.pathname === '/') {
+                        return 'scale(1)'
+                    }
+                    else { return 'scale(0.8)' }
+                },
+                xPercent: () => {
+                    if (location.pathname === '/') {
+                        return 0
+                    }
+                    else { return 25 }
+                },
+                opacity: () => {
+                    if (location.pathname === '/') {
+                        return 1
+                    }
+                    else { return 0 }
+                },
+                ease: "ease",
+                delay: 2.5,
+            }, 2);
+            tl.to(loaderHeaderRight.current, {
+                duration: 0.5,
+                transform: () => {
+                    if (location.pathname === '/') {
+                        return 'scale(1)'
+                    }
+                    else { return 'scale(0.8)' }
+                },
+                xPercent: () => {
+                    if (location.pathname === '/') {
+                        return 0
+                    }
+                    else { return -25 }
+                },
+                opacity: () => {
+                    if (location.pathname === '/') {
+                        return 1
+                    }
+                    else { return 0 }
+                },
+                ease: "ease",
+                delay: 2.5,
+            }, 2);
+            tl.to(loaderLine.current, {
+                duration: 0.5,
+                width: () => {
+                    if (location.pathname === '/') {
+                        return "50%"
+                    }
+                    else { return 0 }
+                },
+                ease: "ease",
+                delay: 2.5,
+            }, 2);
             tl.to(loaderCounter.current, {
                 duration: 0.5,
                 opacity: 0,
-                y: '-25%',
                 ease: "ease",
-            });
-            tl.to(loaderHeaderChars, {
-                duration: 0.5,
-                opacity: 0,
-                y: '-25%',
-                ease: "ease",
-                stagger: 0.05,
-                delay: -0.5,
-            });
+                delay: 2.5,
+            }, 2);
         })
         return () => ctx.revert();
     }, []);
@@ -81,17 +149,27 @@ const Loader = () => {
     return (
         <div id="loader" className='loader'>
             <div className='loader-container'>
+                <h1 className='loader-header' ref={loaderHeaderLeft}>
+                    <span>
+                        2024
+                    </span>
+                </h1>
+                <div className='loader-line' ref={loaderLine} />
+                <h1 className='loader-header' ref={loaderHeaderRight}>
+                    <span>
+                        Folio
+                    </span>
+                </h1>
                 <p className='loader-counter'>
                     <span ref={loaderCounter}>
                         000
                     </span>
                 </p>
-                <h1 className='loader-header'>
-                    <span ref={loaderHeader}>
-                        Hello.
-                    </span>
-                </h1>
             </div >
+            <div className='home-info-footer' ref={loaderFooter}>
+                <Instruction />
+                <Location />
+            </div>
         </div >
     );
 }
