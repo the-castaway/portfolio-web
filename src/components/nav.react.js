@@ -14,6 +14,7 @@ const Nav = () => {
     const navModal = useRef(HTMLElement);
     const navModalShowcase = useRef(HTMLElement);
     const navModalAbout = useRef(HTMLElement);
+    const navModalLab = useRef(HTMLElement);
     const navModalContact = useRef(HTMLElement);
     const navButton = useRef(HTMLElement);
     const navButtonBorder = useRef(HTMLElement);
@@ -105,12 +106,19 @@ const Nav = () => {
             ease: "ease",
             delay: 0.3,
         }, 0)
-        modalTL.from(navModalContact.current, {
+        modalTL.from(navModalLab.current, {
             duration: 0.3,
             y: '25%',
             opacity: 0,
             ease: "ease",
             delay: 0.4,
+        }, 0)
+        modalTL.from(navModalContact.current, {
+            duration: 0.3,
+            y: '25%',
+            opacity: 0,
+            ease: "ease",
+            delay: 0.5,
         }, 0)
     }
 
@@ -174,23 +182,47 @@ const Nav = () => {
                         <Link header={'Showcase'} description={"Let's get it"} />
                     </NavLink>
                     <NavLink ref={navModalAbout} onClick={() => { collapseModal(); }} to="/about" exact='true'>
-                        <Link header={'About'} description={"Wanna be frens?"} />
+                        <Link header={'About'} description={"Who is Jaime?"} />
+                    </NavLink>
+                    <NavLink ref={navModalLab} onClick={() => { collapseModal(); }} to="/lab" exact='true'>
+                        <Link header={'Lab'} description={"Back to the drawing board"} />
                     </NavLink>
                 </div>
-                <hr className="nav-modal-divider" />
                 <div className="nav-modal-contact" ref={navModalContact} >
                     <h2 className="nav-modal-contact-header">
-                        Let's Chat
+                        [ Let's Connect ]
                     </h2>
                     <div className="nav-modal-contact-links">
-                        <a href="mailto:jccd.designs@gmail.com">
-                            <p className="nav-modal-contact-link-email">
-                                hello@jaimecastaneda.com
+                        <div className="nav-modal-contact-info">
+                            <h4>
+                                Locale
+                            </h4>
+                            <p>
+                                SF Bay Area
+                            </p>
+                        </div>
+                        <div href="mailto:jccd.designs@gmail.com" className="nav-modal-contact-info">
+                            <h4>
+                                Socials
+                            </h4>
+                            <p>
+                                @the_casta_way
+                            </p>
+                        </div>
+                        <a href="tel:408-828-3020" className="nav-modal-contact-link">
+                            <h4>
+                                Phone
+                            </h4>
+                            <p>
+                                +1 408 828 3020
                             </p>
                         </a>
-                        <a href="tel:408-828-3020">
-                            <p className="nav-modal-contact-link-phone">
-                                +1.408.828.3020
+                        <a href="mailto:jccd.designs@gmail.com" className="nav-modal-contact-link">
+                            <h4>
+                                Email
+                            </h4>
+                            <p>
+                                hello@jaimecastaneda.com
                             </p>
                         </a>
                     </div>
