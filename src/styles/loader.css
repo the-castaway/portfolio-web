@@ -48,7 +48,6 @@
     background-color: var(--jc-off-white);
 }
 
-
 @media (max-width: 600px) {
     .loader {
         box-sizing: border-box;

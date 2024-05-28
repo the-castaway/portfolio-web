@@ -36,7 +36,9 @@ function Cursor() {
         return (
             <div ref={cursor} className="cursor">
                 <p>
-                    (Enter)
+                    <b>
+                        [&nbsp;Enter&nbsp;]
+                    </b>
                 </p>
             </div>
         );
