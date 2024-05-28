@@ -201,7 +201,7 @@ const Nav = () => {
                                 SF Bay Area
                             </p>
                         </div>
-                        <div href="mailto:jccd.designs@gmail.com" className="nav-modal-contact-info">
+                        <div className="nav-modal-contact-info">
                             <h4>
                                 Socials
                             </h4>
