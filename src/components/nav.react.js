@@ -185,7 +185,7 @@ const Nav = () => {
                         <Link header={'About'} description={"Who is Jaime?"} />
                     </NavLink>
                     <NavLink ref={navModalLab} onClick={() => { collapseModal(); }} to="/lab" exact='true'>
-                        <Link header={'Lab'} description={"Back to the drawing board"} />
+                        <Link header={'Lab'} description={"Let's explore"} />
                     </NavLink>
                 </div>
                 <div className="nav-modal-contact" ref={navModalContact} >

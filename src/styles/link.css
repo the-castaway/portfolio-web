@@ -61,6 +61,14 @@
 
 @media (max-width: 600px) {
 
+    .link {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 20px;
+        width: max-content;
+    }
+
     .link-header {
         display: flex;
         align-items: center;
