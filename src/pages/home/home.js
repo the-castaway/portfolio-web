@@ -3,8 +3,7 @@ import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 import { Link } from "react-router-dom"
 //components
-import Location from '../../components/location.react';
-import Instruction from '../../components/instruction.react';
+import Footer from '../../components/footer.react';
 //styles
 import '../../styles/home.css';
 //assets
@@ -14,8 +13,6 @@ const Home = () => {
   //state
   const [enabled, setEnabled] = useState(false);
   //refs
-  //const homeMarquee = useRef(HTMLElement);
-  //const homeMarqueeContent = useRef(HTMLElement);
   const homeHeader = useRef(HTMLElement);
   const homeHeaderTextLeft = useRef(HTMLElement);
   const homeHeaderTextRight = useRef(HTMLElement);
@@ -243,10 +240,7 @@ const Home = () => {
         <h2 className='home-info-description'>
           Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>
         </h2>
-        <div className='home-info-footer'>
-          <Instruction />
-          <Location />
-        </div>
+        <Footer />
       </div>
     </Link >
   );

@@ -2,12 +2,9 @@ import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 //components
-import Location from '../../components/location.react';
-import Instruction from '../../components/instruction.react';
+import Footer from '../../components/footer.react';
 //styles
 import '../../styles/loader.css';
-//styles
-import '../../styles/home.css';
 
 const TIME = 4;
 
@@ -166,10 +163,7 @@ const Loader = ({ location }) => {
                     </span>
                 </p>
             </div >
-            <div className='home-info-footer' ref={loaderFooter}>
-                <Instruction />
-                <Location />
-            </div>
+            <Footer />
         </div >
     );
 }

@@ -10,7 +10,7 @@ const Location = () => {
         const updateTime = () => {
             const now = new Date();
             let hours = now.getHours();
-            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const ampm = hours >= 12 ? 'pm' : 'am';
 
             // Convert hours to 12-hour format
             hours = hours % 12 || 12;
@@ -32,7 +32,6 @@ const Location = () => {
 
     return (
         <div className='location'>
-            <div className='location-icon' />
             <p className='location-text'>
                 SF Bay Area, {currentTime}
             </p>

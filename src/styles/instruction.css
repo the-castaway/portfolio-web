@@ -1,8 +1,36 @@
 .instruction {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     width: auto;
+    position: relative;
 }
 
 .instruction-text {
-    font-size: 16px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.02rem;
     color: var(--jc-off-white);
+    padding: 0 10px;
+    opacity: 0;
+}
+
+.instruction-brackets {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: absolute;
+    width: auto;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.02rem;
+    color: var(--jc-off-white);
+}
+
+@media (max-width: 600px) {
+    .instruction-text {
+        font-size: 10px;
+        font-weight: 800;
+    }
+
 }

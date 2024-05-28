@@ -4,39 +4,20 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 10px;
-    font-size: 12px;
-    color: var(--jc-off-white);
-
-}
-
-.location-icon {
-    height: 8px;
-    width: 8px;
-    background-color: var(--jc-blue);
-    border-radius: 4px;
-    animation: pulse 2s infinite;
 }
 
 .location-text {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.02rem;
+    color: var(--jc-off-white);
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.7;
+@media (max-width: 600px) {
+    .location-text {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.02rem;
     }
 
-    50% {
-        transform: scale(1.5);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 0.7;
-    }
 }
