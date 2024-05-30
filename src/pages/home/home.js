@@ -70,32 +70,32 @@ const Home = () => {
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotate: xPos * 40,
-      y: yPos * 400,
-      x: xPos * 400,
+      y: yPos * 200,
+      x: xPos * 200,
     }, 0)
     tl.to(homeCard2.current, {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotate: xPos * 30,
-      y: yPos * 300,
-      x: xPos * 300,
+      y: yPos * 150,
+      x: xPos * 150,
     }, 0)
     tl.to(homeCard3.current, {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotate: xPos * 20,
-      y: yPos * 200,
-      x: xPos * 200,
+      y: yPos * 100,
+      x: xPos * 100,
     }, 0)
     tl.to(homeCard4.current, {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotate: xPos * 10,
-      y: yPos * 100,
-      x: xPos * 100,
+      y: yPos * 50,
+      x: xPos * 50,
     }, 0)
     tl.to(homeHeader.current, {
       duration: 0.5,
@@ -178,11 +178,45 @@ const Home = () => {
         </div>
       </div>
       <div className='home-info-container'>
-        <h2 className='home-info-description'>
-          Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>
-        </h2>
-        <Footer instruction={"Click Anywhere"} scroll={true} />
+        <div className='home-info-content'>
+          <div className="home-info-text-node">
+            <h4>
+              Name
+            </h4>
+            <p>
+              Jaime Castaneda
+            </p>
+          </div>
+          <div className="home-info-text-node">
+            <h4>
+              Status
+            </h4>
+            <div className='home-info-text-node-status'>
+              <div className='home-info-text-node-status-icon' />
+              <p>
+                Available
+              </p>
+            </div>
+          </div>
+          <div className="home-info-text-node">
+            <h4>
+              Occupation
+            </h4>
+            <p>
+              Designer / Developer
+            </p>
+          </div>
+          <div className="home-info-text-node">
+            <h4>
+              Currently
+            </h4>
+            <p>
+              Designer / Engineer @ Meta
+            </p>
+          </div>
+        </div>
       </div>
+      <Footer instruction={"Click Anywhere"} scroll={true} />
     </Link >
   );
 }

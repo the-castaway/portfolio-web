@@ -126,6 +126,7 @@ const Loader = ({ location }) => {
                     }
                     else { return 0 }
                 },
+                maxWidth: '80vh',
                 ease: "ease",
                 delay: 2.5,
             }, 2);
