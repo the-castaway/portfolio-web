@@ -9,17 +9,14 @@ import '../../styles/loader.css';
 const TIME = 4;
 
 const Loader = ({ location }) => {
-
     //refs
     const loaderCounter = useRef(HTMLElement);
     const loaderHeaderLeft = useRef(HTMLElement);
     const loaderHeaderRight = useRef(HTMLElement);
     const loaderLine = useRef(HTMLElement);
     const loaderFooter = useRef(HTMLElement);
-
     //initialize gsap plugins
     gsap.registerPlugin(SplitText);
-
     //counter 
     let counter = {
         val: 0
@@ -29,7 +26,6 @@ const Loader = ({ location }) => {
         let ctx = gsap.context(() => {
             //define timeline
             const tl = gsap.timeline();
-
             //intro animation
             tl.from(loaderCounter.current, {
                 duration: 0.5,

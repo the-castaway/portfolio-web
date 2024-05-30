@@ -104,40 +104,11 @@ const Home = () => {
     return tl;
   }
 
-  // //marquee animation timeline
-  // const getMarqueeIntroTL = () => {
-  //   //marquee animation
-  //   const tl = gsap.timeline();
-  //   tl.to(homeMarquee.current, {
-  //     duration: 0.5,
-  //     scale: 1,
-  //     opacity: 1,
-  //     ease: "ease",
-  //     delay: 0.8,
-  //     onComplete: () => {
-  //       setEnabled(true);
-  //     },
-  //   }, 0);
-  //   tl.fromTo(homeMarquee.current.children, {
-  //     x: 0,
-  //   }, {
-  //     duration: 30,
-  //     xPercent: -100,
-  //     ease: "none",
-  //     repeat: -1,
-  //   }, 0);
-  //   return tl;
-  // }
-
   //intro 
   useLayoutEffect(() => {
-    //setup marquee
-    //const marqueeContentClone = homeMarqueeContent.current.cloneNode(true);
-    //homeMarquee.current.append(marqueeContentClone);
     //gsap animations
     const ctx = gsap.context((context) => {
       getHomeCardsIntroTL();
-      // getMarqueeIntroTL();
     })
 
     return () => {
@@ -206,36 +177,6 @@ const Home = () => {
           </h1>
         </div>
       </div>
-      {/* <div className='home-marquee-container'>
-        <div id='homeMarquee' ref={homeMarquee} className='home-marquee'>
-          <div ref={homeMarqueeContent} className='home-marquee-content'>
-            <span className='home-marquee-text'>
-              designer
-            </span>
-            <span className='home-marquee-text'>
-              -
-            </span>
-            <span className='home-marquee-text'>
-              developer
-            </span>
-            <span className='home-marquee-text'>
-              -
-            </span>
-            <span className='home-marquee-text'>
-              creator
-            </span>
-            <span className='home-marquee-text'>
-              -
-            </span>
-            <span className='home-marquee-text'>
-              director
-            </span>
-            <span className='home-marquee-text'>
-              -
-            </span>
-          </div>
-        </div>
-      </div> */}
       <div className='home-info-container'>
         <h2 className='home-info-description'>
           Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>

@@ -146,6 +146,7 @@ const Nav = () => {
                 </a>
             </nav>
             <div ref={navModal} className="nav-modal">
+
                 <div className="nav-modal-links">
                     <NavLink ref={navModalShowcase} onClick={() => { collapseModal(); }} to="/showcase" exact='true'>
                         <Link header={'Showcase'} description={"Let's get it"} />

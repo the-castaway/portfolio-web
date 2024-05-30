@@ -24,14 +24,16 @@
 .loader-counter {
     display: flex;
     position: absolute;
-    bottom: 50px;
-    left: 50%;
-    justify-content: flex-end;
+    bottom: 0;
+    transform: translate(50%, 0);
+    justify-content: center;
+    align-items: center;
     color: var(--jc-blue);
     line-height: 1.1;
     letter-spacing: 0;
     font-kerning: none;
-    width: 35px;
+    width: auto;
+    height: 60px;
 }
 
 .loader-header {
@@ -44,7 +46,7 @@
 
 .loader-line {
     height: 2px;
-    width: 20px;
+    width: 2px;
     background-color: var(--jc-off-white);
 }
 
@@ -62,5 +64,21 @@
 
     .loader-header {
         font-size: 32px;
+    }
+
+    .loader-counter {
+        display: flex;
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        justify-content: center;
+        align-items: center;
+        color: var(--jc-blue);
+        line-height: 1.1;
+        letter-spacing: 0;
+        font-kerning: none;
+        width: 35px;
+        height: 60px;
     }
 }
