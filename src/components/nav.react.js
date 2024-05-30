@@ -22,38 +22,10 @@ const Nav = () => {
     const navButtonIcon = useRef(HTMLElement);
     const navButtonIconLine = useRef(HTMLElement);
     const navTitle = useRef(HTMLElement);
-    const navTitleDefault = useRef(HTMLElement);
-    const navTitleHover = useRef(HTMLElement);
+
 
     //handle initial logic
     useLayoutEffect(() => {
-        //title
-        const titleTL = gsap.timeline(),
-            navTitleDefaultSplit = new SplitText(navTitleDefault.current, { type: "chars" }),
-            navTitleHoverSplit = new SplitText(navTitleHover.current, { type: "chars" }),
-            navTitleDefaultChars = navTitleDefaultSplit.chars,
-            navTitleHoverChars = navTitleHoverSplit.chars;
-        titleTL.pause();
-
-        titleTL.to(navTitleDefaultChars, {
-            duration: 0.3,
-            opacity: 0,
-            y: '-25%',
-            ease: "ease",
-            stagger: 0.03,
-        }, 0);
-        titleTL.from(navTitleHoverChars, {
-            duration: 0.3,
-            opacity: 0,
-            y: '25%',
-            ease: "ease",
-            stagger: 0.05,
-            delay: 0.01,
-        }, 0);
-
-        navTitle.current.addEventListener('mouseenter', () => { titleTL.play() })
-        navTitle.current.addEventListener('mouseleave', () => { titleTL.reverse() })
-
         //button
         const buttonTL = gsap.timeline();
         buttonTL.pause();
@@ -156,11 +128,8 @@ const Nav = () => {
         <>
             <nav id="nav" className='nav'>
                 <NavLink ref={navTitle} onClick={() => { collapseModal(); }} to="/" exact='true' className='nav-title'>
-                    <div ref={navTitleDefault} className="nav-title-default">
-                        JC
-                    </div>
-                    <div ref={navTitleHover} className="nav-title-hover">
-                        Jaime Castaneda
+                    <div>
+                        Jaime
                     </div>
                 </NavLink>
                 <a ref={navButton} className="nav-button" onClick={() => { toggleModal(); }} >
