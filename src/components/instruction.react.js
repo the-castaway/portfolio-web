@@ -1,15 +1,18 @@
-import React, { useLayoutEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 //styles
 import '../styles/instruction.css';
 
-const Instruction = () => {
+const Instruction = ({ instruction, scroll }) => {
     //refs
     const instructionText = useRef(HTMLElement);
     const instructionBrackets = useRef(HTMLElement);
+    //plugins
+    gsap.registerPlugin(ScrollTrigger);
 
     //intro animations
-    useLayoutEffect(() => {
+    useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline();
             tl.to(instructionText.current,
@@ -25,16 +28,27 @@ const Instruction = () => {
                     width: '100%',
                 }, 0
             )
+            console.log(true)
+
+            ScrollTrigger.addEventListener("scrollEnd", () => {
+                tl.play()
+            }
+
+            );
+            ScrollTrigger.addEventListener("scrollStart", () => {
+                tl.reverse()
+            }
+            );
         })
         return () => {
             ctx.revert();
         };
-    }, [])
+    }, [scroll])
 
     return (
         <div className='instruction'>
             <p className='instruction-text' ref={instructionText}>
-                Click Anywhere
+                {instruction}
             </p>
             <div className='instruction-brackets' ref={instructionBrackets}>
                 <p className='instruction-bracket-left'>

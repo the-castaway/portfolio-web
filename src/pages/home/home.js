@@ -240,7 +240,7 @@ const Home = () => {
         <h2 className='home-info-description'>
           Jaime Castaneda <span className='home-info-description-dark'>Folio’24</span>
         </h2>
-        <Footer />
+        <Footer instruction={"Click Anywhere"} scroll={true} />
       </div>
     </Link >
   );

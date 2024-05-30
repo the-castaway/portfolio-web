@@ -163,7 +163,7 @@ const Loader = ({ location }) => {
                     </span>
                 </p>
             </div >
-            <Footer />
+            <Footer instruction={"Wait"} />
         </div >
     );
 }
