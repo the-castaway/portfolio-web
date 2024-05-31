@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
-import { Link } from "react-router-dom"
 //components
 import Footer from '../../components/footer.react';
 //styles
@@ -17,12 +17,13 @@ const Home = () => {
   const homeHeaderTextLeft = useRef(HTMLElement);
   const homeHeaderTextRight = useRef(HTMLElement);
   const homeHeaderLine = useRef(HTMLElement);
-
   const homeCards = useRef(HTMLElement);
   const homeCard1 = useRef(HTMLElement);
   const homeCard2 = useRef(HTMLElement);
   const homeCard3 = useRef(HTMLElement);
   const homeCard4 = useRef(HTMLElement);
+  //variables
+  const navigate = useNavigate();
   //plugins
   gsap.registerPlugin(SplitText);
 
@@ -110,7 +111,6 @@ const Home = () => {
     const ctx = gsap.context((context) => {
       getHomeCardsIntroTL();
     })
-
     return () => {
       ctx.revert();
     };
@@ -136,8 +136,13 @@ const Home = () => {
     };
   }, [enabled])
 
+  //handle enter click
+  const handleEnter = () => {
+    navigate('/showcase');
+  }
+
   return (
-    <Link className='home' to="/showcase" exact='true'>
+    <div className='home' onClick={handleEnter}>
       <div className='home-cards-container'>
         <div ref={homeCards} className='home-cards'>
           <div className='home-card-container'>
@@ -217,7 +222,7 @@ const Home = () => {
         </div>
       </div>
       <Footer instruction={"Click Anywhere"} scroll={true} />
-    </Link >
+    </div >
   );
 }
 
