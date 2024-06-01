@@ -14,6 +14,7 @@ import Project2 from './pages/projects/project2';
 //components
 import Nav from './components/nav.react'
 import Cursor from './components/cursor.react'
+import WIP from './components/wip.react'
 //transitions
 import TransitionTrigger from "./pages/transitionTrigger";
 import { TransitionProvider } from "./context/transitionContext";
@@ -63,7 +64,9 @@ function App() {
           </Routes>
         </TransitionProvider>
       )}
+
       <Cursor />
+      <WIP />
     </>
   );
 
