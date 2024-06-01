@@ -1,12 +1,24 @@
 .wip {
     position: fixed;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     right: 0;
+    color: var(--jc-off-white);
     bottom: 60px;
     background-color: var(--jc-blue);
     height: 40px;
-    width: 80px;
+    width: auto;
+    padding: 0 15px;
     border-radius: 40px 0px 0 40px;
+}
+
+.wip p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.wip a {
+    text-decoration: underline;
 }
