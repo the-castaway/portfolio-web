@@ -10,8 +10,8 @@ import {
     Outlet,
 } from "react-router-dom"
 //components
+import Featured from '../../components/featured.react';
 import Footer from '../../components/footer.react';
-import Instruction from '../../components/instruction.react';
 //styles
 import '../../styles/showcase.css';
 //assets
@@ -21,9 +21,7 @@ const Showcase = () => {
 
     useLayoutEffect(() => {
 
-
     }, []);
-
 
 
 
@@ -61,17 +59,87 @@ const Showcase = () => {
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
-
-
-
-
+            <div className='showcase-featured-container'>
+                <div className='showcase-featured-ui'>
+                    <p className='showcase-featured-ui-latest'>
+                        Featured
+                    </p>
+                    <p>
+                        -
+                    </p>
+                    <Link to={"/archive"}><p className='showcase-featured-ui-archive'>Archive</p></Link>
+                </div>
+                <div className='showcase-featured-work'>
+                    <Featured href={'/showcase'} number={'001'} media={0}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'002'} media={1}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'003'} media={2}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'004'} media={3}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'001'} media={0}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'002'} media={1}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'003'} media={2}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'004'} media={3}>
+                        <h2>
+                            <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                </div>
+            </div>
             <Footer instruction={"Scroll Down"} />
         </div >
+
 
     );
 }

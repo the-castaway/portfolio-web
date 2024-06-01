@@ -36,7 +36,7 @@ a,
 p {
     font-family: var(--jc-font-family);
     margin: 0;
-    color: var(--jc-light-grey);
+    color: var(--jc-off-white);
     letter-spacing: 0.035rem;
 }
 

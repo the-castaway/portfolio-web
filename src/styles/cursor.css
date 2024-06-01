@@ -41,9 +41,16 @@
     opacity: 1;
 }
 
-
 .nav:has(a:hover)~.cursor,
 .nav-modal:has(a:hover)~.cursor {
+    transform: translate(-50%, -50%);
+    height: 15px;
+    width: 15px;
+    background-color: var(--jc-blue);
+    border: none;
+}
+
+.showcase:has(a:hover)~.cursor {
     transform: translate(-50%, -50%);
     height: 15px;
     width: 15px;
