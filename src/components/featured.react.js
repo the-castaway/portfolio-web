@@ -15,7 +15,7 @@ import { Media } from "../media/media";
 
 const Featured = ({ children, number, href, media }) => {
     //state
-    const [enabled, setEnabled] = useState(false);
+    //const [enabled, setEnabled] = useState(false);
     //refs
     const featuredContent = useRef(HTMLElement);
     const featuredCard = useRef(HTMLElement);
@@ -44,6 +44,7 @@ const Featured = ({ children, number, href, media }) => {
         return tl;
     }
 
+    //activate timeline
     const getActiveTL = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -51,29 +52,20 @@ const Featured = ({ children, number, href, media }) => {
                 markers: false,
                 pin: false, // pin the trigger element while active
                 start: 'bottom bottom',
-                end: () => {
-                    const containerHeight = featuredContent.current.getBoundingClientRect().height;
-                    const windowHeight = window.innerHeight;
-                    const offset = (windowHeight - containerHeight) / 2;
-                    const endOffset = windowHeight - offset
-                    const end = "bottom " + endOffset;
-                    return "bottom 90%";
-                },
-                scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-                // snap: {
-                //     snapTo: 'labels', // snap to the closest label in the timeline
-                //     duration: { min: 0.2, max: 0.5 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-                //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-                //     ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
-                // }
-
+                end: "bottom 90%",
+                scrub: 1,
             }
         });
-        tl.from(featuredInfo.current, { scale: 0.3, autoAlpha: 0, delay: 0.2 }, 0)
+        tl.from(featuredInfo.current, {
+            scale: 0.3,
+            autoAlpha: 0,
+            duration: 1,
+            delay: 0.2
+        }, 0)
             .from(featuredCard.current, {
-                scale: 0.8, autoAlpha: 0.6, onComplete: () => {
-                    setEnabled(true);
-                },
+                scale: 0.8,
+                autoAlpha: 0.6,
+                duration: 1,
             }, 0)
             .addLabel('Active')
         return tl;
@@ -82,41 +74,39 @@ const Featured = ({ children, number, href, media }) => {
     //intro 
     useLayoutEffect(() => {
         //gsap animations
-        const ctx = gsap.context(() => {
-            getActiveTL();
-        })
-
-        return () => {
-            ctx.revert();
-        };
-    }, [])
-
-    //interactions 
-    useLayoutEffect(() => {
-        //gsap animations
         const ctx = gsap.context((context) => {
+            getActiveTL();
             context.add('mouseMoveAnim', (event) => {
                 getMouseMoveTL(event);
             })
         })
         const handleMouseMove = (event) => {
-            if (!enabled) return;
             ctx.mouseMoveAnim(event)
         };
+
         //add event listeners
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
             ctx.revert();
             window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, [enabled])
+    }, [])
 
     return (
         <div className='featured'>
             <div className='featured-container'>
                 <div ref={featuredContent} className='featured-content'>
                     <Link to={href} ref={featuredCard} className='featured-card'>
-                        <img className='about-headshot' key={Media[media].key} src={Media[media].src} />
+                        <img className='featured-card-image' key={Media[media].key} src={Media[media].src} />
+                        <div className='featured-card-icon'>
+                            <div className="featured-card-icon-vector">
+                                <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                    <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                </svg>
+                            </div>
+                        </div>
+
                     </Link>
                     <div ref={featuredInfo} className='featured-info'>
                         <div className='featured-info-number'>

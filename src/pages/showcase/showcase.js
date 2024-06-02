@@ -58,18 +58,20 @@ const Showcase = () => {
             </div>
             <div className='showcase-featured-container'>
                 <div className='showcase-featured-ui'>
-                    <p className='showcase-featured-ui-latest'>
-                        Featured
-                    </p>
-                    <p>
-                        -
-                    </p>
-                    <Link to={"/archive"}><p className='showcase-featured-ui-archive'>Archive</p></Link>
+                    <div className='showcase-feature-ui-links'>
+                        <p className='showcase-featured-ui-latest'>
+                            Featured
+                        </p>
+                        <p>
+                            -
+                        </p>
+                        <Link to={"/archive"}><p className='showcase-featured-ui-archive'>Archive</p></Link>
+                    </div>
                 </div>
                 <div className='showcase-featured-work'>
                     <Featured href={'/showcase'} number={'001'} media={0}>
                         <h2>
-                            <b>Projects</b>
+                            <b>Meta News</b>
                         </h2>
                         <p>
                             Web Design, <br />Front-end Eng,<br />UI/UX
@@ -77,7 +79,7 @@ const Showcase = () => {
                     </Featured>
                     <Featured href={'/showcase'} number={'002'} media={1}>
                         <h2>
-                            <b>Projects</b>
+                            <b>Meta Blog</b>
                         </h2>
                         <p>
                             Web Design, <br />Front-end Eng,<br />UI/UX
@@ -85,7 +87,39 @@ const Showcase = () => {
                     </Featured>
                     <Featured href={'/showcase'} number={'003'} media={2}>
                         <h2>
+                            <b>Rayban Stories UTH</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'004'} media={3}>
+                        <h2>
                             <b>Projects</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'001'} media={0}>
+                        <h2>
+                            <b>Meta News</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'002'} media={1}>
+                        <h2>
+                            <b>Meta Blog</b>
+                        </h2>
+                        <p>
+                            Web Design, <br />Front-end Eng,<br />UI/UX
+                        </p>
+                    </Featured>
+                    <Featured href={'/showcase'} number={'003'} media={2}>
+                        <h2>
+                            <b>Rayban Stories UTH</b>
                         </h2>
                         <p>
                             Web Design, <br />Front-end Eng,<br />UI/UX
