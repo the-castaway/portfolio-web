@@ -14,8 +14,6 @@ import '../styles/featured.css';
 import { Media } from "../media/media";
 
 const Featured = ({ children, number, href, media }) => {
-    //state
-    //const [enabled, setEnabled] = useState(false);
     //refs
     const featuredContent = useRef(HTMLElement);
     const featuredCard = useRef(HTMLElement);

@@ -16,6 +16,7 @@
         transform 0.3s ease;
     z-index: 10000;
     backdrop-filter: blur(10px);
+    mix-blend-mode: difference;
 }
 
 .cursor p {
@@ -35,6 +36,7 @@
     font-size: 14px;
     border: var(--jc-ui-border);
     transform: translate(-50%, -60%);
+    mix-blend-mode: normal;
 }
 
 .home:hover~.cursor p {
@@ -42,18 +44,12 @@
 }
 
 .nav:has(a:hover)~.cursor,
-.nav-modal:has(a:hover)~.cursor {
-    transform: translate(-50%, -50%);
-    height: 15px;
-    width: 15px;
-    background-color: var(--jc-blue);
-    border: none;
-}
-
+.nav-modal:has(a:hover)~.cursor,
 .showcase:has(a:hover)~.cursor {
     transform: translate(-50%, -50%);
     height: 15px;
     width: 15px;
     background-color: var(--jc-blue);
     border: none;
+    mix-blend-mode: normal;
 }

@@ -12,6 +12,7 @@ import {
 //components
 import Featured from '../../components/featured.react';
 import Footer from '../../components/footer.react';
+import CTA from '../../components/cta.react';
 //styles
 import '../../styles/showcase.css';
 //assets
@@ -135,7 +136,7 @@ const Showcase = () => {
                     </Featured>
                 </div>
             </div>
-
+            <CTA />
             <Footer instruction={"Scroll Down"} />
         </div>
 
