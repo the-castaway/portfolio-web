@@ -19,13 +19,9 @@ import { Media } from "../../media/media";
 
 const Showcase = () => {
 
-    useLayoutEffect(() => {
-
-    }, []);
-
-
 
     return (
+
         <div id="showcase" className='showcase'>
             <div className='showcase-intro-container'>
                 <div className='showcase-intro-content'>
@@ -103,43 +99,11 @@ const Showcase = () => {
                             Web Design, <br />Front-end Eng,<br />UI/UX
                         </p>
                     </Featured>
-                    <Featured href={'/showcase'} number={'001'} media={0}>
-                        <h2>
-                            <b>Projects</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'002'} media={1}>
-                        <h2>
-                            <b>Projects</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'003'} media={2}>
-                        <h2>
-                            <b>Projects</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'004'} media={3}>
-                        <h2>
-                            <b>Projects</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
                 </div>
             </div>
-            <Footer instruction={"Scroll Down"} />
-        </div >
 
+            <Footer instruction={"Scroll Down"} />
+        </div>
 
     );
 }

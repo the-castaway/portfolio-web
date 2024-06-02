@@ -28,7 +28,6 @@ const Instruction = ({ instruction, scroll }) => {
                     width: '100%',
                 }, 0
             )
-            console.log(true)
 
             ScrollTrigger.addEventListener("scrollEnd", () => {
                 tl.play()

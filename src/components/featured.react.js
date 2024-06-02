@@ -14,13 +14,35 @@ import '../styles/featured.css';
 import { Media } from "../media/media";
 
 const Featured = ({ children, number, href, media }) => {
+    //state
+    const [enabled, setEnabled] = useState(false);
     //refs
     const featuredContent = useRef(HTMLElement);
+    const featuredCard = useRef(HTMLElement);
     const featuredInfo = useRef(HTMLElement);
     const featuredInfoLine = useRef(HTMLElement);
     //plugins
     gsap.registerPlugin(ScrollTrigger);
 
+    //mouse move parallax animation timeline
+    const getMouseMoveTL = (event) => {
+        let xPos = event.clientX / window.innerWidth - 0.5,
+            yPos = event.clientY / window.innerHeight - 0.5;
+        const tl = gsap.timeline();
+        tl.to(featuredCard.current, {
+            duration: 0.5,
+            rotationY: xPos * 5,
+            rotationX: yPos * -5,
+            rotationZ: xPos * 5,
+            y: yPos * 50,
+            x: xPos * 50,
+        }, 0)
+        tl.to(featuredInfo.current, {
+            duration: 0.5,
+            rotate: xPos * 5,
+        }, 0)
+        return tl;
+    }
 
     const getActiveTL = () => {
         const tl = gsap.timeline({
@@ -28,34 +50,36 @@ const Featured = ({ children, number, href, media }) => {
                 trigger: featuredContent.current,
                 markers: false,
                 pin: false, // pin the trigger element while active
-                start: () => {
+                start: 'bottom bottom',
+                end: () => {
                     const containerHeight = featuredContent.current.getBoundingClientRect().height;
                     const windowHeight = window.innerHeight;
                     const offset = (windowHeight - containerHeight) / 2;
-                    const start = "top " + offset;
-                    return start;
-                }, // when the top of the trigger hits the top of the viewport
-                end: '+=500 +=500',// end after scrolling 500px beyond the start
+                    const endOffset = windowHeight - offset
+                    const end = "bottom " + endOffset;
+                    return "bottom 90%";
+                },
                 scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-                snap: {
-                    snapTo: 'labels', // snap to the closest label in the timeline
-                    duration: { min: 0.2, max: 1 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-                    delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
-                    ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
-                }
+                // snap: {
+                //     snapTo: 'labels', // snap to the closest label in the timeline
+                //     duration: { min: 0.2, max: 0.5 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+                //     delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+                //     ease: 'power1.inOut' // the ease of the snap animation ("power3" by default)
+                // }
+
             }
         });
-        tl.addLabel('Start')
-            .from(featuredInfo.current, { scale: 0.3, autoAlpha: 0 })
+        tl.from(featuredInfo.current, { scale: 0.3, autoAlpha: 0, delay: 0.2 }, 0)
+            .from(featuredCard.current, {
+                scale: 0.8, autoAlpha: 0.6, onComplete: () => {
+                    setEnabled(true);
+                },
+            }, 0)
             .addLabel('Active')
-        // .to(featuredInfo.current, { scale: 0.3, autoAlpha: 0 })
-        // .addLabel('Inactive')
-
         return tl;
     }
 
-
-    //interactions 
+    //intro 
     useLayoutEffect(() => {
         //gsap animations
         const ctx = gsap.context(() => {
@@ -67,27 +91,33 @@ const Featured = ({ children, number, href, media }) => {
         };
     }, [])
 
-
+    //interactions 
     useLayoutEffect(() => {
-
-
-
-
-    }, []);
-
-
+        //gsap animations
+        const ctx = gsap.context((context) => {
+            context.add('mouseMoveAnim', (event) => {
+                getMouseMoveTL(event);
+            })
+        })
+        const handleMouseMove = (event) => {
+            if (!enabled) return;
+            ctx.mouseMoveAnim(event)
+        };
+        //add event listeners
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            ctx.revert();
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, [enabled])
 
     return (
         <div className='featured'>
             <div className='featured-container'>
                 <div ref={featuredContent} className='featured-content'>
-
-                    <div className='featured-card'>
-                        <Link to={href}>
-                            <img className='about-headshot' key={Media[media].key} src={Media[media].src} />
-                        </Link>
-                    </div>
-
+                    <Link to={href} ref={featuredCard} className='featured-card'>
+                        <img className='about-headshot' key={Media[media].key} src={Media[media].src} />
+                    </Link>
                     <div ref={featuredInfo} className='featured-info'>
                         <div className='featured-info-number'>
                             <h1>Pr. {number}<br />/ 016</h1>

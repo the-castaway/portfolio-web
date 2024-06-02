@@ -1,6 +1,7 @@
 .featured {
     width: 100%;
-    height: 100vh;
+    height: auto;
+    padding-bottom: 10vh;
     display: flex;
     justify-content: center;
 }
@@ -18,7 +19,7 @@
     width: 100%;
     height: fit-content;
     max-width: 1600px;
-    position: relative
+    position: relative;
 }
 
 .featured-card {
@@ -29,7 +30,7 @@
     overflow: hidden;
     max-width: 50vh;
     box-shadow: 0px 0px 50px 50px var(--jc-black);
-    z-index: -1;
+    z-index: 0;
 }
 
 .featured-info {
