@@ -61,6 +61,7 @@
 .featured-card:hover .featured-card-icon {
     transform: rotate(45deg);
     background-color: var(--jc-blue);
+    border: none;
 }
 
 .featured-card-icon-vector {
