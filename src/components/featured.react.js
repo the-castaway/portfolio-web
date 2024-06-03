@@ -1,10 +1,6 @@
-import { React, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { React, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { SplitText } from "gsap/SplitText";
-import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { Observer } from 'gsap/Observer';
 import {
     Link
 } from "react-router-dom"
@@ -58,7 +54,7 @@ const Featured = ({ children, number, href, media }) => {
             scale: 0.3,
             autoAlpha: 0,
             duration: 1,
-            delay: 0.2
+            delay: 0.4
         }, 0)
             .from(featuredCard.current, {
                 scale: 0.8,

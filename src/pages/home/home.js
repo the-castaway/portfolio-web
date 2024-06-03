@@ -34,6 +34,10 @@ const Home = () => {
       duration: 0.8,
       y: 0,
       rotate: 0,
+      ease: 'ease',
+    }, 0)
+    tl.to(homeCards.current, {
+      duration: 0.3,
       opacity: 1,
       ease: 'ease',
     }, 0)
