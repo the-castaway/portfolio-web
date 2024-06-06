@@ -9,6 +9,7 @@ import Loader from "./pages/loader/loader";
 import Home from './pages/home/home';
 import About from './pages/about/about';
 import Showcase from './pages/showcase/showcase';
+import Archive from './pages/archive/archive';
 import Project1 from './pages/projects/project1';
 import Project2 from './pages/projects/project2';
 //components
@@ -61,6 +62,7 @@ function App() {
               <Route key="project1" path="project1" element={<Project1 />} />
               <Route key="project2" path="project2" element={<Project2 />} />
             </Route>
+            <Route key="archive" path="archive" exact element={<TransitionTrigger><Archive /></TransitionTrigger>} />
           </Routes>
         </TransitionProvider>
       )}
