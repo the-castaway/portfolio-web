@@ -17,7 +17,7 @@ const Archived = ({ children, name, href }) => {
         const ctx = gsap.context((context) => {
             const tl = gsap.timeline();
             tl.to(archived.current, {
-                height: 'auto',
+                height: () => 'auto',
                 duration: 0.5,
                 ease: 'ease',
             }, 0).to(archivedName.current, {
