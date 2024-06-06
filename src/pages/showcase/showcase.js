@@ -1,28 +1,56 @@
-import { React, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { React, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { SplitText } from "gsap/SplitText";
-import { Draggable } from "gsap/Draggable";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from 'gsap/ScrollSmoother';
-import { Observer } from 'gsap/Observer';
-import {
-    Link,
-    Outlet,
-} from "react-router-dom"
+import { Link } from "react-router-dom"
 //components
 import Featured from '../../components/featured.react';
 import Footer from '../../components/footer.react';
 import CTA from '../../components/cta.react';
 //styles
 import '../../styles/showcase.css';
-//assets
-import { Media } from "../../media/media";
 
 const Showcase = () => {
+    //refs
+    const showcaseFeaturedUILinks = useRef(HTMLElement);
+    const showcaseFeaturedWork = useRef(HTMLElement);
+    //plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    //activate animation
+    const getActiveTL = () => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: showcaseFeaturedWork.current,
+                markers: false,
+                pin: false, // pin the trigger element while active
+                start: 'top 10%',
+                end: "bottom bottom",
+                scrub: false,
+                toggleActions: "play reverse play reverse"
+            }
+        });
+        tl.to(showcaseFeaturedUILinks.current, {
+            gap: "60px",
+            padding: "20 60px",
+            duration: 0.5,
+            ease: "ease",
+        }, 0)
+            .addLabel('Active')
+        return tl;
+    }
+
+    //intro 
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            getActiveTL();
+        })
+        return () => {
+            ctx.revert();
+        };
+    }, [])
 
 
     return (
-
         <div id="showcase" className='showcase'>
             <div className='showcase-intro-container'>
                 <div className='showcase-intro-content'>
@@ -59,7 +87,7 @@ const Showcase = () => {
             </div>
             <div className='showcase-featured-container'>
                 <div className='showcase-featured-ui'>
-                    <div className='showcase-feature-ui-links'>
+                    <div ref={showcaseFeaturedUILinks} className='showcase-feature-ui-links'>
                         <p className='showcase-featured-ui-latest'>
                             Featured
                         </p>
@@ -69,7 +97,7 @@ const Showcase = () => {
                         <Link to={"/archive"}><p className='showcase-featured-ui-archive'>Archive</p></Link>
                     </div>
                 </div>
-                <div className='showcase-featured-work'>
+                <div ref={showcaseFeaturedWork} className='showcase-featured-work'>
                     <Featured href={'/showcase'} number={'001'} media={0}>
                         <h2>
                             <b>Meta News</b>
@@ -139,7 +167,6 @@ const Showcase = () => {
             <CTA />
             <Footer instruction={"Scroll Down"} />
         </div>
-
     );
 }
 
