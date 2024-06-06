@@ -8,6 +8,8 @@ import Footer from '../../components/footer.react';
 import CTA from '../../components/cta.react';
 //styles
 import '../../styles/showcase.css';
+//projects
+import { Projects } from '../projects/projects';
 
 const Showcase = () => {
     //refs
@@ -15,6 +17,16 @@ const Showcase = () => {
     const showcaseFeaturedWork = useRef(HTMLElement);
     //plugins
     gsap.registerPlugin(ScrollTrigger);
+    //variables
+    const projectMap = Projects.map((project) =>
+        <Featured href={project.href} number={project.number} media={project.media}>
+            <h2>
+                <b>{project.name}</b>
+            </h2>
+            <p>
+                {project.purview}
+            </p>
+        </Featured>);
 
     //activate animation
     const getActiveTL = () => {
@@ -98,70 +110,7 @@ const Showcase = () => {
                     </div>
                 </div>
                 <div ref={showcaseFeaturedWork} className='showcase-featured-work'>
-                    <Featured href={'/showcase'} number={'001'} media={0}>
-                        <h2>
-                            <b>Meta News</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'002'} media={1}>
-                        <h2>
-                            <b>Meta Blog</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'003'} media={2}>
-                        <h2>
-                            <b>Rayban Stories UTH</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'004'} media={3}>
-                        <h2>
-                            <b>Projects</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'001'} media={0}>
-                        <h2>
-                            <b>Meta News</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'002'} media={1}>
-                        <h2>
-                            <b>Meta Blog</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'003'} media={2}>
-                        <h2>
-                            <b>Rayban Stories UTH</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
-                    <Featured href={'/showcase'} number={'004'} media={3}>
-                        <h2>
-                            <b>Projects</b>
-                        </h2>
-                        <p>
-                            Web Design, <br />Front-end Eng,<br />UI/UX
-                        </p>
-                    </Featured>
+                    {projectMap}
                 </div>
             </div>
             <CTA />

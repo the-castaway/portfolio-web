@@ -78,7 +78,9 @@ const Archived = ({ children, name, href }) => {
                     <h4>
                         Description
                     </h4>
-                    {children}
+                    <p>
+                        {children}
+                    </p>
                 </div>
             </div>
         </Link>

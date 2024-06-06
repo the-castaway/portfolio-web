@@ -10,10 +10,15 @@ import Archived from '../../components/archived.react';
 import '../../styles/archive.css';
 //assets
 import { Media } from "../../media/media";
+//projects 
+import { Projects } from '../projects/projects';
 
 const Archive = () => {
-
-
+    //variables
+    const projectMap = Projects.map((project) =>
+        <Archived name={project.name} href={project.href}>
+            {project.description}
+        </Archived>);
     return (
         <div className='archive'>
             <div className='archive-container'>
@@ -33,98 +38,9 @@ const Archive = () => {
                     </div>
                     <div className='archive-project-container'>
                         <div className='archive-project-list'>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-                            <Archived name={'Project Name'} href={'/showcase'}>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui.
-                                </p>
-                            </Archived>
-
-
+                            {projectMap}
                         </div>
-
                     </div>
-
-
                 </div>
             </div>
             <CTA />
