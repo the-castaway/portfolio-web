@@ -12,6 +12,7 @@ import { Media } from "../media/media";
 const Featured = ({ children, number, href, media }) => {
     //refs
     const featuredContent = useRef(HTMLElement);
+    const featuredCardContainer = useRef(HTMLElement);
     const featuredCard = useRef(HTMLElement);
     const featuredInfo = useRef(HTMLElement);
     const featuredInfoLine = useRef(HTMLElement);
@@ -30,6 +31,7 @@ const Featured = ({ children, number, href, media }) => {
             rotationZ: xPos * 5,
             y: yPos * 50,
             x: xPos * 50,
+            ease: "back.out(1.7)"
         }, 0)
         tl.to(featuredInfo.current, {
             duration: 0.5,
@@ -46,7 +48,7 @@ const Featured = ({ children, number, href, media }) => {
                 markers: false,
                 pin: false, // pin the trigger element while active
                 start: 'bottom bottom',
-                end: "bottom 90%",
+                end: "bottom 95%",
                 scrub: 1,
             }
         });
@@ -56,7 +58,7 @@ const Featured = ({ children, number, href, media }) => {
             duration: 1,
             delay: 0.4
         }, 0)
-            .from(featuredCard.current, {
+            .from(featuredCardContainer.current, {
                 scale: 0.8,
                 autoAlpha: 0.6,
                 duration: 1,
@@ -77,7 +79,6 @@ const Featured = ({ children, number, href, media }) => {
         const handleMouseMove = (event) => {
             ctx.mouseMoveAnim(event)
         };
-
         //add event listeners
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
@@ -90,18 +91,19 @@ const Featured = ({ children, number, href, media }) => {
         <div className='featured'>
             <div className='featured-container'>
                 <div ref={featuredContent} className='featured-content'>
-                    <Link to={href} ref={featuredCard} className='featured-card'>
-                        <img className='featured-card-image' key={Media[media].key} src={Media[media].src} />
-                        <div className='featured-card-icon'>
-                            <div className="featured-card-icon-vector">
-                                <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
-                                    <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
-                                </svg>
+                    <div ref={featuredCardContainer} className='featured-card-container'>
+                        <Link to={href} ref={featuredCard} className='featured-card'>
+                            <img className='featured-card-image' key={Media[media].key} src={Media[media].src} />
+                            <div className='featured-card-icon'>
+                                <div className="featured-card-icon-vector">
+                                    <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                        <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-
-                    </Link>
+                        </Link>
+                    </div>
                     <div ref={featuredInfo} className='featured-info'>
                         <div className='featured-info-number'>
                             <h1>Pr. {number}<br />/ 016</h1>
