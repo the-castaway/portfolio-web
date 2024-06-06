@@ -12,12 +12,63 @@
 
 .archive-content {
     display: flex;
-    align-items: center;
     flex-direction: row;
+    justify-content: center;
     width: 100%;
     max-width: 1600px;
     height: auto;
     gap: 20px;
-    padding-top: 20px;
+    padding-top: 15vh;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
+    position: relative;
+}
+
+/* Preview */
+
+.archive-preview-container {
+    width: 16.6%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 15vh;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.archive-preview-header {
+    font-size: 48px;
+    height: 60px;
+}
+
+.archive-preview-container h2 {
+    font-size: 24px;
+}
+
+.archive-preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/5;
+    border: var(--jc-ui-border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Projects */
+
+.archive-project-container {
+    width: 66.6%;
+    padding-right: 8.3%;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.archive-project-list {
+    width: 100%;
+    height: auto;
 }
