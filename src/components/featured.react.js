@@ -14,6 +14,7 @@ const Featured = ({ children, number, href, media }) => {
     const featuredContent = useRef(HTMLElement);
     const featuredCardContainer = useRef(HTMLElement);
     const featuredCard = useRef(HTMLElement);
+    const featuredInfoContainer = useRef(HTMLElement);
     const featuredInfo = useRef(HTMLElement);
     const featuredInfoLine = useRef(HTMLElement);
     //plugins
@@ -53,7 +54,7 @@ const Featured = ({ children, number, href, media }) => {
                 scrub: 1,
             }
         });
-        tl.from(featuredInfo.current, {
+        tl.from(featuredInfoContainer.current, {
             scale: 0.3,
             autoAlpha: 0,
             duration: 1,
@@ -105,16 +106,18 @@ const Featured = ({ children, number, href, media }) => {
                             </div>
                         </Link>
                     </div>
-                    <div ref={featuredInfo} className='featured-info'>
-                        <div className='featured-info-number'>
-                            <h1>Pr. {number}<br />/ 016</h1>
-                        </div>
-                        <div ref={featuredInfoLine} className='featured-info-line' />
-                        <div className='featured-info-text' >
-                            <h4>
-                                Info
-                            </h4>
-                            {children}
+                    <div ref={featuredInfoContainer} className='featured-info-container'>
+                        <div ref={featuredInfo} className='featured-info'>
+                            <div className='featured-info-number'>
+                                <h1>Pr. {number}<br />/ 016</h1>
+                            </div>
+                            <div ref={featuredInfoLine} className='featured-info-line' />
+                            <div className='featured-info-text' >
+                                <h4>
+                                    Info
+                                </h4>
+                                {children}
+                            </div>
                         </div>
                     </div>
                 </div>
