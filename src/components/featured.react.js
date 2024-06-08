@@ -31,11 +31,12 @@ const Featured = ({ children, number, href, media }) => {
             rotationZ: xPos * 5,
             y: yPos * 50,
             x: xPos * 50,
-            ease: "back.out(1.7)"
+            ease: "power1.Out"
         }, 0)
         tl.to(featuredInfo.current, {
             duration: 0.5,
             rotate: xPos * 5,
+            ease: "power4.Out"
         }, 0)
         return tl;
     }

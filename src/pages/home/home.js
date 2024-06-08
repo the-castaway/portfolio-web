@@ -77,7 +77,7 @@ const Home = () => {
       rotate: xPos * 40,
       y: yPos * 200,
       x: xPos * 200,
-      ease: "back.out(1)"
+      ease: "power1.Out"
     }, 0)
     tl.to(homeCard2.current, {
       duration: 0.5,
@@ -86,7 +86,7 @@ const Home = () => {
       rotate: xPos * 30,
       y: yPos * 150,
       x: xPos * 150,
-      ease: "back.out(1.5)"
+      ease: "power2.Out"
     }, 0)
     tl.to(homeCard3.current, {
       duration: 0.5,
@@ -95,7 +95,7 @@ const Home = () => {
       rotate: xPos * 20,
       y: yPos * 100,
       x: xPos * 100,
-      ease: "back.out(2)"
+      ease: "power3.Out"
     }, 0)
     tl.to(homeCard4.current, {
       duration: 0.5,
@@ -104,11 +104,12 @@ const Home = () => {
       rotate: xPos * 10,
       y: yPos * 50,
       x: xPos * 50,
-      ease: "back.out(2.5)"
+      ease: "power4.Out"
     }, 0)
     tl.to(homeHeader.current, {
       duration: 0.5,
       rotate: xPos * 10,
+      ease: "power4.Out"
     }, 0)
     return tl;
   }
