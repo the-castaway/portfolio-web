@@ -19,13 +19,8 @@ const Showcase = () => {
     gsap.registerPlugin(ScrollTrigger);
     //variables
     const projectMap = Projects.map((project) =>
-        <Featured href={project.href} number={project.number} media={project.media}>
-            <h2>
-                <b>{project.name}</b>
-            </h2>
-            <p>
-                {project.purview}
-            </p>
+        <Featured href={project.href} name={project.name} number={project.number} media={project.media}>
+            {project.purview}
         </Featured>);
 
     //activate animation
@@ -60,7 +55,6 @@ const Showcase = () => {
             ctx.revert();
         };
     }, [])
-
 
     return (
         <div id="showcase" className='showcase'>

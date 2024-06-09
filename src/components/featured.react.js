@@ -9,7 +9,7 @@ import '../styles/featured.css';
 //assets
 import { Media } from "../media/media";
 
-const Featured = ({ children, number, href, media }) => {
+const Featured = ({ children, name, number, href, media }) => {
     //refs
     const featuredContent = useRef(HTMLElement);
     const featuredCardContainer = useRef(HTMLElement);
@@ -116,7 +116,14 @@ const Featured = ({ children, number, href, media }) => {
                                 <h4>
                                     Info
                                 </h4>
-                                {children}
+                                <h2>
+                                    <b>{name}</b>
+                                </h2>
+                                <ul>
+                                    {children.map((child) =>
+                                        <li><p>{child}</p></li>)
+                                    }
+                                </ul>
                             </div>
                         </div>
                     </div>
