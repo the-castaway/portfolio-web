@@ -1,4 +1,4 @@
-import { React, useLayoutEffect, useRef } from 'react';
+import { React, useLayoutEffect, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"
@@ -55,6 +55,11 @@ const Showcase = () => {
             ctx.revert();
         };
     }, [])
+
+    //start at top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div id="showcase" className='showcase'>

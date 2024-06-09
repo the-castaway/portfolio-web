@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 //components
 import Footer from '../../components/footer.react';
@@ -27,6 +27,11 @@ const Archive = () => {
         setActiveMedia(null)
         setActiveNumber('XXX')
     }
+
+    //start at top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <div className='archive'>
