@@ -42,7 +42,7 @@ const Archive = () => {
                             Archive
                         </h1>
                         <div className='archive-preview'>
-                            {activeMedia === null ? <div /> : <img className='about-headshot' key={Media[activeMedia].key} src={Media[activeMedia].src} />}
+                            {activeMedia === null ? <div className='archive-preview-null' /> : <img className='archive-preview-media' key={Media[activeMedia].key} src={Media[activeMedia].src} />}
                         </div>
                         <div className='archive-preview-info'>
                             <h2>

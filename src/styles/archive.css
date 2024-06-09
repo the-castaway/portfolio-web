@@ -57,6 +57,18 @@
     overflow: hidden;
 }
 
+.archive-preview-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.archive-preview-null {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Projects */
 
 .archive-project-container {
