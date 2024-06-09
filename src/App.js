@@ -10,8 +10,7 @@ import Home from './pages/home/home';
 import About from './pages/about/about';
 import Showcase from './pages/showcase/showcase';
 import Archive from './pages/archive/archive';
-import Project1 from './pages/projects/project1';
-import Project2 from './pages/projects/project2';
+import Project from "./pages/projects/project/project";
 //components
 import Nav from './components/nav.react'
 import Cursor from './components/cursor.react'
@@ -58,11 +57,9 @@ function App() {
             <Route index key="home" path="/" exact element={<TransitionTrigger><Home /></TransitionTrigger>} />
             <Route key="about" path="about" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
             <Route key="lab" path="lab" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
-            <Route key="showcase" path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>}>
-              <Route key="project1" path="project1" element={<Project1 />} />
-              <Route key="project2" path="project2" element={<Project2 />} />
-            </Route>
+            <Route key="showcase" path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>} />
             <Route key="archive" path="archive" exact element={<TransitionTrigger><Archive /></TransitionTrigger>} />
+            <Route key="project" path="project" exact element={<TransitionTrigger><Project project={0} /></TransitionTrigger>} />
           </Routes>
         </TransitionProvider>
       )}

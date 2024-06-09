@@ -5,7 +5,8 @@ export const Projects = [
         name: "Project 0",
         description: "Project 0 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 0,
     },
     {
@@ -14,7 +15,8 @@ export const Projects = [
         name: "Project 1",
         description: "Project 1 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 1,
     },
     {
@@ -23,7 +25,8 @@ export const Projects = [
         name: "Project 2",
         description: "Project 2 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
     {
@@ -32,7 +35,8 @@ export const Projects = [
         name: "Project 3",
         description: "Project 3 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 3,
     },
     {
@@ -41,7 +45,8 @@ export const Projects = [
         name: "Project 4",
         description: "Project 4 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
     {
@@ -50,7 +55,8 @@ export const Projects = [
         name: "Project 5",
         description: "Project 5 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 0,
     },
     {
@@ -59,7 +65,8 @@ export const Projects = [
         name: "Project 6",
         description: "Project 6 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 1,
     },
     {
@@ -68,7 +75,8 @@ export const Projects = [
         name: "Project 7",
         description: "Project 7 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
     {
@@ -77,7 +85,8 @@ export const Projects = [
         name: "Project 8",
         description: "Project 8 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 3,
     },
     {
@@ -86,7 +95,8 @@ export const Projects = [
         name: "Project 9",
         description: "Project 9 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
     {
@@ -95,7 +105,8 @@ export const Projects = [
         name: "Project 10",
         description: "Project 10 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 0,
     },
     {
@@ -104,7 +115,7 @@ export const Projects = [
         name: "Project 11",
         description: "Project 11 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        href: '/project',
         media: 1,
     },
     {
@@ -113,7 +124,8 @@ export const Projects = [
         name: "Project 12",
         description: "Project 12 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
     {
@@ -122,7 +134,8 @@ export const Projects = [
         name: "Project 13",
         description: "Project 13 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
     {
@@ -131,7 +144,8 @@ export const Projects = [
         name: "Project 14",
         description: "Project 14 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 3,
     },
     {
@@ -140,7 +154,8 @@ export const Projects = [
         name: "Project 15",
         description: "Project 15 description",
         purview: ["Project 2 UI design", "Web design", "Prototyper"],
-        href: '/showcase',
+        company: "Meta",
+        href: '/project',
         media: 2,
     },
 ] 

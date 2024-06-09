@@ -1,0 +1,134 @@
+.project {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    gap: 20px;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.project-hero {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/7;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.project-hero-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Title */
+
+.project-info-title {
+    width: 16.6%;
+    height: fit-content;
+    position: sticky;
+    top: 80px;
+}
+
+.project-info-title-back-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    width: 58px;
+    opacity: 1;
+    border: var(--jc-ui-border);
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    transform: rotate(-135deg);
+}
+
+.project-info-title-back-icon:hover {
+    background-color: var(--jc-blue);
+    border: 1px solid #FFFFFF00;
+}
+
+.project-info-title-back-icon-vector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    width: 58px;
+    opacity: 1;
+}
+
+/* Content */
+
+.project-info-content {
+    width: 66.6%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.project-info-content p {
+    width: 75%;
+    height: auto;
+}
+
+.project-info-content-next {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+/* Details */
+
+.project-info-details {
+    width: 16.6%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 80px;
+}
+
+.project-info-details-scope {
+    width: 100%;
+    height: auto;
+}
+
+.project-info-details-company {
+    width: 100%;
+    height: auto;
+    border-top: var(--jc-ui-border);
+    padding-top: 20px;
+}

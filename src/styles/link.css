@@ -12,6 +12,7 @@
     font-size: 80px;
     font-weight: 600;
     line-height: 1;
+    color: var(--jc-off-white);
 }
 
 .link-icon {
