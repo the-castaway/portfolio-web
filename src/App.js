@@ -20,6 +20,8 @@ import TransitionTrigger from "./pages/transitionTrigger";
 import { TransitionProvider } from "./context/transitionContext";
 //assets
 import { Media } from "./media/media";
+//projects 
+import { Projects } from './pages/projects/projects';
 
 function App() {
   const location = useLocation();
@@ -59,13 +61,15 @@ function App() {
             <Route key="lab" path="lab" exact element={<TransitionTrigger><About /></TransitionTrigger>} />
             <Route key="showcase" path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>} />
             <Route key="archive" path="archive" exact element={<TransitionTrigger><Archive /></TransitionTrigger>} />
-            <Route key="project" path="project" exact element={<TransitionTrigger><Project project={0} /></TransitionTrigger>} />
+            {Projects.map((projectInfo) =>
+              <Route key={projectInfo.name} path={projectInfo.href} exact element={<TransitionTrigger><Project project={projectInfo.key} /></TransitionTrigger>} />
+            )}
           </Routes>
         </TransitionProvider>
       )}
 
       <Cursor />
-      {/* <WIP /> */}
+      <WIP />
     </>
   );
 

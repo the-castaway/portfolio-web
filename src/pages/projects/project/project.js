@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 //components
 import Footer from '../../../components/footer.react';
 import CTA from '../../../components/cta.react';
-import Links from '../../../components/link.react';
 //styles
 import '../../../styles/project.css';
 //assets
@@ -13,6 +12,12 @@ import { Media } from "../../../media/media";
 import { Projects } from '../../projects/projects';
 
 const Project = ({ project }) => {
+
+    //start at top
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className='project'>
             <div className='project-content'>
@@ -39,19 +44,7 @@ const Project = ({ project }) => {
                         </Link>
                     </div>
                     <div className='project-info-content'>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui. Morbi eget sapien volutpat, tristique purus semper, ullamcorper orci. Nullam at neque mauris. Phasellus a mollis magna, sed viverra sapien. Morbi luctus efficitur tellus, ac suscipit nibh lacinia dapibus. Nullam cursus tempor dolor, a tristique orci imperdiet venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui. Morbi eget sapien volutpat, tristique purus semper, ullamcorper orci. Nullam at neque mauris. Phasellus a mollis magna, sed viverra sapien. Morbi luctus efficitur tellus, ac suscipit nibh lacinia dapibus. Nullam cursus tempor dolor, a tristique orci imperdiet venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <img className='project-hero-media' key={Media[0].key} src={Media[0].src} />
-                        <img className='project-hero-media' key={Media[0].key} src={Media[0].src} />
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui. Morbi eget sapien volutpat, tristique purus semper, ullamcorper orci. Nullam at neque mauris. Phasellus a mollis magna, sed viverra sapien. Morbi luctus efficitur tellus, ac suscipit nibh lacinia dapibus. Nullam cursus tempor dolor, a tristique orci imperdiet venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut facilisis arcu, eget commodo dui. Morbi eget sapien volutpat, tristique purus semper, ullamcorper orci. Nullam at neque mauris. Phasellus a mollis magna, sed viverra sapien. Morbi luctus efficitur tellus, ac suscipit nibh lacinia dapibus. Nullam cursus tempor dolor, a tristique orci imperdiet venenatis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
-                        <div className='project-info-content-next'>
-                            <Links header={'Next Project'} description={"Let's explore"} />
-                        </div>
+                        {Projects[project].content}
                     </div>
                     <div className='project-info-details'>
                         <div className='project-info-details-scope'>
@@ -60,7 +53,7 @@ const Project = ({ project }) => {
                             </h4>
                             <ul>
                                 {Projects[project].purview.map((purviewItem) =>
-                                    <li><p>{purviewItem}</p></li>)
+                                    <li key={purviewItem}><p>{purviewItem}</p></li>)
                                 }
                             </ul>
                         </div>

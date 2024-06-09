@@ -84,6 +84,30 @@
     opacity: 1;
 }
 
+/* Details */
+
+.project-info-details {
+    width: 16.6%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 80px;
+}
+
+.project-info-details-scope {
+    width: 100%;
+    height: auto;
+}
+
+.project-info-details-company {
+    width: 100%;
+    height: auto;
+    border-top: var(--jc-ui-border);
+    padding-top: 20px;
+}
+
 /* Content */
 
 .project-info-content {
@@ -107,28 +131,4 @@
     display: flex;
     justify-content: center;
     padding: 40px 0;
-}
-
-/* Details */
-
-.project-info-details {
-    width: 16.6%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: sticky;
-    top: 80px;
-}
-
-.project-info-details-scope {
-    width: 100%;
-    height: auto;
-}
-
-.project-info-details-company {
-    width: 100%;
-    height: auto;
-    border-top: var(--jc-ui-border);
-    padding-top: 20px;
 }

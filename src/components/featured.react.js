@@ -121,7 +121,7 @@ const Featured = ({ children, name, number, href, media }) => {
                                 </h2>
                                 <ul>
                                     {children.map((child) =>
-                                        <li><p>{child}</p></li>)
+                                        <li key={child}><p>{child}</p></li>)
                                     }
                                 </ul>
                             </div>
