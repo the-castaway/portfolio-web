@@ -34,12 +34,10 @@ const Archived = ({ children, name, href }) => {
 
             context.add('handleMouseEnter', () => {
                 tl.play();
-                console.log('play')
             })
 
             context.add('handleMouseLeave', () => {
                 tl.reverse();
-                console.log('reverse')
             })
         })
         archived.current.addEventListener('mouseenter', ctx.handleMouseEnter);

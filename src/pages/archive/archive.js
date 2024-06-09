@@ -1,7 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
-import { SplitText } from "gsap/SplitText";
 //components
 import Footer from '../../components/footer.react';
 import CTA from '../../components/cta.react';
@@ -14,11 +12,22 @@ import { Media } from "../../media/media";
 import { Projects } from '../projects/projects';
 
 const Archive = () => {
+    //states
+    const [activeMedia, setActiveMedia] = useState(0);
+    const [activeNumber, setActiveNumber] = useState('XXX');
+
     //variables
-    const projectMap = Projects.map((project) =>
-        <Archived name={project.name} href={project.href}>
-            {project.description}
-        </Archived>);
+    const handleMouseEnter = (media, number) => {
+        console.log(media)
+        setActiveMedia(media)
+        setActiveNumber(number)
+    }
+
+    const handleMouseLeave = () => {
+        setActiveMedia(null)
+        setActiveNumber('XXX')
+    }
+
     return (
         <div className='archive'>
             <div className='archive-container'>
@@ -28,17 +37,22 @@ const Archive = () => {
                             Archive
                         </h1>
                         <div className='archive-preview'>
-                            <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+                            {activeMedia === null ? <div /> : <img className='about-headshot' key={Media[activeMedia].key} src={Media[activeMedia].src} />}
                         </div>
                         <div className='archive-preview-info'>
                             <h2>
-                                <b>PR. XXX <br />/ 016</b>
+                                <b>PR. {activeNumber} <br />/ 016</b>
                             </h2>
                         </div>
                     </div>
                     <div className='archive-project-container'>
                         <div className='archive-project-list'>
-                            {projectMap}
+                            {Projects.map((project) =>
+                                <div onMouseEnter={() => handleMouseEnter(project.media, project.number)} onMouseLeave={handleMouseLeave}>
+                                    <Archived name={project.name} href={project.href}>
+                                        {project.description}
+                                    </Archived></div>
+                            )}
                         </div>
                     </div>
                 </div>
