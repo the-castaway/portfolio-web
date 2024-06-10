@@ -48,8 +48,7 @@
 .showcase:has(a:hover)~.cursor,
 .archive:has(a:hover)~.cursor,
 .archived:has(a:hover)~.cursor,
-.project:has(a:hover)~.cursor,
-.link:has(a:hover)~.cursor {
+.project:has(a:hover)~.cursor {
     transform: translate(-50%, -50%);
     height: 15px;
     width: 15px;
