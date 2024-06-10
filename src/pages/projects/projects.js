@@ -10,6 +10,7 @@ export const Projects = [
         company: "Meta",
         href: '/project0',
         media: 0,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -21,6 +22,7 @@ export const Projects = [
         company: "Meta",
         href: '/project1',
         media: 1,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -32,6 +34,7 @@ export const Projects = [
         company: "Meta",
         href: '/project2',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -43,6 +46,7 @@ export const Projects = [
         company: "Meta",
         href: '/project3',
         media: 3,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -54,6 +58,7 @@ export const Projects = [
         company: "Meta",
         href: '/project4',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -65,6 +70,7 @@ export const Projects = [
         company: "Meta",
         href: '/project5',
         media: 0,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -76,6 +82,7 @@ export const Projects = [
         company: "Meta",
         href: '/project6',
         media: 1,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -87,6 +94,7 @@ export const Projects = [
         company: "Meta",
         href: '/project7',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -98,6 +106,7 @@ export const Projects = [
         company: "Meta",
         href: '/project8',
         media: 3,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -109,6 +118,7 @@ export const Projects = [
         company: "Meta",
         href: '/project9',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -120,6 +130,7 @@ export const Projects = [
         company: "Meta",
         href: '/project10',
         media: 0,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -128,8 +139,10 @@ export const Projects = [
         name: "Project 11",
         description: "Project 11 description",
         purview: ["Project 11 UI design", "Web design", "Prototyper"],
+        company: "Meta",
         href: '/project11',
         media: 1,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -141,6 +154,7 @@ export const Projects = [
         company: "Meta",
         href: '/project12',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -152,6 +166,7 @@ export const Projects = [
         company: "Meta",
         href: '/project13',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -163,6 +178,7 @@ export const Projects = [
         company: "Meta",
         href: '/project14',
         media: 3,
+        banner: 0,
         content: <MetaNews />
     },
     {
@@ -174,6 +190,7 @@ export const Projects = [
         company: "Meta",
         href: '/project15',
         media: 2,
+        banner: 0,
         content: <MetaNews />
     },
 ] 

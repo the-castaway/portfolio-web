@@ -22,7 +22,7 @@ const Project = ({ project }) => {
         <div className='project'>
             <div className='project-content'>
                 <div className='project-hero'>
-                    <img className='project-hero-media' key={Media[0].key} src={Media[0].src} />
+                    <img className='project-hero-media' key={Media[Projects[project].banner].key} src={Media[Projects[project].banner].src} />
                 </div>
                 <div className='project-info-container'>
                     <div className='project-info-title'>

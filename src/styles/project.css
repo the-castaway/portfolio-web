@@ -56,6 +56,12 @@
     top: 80px;
 }
 
+.project-info-title-back {
+    display: block;
+    height: auto;
+    width: fit-content;
+}
+
 .project-info-title-back-icon {
     display: flex;
     justify-content: center;
