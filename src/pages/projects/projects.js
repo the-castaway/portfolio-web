@@ -22,7 +22,7 @@ export const Projects = [
         company: "Meta",
         href: '/project1',
         media: 1,
-        banner: 0,
+        banner: 3,
         content: <MetaNews />
     },
     {

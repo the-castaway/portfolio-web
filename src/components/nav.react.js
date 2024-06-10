@@ -34,6 +34,8 @@ const Nav = () => {
             duration: 0.2,
             ease: "ease",
             width: '120px',
+            background: "#4552D9",
+            border: "1px solid #FFFFFF00",
         }, 0);
         buttonTL.from(navButtonText.current, {
             duration: 0.2,

@@ -34,6 +34,12 @@
     width: 100%;
     height: 58px;
     z-index: 0;
+    transition: all 0.5s;
+}
+
+.link:hover .link-icon-border {
+    background-color: var(--jc-blue);
+    border: 1px solid #FFFFFF00;
 }
 
 .link-icon-text {
@@ -47,6 +53,8 @@
     width: auto;
     white-space: nowrap;
     opacity: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .link-icon-vector {

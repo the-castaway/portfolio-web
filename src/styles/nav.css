@@ -32,6 +32,7 @@
 
 .nav-title:hover {
     background-color: var(--jc-blue);
+    border: 1px solid #FFFFFF00;
 }
 
 .nav-button {
@@ -64,6 +65,7 @@
     font-weight: 400;
     font-size: 18px;
     width: fit-content;
+    z-index: 1;
 }
 
 .nav-button-icon {
