@@ -49,6 +49,7 @@
     position: sticky;
     top: 120px;
     z-index: 2;
+    pointer-events: none;
 }
 
 /* Title */
@@ -57,6 +58,7 @@
     width: 16.6%;
     height: fit-content;
     padding-top: 20px;
+    pointer-events: all;
 }
 
 .project-info-title-back {
