@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"
 //components
-import Featured from '../../components/featured.react';
+import Showcased from '../../components/showcased.react';
 import Footer from '../../components/footer.react';
 import CTA from '../../components/cta.react';
 //styles
@@ -19,9 +19,9 @@ const Showcase = () => {
     gsap.registerPlugin(ScrollTrigger);
     //variables
     const projectMap = Projects.map((project) =>
-        <Featured href={project.href} name={project.name} number={project.number} media={project.media} key={project.key}>
+        <Showcased href={project.href} name={project.name} number={project.number} media={project.media} key={project.key}>
             {project.purview}
-        </Featured>);
+        </Showcased>);
 
     //activate animation
     const getActiveTL = () => {
@@ -100,7 +100,7 @@ const Showcase = () => {
                 <div className='showcase-featured-ui'>
                     <div ref={showcaseFeaturedUILinks} className='showcase-feature-ui-links'>
                         <p className='showcase-featured-ui-latest'>
-                            Featured
+                            Showcase
                         </p>
                         <p>
                             -

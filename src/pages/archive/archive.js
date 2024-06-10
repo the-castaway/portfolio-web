@@ -18,7 +18,6 @@ const Archive = () => {
 
     //variables
     const handleMouseEnter = (media, number) => {
-        console.log(media)
         setActiveMedia(media)
         setActiveNumber(number)
     }
@@ -54,7 +53,7 @@ const Archive = () => {
                         <div className='archive-project-list'>
                             {Projects.map((project) =>
                                 <div onMouseEnter={() => handleMouseEnter(project.media, project.number)} onMouseLeave={handleMouseLeave}>
-                                    <Archived name={project.name} href={project.href}>
+                                    <Archived name={project.name} key={project.name} href={project.href}>
                                         {project.description}
                                     </Archived></div>
                             )}
