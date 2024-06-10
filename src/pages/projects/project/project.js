@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"
 //components
 import Footer from '../../../components/footer.react';
@@ -12,6 +13,42 @@ import { Media } from "../../../media/media";
 import { Projects } from '../../projects/projects';
 
 const Project = ({ project }) => {
+    //refs
+    const projectContainer = useRef(HTMLElement);
+    const projectInfoContainer = useRef(HTMLElement);
+    const projectInfoSpacer = useRef(HTMLElement);
+    //plugins
+    gsap.registerPlugin(ScrollTrigger);
+
+    //activate animation
+    const getActiveTL = () => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: projectInfoContainer.current,
+                markers: false,
+                pin: false, // pin the trigger element while active
+                start: 'top 200px',
+                end: "top 120px",
+                scrub: 1,
+            }
+        });
+        tl.addLabel('start')
+        tl.to(projectInfoSpacer.current, {
+            width: "75%",
+            ease: "ease",
+        }, 0)
+        return tl;
+    }
+
+    //info animation 
+    useLayoutEffect(() => {
+        const ctx = gsap.context(() => {
+            getActiveTL();
+        })
+        return () => {
+            ctx.revert();
+        };
+    }, [])
 
     //start at top
     useEffect(() => {
@@ -20,11 +57,11 @@ const Project = ({ project }) => {
 
     return (
         <div className='project'>
-            <div className='project-content'>
-                <div className='project-hero'>
-                    <img className='project-hero-media' key={Media[Projects[project].banner].key} src={Media[Projects[project].banner].src} />
+            <div ref={projectContainer} className='project-container'>
+                <div className='project-banner'>
+                    <img className='project-banner-media' key={Media[Projects[project].banner].key} src={Media[Projects[project].banner].src} />
                 </div>
-                <div className='project-info-container'>
+                <div ref={projectInfoContainer} className='project-info-container'>
                     <div className='project-info-title'>
                         <h4>
                             PR.{Projects[project].number} / 016
@@ -43,9 +80,7 @@ const Project = ({ project }) => {
                             </div>
                         </Link>
                     </div>
-                    <div className='project-info-content'>
-                        {Projects[project].content}
-                    </div>
+                    <div ref={projectInfoSpacer} className='project-info-spacer' />
                     <div className='project-info-details'>
                         <div className='project-info-details-scope'>
                             <h4>
@@ -65,6 +100,11 @@ const Project = ({ project }) => {
                         </div>
                     </div>
 
+                </div>
+                <div className='project-content-container'>
+                    <div className='project-content'>
+                        {Projects[project].content}
+                    </div>
                 </div>
             </div>
             <CTA />

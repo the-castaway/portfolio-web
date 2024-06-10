@@ -3,6 +3,7 @@ import metaNews from './thumbnails/thumbnail_meta_news.webp'
 import vr4g from './thumbnails/thumbnail_vr4g.webp'
 import rbs from './thumbnails/thumbnail_rbs_uth.webp'
 import rsvp from './thumbnails/thumbnail_rsvp.webp'
+//import sizzle from './home/home_sizzle.mp4'
 //about
 import headshot from './about/about_headshot.webp'
 
@@ -27,4 +28,8 @@ export const Media = [
         key: 4,
         src: headshot
     },
+    // {
+    //     key: 5,
+    //     src: sizzle
+    // },
 ] 

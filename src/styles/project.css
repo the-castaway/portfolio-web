@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-.project-content {
+.project-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,35 +16,39 @@
     height: auto;
     gap: 20px;
     padding-top: 80px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 80px;
     box-sizing: border-box;
     position: relative;
 }
 
-.project-hero {
-    width: 100%;
+.project-banner {
+    width: 66.6%;
     height: auto;
-    aspect-ratio: 16/7;
-    overflow: hidden;
+    aspect-ratio: 16/9;
     border-radius: 40px;
+    overflow: hidden;
 }
 
-.project-hero-media {
+.project-banner-media {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* Project Info */
+
 .project-info-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 20px;
     width: 100%;
     height: auto;
     position: relative;
-    padding-top: 20px;
+    position: sticky;
+    top: 120px;
+    z-index: 2;
 }
 
 /* Title */
@@ -52,8 +56,7 @@
 .project-info-title {
     width: 16.6%;
     height: fit-content;
-    position: sticky;
-    top: 80px;
+    padding-top: 20px;
 }
 
 .project-info-title-back {
@@ -90,6 +93,13 @@
     opacity: 1;
 }
 
+/* Spacer */
+
+.project-info-spacer {
+    width: 16.6%;
+    height: auto;
+}
+
 /* Details */
 
 .project-info-details {
@@ -98,8 +108,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    position: sticky;
-    top: 80px;
+    padding-top: 20px;
 }
 
 .project-info-details-scope {
@@ -116,7 +125,20 @@
 
 /* Content */
 
-.project-info-content {
+.project-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+    gap: 20px;
+    padding-top: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.project-content {
     width: 66.6%;
     height: auto;
     display: flex;
@@ -124,17 +146,4 @@
     align-items: center;
     gap: 40px;
     padding-bottom: 40px;
-}
-
-.project-info-content p {
-    width: 75%;
-    height: auto;
-}
-
-.project-info-content-next {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
 }
