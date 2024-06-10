@@ -122,6 +122,10 @@
     justify-content: center;
 }
 
+.nav-modal-link-inactive {
+    opacity: 0.5;
+}
+
 .nav-modal-contact {
     padding-top: 60px;
     padding-bottom: 20px;
