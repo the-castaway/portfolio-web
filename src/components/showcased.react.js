@@ -109,7 +109,7 @@ const Showcased = ({ children, name, number, href, media }) => {
                     <div ref={showcasedInfoContainer} className='showcased-info-container'>
                         <div ref={showcasedInfo} className='showcased-info'>
                             <div className='showcased-info-number'>
-                                <h1>Pr. {number}<br />/ 016</h1>
+                                <h1>PR. {number}<br />/ 016</h1>
                             </div>
                             <div ref={showcasedInfoLine} className='showcased-info-line' />
                             <div className='showcased-info-text' >
