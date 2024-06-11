@@ -17,6 +17,7 @@ const Project = ({ project }) => {
     const projectContainer = useRef(HTMLElement);
     const projectInfoContainer = useRef(HTMLElement);
     const projectInfoSpacer = useRef(HTMLElement);
+    const projectInfoDetails = useRef(HTMLElement);
     //plugins
     gsap.registerPlugin(ScrollTrigger);
 
@@ -27,14 +28,22 @@ const Project = ({ project }) => {
                 trigger: projectInfoContainer.current,
                 markers: false,
                 pin: false, // pin the trigger element while active
-                start: 'top 200px',
+                start: 'top 300px',
                 end: "top 120px",
                 scrub: 1,
             }
         });
         tl.addLabel('start')
+        tl.to(projectInfoContainer.current, {
+            gap: "40px",
+            ease: "ease",
+        }, 0)
         tl.to(projectInfoSpacer.current, {
-            width: "75%",
+            width: "66.6%",
+            ease: "ease",
+        }, 0)
+        tl.to(projectInfoDetails.current, {
+            width: "16.6%",
             ease: "ease",
         }, 0)
         return tl;
@@ -81,7 +90,7 @@ const Project = ({ project }) => {
                         </Link>
                     </div>
                     <div ref={projectInfoSpacer} className='project-info-spacer' />
-                    <div className='project-info-details'>
+                    <div ref={projectInfoDetails} className='project-info-details'>
                         <div className='project-info-details-scope'>
                             <h4>
                                 Scope

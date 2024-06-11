@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 80px;
 }
 
 .content-banner {
     width: 100%;
     height: auto;
-    aspect-ratio: 16/9;
+    aspect-ratio: 5/4;
     border-radius: 40px;
     overflow: hidden;
 }
@@ -31,7 +31,6 @@
     height: auto;
     display: flex;
     justify-content: center;
-    padding: 40px 0;
 }
 
 .content-media-full {
