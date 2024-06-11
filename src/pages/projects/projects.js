@@ -16,13 +16,13 @@ export const Projects = [
     {
         key: 1,
         number: "001",
-        name: "Project 1",
+        name: "Metaverse",
         description: "Project 1 description",
-        purview: ["Project 1 UI design", "Web design", "Prototyper"],
+        purview: ["UI design", "Front-end Eng", "Web dev"],
         company: "Meta",
         href: '/project1',
         media: 1,
-        banner: 3,
+        banner: 5,
         content: <MetaNews />
     },
     {
