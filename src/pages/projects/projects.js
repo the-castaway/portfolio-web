@@ -3,10 +3,10 @@ import MetaNews from "./content/metaNews";
 export const Projects = [
     {
         key: 0,
-        number: "000",
-        name: "Project 0",
+        number: "001",
+        name: "Meta Commerce",
         description: "Project 0 description",
-        purview: ["Project 0 UI design", "Web design", "Prototyper"],
+        purview: ["UI Design", "Front-end Eng", "3D Modeling"],
         company: "Meta",
         href: '/project0',
         media: 0,

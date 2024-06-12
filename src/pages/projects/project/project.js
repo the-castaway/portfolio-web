@@ -34,10 +34,6 @@ const Project = ({ project }) => {
             }
         });
         tl.addLabel('start')
-        tl.to(projectInfoContainer.current, {
-            gap: "40px",
-            ease: "ease",
-        }, 0)
         tl.to(projectInfoSpacer.current, {
             width: "66.6%",
             ease: "ease",
