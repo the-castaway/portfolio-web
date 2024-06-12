@@ -72,7 +72,8 @@ h4 {
 
 p {
     font-size: 16px;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.08rem;
+    line-height: 140%;
 }
 
 a {
