@@ -13,11 +13,15 @@ import iptThumbnail from './thumbnails/ipt_thumbnail.webp'
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
 import iptDefault from './projects/interactiveProductTour/ipt_default.webp'
 import iptHeadset from './projects/interactiveProductTour/ipt_headset.webp'
-import iptHeadsetHotspot from './projects/interactiveProductTour/ipt_headset.webp'
+import iptHeadsetHotspot from './projects/interactiveProductTour/ipt_headset_hotspot.webp'
 import iptController from './projects/interactiveProductTour/ipt_controller.webp'
 import iptControllerHotspot from './projects/interactiveProductTour/ipt_controller_hotspot.webp'
 
 export const Media = [
+    {
+        key: 0,
+        src: metaNews
+    },
     {
         key: 1,
         src: vr4g
@@ -42,73 +46,37 @@ export const Media = [
 
 export const ThumbnailMedia = [
     {
-        key: 1,
+        key: 0,
         src: iptThumbnail
-    },
-    {
-        key: 2,
-        src: vr4g
-    },
-    {
-        key: 3,
-        src: rbs
-    },
-    {
-        key: 4,
-        src: rsvp
-    },
-    {
-        key: 5,
-        src: headshot
-    },
-    {
-        key: 6,
-        src: metaverse
     },
 ]
 
 export const BannerMedia = [
     {
-        key: 1,
+        key: 0,
         src: iptBanner
-    },
-    {
-        key: 2,
-        src: rbs
-    },
-    {
-        key: 3,
-        src: rsvp
-    },
-    {
-        key: 4,
-        src: headshot
-    },
-    {
-        key: 5,
-        src: metaverse
     },
 ]
 
 export const InteractiveProductTourMedia = [
     {
-        key: 1,
+        key: 0,
         src: iptDefault
     },
     {
-        key: 2,
+        key: 1,
         src: iptHeadset
     },
     {
-        key: 3,
+        key: 2,
         src: iptController
     },
     {
-        key: 4,
+        key: 3,
         src: iptHeadsetHotspot
     },
     {
-        key: 5,
+        key: 4,
         src: iptControllerHotspot
     },
 ] 

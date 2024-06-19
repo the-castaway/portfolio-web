@@ -1,4 +1,5 @@
-import MetaNews from "./content/metaNews";
+
+import InteractiveProductTour from "./content/interactiveProductTour"
 import { Media, ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -12,6 +13,6 @@ export const Projects = [
         href: '/ipt',
         thumbnail: 0,
         banner: 0,
-        content: <MetaNews />
+        content: <InteractiveProductTour />
     },
 ] 

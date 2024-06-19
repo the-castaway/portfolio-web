@@ -8,9 +8,7 @@ import CTA from '../../../components/cta.react';
 //styles
 import '../../../styles/project.css';
 //assets
-import { Media, BannerMedia } from "../../../media/media";
-//projects 
-import { Projects } from '../../projects/projects';
+import { BannerMedia } from "../../../media/media";
 
 const Project = ({ project }) => {
     //refs

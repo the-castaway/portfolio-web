@@ -171,7 +171,7 @@ const Home = () => {
           </div>
           <div className='home-card-container'>
             <div ref={homeCard1} className='home-card'>
-              <img className='about-headshot' key={Media[0].key} src={Media[0].src} />
+              <img className='about-headshot' key={Media[1].key} src={Media[0].src} />
             </div>
           </div>
         </div>
