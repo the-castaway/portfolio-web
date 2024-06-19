@@ -62,7 +62,7 @@ function App() {
             <Route key="showcase" path="showcase" exact element={<TransitionTrigger><Showcase /></TransitionTrigger>} />
             <Route key="archive" path="archive" exact element={<TransitionTrigger><Archive /></TransitionTrigger>} />
             {Projects.map((projectInfo) =>
-              <Route key={projectInfo.name} path={projectInfo.href} exact element={<TransitionTrigger><Project project={projectInfo.key} /></TransitionTrigger>} />
+              <Route key={projectInfo.name} path={projectInfo.href} exact element={<TransitionTrigger><Project project={projectInfo} /></TransitionTrigger>} />
             )}
           </Routes>
         </TransitionProvider>

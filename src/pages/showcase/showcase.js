@@ -19,7 +19,7 @@ const Showcase = () => {
     gsap.registerPlugin(ScrollTrigger);
     //variables
     const projectMap = Projects.map((project) =>
-        <Showcased href={project.href} name={project.name} number={project.number} media={project.media} key={project.key}>
+        <Showcased href={project.href} name={project.name} number={project.number} thumbnail={project.thumbnail} key={project.key}>
             {project.purview}
         </Showcased>);
 

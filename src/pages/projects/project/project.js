@@ -8,7 +8,7 @@ import CTA from '../../../components/cta.react';
 //styles
 import '../../../styles/project.css';
 //assets
-import { Media } from "../../../media/media";
+import { Media, BannerMedia } from "../../../media/media";
 //projects 
 import { Projects } from '../../projects/projects';
 
@@ -64,15 +64,15 @@ const Project = ({ project }) => {
         <div className='project'>
             <div ref={projectContainer} className='project-container'>
                 <div className='project-banner'>
-                    <img className='project-banner-media' key={Media[Projects[project].banner].key} src={Media[Projects[project].banner].src} />
+                    <img className='project-banner-media' key={BannerMedia[project.banner].key} src={BannerMedia[project.banner].src} />
                 </div>
                 <div ref={projectInfoContainer} className='project-info-container'>
                     <div className='project-info-title'>
                         <h4>
-                            PR.{Projects[project].number} / 016
+                            PR.{project.number} / 016
                         </h4>
                         <h2>
-                            <b>{Projects[project].name}</b>
+                            <b>{project.name}</b>
                         </h2>
                         <Link className='project-info-title-back' to={'/showcase'}>
                             <div className='project-info-title-back-icon'>
@@ -92,7 +92,7 @@ const Project = ({ project }) => {
                                 Scope
                             </h4>
                             <ul>
-                                {Projects[project].purview.map((purviewItem) =>
+                                {project.purview.map((purviewItem) =>
                                     <li key={purviewItem}><p>{purviewItem}</p></li>)
                                 }
                             </ul>
@@ -101,14 +101,14 @@ const Project = ({ project }) => {
                             <h4>
                                 Company
                             </h4>
-                            <p>{Projects[project].company}</p>
+                            <p>{project.company}</p>
                         </div>
                     </div>
 
                 </div>
                 <div className='project-content-container'>
                     <div className='project-content'>
-                        {Projects[project].content}
+                        {project.content}
                     </div>
                 </div>
             </div>

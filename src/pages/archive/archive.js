@@ -7,23 +7,23 @@ import Archived from '../../components/archived.react';
 //styles
 import '../../styles/archive.css';
 //assets
-import { Media } from "../../media/media";
+import { Media, ThumbnailMedia } from "../../media/media";
 //projects 
 import { Projects } from '../projects/projects';
 
 const Archive = () => {
     //states
-    const [activeMedia, setActiveMedia] = useState(0);
+    const [activeThumbnail, setActiveThumbnail] = useState(0);
     const [activeNumber, setActiveNumber] = useState('XXX');
 
     //variables
-    const handleMouseEnter = (media, number) => {
-        setActiveMedia(media)
+    const handleMouseEnter = (thumbnail, number) => {
+        setActiveThumbnail(thumbnail)
         setActiveNumber(number)
     }
 
     const handleMouseLeave = () => {
-        setActiveMedia(null)
+        setActiveThumbnail(null)
         setActiveNumber('XXX')
     }
 
@@ -41,7 +41,7 @@ const Archive = () => {
                             Archive
                         </h1>
                         <div className='archive-preview'>
-                            {activeMedia === null ? <div className='archive-preview-null' /> : <img className='archive-preview-media' key={Media[activeMedia].key} src={Media[activeMedia].src} />}
+                            {activeThumbnail === null ? <div className='archive-preview-null' /> : <img className='archive-preview-media' key={ThumbnailMedia[activeThumbnail].key} src={ThumbnailMedia[activeThumbnail].src} />}
                         </div>
                         <div className='archive-preview-info'>
                             <h2>
@@ -52,8 +52,8 @@ const Archive = () => {
                     <div className='archive-project-container'>
                         <div className='archive-project-list'>
                             {Projects.map((project) =>
-                                <div onMouseEnter={() => handleMouseEnter(project.media, project.number)} onMouseLeave={handleMouseLeave}>
-                                    <Archived name={project.name} key={project.name} href={project.href}>
+                                <div key={project.key} onMouseEnter={() => handleMouseEnter(project.thumbnail, project.number)} onMouseLeave={handleMouseLeave}>
+                                    <Archived name={project.name} key={project.key} href={project.href}>
                                         {project.description}
                                     </Archived></div>
                             )}

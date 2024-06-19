@@ -7,9 +7,9 @@ import {
 //styles
 import '../styles/showcased.css';
 //assets
-import { Media } from "../media/media";
+import { ThumbnailMedia } from "../media/media";
 
-const Showcased = ({ children, name, number, href, media }) => {
+const Showcased = ({ children, name, number, href, thumbnail }) => {
     //refs
     const showcasedContent = useRef(HTMLElement);
     const showcasedCardContainer = useRef(HTMLElement);
@@ -95,7 +95,7 @@ const Showcased = ({ children, name, number, href, media }) => {
                 <div ref={showcasedContent} className='showcased-content'>
                     <div ref={showcasedCardContainer} className='showcased-card-container'>
                         <Link to={href} ref={showcasedCard} className='showcased-card'>
-                            <img className='showcased-card-image' key={Media[media].key} src={Media[media].src} />
+                            <img className='showcased-card-image' key={ThumbnailMedia[thumbnail].key} src={ThumbnailMedia[thumbnail].src} />
                             <div className='showcased-card-icon'>
                                 <div className="showcased-card-icon-vector">
                                     <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
