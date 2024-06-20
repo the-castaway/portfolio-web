@@ -12,13 +12,11 @@ const InteractiveProductTour = () => {
         <div className='content'>
             <section className='content-section'>
                 <div className='content-section-text'>
-
                     <p>
                         As Meta has embraced the metaverse and shifted its focus to immersive technologies, the main corporate site must reflect this priority. Therefore, we developed interactive modules to enhance learning engagement, improve add-to-cart metrics, and allow users to simulate an immersive experience on the web. One such module is the interactive product tour, which lets users explore Quest headsets in a 3D setting and provides additional information when users click on hotspots. I designed the original concepts for the 3D interactive tour and collaborated with Meta’s commerce engineering team on its development. Additionally, I worked with producers to procure a high-quality, performant 3D asset.
                     </p>
                 </div>
             </section>
-
             <section className='content-section'>
                 <div className='content-section-text'>
                     <h3>
@@ -130,7 +128,7 @@ const InteractiveProductTour = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/showcase"}>
+                    <Link to={"/community-voices-hub"}>
                         <Links header={'Next'} description={"Let's explore"} />
                     </Link>
                 </div>

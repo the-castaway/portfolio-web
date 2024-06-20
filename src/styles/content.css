@@ -65,6 +65,29 @@
     aspect-ratio: 16/9;
 }
 
+.content-media-devices {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.content-media-devices-desktop {
+    width: 75%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.content-media-devices-mobile {
+    width: 25%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
 .content-media-description {
     text-align: center;
 }

@@ -7,8 +7,6 @@ import Footer from '../../../components/footer.react';
 import CTA from '../../../components/cta.react';
 //styles
 import '../../../styles/project.css';
-//assets
-import { BannerMedia } from "../../../media/media";
 
 const Project = ({ project }) => {
     //refs
