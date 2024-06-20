@@ -17,6 +17,7 @@ import iptHeadset from './projects/interactiveProductTour/ipt_headset.webp'
 import iptHeadsetHotspot from './projects/interactiveProductTour/ipt_headset_hotspot.webp'
 import iptController from './projects/interactiveProductTour/ipt_controller.webp'
 import iptControllerHotspot from './projects/interactiveProductTour/ipt_controller_hotspot.webp'
+import iptDemo from './projects/interactiveProductTour/ipt_demo.webm'
 
 //cv
 import cvBanner from './projects/communityVoicesHub/cv_banner.webp'
@@ -32,6 +33,7 @@ import cvSummaryHeroDesktop from './projects/communityVoicesHub/cv_summary_hero_
 import cvSummaryHeroMobile from './projects/communityVoicesHub/cv_summary_hero_mobile.webp'
 import cvSummaryInfoDesktop from './projects/communityVoicesHub/cv_summary_info_desktop.webp'
 import cvSummaryInfoMobile from './projects/communityVoicesHub/cv_summary_info_mobile.webp'
+import cvDemo from './projects/communityVoicesHub/cv_demo.webm'
 
 
 export const Media = [
@@ -104,6 +106,10 @@ export const InteractiveProductTourMedia = [
         key: 4,
         src: iptControllerHotspot
     },
+    {
+        key: 5,
+        src: iptDemo
+    },
 ]
 
 export const CommunityVoicesHubMedia = [
@@ -154,5 +160,9 @@ export const CommunityVoicesHubMedia = [
     {
         key: 11,
         src: cvSummaryInfoMobile
+    },
+    {
+        key: 12,
+        src: cvDemo
     },
 ] 

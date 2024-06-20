@@ -123,7 +123,9 @@ const InteractiveProductTour = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={InteractiveProductTourMedia[0].key} src={InteractiveProductTourMedia[0].src} />
+                            <video className="content-media" loop autoPlay muted>
+                                <source src={InteractiveProductTourMedia[5].src} type="video/webm"></source>
+                            </video>
                         </div>
                     </div>
                 </div>

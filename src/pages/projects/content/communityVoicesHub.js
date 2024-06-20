@@ -166,7 +166,9 @@ const communityVoicesHub = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={CommunityVoicesHubMedia[0].key} src={CommunityVoicesHubMedia[0].src} />
+                            <video className="content-media" loop autoPlay muted>
+                                <source src={CommunityVoicesHubMedia[12].src} type="video/webm"></source>
+                            </video>
                         </div>
                     </div>
                 </div>
