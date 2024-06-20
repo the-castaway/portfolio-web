@@ -79,6 +79,7 @@
     height: auto;
     border-radius: 20px;
     overflow: hidden;
+    aspect-ratio: 45/32;
 }
 
 .content-media-devices-mobile {
@@ -86,6 +87,7 @@
     height: auto;
     border-radius: 20px;
     overflow: hidden;
+    aspect-ratio: 9/16;
 }
 
 .content-media-description {

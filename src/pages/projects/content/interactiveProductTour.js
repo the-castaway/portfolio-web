@@ -129,7 +129,7 @@ const InteractiveProductTour = () => {
                 </div>
                 <div className='content-next'>
                     <Link to={"/community-voices-hub"}>
-                        <Links header={'Next'} description={"Let's explore"} />
+                        <Links header={'Next'} description={"Community Voices Hub"} />
                     </Link>
                 </div>
             </section>

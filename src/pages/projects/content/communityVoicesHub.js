@@ -176,6 +176,7 @@ const communityVoicesHub = () => {
                     </Link>
                 </div>
             </section>
+
         </div >
     );
 }

@@ -60,7 +60,6 @@ const CTA = () => {
             delay: 0.9,
             ease: 'ease',
         }, 0)
-
         tl.pause();
         return tl;
     }
@@ -71,9 +70,10 @@ const CTA = () => {
             let tl = getActiveTL();
             ScrollTrigger.create({
                 start: 0,
-                end: () => ScrollTrigger.maxScroll(window) - 2,
-                onLeave: () => { tl.play() },
-                onEnterBack: () => { tl.reverse() }
+                markers: false,
+                end: () => ScrollTrigger.maxScroll(window) - 10,
+                onLeave: () => { tl.play(); },
+                onEnterBack: () => { tl.reverse(); }
             });
         })
         return () => {
