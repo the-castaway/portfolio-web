@@ -11,8 +11,8 @@ export const Projects = [
         purview: ["UI Design", "Front-end Eng", "3D Modeling"],
         company: "Meta",
         href: '/ipt',
-        thumbnail: 0,
-        banner: 0,
+        thumbnail: ThumbnailMedia[0],
+        banner: BannerMedia[0],
         content: <InteractiveProductTour />
     },
 ] 

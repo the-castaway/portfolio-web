@@ -7,13 +7,13 @@ import Archived from '../../components/archived.react';
 //styles
 import '../../styles/archive.css';
 //assets
-import { Media, ThumbnailMedia } from "../../media/media";
+import { ThumbnailMedia } from "../../media/media";
 //projects 
 import { Projects } from '../projects/projects';
 
 const Archive = () => {
     //states
-    const [activeThumbnail, setActiveThumbnail] = useState(0);
+    const [activeThumbnail, setActiveThumbnail] = useState(null);
     const [activeNumber, setActiveNumber] = useState('XXX');
 
     //variables
@@ -41,7 +41,7 @@ const Archive = () => {
                             Archive
                         </h1>
                         <div className='archive-preview'>
-                            {activeThumbnail === null ? <div className='archive-preview-null' /> : <img className='archive-preview-media' key={ThumbnailMedia[activeThumbnail].key} src={ThumbnailMedia[activeThumbnail].src} />}
+                            {activeThumbnail === null ? <div className='archive-preview-null' /> : <img className='archive-preview-media' key={activeThumbnail.key} src={activeThumbnail.src} />}
                         </div>
                         <div className='archive-preview-info'>
                             <h2>

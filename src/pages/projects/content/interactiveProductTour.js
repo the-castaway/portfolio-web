@@ -101,7 +101,27 @@ const InteractiveProductTour = () => {
                     <p>
                         The results of this module were significant. We contributed to the goal of creating more interactive and immersive experiences while also substantially improving key metrics. The average time spent on the page increased by over 30 seconds, the learning engagement metric improved by over 8%, and the add-to-cart rate increased by 1%.
                     </p>
+                    <div className='content-results'>
+                        <div className='content-result'>
+                            <h4>
+                                Learning Engagement
+                            </h4>
+                            <p className='content-result-stat'>
+                                +8%
+                            </p>
+                        </div>
+                        <div className='content-result'>
+                            <h4>
+                                Time Spent
+                            </h4>
+                            <p className='content-result-stat'>
+                                +30s
+                            </p>
+                        </div>
+                    </div>
                 </div>
+            </section>
+            <section className='content-section'>
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
@@ -109,13 +129,12 @@ const InteractiveProductTour = () => {
                         </div>
                     </div>
                 </div>
+                <div className='content-next'>
+                    <Link to={"/showcase"}>
+                        <Links header={'Next'} description={"Let's explore"} />
+                    </Link>
+                </div>
             </section>
-
-            <div className='content-next'>
-                <Link to={"/showcase"}>
-                    <Links header={'Next'} description={"Let's explore"} />
-                </Link>
-            </div>
         </div >
     );
 }

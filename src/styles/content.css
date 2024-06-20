@@ -68,3 +68,21 @@
 .content-media-description {
     text-align: center;
 }
+
+.content-results {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 40px;
+}
+
+.content-result {
+    width: 50%;
+}
+
+.content-result-stat {
+    font-size: 100px;
+    font-weight: 600;
+}
