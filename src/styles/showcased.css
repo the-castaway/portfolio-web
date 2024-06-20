@@ -128,5 +128,6 @@
 }
 
 .showcased-info-text h2 {
+    width: 50%;
     margin-bottom: 10px;
 }
