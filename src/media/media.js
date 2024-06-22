@@ -9,6 +9,7 @@ import headshot from './about/about_headshot.webp'
 //thumbnails
 import iptThumbnail from './thumbnails/ipt_thumbnail.webp'
 import cvThumbnail from './thumbnails/cv_thumbnail.webp'
+import stpThumbnail from './thumbnails/stp_thumbnail.webp'
 
 //ipt
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
@@ -34,6 +35,14 @@ import cvSummaryHeroMobile from './projects/communityVoicesHub/cv_summary_hero_m
 import cvSummaryInfoDesktop from './projects/communityVoicesHub/cv_summary_info_desktop.webp'
 import cvSummaryInfoMobile from './projects/communityVoicesHub/cv_summary_info_mobile.webp'
 import cvDemo from './projects/communityVoicesHub/cv_demo.webm'
+
+//stp
+import stpBanner from './projects/scrollToPlay/stp_banner.webp'
+import stpAria from './projects/scrollToPlay/stp_aria.webm'
+import stpBrand from './projects/scrollToPlay/stp_brand.webm'
+import stpMetaverse from './projects/scrollToPlay/stp_metaverse.webm'
+import stpRBS from './projects/scrollToPlay/stp_rbs.webm'
+import stpSTR from './projects/scrollToPlay/stp_str.webm'
 
 
 export const Media = [
@@ -72,6 +81,10 @@ export const ThumbnailMedia = [
         key: 1,
         src: cvThumbnail
     },
+    {
+        key: 2,
+        src: stpThumbnail
+    },
 ]
 
 export const BannerMedia = [
@@ -82,6 +95,10 @@ export const BannerMedia = [
     {
         key: 1,
         src: cvBanner
+    },
+    {
+        key: 2,
+        src: stpBanner
     },
 ]
 
@@ -165,4 +182,27 @@ export const CommunityVoicesHubMedia = [
         key: 12,
         src: cvDemo
     },
-] 
+]
+
+export const ScrollToPlayMedia = [
+    {
+        key: 0,
+        src: stpAria
+    },
+    {
+        key: 1,
+        src: stpBrand
+    },
+    {
+        key: 2,
+        src: stpMetaverse
+    },
+    {
+        key: 3,
+        src: stpRBS
+    },
+    {
+        key: 4,
+        src: stpSTR
+    },
+]

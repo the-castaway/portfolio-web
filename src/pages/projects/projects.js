@@ -1,6 +1,7 @@
 
 import InteractiveProductTour from "./content/interactiveProductTour"
 import CommunityVoicesHub from "./content/communityVoicesHub";
+import ScrollToPlay from "./content/scrollToPlay";
 import { ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -27,5 +28,17 @@ export const Projects = [
         thumbnail: ThumbnailMedia[1],
         banner: BannerMedia[1],
         content: <CommunityVoicesHub />
+    },
+    {
+        key: 3,
+        number: "003",
+        name: "Scroll To Play",
+        description: "Scroll To Play is a module designed to allow users to scrub through a video as they scroll",
+        purview: ["UI Design", "Front-end Eng", "Asset Procurement"],
+        company: "Meta",
+        href: '/scroll-to-play',
+        thumbnail: ThumbnailMedia[2],
+        banner: BannerMedia[2],
+        content: <ScrollToPlay />
     },
 ] 

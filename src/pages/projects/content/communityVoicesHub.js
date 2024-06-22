@@ -173,8 +173,8 @@ const communityVoicesHub = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/showcase"}>
-                        <Links header={'Next'} description={"Let's explore"} />
+                    <Link to={"/scroll-to-play"}>
+                        <Links header={'Next'} description={"Scroll To Play"} />
                     </Link>
                 </div>
             </section>
