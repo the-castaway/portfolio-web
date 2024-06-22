@@ -66,6 +66,7 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
                 duration: 1,
             }, 0)
             .addLabel('Active')
+        tl.progress(1).progress(0);
         return tl;
     }
 
