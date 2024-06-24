@@ -188,12 +188,12 @@ const Nav = () => {
                                 @the_casta_way
                             </p>
                         </div>
-                        <a href="tel:408-828-3020" className="nav-modal-contact-link">
+                        <a href="https://drive.google.com/file/d/1UxZ03F-SXGaJwTzW1bVygwm-ewdB0LPP/view?usp=sharing" className="nav-modal-contact-link" target="_blank">
                             <h4>
-                                Phone
+                                Resume
                             </h4>
                             <p>
-                                +1 408 828 3020
+                                2024 Resume
                             </p>
                         </a>
                         <a href="mailto:jccd.designs@gmail.com" className="nav-modal-contact-link">

@@ -16,7 +16,7 @@ const CTA = () => {
     const ctaConnectHeaderBracketRight = useRef(HTMLElement);
     const ctaConnectLocale = useRef(HTMLElement);
     const ctaConnectSocials = useRef(HTMLElement);
-    const ctaConnectPhone = useRef(HTMLElement);
+    const ctaConnectResume = useRef(HTMLElement);
     const ctaConnectEmail = useRef(HTMLElement);
     //plugins
     gsap.registerPlugin(ScrollTrigger);
@@ -39,7 +39,7 @@ const CTA = () => {
                 ctaHeaderTextRight.current,
                 ctaConnectLocale.current,
                 ctaConnectSocials.current,
-                ctaConnectPhone.current,
+                ctaConnectResume.current,
                 ctaConnectEmail.current,
                 ctaConnectHeaderBracketLeft.current,
                 ctaConnectHeaderBracketRight.current,
@@ -129,22 +129,26 @@ const CTA = () => {
                                     @the_casta_way
                                 </p>
                             </div>
-                            <div className="cta-connect-info-text-node">
+                            <a className="cta-connect-info-text-node cta-connect-info-link" href="https://drive.google.com/file/d/1UxZ03F-SXGaJwTzW1bVygwm-ewdB0LPP/view?usp=sharing" target='_blank'>
                                 <h4>
-                                    Phone
+                                    Resume
                                 </h4>
-                                <p ref={ctaConnectPhone}>
-                                    +1 408 828 3020
+                                <p ref={ctaConnectResume}>
+                                    <span className='cta-connect-info-link'>
+                                        2024 Resume
+                                    </span>
                                 </p>
-                            </div>
-                            <div className="cta-connect-info-text-node">
+                            </a>
+                            <a className="cta-connect-info-text-node" href="mailto:jccd.designs@gmail.com">
                                 <h4>
                                     Email
                                 </h4>
                                 <p ref={ctaConnectEmail}>
-                                    hello@jaimecastaneda.com
+                                    <span className='cta-connect-info-link'>
+                                        hello@jaimecastaneda.com
+                                    </span>
                                 </p>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div >

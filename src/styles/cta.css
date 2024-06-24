@@ -102,3 +102,8 @@
     width: 16.6%;
     height: auto;
 }
+
+.cta-connect-info-text-node:hover .cta-connect-info-link {
+    transition: color 0.5s ease;
+    color: var(--jc-blue);
+}
