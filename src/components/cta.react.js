@@ -60,7 +60,7 @@ const CTA = () => {
             delay: 0.9,
             ease: 'ease',
         }, 0)
-        tl.pause();
+        tl.pause().progress(1).progress(0);
         return tl;
     }
 
