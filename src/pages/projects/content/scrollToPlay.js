@@ -93,6 +93,18 @@ const ScrollToPlay = () => {
                             </h4>
                         </div>
                     </div>
+                    <div className='content-media-node'>
+                        <div className='content-media-full'>
+                            <video className="content-media" loop autoPlay muted>
+                                <source src={ScrollToPlayMedia[1].src} type="video/webm"></source>
+                            </video>
+                        </div>
+                        <div className='content-media-description'>
+                            <h4>
+                                Brand Portal
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section className='content-section'>
@@ -117,20 +129,22 @@ const ScrollToPlay = () => {
                                 Learning Engagement
                             </h4>
                             <p className='content-result-stat'>
-                                +23%
+                                23%
                             </p>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section className='content-section'>
-                <div className='content-media-container'>
-                    <div className='content-media-node'>
-                        <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
-                                <source src={ScrollToPlayMedia[1].src} type="video/webm"></source>
-                            </video>
-                        </div>
+                    <div className='content-collaborators'>
+                        <h4>
+                            Collaborators
+                        </h4>
+                        <ul>
+                            <li>
+                                <p>Dan Kuspco</p>
+                            </li>
+                            <li>
+                                <p>Jimmy Ma</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div className='content-next'>
