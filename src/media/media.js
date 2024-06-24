@@ -10,6 +10,7 @@ import iptThumbnail from './thumbnails/ipt_thumbnail.webp'
 import cvThumbnail from './thumbnails/cv_thumbnail.webp'
 import stpThumbnail from './thumbnails/stp_thumbnail.webp'
 import metaverseThumbnail from './thumbnails/metaverse_thumbnail.webp'
+import mtiaThumbnail from './thumbnails/mtia_thumbnail.webp'
 
 //ipt
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
@@ -58,7 +59,23 @@ import metaverseNewsDesktop from './projects/metaverse/metaverse_news_desktop.we
 import metaverseNewsMobile from './projects/metaverse/metaverse_news_mobile.webp'
 import metaverseDemo from './projects/metaverse/metaverse_demo.webm'
 
-
+//mtia
+import mtiaBanner from './projects/mtia/mtia_banner.webp'
+import mtiaHeroDesktop from './projects/mtia/mtia_hero_desktop.webp'
+import mtiaHeroMobile from './projects/mtia/mtia_hero_mobile.webp'
+import mtiaIntroDesktop from './projects/mtia/mtia_intro_desktop.webp'
+import mtiaIntroMobile from './projects/mtia/mtia_intro_mobile.webp'
+import mtiaCTADesktop from './projects/mtia/mtia_cta_desktop.webp'
+import mtiaCTAMobile from './projects/mtia/mtia_cta_mobile.webp'
+import mtiaHardwareDesktop from './projects/mtia/mtia_hardware_desktop.webp'
+import mtiaHardwareMobile from './projects/mtia/mtia_hardware_mobile.webp'
+import mtiaDiagramDesktop from './projects/mtia/mtia_diagram_desktop.webp'
+import mtiaDiagramMobile from './projects/mtia/mtia_diagram_mobile.webp'
+import mtiaChipDesktop from './projects/mtia/mtia_chip_desktop.webm'
+import mtiaChipMobile from './projects/mtia/mtia_chip_mobile.webm'
+import mtiaInvestmentDesktop from './projects/mtia/mtia_investment_desktop.webp'
+import mtiaInvestmentMobile from './projects/mtia/mtia_investment_mobile.webp'
+import mtiaDemo from './projects/mtia/mtia_demo.webm'
 
 export const Media = [
     {
@@ -100,6 +117,10 @@ export const ThumbnailMedia = [
         key: 3,
         src: metaverseThumbnail
     },
+    {
+        key: 4,
+        src: mtiaThumbnail
+    },
 ]
 
 export const BannerMedia = [
@@ -118,6 +139,10 @@ export const BannerMedia = [
     {
         key: 3,
         src: metaverseBanner
+    },
+    {
+        key: 4,
+        src: mtiaBanner
     },
 ]
 
@@ -226,8 +251,6 @@ export const ScrollToPlayMedia = [
     },
 ]
 
-
-
 export const MetaverseMedia = [
     {
         key: 0,
@@ -253,7 +276,6 @@ export const MetaverseMedia = [
         key: 5,
         src: metaverseAccessMobile
     },
-
     {
         key: 6,
         src: metaverseWhoDesktop
@@ -273,5 +295,68 @@ export const MetaverseMedia = [
     {
         key: 10,
         src: metaverseDemo
+    },
+]
+
+export const MTIAMedia = [
+    {
+        key: 0,
+        src: mtiaHeroDesktop
+    },
+    {
+        key: 1,
+        src: mtiaHeroMobile
+    },
+    {
+        key: 2,
+        src: mtiaIntroDesktop
+    },
+    {
+        key: 3,
+        src: mtiaIntroMobile
+    },
+    {
+        key: 4,
+        src: mtiaCTADesktop
+    },
+    {
+        key: 5,
+        src: mtiaCTAMobile
+    },
+    {
+        key: 6,
+        src: mtiaHardwareDesktop
+    },
+    {
+        key: 7,
+        src: mtiaHardwareMobile
+    },
+    {
+        key: 8,
+        src: mtiaDiagramDesktop
+    },
+    {
+        key: 9,
+        src: mtiaDiagramMobile
+    },
+    {
+        key: 10,
+        src: mtiaChipDesktop
+    },
+    {
+        key: 11,
+        src: mtiaChipMobile
+    },
+    {
+        key: 12,
+        src: mtiaInvestmentDesktop
+    },
+    {
+        key: 13,
+        src: mtiaInvestmentMobile
+    },
+    {
+        key: 14,
+        src: mtiaDemo
     },
 ]

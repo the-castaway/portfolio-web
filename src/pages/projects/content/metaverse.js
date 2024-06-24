@@ -182,8 +182,8 @@ const Metaverse = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/community-voices-hub"}>
-                        <Links header={'Next'} description={"Community Voices Hub"} />
+                    <Link to={"/mtia-v2"}>
+                        <Links header={'Next'} description={"MTIA v2"} />
                     </Link>
                 </div>
             </section>

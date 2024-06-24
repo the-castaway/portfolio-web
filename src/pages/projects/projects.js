@@ -3,6 +3,7 @@ import InteractiveProductTour from "./content/interactiveProductTour"
 import CommunityVoicesHub from "./content/communityVoicesHub";
 import ScrollToPlay from "./content/scrollToPlay";
 import Metaverse from "./content/metaverse";
+import MTIA from "./content/mtia";
 import { ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -46,12 +47,24 @@ export const Projects = [
         key: 4,
         number: "004",
         name: "Metaverse",
-        description: "The Metaverse explainer page was designed to answer various frequently searched questions, such as what the Metaverse is, who can use it, and how users can access it. ",
+        description: "The Metaverse explainer page was designed to answer various frequently searched questions, such as what the Metaverse is, who can use it, and how users can access it.",
         purview: ["UI Design", "Front-end Eng", "2D Animations"],
         company: "Meta",
         href: '/metaverse',
         thumbnail: ThumbnailMedia[3],
         banner: BannerMedia[3],
         content: <Metaverse />
+    },
+    {
+        key: 5,
+        number: "005",
+        name: "MTIA v2",
+        description: "The MTIA v2 page is designed to update investors, potential candidates, and the public about improvements to Meta’s custom silicon.",
+        purview: ["UI Design", "Front-end Eng", "3D Modeling"],
+        company: "Meta",
+        href: '/mtia-v2',
+        thumbnail: ThumbnailMedia[4],
+        banner: BannerMedia[4],
+        content: <MTIA />
     },
 ] 

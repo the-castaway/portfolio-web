@@ -51,7 +51,7 @@
 .content-media-full {
     width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 16/9;
 }
@@ -68,7 +68,7 @@
 .content-media-devices-desktop {
     width: 75%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 45/32;
 }
@@ -76,7 +76,7 @@
 .content-media-devices-mobile {
     width: 25%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 9/16;
 }
