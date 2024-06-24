@@ -5,7 +5,7 @@ import Links from '../../../components/link.react';
 //styles
 import '../../../styles/content.css';
 //assets
-import { ScrollToPlayMedia, MetaverseMedia } from "../../../media/media";
+import { MetaverseMedia } from "../../../media/media";
 
 const Metaverse = () => {
     return (
