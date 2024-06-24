@@ -116,6 +116,14 @@
     border-bottom: var(--jc-ui-border)
 }
 
+.content-collaborator p {
+    transition: all 0.5s ease;
+}
+
+.content-collaborator:hover p {
+    color: var(--jc-blue);
+}
+
 .content-next {
     width: 75%;
     height: auto;

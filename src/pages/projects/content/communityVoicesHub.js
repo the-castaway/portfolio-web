@@ -178,13 +178,19 @@ const communityVoicesHub = () => {
                         </h4>
                         <ul>
                             <li>
-                                <p>Ike Ofoegbu</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/ike-ofoegbu/' target='_blank'>
+                                    <p>Ike Ofoegbu</p>
+                                </a>
                             </li>
                             <li>
-                                <p>Patricia Geagea</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/patriciageagea/' target='_blank'>
+                                    <p>Patricia Geagea</p>
+                                </a>
                             </li>
                             <li>
-                                <p>Dan Kupsco</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/kupsco/' target='_blank'>
+                                    <p>Dan Kupsco</p>
+                                </a>
                             </li>
                         </ul>
                     </div>

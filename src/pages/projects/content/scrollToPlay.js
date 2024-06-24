@@ -139,10 +139,14 @@ const ScrollToPlay = () => {
                         </h4>
                         <ul>
                             <li>
-                                <p>Dan Kuspco</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/kupsco/' target='_blank'>
+                                    <p>Dan Kupsco</p>
+                                </a>
                             </li>
                             <li>
-                                <p>Jimmy Ma</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/majimmy88/' target='_blank'>
+                                    <p>Jimmy Ma</p>
+                                </a>
                             </li>
                         </ul>
                     </div>

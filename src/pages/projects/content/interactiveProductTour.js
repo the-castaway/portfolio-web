@@ -135,10 +135,14 @@ const InteractiveProductTour = () => {
                         </h4>
                         <ul>
                             <li>
-                                <p>Eugene Teo</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/eugeneteu/' target='_blank'>
+                                    <p>Eugene Teo</p>
+                                </a>
                             </li>
                             <li>
-                                <p>Dan Kupsco</p>
+                                <a className="content-collaborator" href='https://www.linkedin.com/in/kupsco/' target='_blank'>
+                                    <p>Dan Kupsco</p>
+                                </a>
                             </li>
                         </ul>
                     </div>
