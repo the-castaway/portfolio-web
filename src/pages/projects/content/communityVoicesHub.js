@@ -129,6 +129,18 @@ const communityVoicesHub = () => {
                             </h4>
                         </div>
                     </div>
+                    <div className='content-media-node'>
+                        <div className='content-media-full'>
+                            <video className="content-media" loop autoPlay muted>
+                                <source src={CommunityVoicesHubMedia[12].src} type="video/webm"></source>
+                            </video>
+                        </div>
+                        <div className='content-media-description'>
+                            <h4>
+                                Community Voices Demo
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section className='content-section'>
@@ -160,16 +172,21 @@ const communityVoicesHub = () => {
                             </p>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section className='content-section'>
-                <div className='content-media-container'>
-                    <div className='content-media-node'>
-                        <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
-                                <source src={CommunityVoicesHubMedia[12].src} type="video/webm"></source>
-                            </video>
-                        </div>
+                    <div className='content-collaborators'>
+                        <h4>
+                            Collaborators
+                        </h4>
+                        <ul>
+                            <li>
+                                <p>Ike Ofoegbu</p>
+                            </li>
+                            <li>
+                                <p>Patricia Geagea</p>
+                            </li>
+                            <li>
+                                <p>Dan Kupsco</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div className='content-next'>
