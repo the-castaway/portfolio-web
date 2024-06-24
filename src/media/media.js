@@ -3,13 +3,13 @@ import metaNews from './thumbnails/thumbnail_meta_news.webp'
 import vr4g from './thumbnails/thumbnail_vr4g.webp'
 import rbs from './thumbnails/thumbnail_rbs_uth.webp'
 import rsvp from './thumbnails/thumbnail_rsvp.webp'
-import metaverse from './projects/metaverse/metaverse.png'
 import headshot from './about/about_headshot.webp'
 
 //thumbnails
 import iptThumbnail from './thumbnails/ipt_thumbnail.webp'
 import cvThumbnail from './thumbnails/cv_thumbnail.webp'
 import stpThumbnail from './thumbnails/stp_thumbnail.webp'
+import metaverseThumbnail from './thumbnails/metaverse_thumbnail.webp'
 
 //ipt
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
@@ -44,6 +44,21 @@ import stpMetaverse from './projects/scrollToPlay/stp_metaverse.webm'
 import stpRBS from './projects/scrollToPlay/stp_rbs.webm'
 import stpSTR from './projects/scrollToPlay/stp_str.webm'
 
+//metaverse
+import metaverseBanner from './projects/metaverse/metaverse_banner.webp'
+import metaverseHeroDesktop from './projects/metaverse/metaverse_hero_desktop.webp'
+import metaverseHeroMobile from './projects/metaverse/metaverse_hero_mobile.webp'
+import metaverseCapabilitiesDesktop from './projects/metaverse/metaverse_capabilities_desktop.webp'
+import metaverseCapabilitiesMobile from './projects/metaverse/metaverse_capabilities_mobile.webp'
+import metaverseAccessDesktop from './projects/metaverse/metaverse_access_desktop.webm'
+import metaverseAccessMobile from './projects/metaverse/metaverse_access_mobile.webm'
+import metaverseWhoDesktop from './projects/metaverse/metaverse_who_desktop.webp'
+import metaverseWhoMobile from './projects/metaverse/metaverse_who_mobile.webp'
+import metaverseNewsDesktop from './projects/metaverse/metaverse_news_desktop.webp'
+import metaverseNewsMobile from './projects/metaverse/metaverse_news_mobile.webp'
+import metaverseDemo from './projects/metaverse/metaverse_demo.webm'
+
+
 
 export const Media = [
     {
@@ -66,10 +81,6 @@ export const Media = [
         key: 4,
         src: headshot
     },
-    {
-        key: 5,
-        src: metaverse
-    },
 ]
 
 export const ThumbnailMedia = [
@@ -85,6 +96,10 @@ export const ThumbnailMedia = [
         key: 2,
         src: stpThumbnail
     },
+    {
+        key: 3,
+        src: metaverseThumbnail
+    },
 ]
 
 export const BannerMedia = [
@@ -99,6 +114,10 @@ export const BannerMedia = [
     {
         key: 2,
         src: stpBanner
+    },
+    {
+        key: 3,
+        src: metaverseBanner
     },
 ]
 
@@ -204,5 +223,55 @@ export const ScrollToPlayMedia = [
     {
         key: 4,
         src: stpSTR
+    },
+]
+
+
+
+export const MetaverseMedia = [
+    {
+        key: 0,
+        src: metaverseHeroDesktop
+    },
+    {
+        key: 1,
+        src: metaverseHeroMobile
+    },
+    {
+        key: 2,
+        src: metaverseCapabilitiesDesktop
+    },
+    {
+        key: 3,
+        src: metaverseCapabilitiesMobile
+    },
+    {
+        key: 4,
+        src: metaverseAccessDesktop
+    },
+    {
+        key: 5,
+        src: metaverseAccessMobile
+    },
+
+    {
+        key: 6,
+        src: metaverseWhoDesktop
+    },
+    {
+        key: 7,
+        src: metaverseWhoMobile
+    },
+    {
+        key: 8,
+        src: metaverseNewsDesktop
+    },
+    {
+        key: 9,
+        src: metaverseNewsMobile
+    },
+    {
+        key: 10,
+        src: metaverseDemo
     },
 ]

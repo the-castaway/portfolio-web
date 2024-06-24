@@ -134,8 +134,8 @@ const ScrollToPlay = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/community-voices-hub"}>
-                        <Links header={'Next'} description={"Community Voices Hub"} />
+                    <Link to={"/metaverse"}>
+                        <Links header={'Next'} description={"Metaverse"} />
                     </Link>
                 </div>
             </section>

@@ -2,6 +2,7 @@
 import InteractiveProductTour from "./content/interactiveProductTour"
 import CommunityVoicesHub from "./content/communityVoicesHub";
 import ScrollToPlay from "./content/scrollToPlay";
+import Metaverse from "./content/metaverse";
 import { ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -40,5 +41,17 @@ export const Projects = [
         thumbnail: ThumbnailMedia[2],
         banner: BannerMedia[2],
         content: <ScrollToPlay />
+    },
+    {
+        key: 4,
+        number: "004",
+        name: "Metaverse",
+        description: "The Metaverse explainer page was designed to answer various frequently searched questions, such as what the Metaverse is, who can use it, and how users can access it. ",
+        purview: ["UI Design", "Front-end Eng", "2D Animations"],
+        company: "Meta",
+        href: '/metaverse',
+        thumbnail: ThumbnailMedia[3],
+        banner: BannerMedia[3],
+        content: <Metaverse />
     },
 ] 
