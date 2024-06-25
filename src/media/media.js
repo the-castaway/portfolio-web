@@ -11,6 +11,7 @@ import cvThumbnail from './thumbnails/cv_thumbnail.webp'
 import stpThumbnail from './thumbnails/stp_thumbnail.webp'
 import metaverseThumbnail from './thumbnails/metaverse_thumbnail.webp'
 import mtiaThumbnail from './thumbnails/mtia_thumbnail.webp'
+import newsThumbnail from './thumbnails/news_thumbnail.webp'
 
 //ipt
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
@@ -77,6 +78,14 @@ import mtiaInvestmentDesktop from './projects/mtia/mtia_investment_desktop.webp'
 import mtiaInvestmentMobile from './projects/mtia/mtia_investment_mobile.webp'
 import mtiaDemo from './projects/mtia/mtia_demo.webm'
 
+//news
+import newsBanner from './projects/news/news_banner.webp'
+import newsHome from './projects/news/news_home.webm'
+import newsHub from './projects/news/news_hub.webm'
+import newsPost from './projects/news/news_post.webm'
+import newsArchive from './projects/news/news_archive.webm'
+import newsNav from './projects/news/news_nav.webm'
+
 export const Media = [
     {
         key: 0,
@@ -121,6 +130,10 @@ export const ThumbnailMedia = [
         key: 4,
         src: mtiaThumbnail
     },
+    {
+        key: 5,
+        src: newsThumbnail
+    },
 ]
 
 export const BannerMedia = [
@@ -143,6 +156,10 @@ export const BannerMedia = [
     {
         key: 4,
         src: mtiaBanner
+    },
+    {
+        key: 5,
+        src: newsBanner
     },
 ]
 
@@ -358,5 +375,28 @@ export const MTIAMedia = [
     {
         key: 14,
         src: mtiaDemo
+    },
+]
+
+export const NewsMedia = [
+    {
+        key: 0,
+        src: newsHome
+    },
+    {
+        key: 1,
+        src: newsHub
+    },
+    {
+        key: 2,
+        src: newsPost
+    },
+    {
+        key: 3,
+        src: newsArchive
+    },
+    {
+        key: 4,
+        src: newsNav
     },
 ]

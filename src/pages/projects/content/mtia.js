@@ -199,8 +199,8 @@ const MTIA = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/interactive-product-tour"}>
-                        <Links header={'Next'} description={'IPT'} />
+                    <Link to={"/news-hub"}>
+                        <Links header={'Next'} description={'News Hub'} />
                     </Link>
                 </div>
             </section>

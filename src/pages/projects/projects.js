@@ -4,6 +4,7 @@ import CommunityVoicesHub from "./content/communityVoicesHub";
 import ScrollToPlay from "./content/scrollToPlay";
 import Metaverse from "./content/metaverse";
 import MTIA from "./content/mtia";
+import News from "./content/news";
 import { ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -66,5 +67,17 @@ export const Projects = [
         thumbnail: ThumbnailMedia[4],
         banner: BannerMedia[4],
         content: <MTIA />
+    },
+    {
+        key: 6,
+        number: "006",
+        name: "News Hub",
+        description: "The Meta News Hub is a centralized platform for all company-related information",
+        purview: ["UI Design", "Product Design", "Prototyping"],
+        company: "Meta",
+        href: '/news-hub',
+        thumbnail: ThumbnailMedia[5],
+        banner: BannerMedia[5],
+        content: <News />
     },
 ] 
