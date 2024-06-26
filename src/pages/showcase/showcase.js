@@ -42,7 +42,6 @@ const Showcase = () => {
             duration: 0.5,
             ease: "ease",
         }, 0)
-            .addLabel('Active')
         return tl;
     }
 
@@ -110,6 +109,29 @@ const Showcase = () => {
                 </div>
                 <div ref={showcaseFeaturedWork} className='showcase-featured-work'>
                     {projectMap}
+                </div>
+
+            </div>
+            <div className='showcase-more-work-container'>
+                <div className='showcase-more-work-content'>
+                    <Link to={"/archive"} className='showcase-more-work-card'>
+                        <div className='showcase-more-work-card-header'>
+                            <h4>
+                                More
+                            </h4>
+                            <h2>
+                                <b>PR. 007 - 016<br />/ 016</b>
+                            </h2>
+                        </div>
+                        <div className='showcase-more-work-card-icon'>
+                            <div className="showcase-more-work-card-icon-vector">
+                                <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                    <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                </svg>
+                            </div>
+                        </div>
+                    </Link>
                 </div>
             </div>
             <CTA />
