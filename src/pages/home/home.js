@@ -7,7 +7,7 @@ import Footer from '../../components/footer.react';
 //styles
 import '../../styles/home.css';
 //assets
-import { Media } from "../../media/media";
+import { ThumbnailMedia } from "../../media/media";
 
 const Home = () => {
   //state
@@ -74,7 +74,8 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotate: xPos * 40,
+      rotationZ: xPos * 15,
+      rotate: xPos * 0,
       y: yPos * 200,
       x: xPos * 200,
       ease: "power1.Out"
@@ -83,7 +84,8 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotate: xPos * 30,
+      rotationZ: xPos * 10,
+      rotate: xPos * 0,
       y: yPos * 150,
       x: xPos * 150,
       ease: "power2.Out"
@@ -92,7 +94,8 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotate: xPos * 20,
+      rotationZ: xPos * 5,
+      rotate: xPos * 0,
       y: yPos * 100,
       x: xPos * 100,
       ease: "power3.Out"
@@ -101,7 +104,8 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotate: xPos * 10,
+      rotationZ: xPos * 0,
+      rotate: xPos * 0,
       y: yPos * 50,
       x: xPos * 50,
       ease: "power4.Out"
@@ -153,25 +157,27 @@ const Home = () => {
   return (
     <div className='home' onClick={handleEnter}>
       <div className='home-cards-container'>
-        <div ref={homeCards} className='home-cards'>
-          <div className='home-card-container'>
-            <div ref={homeCard4} className='home-card'>
-              <img className='about-headshot' key={Media[3].key} src={Media[3].src} />
+        <div className='home-cards-content'>
+          <div ref={homeCards} className='home-cards'>
+            <div className='home-card-container'>
+              <div ref={homeCard4} className='home-card'>
+                <img className='home-card-media' key={ThumbnailMedia[3].key} src={ThumbnailMedia[3].src} />
+              </div>
             </div>
-          </div>
-          <div className='home-card-container'>
-            <div ref={homeCard3} className='home-card'>
-              <img className='about-headshot' key={Media[2].key} src={Media[2].src} />
+            <div className='home-card-container'>
+              <div ref={homeCard3} className='home-card'>
+                <img className='home-card-media' key={ThumbnailMedia[2].key} src={ThumbnailMedia[2].src} />
+              </div>
             </div>
-          </div>
-          <div className='home-card-container'>
-            <div ref={homeCard2} className='home-card'>
-              <img className='about-headshot' key={Media[1].key} src={Media[1].src} />
+            <div className='home-card-container'>
+              <div ref={homeCard2} className='home-card'>
+                <img className='home-card-media' key={ThumbnailMedia[1].key} src={ThumbnailMedia[1].src} />
+              </div>
             </div>
-          </div>
-          <div className='home-card-container'>
-            <div ref={homeCard1} className='home-card'>
-              <img className='about-headshot' key={Media[1].key} src={Media[0].src} />
+            <div className='home-card-container'>
+              <div ref={homeCard1} className='home-card'>
+                <img className='home-card-media' key={ThumbnailMedia[0].key} src={ThumbnailMedia[0].src} />
+              </div>
             </div>
           </div>
         </div>
@@ -205,7 +211,7 @@ const Home = () => {
               Jaime Castaneda
             </p>
           </div>
-          <div className="home-info-text-node">
+          <div className="home-info-text-node mobile-off">
             <h4>
               Status
             </h4>

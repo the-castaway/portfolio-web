@@ -91,22 +91,22 @@ export const Media = [
         key: 0,
         src: metaNews
     },
-    {
-        key: 1,
-        src: vr4g
-    },
-    {
-        key: 2,
-        src: rbs
-    },
-    {
-        key: 3,
-        src: rsvp
-    },
-    {
-        key: 4,
-        src: headshot
-    },
+    // {
+    //     key: 1,
+    //     src: vr4g
+    // },
+    // {
+    //     key: 2,
+    //     src: rbs
+    // },
+    // {
+    //     key: 3,
+    //     src: rsvp
+    // },
+    // {
+    //     key: 4,
+    //     src: headshot
+    // },
 ]
 
 export const ThumbnailMedia = [
