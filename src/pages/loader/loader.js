@@ -143,22 +143,28 @@ const Loader = ({ location }) => {
     return (
         <div id="loader" className='loader'>
             <div className='loader-container'>
-                <h1 className='loader-header' ref={loaderHeaderLeft}>
-                    <span>
-                        2024
-                    </span>
-                </h1>
-                <div className='loader-line' ref={loaderLine} />
-                <h1 className='loader-header' ref={loaderHeaderRight}>
-                    <span>
-                        Folio
-                    </span>
-                </h1>
-                <p className='loader-counter'>
-                    <span ref={loaderCounter}>
-                        000
-                    </span>
-                </p>
+                <div className='loader-content'>
+                    <div className='loader-header-left'>
+                        <h1 className='loader-header-text' ref={loaderHeaderLeft}>
+                            <span>
+                                2024
+                            </span>
+                        </h1>
+                    </div>
+                    <div className='loader-line' ref={loaderLine} />
+                    <div className='loader-header-right'>
+                        <h1 className='loader-header-text' ref={loaderHeaderRight}>
+                            <span>
+                                Folio
+                            </span>
+                        </h1>
+                    </div>
+                    <p className='loader-counter'>
+                        <span ref={loaderCounter}>
+                            000
+                        </span>
+                    </p>
+                </div>
             </div >
             <Footer instruction={"Wait"} />
         </div >

@@ -66,13 +66,27 @@
     overflow: hidden;
 }
 
-.home-header {
+.home-header-content {
     width: 100%;
+    max-width: 1600px;
     height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    padding: 0 20px;
+}
+
+.home-header-left {
+    display: flex;
+    justify-content: flex-end;
+    width: 25%;
+}
+
+.home-header-right {
+    display: flex;
+    justify-content: flex-start;
+    width: 25%;
 }
 
 .home-header-text {
@@ -179,6 +193,10 @@
         border-radius: 20px;
         border: var(--jc-ui-border);
         box-sizing: border-box;
+    }
+
+    .home-header-text {
+        font-size: 32px;
     }
 
     .home-info-description {

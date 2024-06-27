@@ -177,18 +177,22 @@ const Home = () => {
         </div>
       </div>
       <div className='home-header-container'>
-        <div className='home-header' ref={homeHeader}>
-          <h1 className='home-header-text' ref={homeHeaderTextLeft}>
-            <span>
-              2024
-            </span>
-          </h1>
+        <div className='home-header-content' ref={homeHeader}>
+          <div className='home-header-left'>
+            <h1 className='home-header-text' ref={homeHeaderTextLeft}>
+              <span>
+                2024
+              </span>
+            </h1>
+          </div>
           <div className='home-header-line' ref={homeHeaderLine} />
-          <h1 className='home-header-text' ref={homeHeaderTextRight}>
-            <span>
-              Folio
-            </span>
-          </h1>
+          <div className='home-header-right'>
+            <h1 className='home-header-text' ref={homeHeaderTextRight}>
+              <span>
+                Folio
+              </span>
+            </h1>
+          </div>
         </div>
       </div>
       <div className='home-info-container'>
