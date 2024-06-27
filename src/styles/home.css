@@ -46,7 +46,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    perspective: 2000px;
+    perspective: 3000px;
     top: 0;
     left: 0;
 }

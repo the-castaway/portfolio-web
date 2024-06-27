@@ -22,6 +22,7 @@ const Home = () => {
   const homeCard2 = useRef(HTMLElement);
   const homeCard3 = useRef(HTMLElement);
   const homeCard4 = useRef(HTMLElement);
+  const homeInfoContainer = useRef(HTMLElement);
   //variables
   const navigate = useNavigate();
   //plugins
@@ -62,6 +63,12 @@ const Home = () => {
         setEnabled(true);
       },
     }, 0)
+    tl.from(homeInfoContainer.current, {
+      duration: 0.8,
+      opacity: 0,
+      ease: 'ease',
+      delay: 0.5,
+    }, 0)
     return tl;
   }
 
@@ -74,8 +81,7 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotationZ: xPos * 15,
-      rotate: xPos * 0,
+      rotationZ: xPos * 20,
       y: yPos * 200,
       x: xPos * 200,
       ease: "power1.Out"
@@ -85,7 +91,6 @@ const Home = () => {
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotationZ: xPos * 10,
-      rotate: xPos * 0,
       y: yPos * 150,
       x: xPos * 150,
       ease: "power2.Out"
@@ -94,8 +99,7 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotationZ: xPos * 5,
-      rotate: xPos * 0,
+      rotationZ: xPos * 0,
       y: yPos * 100,
       x: xPos * 100,
       ease: "power3.Out"
@@ -104,8 +108,7 @@ const Home = () => {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
-      rotationZ: xPos * 0,
-      rotate: xPos * 0,
+      rotationZ: xPos * -10,
       y: yPos * 50,
       x: xPos * 50,
       ease: "power4.Out"
@@ -201,7 +204,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className='home-info-container'>
+      <div className='home-info-container' ref={homeInfoContainer}>
         <div className='home-info-content'>
           <div className="home-info-text-node">
             <h4>
