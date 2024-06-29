@@ -5,6 +5,7 @@ import ScrollToPlay from "./content/scrollToPlay";
 import Metaverse from "./content/metaverse";
 import MTIA from "./content/mtia";
 import News from "./content/news";
+import Nike from "./content/nike";
 import { ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -79,5 +80,17 @@ export const Projects = [
         thumbnail: ThumbnailMedia[5],
         banner: BannerMedia[5],
         content: <News />
+    },
+    {
+        key: 7,
+        number: "007",
+        name: "Nike Plus",
+        description: "The Nike Plus Concept app is designed to help runners plan, execute, and track their runs.",
+        purview: ["UI Design", "Product Design", "Prototyping"],
+        company: "Nike",
+        href: '/nike-plus',
+        thumbnail: ThumbnailMedia[6],
+        banner: BannerMedia[6],
+        content: <Nike />
     },
 ] 

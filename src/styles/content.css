@@ -62,12 +62,13 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    align-items: end;
     gap: 20px;
 }
 
 .content-media-devices-desktop {
     width: 75%;
-    height: auto;
+    height: fit-content;
     border-radius: 10px;
     overflow: hidden;
     aspect-ratio: 45/32;
@@ -75,10 +76,10 @@
 
 .content-media-devices-mobile {
     width: 25%;
-    height: auto;
+    height: fit-content;
     border-radius: 10px;
     overflow: hidden;
-    aspect-ratio: 9/16;
+    aspect-ratio: 124/265;
 }
 
 .content-media-description {
@@ -104,7 +105,6 @@
     font-size: 48px;
     font-weight: 600;
 }
-
 
 .content-collaborators {
     width: 100%;

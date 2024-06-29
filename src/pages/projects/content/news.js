@@ -128,8 +128,8 @@ const News = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/interactive-product-tour"}>
-                        <Links header={'Next'} description={"IPT"} />
+                    <Link to={"/nike-plus"}>
+                        <Links header={'Next'} description={"Nike Plus"} />
                     </Link>
                 </div>
             </section>

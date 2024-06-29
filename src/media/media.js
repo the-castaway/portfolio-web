@@ -12,6 +12,7 @@ import stpThumbnail from './thumbnails/stp_thumbnail.webp'
 import metaverseThumbnail from './thumbnails/metaverse_thumbnail.webp'
 import mtiaThumbnail from './thumbnails/mtia_thumbnail.webp'
 import newsThumbnail from './thumbnails/news_thumbnail.webp'
+import nikeThumbnail from './thumbnails/nike_thumbnail.webp'
 
 //ipt
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
@@ -86,27 +87,20 @@ import newsPost from './projects/news/news_post.webm'
 import newsArchive from './projects/news/news_archive.webm'
 import newsNav from './projects/news/news_nav.webm'
 
+//nike
+import nikeBanner from './projects/nike/nike_banner.webp'
+import nikeLoading from './projects/nike/nike_loading.webp'
+import nikeHome from './projects/nike/nike_home.webp'
+import nikePlan from './projects/nike/nike_plan.webp'
+import nikeRun from './projects/nike/nike_run.webp'
+import nikeDesktop from './projects/nike/nike_desktop.webp'
+
+
 export const Media = [
     {
         key: 0,
         src: metaNews
     },
-    // {
-    //     key: 1,
-    //     src: vr4g
-    // },
-    // {
-    //     key: 2,
-    //     src: rbs
-    // },
-    // {
-    //     key: 3,
-    //     src: rsvp
-    // },
-    // {
-    //     key: 4,
-    //     src: headshot
-    // },
 ]
 
 export const ThumbnailMedia = [
@@ -134,6 +128,10 @@ export const ThumbnailMedia = [
         key: 5,
         src: newsThumbnail
     },
+    {
+        key: 6,
+        src: nikeThumbnail
+    },
 ]
 
 export const BannerMedia = [
@@ -160,6 +158,10 @@ export const BannerMedia = [
     {
         key: 5,
         src: newsBanner
+    },
+    {
+        key: 6,
+        src: nikeBanner
     },
 ]
 
@@ -398,5 +400,28 @@ export const NewsMedia = [
     {
         key: 4,
         src: newsNav
+    },
+]
+
+export const NikeMedia = [
+    {
+        key: 0,
+        src: nikeLoading
+    },
+    {
+        key: 1,
+        src: nikeHome
+    },
+    {
+        key: 2,
+        src: nikePlan
+    },
+    {
+        key: 3,
+        src: nikeRun
+    },
+    {
+        key: 4,
+        src: nikeDesktop
     },
 ]

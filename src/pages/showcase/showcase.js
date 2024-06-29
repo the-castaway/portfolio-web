@@ -117,10 +117,10 @@ const Showcase = () => {
                     <Link to={"/archive"} className='showcase-more-work-card'>
                         <div className='showcase-more-work-card-header'>
                             <h4>
-                                More
+                                Archive
                             </h4>
                             <h2>
-                                <b>PR. 007 - 016<br />/ 016</b>
+                                <b>PR. 008 - 016<br />/ 016</b>
                             </h2>
                         </div>
                         <div className='showcase-more-work-card-icon'>
