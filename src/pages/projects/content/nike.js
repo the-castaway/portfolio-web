@@ -89,8 +89,8 @@ const Nike = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/news-hub"}>
-                        <Links header={'Next'} description={'News Hub'} />
+                    <Link to={"/go-racing"}>
+                        <Links header={'Next'} description={'Go Racing'} />
                     </Link>
                 </div>
             </section>

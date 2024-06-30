@@ -13,6 +13,7 @@ import metaverseThumbnail from './thumbnails/metaverse_thumbnail.webp'
 import mtiaThumbnail from './thumbnails/mtia_thumbnail.webp'
 import newsThumbnail from './thumbnails/news_thumbnail.webp'
 import nikeThumbnail from './thumbnails/nike_thumbnail.webp'
+import goRacingThumbnail from './thumbnails/goracing_thumbnail.webp'
 
 //ipt
 import iptBanner from './projects/interactiveProductTour/ipt_banner.webp'
@@ -95,6 +96,17 @@ import nikePlan from './projects/nike/nike_plan.webp'
 import nikeRun from './projects/nike/nike_run.webp'
 import nikeDesktop from './projects/nike/nike_desktop.webp'
 
+//go raacing
+import goRacingBanner from './projects/goRacing/goracing_banner.webp'
+import goRacingHome from './projects/goRacing/goracing_home.webp'
+import goRacingLobby from './projects/goRacing/goracing_waiting.webp'
+import goRacingRace from './projects/goRacing/goracing_race.webp'
+import goRacingResults from './projects/goRacing/goracing_results.webp'
+import goRacingShop from './projects/goRacing/goracing_shop.webp'
+import goRacingLoot from './projects/goRacing/goracing_loot.webp'
+import goRacingLootItem from './projects/goRacing/goracing_loot_item.webp'
+
+
 
 export const Media = [
     {
@@ -132,6 +144,10 @@ export const ThumbnailMedia = [
         key: 6,
         src: nikeThumbnail
     },
+    {
+        key: 7,
+        src: goRacingThumbnail
+    },
 ]
 
 export const BannerMedia = [
@@ -162,6 +178,10 @@ export const BannerMedia = [
     {
         key: 6,
         src: nikeBanner
+    },
+    {
+        key: 7,
+        src: goRacingBanner
     },
 ]
 
@@ -423,5 +443,36 @@ export const NikeMedia = [
     {
         key: 4,
         src: nikeDesktop
+    },
+]
+
+export const goRacingMedia = [
+    {
+        key: 0,
+        src: goRacingHome
+    },
+    {
+        key: 1,
+        src: goRacingLobby
+    },
+    {
+        key: 2,
+        src: goRacingRace
+    },
+    {
+        key: 3,
+        src: goRacingResults
+    },
+    {
+        key: 4,
+        src: goRacingShop
+    },
+    {
+        key: 5,
+        src: goRacingLoot
+    },
+    {
+        key: 6,
+        src: goRacingLootItem
     },
 ]

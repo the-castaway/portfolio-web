@@ -6,6 +6,7 @@ import Metaverse from "./content/metaverse";
 import MTIA from "./content/mtia";
 import News from "./content/news";
 import Nike from "./content/nike";
+import GoRacing from "./content/goRacing";
 import { ThumbnailMedia, BannerMedia } from "../../media/media";
 
 export const Projects = [
@@ -92,5 +93,17 @@ export const Projects = [
         thumbnail: ThumbnailMedia[6],
         banner: BannerMedia[6],
         content: <Nike />
+    },
+    {
+        key: 8,
+        number: "008",
+        name: "Go Racing",
+        description: "Go Racing is a mobile racing game where users can compete against their friends",
+        purview: ["Unity Dev", "Prototyping", "Product Design"],
+        company: "Colorful Notion",
+        href: '/go-racing',
+        thumbnail: ThumbnailMedia[7],
+        banner: BannerMedia[7],
+        content: <GoRacing />
     },
 ] 
