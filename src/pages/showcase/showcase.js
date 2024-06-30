@@ -18,9 +18,10 @@ const Showcase = () => {
     //plugins
     gsap.registerPlugin(ScrollTrigger);
     //variables
-    const projectMap = Projects.map((project) =>
-        <Showcased href={project.href} name={project.name} number={project.number} thumbnail={project.thumbnail} key={project.key}>
-            {project.purview}
+    const showcased = Projects.slice(0, 6);
+    const projectMap = showcased.map((showcase) =>
+        <Showcased href={showcase.href} name={showcase.name} number={showcase.number} thumbnail={showcase.thumbnail} key={showcase.key}>
+            {showcase.purview}
         </Showcased>);
 
     //activate animation
@@ -120,7 +121,7 @@ const Showcase = () => {
                                 Archive
                             </h4>
                             <h2>
-                                <b>PR. 008 - 016<br />/ 016</b>
+                                <b>PR. 007 - 016<br />/ 016</b>
                             </h2>
                         </div>
                         <div className='showcase-more-work-card-icon'>
