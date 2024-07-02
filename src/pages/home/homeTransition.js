@@ -5,7 +5,6 @@ const HomeTransitionExit = ({ node }) => {
     //refs
     const homeCards = node.querySelectorAll('.home-card-container');
     const homeFooter = node.querySelectorAll('.home-info-container ');
-    console.log(homeCards[1].children[0]);
 
     // const ctx = gsap.context((context) => {
     //     const tl = gsap.timeline();

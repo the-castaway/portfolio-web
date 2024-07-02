@@ -1,7 +1,8 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
+import { useLocation } from 'react-router-dom';
 //components
 import Footer from '../../components/footer.react';
 //styles
@@ -10,8 +11,6 @@ import '../../styles/home.css';
 import { ThumbnailMedia } from "../../media/media";
 
 const Home = () => {
-  //state
-  const [enabled, setEnabled] = useState(false);
   //refs
   const homeHeader = useRef(HTMLElement);
   const homeHeaderTextLeft = useRef(HTMLElement);
@@ -25,8 +24,14 @@ const Home = () => {
   const homeInfoContainer = useRef(HTMLElement);
   //variables
   const navigate = useNavigate();
+  //state
+  const location = useLocation();
+  const pathname = location.pathname;
+  const [previousPath, setPreviousPath] = useState(pathname);
+  const [enabled, setEnabled] = useState(false);
   //plugins
   gsap.registerPlugin(SplitText);
+
 
   //home cards intro animation timeline
   const getHomeCardsIntroTL = () => {
@@ -59,15 +64,15 @@ const Home = () => {
       ease: 'ease',
       rotate: '-10deg',
       delay: 0,
-      onComplete: () => {
-        setEnabled(true);
-      },
     }, 0)
     tl.from(homeInfoContainer.current, {
       duration: 0.8,
       opacity: 0,
       ease: 'ease',
       delay: 0.5,
+      onComplete: () => {
+        setEnabled(true);
+      },
     }, 0)
     return tl;
   }
@@ -77,38 +82,45 @@ const Home = () => {
     let xPos = event.clientX / window.innerWidth - 0.5,
       yPos = event.clientY / window.innerHeight - 0.5;
     const tl = gsap.timeline();
-    tl.to(homeCard1.current, {
+    tl.to(homeCards.current, {
       duration: 0.5,
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotationZ: xPos * 20,
+      ease: "power1.Out"
+    }, 0)
+    tl.to(homeCard1.current, {
+      duration: 0.5,
+      // rotationY: xPos * 50,
+      // rotationX: yPos * -50,
+      // rotationZ: xPos * 20,
       y: yPos * 200,
       x: xPos * 200,
       ease: "power1.Out"
     }, 0)
     tl.to(homeCard2.current, {
       duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotationZ: xPos * 10,
+      // rotationY: xPos * 50,
+      // rotationX: yPos * -50,
+      // rotationZ: xPos * 10,
       y: yPos * 150,
       x: xPos * 150,
       ease: "power2.Out"
     }, 0)
     tl.to(homeCard3.current, {
       duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotationZ: xPos * 0,
+      // rotationY: xPos * 50,
+      // rotationX: yPos * -50,
+      // rotationZ: xPos * 0,
       y: yPos * 100,
       x: xPos * 100,
       ease: "power3.Out"
     }, 0)
     tl.to(homeCard4.current, {
       duration: 0.5,
-      rotationY: xPos * 50,
-      rotationX: yPos * -50,
-      rotationZ: xPos * -10,
+      // rotationY: xPos * 50,
+      // rotationX: yPos * -50,
+      // rotationZ: xPos * -10,
       y: yPos * 50,
       x: xPos * 50,
       ease: "power4.Out"
@@ -132,6 +144,16 @@ const Home = () => {
     };
   }, [])
 
+
+
+  // useEffect(() => {
+  //   if (pathname !== previousPath) {
+  //     setEnabled(false);
+  //   }
+
+  //   setPreviousPath(location.pathname);
+  // }, [pathname, previousPath])
+
   //interactions 
   useLayoutEffect(() => {
     //gsap animations
@@ -144,8 +166,18 @@ const Home = () => {
       if (!enabled) return;
       ctx.mouseMoveAnim(event)
     };
+
+
+    //console.log(ctx)
+
+    // if (pathname !== previousPath) {
+    //   setEnabled(false)
+    //   window.removeEventListener('mousemove', handleMouseMove);
+    // }
+
     //add event listeners
     window.addEventListener('mousemove', handleMouseMove);
+    //setPreviousPath(location.pathname);
     return () => {
       ctx.revert();
       window.removeEventListener('mousemove', handleMouseMove);
@@ -233,7 +265,7 @@ const Home = () => {
               Designer / Developer
             </p>
           </div>
-          <div className="home-info-text-node">
+          <div className="home-info-text-node mobile-off">
             <h4>
               Currently
             </h4>

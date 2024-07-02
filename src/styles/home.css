@@ -199,10 +199,10 @@
 @media (max-width: 600px) {
     .home-cards {
         aspect-ratio: 4/5;
-        width: 25%;
+        width: calc(50% - 40px);
         height: auto;
         position: relative;
-        box-shadow: 0px 0px 50px 50px var(--jc-black);
+        box-shadow: none;
     }
 
     .home-card {
