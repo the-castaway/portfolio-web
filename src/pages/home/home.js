@@ -1,8 +1,7 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
-import { useLocation } from 'react-router-dom';
 //components
 import Footer from '../../components/footer.react';
 //styles
@@ -25,9 +24,6 @@ const Home = () => {
   //variables
   const navigate = useNavigate();
   //state
-  const location = useLocation();
-  const pathname = location.pathname;
-  const [previousPath, setPreviousPath] = useState(pathname);
   const [enabled, setEnabled] = useState(false);
   //plugins
   gsap.registerPlugin(SplitText);
@@ -144,16 +140,6 @@ const Home = () => {
     };
   }, [])
 
-
-
-  // useEffect(() => {
-  //   if (pathname !== previousPath) {
-  //     setEnabled(false);
-  //   }
-
-  //   setPreviousPath(location.pathname);
-  // }, [pathname, previousPath])
-
   //interactions 
   useLayoutEffect(() => {
     //gsap animations
@@ -167,17 +153,8 @@ const Home = () => {
       ctx.mouseMoveAnim(event)
     };
 
-
-    //console.log(ctx)
-
-    // if (pathname !== previousPath) {
-    //   setEnabled(false)
-    //   window.removeEventListener('mousemove', handleMouseMove);
-    // }
-
     //add event listeners
     window.addEventListener('mousemove', handleMouseMove);
-    //setPreviousPath(location.pathname);
     return () => {
       ctx.revert();
       window.removeEventListener('mousemove', handleMouseMove);

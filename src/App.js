@@ -19,13 +19,13 @@ import WIP from './components/wip.react'
 import TransitionTrigger from "./pages/transitionTrigger";
 import { TransitionProvider } from "./context/transitionContext";
 //assets
-import { Media } from "./media/media";
+import { ThumbnailMedia } from "./media/media";
 //projects 
 import { Projects } from './pages/projects/projects';
 
 function App() {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const loadMedia = media => {
@@ -41,17 +41,17 @@ function App() {
       })
     }
 
-    Promise.all(Media.map(media =>
+    Promise.all(ThumbnailMedia.map(media =>
       loadMedia(media)
     ))
-      .then(() => setLoading((loading) => !loading))
+      .then(() => setLoaded(true))
       .catch(err => console.log("Failed to load images", err))
   }, [])
 
   return (
     <>
       <Nav location={location} />
-      {loading ? (
+      {!loaded ? (
         <Loader location={location} />
       ) : (
         <TransitionProvider>
@@ -71,7 +71,6 @@ function App() {
       {/* <WIP /> */}
     </>
   );
-
 }
 
 export default App;
