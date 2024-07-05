@@ -23,29 +23,29 @@ import { ThumbnailMedia } from "./media/media";
 //projects 
 import { Projects } from './pages/projects/projects';
 
-function App() {
+//pre-load media
+const preloadMedia = (thumbnails) => {
+  const promises = thumbnails.map((thumbnail) => {
+    return new Promise((resolve, reject) => {
+      const media = new Image();
+      media.src = thumbnail.src;
+      setTimeout(() => {
+        media.onload = resolve();
+      }, 5100);
+      media.onerror = reject;
+    });
+  });
+  return Promise.all(promises);
+};
+
+const App = () => {
   const location = useLocation();
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const loadMedia = media => {
-      return new Promise((resolve, reject) => {
-        const loadMedia = new Image()
-        loadMedia.src = media.src
-        //wait 7 seconds to simulate loading time
-        loadMedia.onload = () =>
-          setTimeout(() => {
-            resolve(media.src)
-          }, 5100);
-        loadMedia.onerror = err => reject(err)
-      })
-    }
-
-    Promise.all(ThumbnailMedia.map(media =>
-      loadMedia(media)
-    ))
-      .then(() => setLoaded(true))
-      .catch(err => console.log("Failed to load images", err))
+    preloadMedia(ThumbnailMedia).then(() => {
+      setLoaded(true);
+    });
   }, [])
 
   return (
