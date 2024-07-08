@@ -173,22 +173,22 @@ const Home = () => {
           <div ref={homeCards} className='home-cards'>
             <div className='home-card-container'>
               <div ref={homeCard4} className='home-card'>
-                <img className='home-card-media' key={ThumbnailMedia[3].key} src={ThumbnailMedia[3].src} />
+                <img className='home-card-media' key={ThumbnailMedia[3].key} src={ThumbnailMedia[3].src} loading="lazy" />
               </div>
             </div>
             <div className='home-card-container'>
               <div ref={homeCard3} className='home-card'>
-                <img className='home-card-media' key={ThumbnailMedia[2].key} src={ThumbnailMedia[2].src} />
+                <img className='home-card-media' key={ThumbnailMedia[2].key} src={ThumbnailMedia[2].src} loading="lazy" />
               </div>
             </div>
             <div className='home-card-container'>
               <div ref={homeCard2} className='home-card'>
-                <img className='home-card-media' key={ThumbnailMedia[1].key} src={ThumbnailMedia[1].src} />
+                <img className='home-card-media' key={ThumbnailMedia[1].key} src={ThumbnailMedia[1].src} loading="lazy" />
               </div>
             </div>
             <div className='home-card-container'>
               <div ref={homeCard1} className='home-card'>
-                <img className='home-card-media' key={ThumbnailMedia[0].key} src={ThumbnailMedia[0].src} />
+                <img className='home-card-media' key={ThumbnailMedia[0].key} src={ThumbnailMedia[0].src} loading="eager" />
               </div>
             </div>
           </div>

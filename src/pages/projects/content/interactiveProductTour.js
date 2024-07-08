@@ -29,7 +29,7 @@ const InteractiveProductTour = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={InteractiveProductTourMedia[0].key} src={InteractiveProductTourMedia[0].src} />
+                            <img className='content-media' key={InteractiveProductTourMedia[0].key} src={InteractiveProductTourMedia[0].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -39,7 +39,7 @@ const InteractiveProductTour = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={InteractiveProductTourMedia[1].key} src={InteractiveProductTourMedia[1].src} />
+                            <img className='content-media' key={InteractiveProductTourMedia[1].key} src={InteractiveProductTourMedia[1].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -49,7 +49,7 @@ const InteractiveProductTour = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={InteractiveProductTourMedia[2].key} src={InteractiveProductTourMedia[2].src} />
+                            <img className='content-media' key={InteractiveProductTourMedia[2].key} src={InteractiveProductTourMedia[2].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -71,7 +71,7 @@ const InteractiveProductTour = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={InteractiveProductTourMedia[3].key} src={InteractiveProductTourMedia[3].src} />
+                            <img className='content-media' key={InteractiveProductTourMedia[3].key} src={InteractiveProductTourMedia[3].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -81,7 +81,7 @@ const InteractiveProductTour = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={InteractiveProductTourMedia[4].key} src={InteractiveProductTourMedia[4].src} />
+                            <img className='content-media' key={InteractiveProductTourMedia[4].key} src={InteractiveProductTourMedia[4].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -91,7 +91,7 @@ const InteractiveProductTour = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={InteractiveProductTourMedia[5].src} type="video/webm"></source>
                             </video>
                         </div>

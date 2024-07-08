@@ -37,7 +37,7 @@ const GoRacing = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[0].key} src={goRacingMedia[0].src} />
+                            <img className='content-media' key={goRacingMedia[0].key} src={goRacingMedia[0].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -47,7 +47,7 @@ const GoRacing = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[1].key} src={goRacingMedia[1].src} />
+                            <img className='content-media' key={goRacingMedia[1].key} src={goRacingMedia[1].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -57,7 +57,7 @@ const GoRacing = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[2].key} src={goRacingMedia[2].src} />
+                            <img className='content-media' key={goRacingMedia[2].key} src={goRacingMedia[2].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -67,7 +67,7 @@ const GoRacing = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[3].key} src={goRacingMedia[3].src} />
+                            <img className='content-media' key={goRacingMedia[3].key} src={goRacingMedia[3].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -89,7 +89,7 @@ const GoRacing = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[4].key} src={goRacingMedia[4].src} />
+                            <img className='content-media' key={goRacingMedia[4].key} src={goRacingMedia[4].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -99,7 +99,7 @@ const GoRacing = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[5].key} src={goRacingMedia[5].src} />
+                            <img className='content-media' key={goRacingMedia[5].key} src={goRacingMedia[5].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>
@@ -109,7 +109,7 @@ const GoRacing = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <img className='content-media' key={goRacingMedia[6].key} src={goRacingMedia[6].src} />
+                            <img className='content-media' key={goRacingMedia[6].key} src={goRacingMedia[6].src} loading="lazy" />
                         </div>
                         <div className='content-media-description'>
                             <h4>

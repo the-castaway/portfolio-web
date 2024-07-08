@@ -60,7 +60,7 @@ const Project = ({ project }) => {
         <div className='project'>
             <div ref={projectContainer} className='project-container'>
                 <div className='project-banner'>
-                    <img className='project-banner-media' key={project.banner.key} src={project.banner.src} />
+                    <img className='project-banner-media' key={project.banner.key} src={project.banner.src} loading="eager" />
                 </div>
                 <div ref={projectInfoContainer} className='project-info-container'>
                     <div className='project-info-title'>

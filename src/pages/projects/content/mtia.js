@@ -28,10 +28,10 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MTIAMedia[0].key} src={MTIAMedia[0].src} />
+                                <img className='content-media' key={MTIAMedia[0].key} src={MTIAMedia[0].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MTIAMedia[1].key} src={MTIAMedia[1].src} />
+                                <img className='content-media' key={MTIAMedia[1].key} src={MTIAMedia[1].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -43,10 +43,10 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MTIAMedia[2].key} src={MTIAMedia[2].src} />
+                                <img className='content-media' key={MTIAMedia[2].key} src={MTIAMedia[2].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MTIAMedia[3].key} src={MTIAMedia[3].src} />
+                                <img className='content-media' key={MTIAMedia[3].key} src={MTIAMedia[3].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -58,10 +58,10 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MTIAMedia[4].key} src={MTIAMedia[4].src} />
+                                <img className='content-media' key={MTIAMedia[4].key} src={MTIAMedia[4].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MTIAMedia[5].key} src={MTIAMedia[5].src} />
+                                <img className='content-media' key={MTIAMedia[5].key} src={MTIAMedia[5].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -73,10 +73,10 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MTIAMedia[6].key} src={MTIAMedia[6].src} />
+                                <img className='content-media' key={MTIAMedia[6].key} src={MTIAMedia[6].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MTIAMedia[7].key} src={MTIAMedia[7].src} />
+                                <img className='content-media' key={MTIAMedia[7].key} src={MTIAMedia[7].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -88,10 +88,10 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MTIAMedia[8].key} src={MTIAMedia[8].src} />
+                                <img className='content-media' key={MTIAMedia[8].key} src={MTIAMedia[8].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MTIAMedia[9].key} src={MTIAMedia[9].src} />
+                                <img className='content-media' key={MTIAMedia[9].key} src={MTIAMedia[9].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -103,12 +103,12 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <video className="content-media" loop autoPlay muted>
+                                <video className="content-media" loop autoPlay muted loading="lazy">
                                     <source src={MTIAMedia[10].src} type="video/webm"></source>
                                 </video>
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <video className="content-media" loop autoPlay muted>
+                                <video className="content-media" loop autoPlay muted loading="lazy">
                                     <source src={MTIAMedia[11].src} type="video/webm"></source>
                                 </video>
                             </div>
@@ -122,10 +122,10 @@ const MTIA = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MTIAMedia[12].key} src={MTIAMedia[12].src} />
+                                <img className='content-media' key={MTIAMedia[12].key} src={MTIAMedia[12].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MTIAMedia[13].key} src={MTIAMedia[13].src} />
+                                <img className='content-media' key={MTIAMedia[13].key} src={MTIAMedia[13].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -147,7 +147,7 @@ const MTIA = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={MTIAMedia[14].src} type="video/webm"></source>
                             </video>
                         </div>

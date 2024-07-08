@@ -30,10 +30,10 @@ const Metaverse = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MetaverseMedia[0].key} src={MetaverseMedia[0].src} />
+                                <img className='content-media' key={MetaverseMedia[0].key} src={MetaverseMedia[0].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MetaverseMedia[1].key} src={MetaverseMedia[1].src} />
+                                <img className='content-media' key={MetaverseMedia[1].key} src={MetaverseMedia[1].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -45,10 +45,10 @@ const Metaverse = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MetaverseMedia[2].key} src={MetaverseMedia[2].src} />
+                                <img className='content-media' key={MetaverseMedia[2].key} src={MetaverseMedia[2].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MetaverseMedia[3].key} src={MetaverseMedia[3].src} />
+                                <img className='content-media' key={MetaverseMedia[3].key} src={MetaverseMedia[3].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -60,12 +60,12 @@ const Metaverse = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <video className="content-media" loop autoPlay muted>
+                                <video className="content-media" loop autoPlay muted loading="lazy">
                                     <source src={MetaverseMedia[4].src} type="video/webm"></source>
                                 </video>
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <video className="content-media" loop autoPlay muted>
+                                <video className="content-media" loop autoPlay muted loading="lazy">
                                     <source src={MetaverseMedia[5].src} type="video/webm"></source>
                                 </video>
                             </div>
@@ -79,10 +79,10 @@ const Metaverse = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MetaverseMedia[6].key} src={MetaverseMedia[6].src} />
+                                <img className='content-media' key={MetaverseMedia[6].key} src={MetaverseMedia[6].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MetaverseMedia[7].key} src={MetaverseMedia[7].src} />
+                                <img className='content-media' key={MetaverseMedia[7].key} src={MetaverseMedia[7].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -94,10 +94,10 @@ const Metaverse = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={MetaverseMedia[8].key} src={MetaverseMedia[8].src} />
+                                <img className='content-media' key={MetaverseMedia[8].key} src={MetaverseMedia[8].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={MetaverseMedia[9].key} src={MetaverseMedia[9].src} />
+                                <img className='content-media' key={MetaverseMedia[9].key} src={MetaverseMedia[9].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -120,7 +120,7 @@ const Metaverse = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={MetaverseMedia[10].src} type="video/webm"></source>
                             </video>
                         </div>

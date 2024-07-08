@@ -30,10 +30,10 @@ const communityVoicesHub = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[0].key} src={CommunityVoicesHubMedia[0].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[0].key} src={CommunityVoicesHubMedia[0].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[1].key} src={CommunityVoicesHubMedia[1].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[1].key} src={CommunityVoicesHubMedia[1].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -45,10 +45,10 @@ const communityVoicesHub = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[2].key} src={CommunityVoicesHubMedia[2].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[2].key} src={CommunityVoicesHubMedia[2].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[3].key} src={CommunityVoicesHubMedia[3].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[3].key} src={CommunityVoicesHubMedia[3].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -60,10 +60,10 @@ const communityVoicesHub = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[4].key} src={CommunityVoicesHubMedia[4].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[4].key} src={CommunityVoicesHubMedia[4].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[5].key} src={CommunityVoicesHubMedia[5].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[5].key} src={CommunityVoicesHubMedia[5].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -75,10 +75,10 @@ const communityVoicesHub = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[6].key} src={CommunityVoicesHubMedia[6].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[6].key} src={CommunityVoicesHubMedia[6].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[7].key} src={CommunityVoicesHubMedia[7].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[7].key} src={CommunityVoicesHubMedia[7].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -102,10 +102,10 @@ const communityVoicesHub = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[8].key} src={CommunityVoicesHubMedia[8].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[8].key} src={CommunityVoicesHubMedia[8].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[9].key} src={CommunityVoicesHubMedia[9].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[9].key} src={CommunityVoicesHubMedia[9].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -117,10 +117,10 @@ const communityVoicesHub = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-desktop'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[10].key} src={CommunityVoicesHubMedia[10].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[10].key} src={CommunityVoicesHubMedia[10].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={CommunityVoicesHubMedia[11].key} src={CommunityVoicesHubMedia[11].src} />
+                                <img className='content-media' key={CommunityVoicesHubMedia[11].key} src={CommunityVoicesHubMedia[11].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -131,7 +131,7 @@ const communityVoicesHub = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={CommunityVoicesHubMedia[12].src} type="video/webm"></source>
                             </video>
                         </div>

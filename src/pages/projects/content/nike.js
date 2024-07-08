@@ -30,16 +30,16 @@ const Nike = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={NikeMedia[0].key} src={NikeMedia[0].src} />
+                                <img className='content-media' key={NikeMedia[0].key} src={NikeMedia[0].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={NikeMedia[1].key} src={NikeMedia[1].src} />
+                                <img className='content-media' key={NikeMedia[1].key} src={NikeMedia[1].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={NikeMedia[2].key} src={NikeMedia[2].src} />
+                                <img className='content-media' key={NikeMedia[2].key} src={NikeMedia[2].src} loading="lazy" />
                             </div>
                             <div className='content-media-devices-mobile'>
-                                <img className='content-media' key={NikeMedia[3].key} src={NikeMedia[3].src} />
+                                <img className='content-media' key={NikeMedia[3].key} src={NikeMedia[3].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>
@@ -51,7 +51,7 @@ const Nike = () => {
                     <div className='content-media-node'>
                         <div className='content-media-devices'>
                             <div className='content-media-full'>
-                                <img className='content-media' key={NikeMedia[4].key} src={NikeMedia[4].src} />
+                                <img className='content-media' key={NikeMedia[4].key} src={NikeMedia[4].src} loading="lazy" />
                             </div>
                         </div>
                         <div className='content-media-description'>

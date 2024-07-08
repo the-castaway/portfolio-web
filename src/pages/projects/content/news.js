@@ -28,7 +28,7 @@ const News = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={NewsMedia[0].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -40,7 +40,7 @@ const News = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={NewsMedia[1].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -52,7 +52,7 @@ const News = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={NewsMedia[2].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -64,7 +64,7 @@ const News = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={NewsMedia[3].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -76,7 +76,7 @@ const News = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted>
+                            <video className="content-media" loop autoPlay muted loading="lazy">
                                 <source src={NewsMedia[4].src} type="video/webm"></source>
                             </video>
                         </div>
