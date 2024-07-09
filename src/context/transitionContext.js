@@ -1,20 +1,27 @@
 import React, { createContext } from 'react';
 import { useState } from 'react';
 
-const TransitionContext = createContext({ completed: false });
+const TransitionContext = createContext({ entered: false, exited: false, });
 
 export const TransitionProvider = ({ children }) => {
-    const [completed, setCompleted] = useState(false);
+    const [entered, setEntered] = useState(false);
+    const [exit, setExit] = useState(false);
 
-    const toggleCompleted = (value) => {
-        setCompleted(value);
+    const toggleEntered = (value) => {
+        setEntered(value);
+    };
+
+    const toggleExit = (value) => {
+        setExit(value);
     };
 
     return (
         <TransitionContext.Provider
             value={{
-                toggleCompleted,
-                completed,
+                toggleEntered,
+                entered,
+                toggleExit,
+                exit,
             }}
         >
             {children}

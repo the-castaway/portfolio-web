@@ -14,7 +14,6 @@ const Loader = ({ location }) => {
     const loaderHeaderLeft = useRef(HTMLElement);
     const loaderHeaderRight = useRef(HTMLElement);
     const loaderLine = useRef(HTMLElement);
-    const loaderFooter = useRef(HTMLElement);
     //initialize gsap plugins
     gsap.registerPlugin(SplitText);
     //counter 
@@ -28,11 +27,6 @@ const Loader = ({ location }) => {
             const tl = gsap.timeline();
             //intro animation
             tl.from(loaderCounter.current, {
-                duration: 0.5,
-                opacity: 0,
-                ease: "ease",
-            }, 0);
-            tl.from(loaderFooter.current, {
                 duration: 0.5,
                 opacity: 0,
                 ease: "ease",

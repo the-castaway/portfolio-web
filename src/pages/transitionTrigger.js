@@ -10,10 +10,10 @@ import { ShowcaseTransitionExit } from './showcase/showcaseTransition';
 
 const TransitionTrigger = ({ children }) => {
     const location = useLocation();
-    const { toggleCompleted } = useContext(TransitionContext);
+    const { toggleEntered, toggleExit } = useContext(TransitionContext);
     let timeout;
     if (location.pathname === "/") {
-        timeout = 200;
+        timeout = 500;
     }
     else if (location.pathname === "/about") {
         timeout = 200;
@@ -30,12 +30,13 @@ const TransitionTrigger = ({ children }) => {
                     key={location.pathname}
                     timeout={timeout}
                     onEnter={() => {
-                        toggleCompleted(false);
+                        toggleEntered(false);
                     }}
                     onEntered={(node) => {
-                        toggleCompleted(true);
+                        toggleEntered(true);
                     }}
                     onExit={(node) => {
+                        toggleExit(true);
                         if (location.pathname === "/") {
                             HomeTransitionExit({ node });
                         }
@@ -45,6 +46,9 @@ const TransitionTrigger = ({ children }) => {
                         else if (location.pathname === "/showcase") {
                             ShowcaseTransitionExit({ node });
                         }
+                    }}
+                    onExited={() => {
+                        toggleExit(false);
                     }}
                 >
                     {children}

@@ -1,7 +1,9 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useEffect, useRef, useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
+//transitionContext
+import TransitionContext from '../../context/transitionContext';
 //components
 import Footer from '../../components/footer.react';
 //styles
@@ -21,16 +23,18 @@ const Home = () => {
   const homeCard3 = useRef(HTMLElement);
   const homeCard4 = useRef(HTMLElement);
   const homeInfoContainer = useRef(HTMLElement);
+  //const homeCardsLogistics = useRef({ rotationX: 0, rotationY: 0, rotationZ: 0 })
   //variables
   const navigate = useNavigate();
   //state
   const [enabled, setEnabled] = useState(false);
+  //context
+  const { exit } = useContext(TransitionContext);
   //plugins
   gsap.registerPlugin(SplitText);
 
-
-  //home cards intro animation timeline
-  const getHomeCardsIntroTL = () => {
+  //intro animation timeline
+  const getIntroTL = () => {
     const tl = gsap.timeline();
     tl.to(homeCards.current, {
       duration: 0.8,
@@ -83,7 +87,14 @@ const Home = () => {
       rotationY: xPos * 50,
       rotationX: yPos * -50,
       rotationZ: xPos * 20,
-      ease: "power1.Out"
+      ease: "power1.Out",
+      // onUpdate: () => {
+      //   homeCardsLogistics.current = {
+      //     rotationY: xPos * 50,
+      //     rotationX: yPos * -50,
+      //     rotationZ: xPos * 20,
+      //   }
+      // }
     }, 0)
     tl.to(homeCard1.current, {
       duration: 0.5,
@@ -129,42 +140,68 @@ const Home = () => {
     return tl;
   }
 
+  //ontro animation timeline
+  const getOutroTL = () => {
+    const tl = gsap.timeline();
+    tl.to(homeCards.current, {
+      opacity: 0,
+      duration: 1,
+      ease: 'ease',
+    }, 0)
+    tl.to(homeHeader.current, {
+      scale: 0.3,
+      autoAlpha: 0,
+      duration: 0.5,
+      delay: 0,
+      ease: 'ease'
+    }, 0)
+
+    return tl;
+  }
+
+  //handle enter click
+  const handleEnter = () => {
+    navigate('/showcase');
+  }
+
   //intro 
   useLayoutEffect(() => {
-    //gsap animations
-    const ctx = gsap.context((context) => {
-      getHomeCardsIntroTL();
+    const ctx = gsap.context(() => {
+      getIntroTL();
     })
     return () => {
       ctx.revert();
     };
   }, [])
 
+
   //interactions 
   useLayoutEffect(() => {
-    //gsap animations
     const ctx = gsap.context((context) => {
       context.add('mouseMoveAnim', (event) => {
-        getMouseMoveTL(event);
+        if (enabled) {
+          getMouseMoveTL(event);
+        }
+        else return
       })
     })
-    const handleMouseMove = (event) => {
-      if (!enabled) return;
-      ctx.mouseMoveAnim(event)
-    };
-
-    //add event listeners
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', ctx.mouseMoveAnim);
     return () => {
       ctx.revert();
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', ctx.mouseMoveAnim);
     };
   }, [enabled])
 
-  //handle enter click
-  const handleEnter = () => {
-    navigate('/showcase');
-  }
+  //outro 
+  useEffect(() => {
+    const ctx = gsap.context(() => { })
+    if (exit) {
+      ctx.add(() => { getOutroTL() })
+    }
+    return () => {
+      ctx.revert();
+    };
+  }, [exit])
 
   return (
     <div className='home' onClick={handleEnter}>
