@@ -171,6 +171,14 @@
     display: block;
 }
 
+@media (max-width: 1200px) {
+    .home-info-text-node {
+        line-height: 1;
+        width: 25%;
+        height: auto;
+    }
+
+}
 
 @media (max-width: 800px) {
     .home-info-content {
@@ -208,12 +216,20 @@
     .home-card {
         aspect-ratio: 4/5;
         width: 100%;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
         overflow: hidden;
-        border-radius: 10px;
+        border-radius: 20px;
         box-sizing: border-box;
+    }
+
+    .home-card-media {
+
+        height: 100%;
+        width: 100%;
+        overflow: visible;
     }
 
     .home-header-text {
@@ -234,9 +250,6 @@
         color: var(--jc-dark-grey);
     }
 }
-
-
-
 
 @keyframes pulse {
     0% {
