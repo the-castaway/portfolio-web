@@ -13,7 +13,7 @@ const TransitionTrigger = ({ children }) => {
     const { toggleEntered, toggleExit } = useContext(TransitionContext);
     let timeout;
     if (location.pathname === "/") {
-        timeout = 500;
+        timeout = 1000;
     }
     else if (location.pathname === "/about") {
         timeout = 200;

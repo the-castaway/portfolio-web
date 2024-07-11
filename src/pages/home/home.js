@@ -23,11 +23,12 @@ const Home = () => {
   const homeCard3 = useRef(HTMLElement);
   const homeCard4 = useRef(HTMLElement);
   const homeInfoContainer = useRef(HTMLElement);
-  //const homeCardsLogistics = useRef({ rotationX: 0, rotationY: 0, rotationZ: 0 })
+  const windowRef = useRef(window);
   //variables
   const navigate = useNavigate();
   //state
   const [enabled, setEnabled] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   //context
   const { exit } = useContext(TransitionContext);
   //plugins
@@ -77,10 +78,8 @@ const Home = () => {
     return tl;
   }
 
-  //mouse move parallax animation timeline
-  const getMouseMoveTL = (event) => {
-    let xPos = event.clientX / window.innerWidth - 0.5,
-      yPos = event.clientY / window.innerHeight - 0.5;
+  //move parallax animation timeline
+  const getMoveTL = (xPos, yPos) => {
     const tl = gsap.timeline();
     tl.to(homeCards.current, {
       duration: 0.5,
@@ -88,54 +87,35 @@ const Home = () => {
       rotationX: yPos * -50,
       rotationZ: xPos * 20,
       ease: "power1.Out",
-      // onUpdate: () => {
-      //   homeCardsLogistics.current = {
-      //     rotationY: xPos * 50,
-      //     rotationX: yPos * -50,
-      //     rotationZ: xPos * 20,
-      //   }
-      // }
     }, 0)
     tl.to(homeCard1.current, {
       duration: 0.5,
-      // rotationY: xPos * 50,
-      // rotationX: yPos * -50,
-      // rotationZ: xPos * 20,
       y: yPos * 200,
       x: xPos * 200,
-      ease: "power1.Out"
+      ease: "power1.Out",
     }, 0)
     tl.to(homeCard2.current, {
       duration: 0.5,
-      // rotationY: xPos * 50,
-      // rotationX: yPos * -50,
-      // rotationZ: xPos * 10,
       y: yPos * 150,
       x: xPos * 150,
-      ease: "power2.Out"
+      ease: "power2.Out",
     }, 0)
     tl.to(homeCard3.current, {
       duration: 0.5,
-      // rotationY: xPos * 50,
-      // rotationX: yPos * -50,
-      // rotationZ: xPos * 0,
       y: yPos * 100,
       x: xPos * 100,
-      ease: "power3.Out"
+      ease: "power3.Out",
     }, 0)
     tl.to(homeCard4.current, {
       duration: 0.5,
-      // rotationY: xPos * 50,
-      // rotationX: yPos * -50,
-      // rotationZ: xPos * -10,
       y: yPos * 50,
       x: xPos * 50,
-      ease: "power4.Out"
+      ease: "power4.Out",
     }, 0)
     tl.to(homeHeader.current, {
       duration: 0.5,
       rotate: xPos * 10,
-      ease: "power4.Out"
+      ease: "power4.Out",
     }, 0)
     return tl;
   }
@@ -144,18 +124,61 @@ const Home = () => {
   const getOutroTL = () => {
     const tl = gsap.timeline();
     tl.to(homeCards.current, {
-      opacity: 0,
-      duration: 1,
+      duration: 0.5,
+      rotationY: 0,
+      rotationX: 0,
+      rotationZ: 0,
       ease: 'ease',
     }, 0)
-    tl.to(homeHeader.current, {
-      scale: 0.3,
-      autoAlpha: 0,
+    tl.to(homeCard1.current, {
       duration: 0.5,
-      delay: 0,
+      y: 0,
+      x: 0,
+      rotate: 0,
+      ease: "power1.Out",
+    }, 0)
+    tl.to(homeCard2.current, {
+      duration: 0.5,
+      y: 0,
+      x: 0,
+      rotate: 0,
+      ease: "power2.Out",
+    }, 0)
+    tl.to(homeCard3.current, {
+      duration: 0.5,
+      y: 0,
+      x: 0,
+      rotate: 0,
+      ease: "power3.Out",
+    }, 0)
+    tl.to(homeCard4.current, {
+      duration: 0.5,
+      y: 0,
+      x: 0,
+      rotate: 0,
+      ease: "power4.Out",
+    }, 0)
+    tl.to(homeHeader.current, {
+      duration: 0.5,
+      rotate: 0,
+      opacity: 0,
+      scale: 0.3,
       ease: 'ease'
     }, 0)
-
+    tl.to(homeCards.current, {
+      duration: 0.5,
+      delay: 0.5,
+      yPercent: 100,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.to(homeInfoContainer.current, {
+      duration: 0.5,
+      delay: 0.5,
+      opacity: 0,
+      yPercent: 50,
+      ease: 'ease',
+    }, 0)
     return tl;
   }
 
@@ -174,34 +197,38 @@ const Home = () => {
     };
   }, [])
 
-
   //interactions 
   useLayoutEffect(() => {
     const ctx = gsap.context((context) => {
       context.add('mouseMoveAnim', (event) => {
+        if (exit) return;
+        const xPos = event.clientX / window.innerWidth - 0.5;
+        const yPos = event.clientY / window.innerHeight - 0.5;
+        setMousePos({ x: xPos, y: yPos });
         if (enabled) {
-          getMouseMoveTL(event);
+          getMoveTL(xPos, yPos).play();
         }
-        else return
       })
     })
-    window.addEventListener('mousemove', ctx.mouseMoveAnim);
+    windowRef.current.addEventListener('mousemove', ctx.mouseMoveAnim);
     return () => {
       ctx.revert();
-      window.removeEventListener('mousemove', ctx.mouseMoveAnim);
+      windowRef.current.removeEventListener('mousemove', ctx.mouseMoveAnim);
     };
-  }, [enabled])
+  }, [enabled, exit])
 
   //outro 
   useEffect(() => {
     const ctx = gsap.context(() => { })
     if (exit) {
+      gsap.killTweensOf([homeCards.current, homeCard1.current, homeCard2.current, homeCard3.current, homeCard4.current, homeHeader.current]);
+      getMoveTL(mousePos.x, mousePos.y).progress(1);
       ctx.add(() => { getOutroTL() })
     }
     return () => {
       ctx.revert();
     };
-  }, [exit])
+  }, [exit, mousePos])
 
   return (
     <div className='home' onClick={handleEnter}>
