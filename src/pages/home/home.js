@@ -128,56 +128,56 @@ const Home = () => {
       rotationY: 0,
       rotationX: 0,
       rotationZ: 0,
-      ease: 'ease',
+      ease: "ease",
     }, 0)
     tl.to(homeCard1.current, {
       duration: 0.5,
       y: 0,
       x: 0,
       rotate: 0,
-      ease: "power1.Out",
+      ease: "ease",
     }, 0)
     tl.to(homeCard2.current, {
       duration: 0.5,
       y: 0,
       x: 0,
       rotate: 0,
-      ease: "power2.Out",
+      ease: "ease",
     }, 0)
     tl.to(homeCard3.current, {
       duration: 0.5,
       y: 0,
       x: 0,
       rotate: 0,
-      ease: "power3.Out",
+      ease: "ease",
     }, 0)
     tl.to(homeCard4.current, {
       duration: 0.5,
       y: 0,
       x: 0,
       rotate: 0,
-      ease: "power4.Out",
+      ease: "ease",
     }, 0)
     tl.to(homeHeader.current, {
       duration: 0.5,
       rotate: 0,
       opacity: 0,
       scale: 0.3,
-      ease: 'ease'
+      ease: "power1.in",
     }, 0)
     tl.to(homeCards.current, {
       duration: 0.5,
       delay: 0.5,
       yPercent: 100,
       opacity: 0,
-      ease: 'ease',
+      ease: "power1.in",
     }, 0)
     tl.to(homeInfoContainer.current, {
       duration: 0.5,
       delay: 0.5,
       opacity: 0,
       yPercent: 50,
-      ease: 'ease',
+      ease: "power1.in",
     }, 0)
     return tl;
   }
