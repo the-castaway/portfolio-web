@@ -202,10 +202,10 @@ const Home = () => {
     const ctx = gsap.context((context) => {
       context.add('mouseMoveAnim', (event) => {
         if (exit) return;
-        const xPos = event.clientX / window.innerWidth - 0.5;
-        const yPos = event.clientY / window.innerHeight - 0.5;
-        setMousePos({ x: xPos, y: yPos });
         if (enabled) {
+          const xPos = event.clientX / window.innerWidth - 0.5;
+          const yPos = event.clientY / window.innerHeight - 0.5;
+          setMousePos({ x: xPos, y: yPos });
           getMoveTL(xPos, yPos).play();
         }
       })
@@ -222,6 +222,7 @@ const Home = () => {
     const ctx = gsap.context(() => { })
     if (exit) {
       gsap.killTweensOf([homeCards.current, homeCard1.current, homeCard2.current, homeCard3.current, homeCard4.current, homeHeader.current]);
+      console.log(mousePos.x, mousePos.y);
       getMoveTL(mousePos.x, mousePos.y).progress(1);
       ctx.add(() => { getOutroTL() })
     }

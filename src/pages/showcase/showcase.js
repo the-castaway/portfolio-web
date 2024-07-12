@@ -69,20 +69,20 @@ const Showcase = () => {
             yPercent: 50,
             ease: 'ease',
         }, 0)
-        tl.from(showcaseUI.current, {
-            duration: 0.8,
-            delay: 0.5,
-            opacity: 0,
-            y: 50,
-            ease: 'ease',
-        }, 0)
-        tl.from(showcaseWork.current, {
-            duration: 0.8,
-            delay: 0.8,
-            opacity: 0,
-            y: 100,
-            ease: 'ease',
-        }, 0)
+        // tl.from(showcaseUI.current, {
+        //     duration: 0.8,
+        //     delay: 0.5,
+        //     opacity: 0,
+        //     y: 50,
+        //     ease: 'ease',
+        // }, 0)
+        // tl.from(showcaseWork.current, {
+        //     duration: 0.8,
+        //     delay: 0.8,
+        //     opacity: 0,
+        //     y: 100,
+        //     ease: 'ease',
+        // }, 0)
         return tl;
     }
 
