@@ -55,7 +55,6 @@ const Showcase = () => {
     }
 
     const getIntroTL = () => {
-
         const tl = gsap.timeline();
         tl.from(showcaseIntro.current, {
             duration: 0.8,
@@ -72,7 +71,7 @@ const Showcase = () => {
         }, 0)
         tl.from(showcaseUI.current, {
             duration: 0.8,
-            delay: 0.2,
+            delay: 0.5,
             opacity: 0,
             y: 50,
             ease: 'ease',
@@ -154,8 +153,8 @@ const Showcase = () => {
                     {projectMap}
                 </div>
             </div>
-            <div ref={showcaseWork} className='showcase-more-work-container'>
-                <div className='showcase-more-work-content'>
+            <div className='showcase-more-work-container'>
+                <div ref={showcaseWork} className='showcase-more-work-content'>
                     <Link to={"/archive"} className='showcase-more-work-card'>
                         <div className='showcase-more-work-card-header'>
                             <h4>

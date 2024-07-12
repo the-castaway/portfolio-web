@@ -166,15 +166,15 @@ const Home = () => {
       ease: "power1.in",
     }, 0)
     tl.to(homeCards.current, {
-      duration: 0.5,
+      duration: 0.8,
       delay: 0.5,
-      yPercent: 100,
+      y: 100,
       opacity: 0,
       ease: "power1.in",
     }, 0)
     tl.to(homeInfoContainer.current, {
-      duration: 0.5,
-      delay: 0.5,
+      duration: 0.8,
+      delay: 0.3,
       opacity: 0,
       yPercent: 50,
       ease: "power1.in",
