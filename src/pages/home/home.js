@@ -222,7 +222,6 @@ const Home = () => {
     const ctx = gsap.context(() => { })
     if (exit) {
       gsap.killTweensOf([homeCards.current, homeCard1.current, homeCard2.current, homeCard3.current, homeCard4.current, homeHeader.current]);
-      console.log(mousePos.x, mousePos.y);
       getMoveTL(mousePos.x, mousePos.y).progress(1);
       ctx.add(() => { getOutroTL() })
     }

@@ -6,8 +6,6 @@ import {
 } from "react-router-dom"
 //styles
 import '../styles/showcased.css';
-//assets
-import { ThumbnailMedia } from "../media/media";
 
 const Showcased = ({ children, name, number, href, thumbnail }) => {
     //refs

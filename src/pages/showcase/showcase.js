@@ -20,7 +20,6 @@ const Showcase = () => {
     const showcaseIntro = useRef(HTMLElement)
     const showcaseInfo = useRef(HTMLElement)
     const showcaseUI = useRef(HTMLElement)
-    const showcaseWork = useRef(HTMLElement)
     //context
     const { exit } = useContext(TransitionContext);
     //plugins
@@ -69,20 +68,18 @@ const Showcase = () => {
             yPercent: 50,
             ease: 'ease',
         }, 0)
-        // tl.from(showcaseUI.current, {
-        //     duration: 0.8,
-        //     delay: 0.5,
-        //     opacity: 0,
-        //     y: 50,
-        //     ease: 'ease',
-        // }, 0)
-        // tl.from(showcaseWork.current, {
-        //     duration: 0.8,
-        //     delay: 0.8,
-        //     opacity: 0,
-        //     y: 100,
-        //     ease: 'ease',
-        // }, 0)
+        tl.from(showcaseUI.current, {
+            duration: 0.8,
+            delay: 0.5,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.from(showcaseFeaturedWork.current, {
+            duration: 0.8,
+            delay: 0.5,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
         return tl;
     }
 
@@ -154,7 +151,7 @@ const Showcase = () => {
                 </div>
             </div>
             <div className='showcase-more-work-container'>
-                <div ref={showcaseWork} className='showcase-more-work-content'>
+                <div className='showcase-more-work-content'>
                     <Link to={"/archive"} className='showcase-more-work-card'>
                         <div className='showcase-more-work-card-header'>
                             <h4>
