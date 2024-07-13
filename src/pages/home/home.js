@@ -2,6 +2,8 @@ import React, { useLayoutEffect, useEffect, useRef, useState, useContext } from 
 import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
+//utils
+import isTouchDevice from '../../utils/deviceCheck';
 //transitionContext
 import TransitionContext from '../../context/transitionContext';
 //components
@@ -202,7 +204,7 @@ const Home = () => {
     const ctx = gsap.context((context) => {
       context.add('mouseMoveAnim', (event) => {
         if (exit) return;
-        if (enabled) {
+        if (enabled && !isTouchDevice()) {
           const xPos = event.clientX / window.innerWidth - 0.5;
           const yPos = event.clientY / window.innerHeight - 0.5;
           setMousePos({ x: xPos, y: yPos });
