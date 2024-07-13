@@ -18,6 +18,7 @@ const Project = ({ project }) => {
     const projectInfoSpacer = useRef(HTMLElement);
     const projectInfoDetails = useRef(HTMLElement);
     const projectContentContainer = useRef(HTMLElement);
+    const projectCTA = useRef(HTMLElement);
     //context
     const { exit } = useContext(TransitionContext);
     //plugins
@@ -70,6 +71,11 @@ const Project = ({ project }) => {
         tl.to(projectContentContainer.current, {
             duration: 0.8,
             y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(projectCTA.current, {
+            duration: 0.8,
             opacity: 0,
             ease: 'ease',
         }, 0)
@@ -179,7 +185,9 @@ const Project = ({ project }) => {
                     </div>
                 </div>
             </div>
-            <CTA />
+            <div ref={projectCTA} className='project-cta-container'>
+                <CTA />
+            </div>
             <Footer instruction={"Scroll Down"} scroll={true} />
         </div >
     );

@@ -121,7 +121,7 @@ const Showcase = () => {
         tl.to(showcaseMoreWork.current, {
             duration: 0.8,
             delay: 0,
-            y: 100,
+            y: 50,
             opacity: 0,
             ease: 'ease',
         }, 0)
