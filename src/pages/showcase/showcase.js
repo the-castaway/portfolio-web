@@ -17,9 +17,11 @@ const Showcase = () => {
     //refs
     const showcaseFeaturedUILinks = useRef(HTMLElement);
     const showcaseFeaturedWork = useRef(HTMLElement);
+    const showcaseMoreWork = useRef(HTMLElement);
     const showcaseIntro = useRef(HTMLElement)
     const showcaseInfo = useRef(HTMLElement)
     const showcaseUI = useRef(HTMLElement)
+    const showcaseCTA = useRef(HTMLElement);
     //context
     const { exit } = useContext(TransitionContext);
     //plugins
@@ -31,8 +33,8 @@ const Showcase = () => {
             {showcase.purview}
         </Showcased>);
 
-    //activate animation
-    const getActiveTL = () => {
+    //scroll animation timeline
+    const getScrollTL = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: showcaseFeaturedWork.current,
@@ -53,30 +55,79 @@ const Showcase = () => {
         return tl;
     }
 
+    //intro animation timeline
     const getIntroTL = () => {
         const tl = gsap.timeline();
         tl.from(showcaseIntro.current, {
             duration: 0.8,
-            yPercent: 50,
+            y: 50,
             opacity: 0,
             ease: 'ease',
         }, 0)
         tl.from(showcaseInfo.current, {
             duration: 0.8,
-            delay: 0.2,
+            delay: 0.1,
             opacity: 0,
-            yPercent: 50,
+            y: 50,
             ease: 'ease',
         }, 0)
         tl.from(showcaseUI.current, {
             duration: 0.8,
-            delay: 0.5,
+            delay: 0.2,
             opacity: 0,
             ease: 'ease',
         }, 0)
         tl.from(showcaseFeaturedWork.current, {
             duration: 0.8,
-            delay: 0.5,
+            y: 100,
+            delay: 0.3,
+            opacity: 0,
+            ease: 'ease',
+            onComplete: () => { ScrollTrigger.refresh() }
+        }, 0)
+        return tl;
+    }
+
+    //outro animation timeline
+    const getOutroTL = () => {
+        const tl = gsap.timeline();
+        tl.to(showcaseIntro.current, {
+            duration: 0.8,
+            delay: 0.3,
+            y: 50,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(showcaseInfo.current, {
+            duration: 0.8,
+            delay: 0.2,
+            opacity: 0,
+            y: 50,
+            ease: 'ease',
+        }, 0)
+        tl.to(showcaseUI.current, {
+            duration: 0.8,
+            delay: 0.1,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(showcaseFeaturedWork.current, {
+            duration: 0.8,
+            delay: 0,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(showcaseMoreWork.current, {
+            duration: 0.8,
+            delay: 0,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(showcaseCTA.current, {
+            duration: 0.8,
+            delay: 0,
             opacity: 0,
             ease: 'ease',
         }, 0)
@@ -86,7 +137,7 @@ const Showcase = () => {
     //intro 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            getActiveTL();
+            getScrollTL();
             getIntroTL();
         })
         return () => {
@@ -98,6 +149,17 @@ const Showcase = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    //outro 
+    useEffect(() => {
+        const ctx = gsap.context(() => { })
+        if (exit) {
+            ctx.add(() => { getOutroTL() })
+        }
+        return () => {
+            ctx.revert();
+        };
+    }, [exit])
 
     return (
         <div id="showcase" className='showcase'>
@@ -150,7 +212,7 @@ const Showcase = () => {
                     {projectMap}
                 </div>
             </div>
-            <div className='showcase-more-work-container'>
+            <div ref={showcaseMoreWork} className='showcase-more-work-container'>
                 <div className='showcase-more-work-content'>
                     <Link to={"/archive"} className='showcase-more-work-card'>
                         <div className='showcase-more-work-card-header'>
@@ -172,7 +234,9 @@ const Showcase = () => {
                     </Link>
                 </div>
             </div>
-            <CTA />
+            <div ref={showcaseCTA}>
+                <CTA />
+            </div>
             <Footer instruction={"Scroll Down"} />
         </div>
     );

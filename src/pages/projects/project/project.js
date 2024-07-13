@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useRef, useLayoutEffect, useContext } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"
+//transitionContext
+import TransitionContext from '../../../context/transitionContext';
 //components
 import Footer from '../../../components/footer.react';
 import CTA from '../../../components/cta.react';
@@ -11,14 +13,71 @@ import '../../../styles/project.css';
 const Project = ({ project }) => {
     //refs
     const projectContainer = useRef(HTMLElement);
+    const projectBanner = useRef(HTMLElement);
     const projectInfoContainer = useRef(HTMLElement);
     const projectInfoSpacer = useRef(HTMLElement);
     const projectInfoDetails = useRef(HTMLElement);
+    const projectContentContainer = useRef(HTMLElement);
+    //context
+    const { exit } = useContext(TransitionContext);
     //plugins
     gsap.registerPlugin(ScrollTrigger);
 
+    //intro animation timeline 
+    const getIntroTL = () => {
+        const tl = gsap.timeline();
+        tl.from(projectBanner.current, {
+            duration: 0.8,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.from(projectInfoContainer.current, {
+            duration: 0.8,
+            delay: 0.1,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+            onComplete: () => { ScrollTrigger.refresh() }
+        }, 0)
+        tl.from(projectContentContainer.current, {
+            duration: 0.8,
+            delay: 0.2,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        return tl;
+    }
+
+    //outro animation timeline 
+    const getOutroTL = () => {
+        const tl = gsap.timeline();
+        tl.to(projectBanner.current, {
+            duration: 0.8,
+            delay: 0.2,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(projectInfoContainer.current, {
+            duration: 0.8,
+            delay: 0.1,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        tl.to(projectContentContainer.current, {
+            duration: 0.8,
+            y: 100,
+            opacity: 0,
+            ease: 'ease',
+        }, 0)
+        return tl;
+    }
+
     //activate animation
-    const getActiveTL = () => {
+    const getScrollTL = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: projectInfoContainer.current,
@@ -44,7 +103,8 @@ const Project = ({ project }) => {
     //info animation 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            getActiveTL();
+            getScrollTL();
+            getIntroTL()
         })
         return () => {
             ctx.revert();
@@ -56,10 +116,21 @@ const Project = ({ project }) => {
         window.scrollTo(0, 0);
     }, []);
 
+    //outro 
+    useEffect(() => {
+        const ctx = gsap.context(() => { })
+        if (exit) {
+            ctx.add(() => { getOutroTL() })
+        }
+        return () => {
+            ctx.revert();
+        };
+    }, [exit])
+
     return (
         <div className='project'>
             <div ref={projectContainer} className='project-container'>
-                <div className='project-banner'>
+                <div ref={projectBanner} className='project-banner'>
                     <img className='project-banner-media' key={project.banner.key} src={project.banner.src} loading="eager" />
                 </div>
                 <div ref={projectInfoContainer} className='project-info-container'>
@@ -102,7 +173,7 @@ const Project = ({ project }) => {
                     </div>
 
                 </div>
-                <div className='project-content-container'>
+                <div ref={projectContentContainer} className='project-content-container'>
                     <div className='project-content'>
                         {project.content}
                     </div>

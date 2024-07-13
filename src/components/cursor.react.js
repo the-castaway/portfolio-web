@@ -1,7 +1,7 @@
 import { React, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 //utils
-import isTouchDevice from '../utils/deviceCheck';
+import IsTouchDevice from '../utils/deviceCheck';
 //styles
 import '../styles/App.css';
 import '../styles/cursor.css';
@@ -10,7 +10,7 @@ function Cursor() {
     const cursor = useRef(HTMLElement)
 
     useLayoutEffect(() => {
-        if (isTouchDevice()) return;
+        if (IsTouchDevice()) return;
         const ctx = gsap.context((context) => {
             context.add('mouseMoveAnim', (e) => {
                 const { clientX: x, clientY: y } = e;
@@ -25,7 +25,7 @@ function Cursor() {
         window.addEventListener('mousemove', (event) => ctx.mouseMoveAnim(event));
     }, [])
 
-    if (isTouchDevice()) {
+    if (IsTouchDevice()) {
         return null;
     }
     else {
