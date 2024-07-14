@@ -20,6 +20,7 @@
     max-width: 1600px;
     height: auto;
     gap: 40px;
+    padding: 0px 20px;
     padding-top: 25vh;
     padding-bottom: 15vh;
     box-sizing: border-box;
@@ -49,6 +50,12 @@
 .showcase-intro-info-ip {
     line-height: 1;
     width: 16.6%;
+    height: auto;
+}
+
+.showcase-intro-info-purview {
+    line-height: 1;
+    width: 25%;
     height: auto;
 }
 
@@ -175,4 +182,51 @@
     height: 58px;
     width: 58px;
     opacity: 1;
+}
+
+
+@media (max-width: 600px) {
+    .showcase-intro-header {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        text-align: left;
+    }
+
+    .showcase-intro-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        height: auto;
+    }
+
+    .showcase-intro-info-projects {
+        line-height: 1;
+        width: 100%;
+        height: auto;
+    }
+
+    .showcase-intro-info-ip {
+        line-height: 1;
+        width: 100%;
+        height: auto;
+    }
+
+    .showcase-intro-info-purview {
+        line-height: 1;
+        width: 100%;
+        height: auto;
+    }
+
+    .showcase-featured-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
 }

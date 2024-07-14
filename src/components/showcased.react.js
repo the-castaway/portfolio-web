@@ -1,4 +1,4 @@
-import { React, useLayoutEffect, useRef } from 'react';
+import { React, useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -15,6 +15,8 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
     const showcasedInfoContainer = useRef(HTMLElement);
     const showcasedInfo = useRef(HTMLElement);
     const showcasedInfoLine = useRef(HTMLElement);
+    //state
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 600);
     //plugins
     gsap.registerPlugin(ScrollTrigger);
 
@@ -70,6 +72,7 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
 
     //intro 
     useLayoutEffect(() => {
+        if (!isDesktop) return
         //gsap animations
         const ctx = gsap.context((context) => {
             getActiveTL();
@@ -86,31 +89,74 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
             ctx.revert();
             window.removeEventListener('mousemove', handleMouseMove);
         };
-    }, [])
+    }, [isDesktop])
+
+
+    //handle resize
+    const handleResize = () => {
+        setIsDesktop(window.innerWidth > 600);
+    };
+
+    //start at top
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        console.log(isDesktop)
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        }
+    }, [isDesktop]);
 
     return (
         <div className='showcased'>
-            <div className='showcased-container'>
-                <div ref={showcasedContent} className='showcased-content'>
-                    <div ref={showcasedCardContainer} className='showcased-card-container'>
-                        <Link to={href} ref={showcasedCard} className='showcased-card'>
-                            <img className='showcased-card-image' key={thumbnail.key} src={thumbnail.src} />
-                            <div className='showcased-card-icon'>
-                                <div className="showcased-card-icon-vector">
-                                    <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
-                                        <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
-                                    </svg>
+            {isDesktop ? (
+                <div className='showcased-container'>
+                    <div ref={showcasedContent} className='showcased-content'>
+                        <div ref={showcasedCardContainer} className='showcased-card-container'>
+                            <Link to={href} ref={showcasedCard} className='showcased-card'>
+                                <img className='showcased-card-image' key={thumbnail.key} src={thumbnail.src} />
+                                <div className='showcased-card-icon'>
+                                    <div className="showcased-card-icon-vector">
+                                        <svg height={20} width={20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.03906 1.05957H18.9378V18.9571" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                            <path d="M1.03906 18.9571L18.9378 1.05957" stroke="#ECECEC" strokeWidth="2" strokeMiterlimit="10" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                        <div ref={showcasedInfoContainer} className='showcased-info-container'>
+                            <div ref={showcasedInfo} className='showcased-info'>
+                                <div className='showcased-info-number'>
+                                    <h1>PR. {number}<br />/ 016</h1>
+                                </div>
+                                <div ref={showcasedInfoLine} className='showcased-info-line' />
+                                <div className='showcased-info-text' >
+                                    <h4>
+                                        Info
+                                    </h4>
+                                    <h2>
+                                        <b>{name}</b>
+                                    </h2>
+                                    <ul>
+                                        {children.map((child) =>
+                                            <li key={child}><p>{child}</p></li>)
+                                        }
+                                    </ul>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     </div>
-                    <div ref={showcasedInfoContainer} className='showcased-info-container'>
-                        <div ref={showcasedInfo} className='showcased-info'>
-                            <div className='showcased-info-number'>
-                                <h1>PR. {number}<br />/ 016</h1>
-                            </div>
-                            <div ref={showcasedInfoLine} className='showcased-info-line' />
+                </div>
+            ) : (
+                <div className='showcased-container'>
+                    <div className='showcased-content'>
+                        <div className='showcased-info-number'>
+                            <h1>PR. {number} / 016</h1>
+                        </div>
+                        <div className='showcased-card'>
+                            <img className='showcased-card-image' key={thumbnail.key} src={thumbnail.src} />
+                        </div>
+                        <div className='showcased-info'>
                             <div className='showcased-info-text' >
                                 <h4>
                                     Info
@@ -127,7 +173,7 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            )}
         </div >
     );
 }
