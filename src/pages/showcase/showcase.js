@@ -128,6 +128,7 @@ const Showcase = () => {
         tl.to(showcaseCTA.current, {
             duration: 0.8,
             delay: 0,
+            y: 100,
             opacity: 0,
             ease: 'ease',
         }, 0)

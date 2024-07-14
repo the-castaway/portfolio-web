@@ -78,6 +78,7 @@ const Project = ({ project }) => {
         }, 0)
         tl.to(projectCTA.current, {
             duration: 0.8,
+            y: 100,
             opacity: 0,
             ease: 'ease',
         }, 0)
