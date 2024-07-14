@@ -113,7 +113,7 @@ const CTA = () => {
                             </div>
                         </div>
                         <div className='cta-connect-info'>
-                            <div className="cta-connect-info-text-node">
+                            <div className="cta-connect-info-text-node mobile-off">
                                 <h4>
                                     Locale
                                 </h4>
@@ -129,7 +129,7 @@ const CTA = () => {
                                     @the_casta_way
                                 </p>
                             </div>
-                            <a className="cta-connect-info-text-node cta-connect-info-link" href="https://drive.google.com/file/d/1UxZ03F-SXGaJwTzW1bVygwm-ewdB0LPP/view?usp=sharing" target='_blank'>
+                            <a className="cta-connect-info-text-node cta-connect-info-link mobile-off" href="https://drive.google.com/file/d/1UxZ03F-SXGaJwTzW1bVygwm-ewdB0LPP/view?usp=sharing" target='_blank'>
                                 <h4>
                                     Resume
                                 </h4>

@@ -63,6 +63,11 @@
     pointer-events: all;
 }
 
+.project-info-title h2 {
+    overflow-wrap: break-word;
+}
+
+
 .project-info-title-back {
     display: block;
     height: auto;

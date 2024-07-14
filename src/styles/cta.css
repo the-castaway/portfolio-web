@@ -108,6 +108,29 @@
     color: var(--jc-blue);
 }
 
+.mobile-off {
+    display: block;
+}
+
+@media (max-width: 800px) {
+
+    .cta-header-text-left h1,
+    .cta-header-text-right h1 {
+        font-size: 48px;
+    }
+
+    .cta-connect-info-text-node {
+        width: 25%;
+        height: auto;
+    }
+
+    .mobile-off {
+        display: none;
+    }
+
+
+}
+
 @media (max-width: 600px) {
     .cta {
         width: 100%;
