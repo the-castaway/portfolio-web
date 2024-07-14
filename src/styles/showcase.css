@@ -184,6 +184,21 @@
     opacity: 1;
 }
 
+@media (max-width: 800px) {
+    .showcase-more-work-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        width: 66.6%;
+        height: auto;
+        border-top: var(--jc-ui-border);
+        padding: 40px 20px 40px 20px;
+        box-sizing: border-box;
+    }
+}
+
 
 @media (max-width: 600px) {
     .showcase-intro-header {
