@@ -148,7 +148,7 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
                     </div>
                 </div>
             ) : (
-                <div className='showcased-container'>
+                <Link to={href} ref={showcasedCard} className='showcased-container'>
                     <div className='showcased-content'>
                         <div className='showcased-info-number'>
                             <h1>PR. {number} / 016</h1>
@@ -172,7 +172,7 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             )}
         </div >
     );
