@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect, useContext } from 'react';
+import React, { useEffect, useRef, useLayoutEffect, useContext, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom"
@@ -19,6 +19,8 @@ const Project = ({ project }) => {
     const projectInfoDetails = useRef(HTMLElement);
     const projectContentContainer = useRef(HTMLElement);
     const projectCTA = useRef(HTMLElement);
+    //state
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 600);
     //context
     const { exit } = useContext(TransitionContext);
     //plugins
@@ -84,6 +86,7 @@ const Project = ({ project }) => {
 
     //activate animation
     const getScrollTL = () => {
+        if (!isDesktop) return
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: projectInfoContainer.current,
@@ -115,12 +118,26 @@ const Project = ({ project }) => {
         return () => {
             ctx.revert();
         };
-    }, [])
+    }, [isDesktop])
 
     //start at top
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    //handle resize
+    const handleResize = () => {
+        setIsDesktop(window.innerWidth > 600);
+    };
+
+    //check window
+    useEffect(() => {
+        console.log(isDesktop)
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        }
+    }, [isDesktop]);
 
     //outro 
     useEffect(() => {
@@ -141,12 +158,14 @@ const Project = ({ project }) => {
                 </div>
                 <div ref={projectInfoContainer} className='project-info-container'>
                     <div className='project-info-title'>
-                        <h4>
-                            PR.{project.number} / 016
-                        </h4>
-                        <h2>
-                            <b>{project.name}</b>
-                        </h2>
+                        <div>
+                            <h4>
+                                PR.{project.number} / 016
+                            </h4>
+                            <h2>
+                                <b>{project.name}</b>
+                            </h2>
+                        </div>
                         <Link className='project-info-title-back' to={'/showcase'}>
                             <div className='project-info-title-back-icon'>
                                 <div className="project-info-title-back-icon-vector">

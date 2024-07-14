@@ -91,16 +91,14 @@ const Showcased = ({ children, name, number, href, thumbnail }) => {
         };
     }, [isDesktop])
 
-
     //handle resize
     const handleResize = () => {
         setIsDesktop(window.innerWidth > 600);
     };
 
-    //start at top
+    //check window
     useEffect(() => {
         window.addEventListener("resize", handleResize);
-        console.log(isDesktop)
         return () => {
             window.removeEventListener("resize", handleResize);
         }

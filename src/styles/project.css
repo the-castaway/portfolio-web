@@ -45,7 +45,6 @@
     justify-content: center;
     width: 100%;
     height: auto;
-    position: relative;
     position: sticky;
     top: 120px;
     z-index: 2;
@@ -157,4 +156,166 @@
 .project-cta-container {
     width: 100%;
     height: auto;
+}
+
+@media (max-width: 600px) {
+
+    .project {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .project-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1600px;
+        height: auto;
+        gap: 60px;
+        padding-top: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 40px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .project-banner {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5/4;
+        border-radius: 40px;
+        overflow: hidden;
+    }
+
+    /* Project Info */
+
+    .project-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0px;
+        z-index: 2;
+        gap: 0px;
+        pointer-events: none;
+    }
+
+    /* Title */
+
+    .project-info-title {
+        width: 100%;
+        height: fit-content;
+        padding-top: 20px;
+        padding-right: 0px;
+        box-sizing: border-box;
+        pointer-events: all;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px
+    }
+
+    .project-info-title-back {
+        display: block;
+        height: auto;
+        width: fit-content;
+    }
+
+    .project-info-title-back-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 58px;
+        width: 58px;
+        opacity: 1;
+        border: var(--jc-ui-border);
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        transform: rotate(-135deg);
+    }
+
+    .project-info-title-back-icon:hover {
+        background-color: var(--jc-blue);
+        border: 1px solid #FFFFFF00;
+    }
+
+    .project-info-title-back-icon-vector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 58px;
+        width: 58px;
+        opacity: 1;
+    }
+
+    /* Spacer */
+
+    .project-info-spacer {
+        width: 20px;
+        height: auto;
+    }
+
+    /* Details */
+
+    .project-info-details {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 0px;
+        padding-left: 0px;
+        box-sizing: border-box;
+    }
+
+    .project-info-details-scope {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-info-details-company {
+        width: 100%;
+        height: auto;
+        border-top: var(--jc-ui-border);
+        padding-top: 20px;
+    }
+
+    /* Content */
+
+    .project-content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1600px;
+        height: auto;
+        gap: 20px;
+        padding-top: 40px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .project-content {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .project-cta-container {
+        width: 100%;
+        height: auto;
+    }
 }

@@ -135,3 +135,34 @@
 .content-next .link-header {
     font-size: 48px;
 }
+
+
+@media (max-width: 600px) {
+
+    .content {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .content-section-text {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .content-next {
+        width: 100%;
+        height: auto;
+        display: flex;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+    }
+
+
+}
