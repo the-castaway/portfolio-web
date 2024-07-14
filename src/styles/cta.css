@@ -107,3 +107,84 @@
     transition: color 0.5s ease;
     color: var(--jc-blue);
 }
+
+@media (max-width: 600px) {
+    .cta {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        border-top: var(--jc-ui-border);
+        background-color: var(--jc-black);
+    }
+
+    .cta-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 1600px;
+        padding: 60px 20px 80px 20px;
+    }
+
+    .cta-header {
+        width: 100%;
+        display: none;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 40px;
+    }
+
+    .cta-connect {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .cta-connect-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: auto;
+        position: relative;
+    }
+
+    .cta-connect-header-text {
+        font-weight: 600;
+        padding: 0 20px;
+        opacity: 0;
+        color: var(--jc-off-black);
+    }
+
+    .cta-connect-header-brackets {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        position: absolute;
+        left: 0%;
+        transform: translate(0%, 0);
+        width: auto;
+        font-weight: 800;
+    }
+
+    .cta-connect-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .cta-connect-info-text-node {
+        width: 100%;
+        height: auto;
+    }
+
+    .cta-connect-info-text-node:hover .cta-connect-info-link {
+        transition: color 0.5s ease;
+        color: var(--jc-blue);
+    }
+}
