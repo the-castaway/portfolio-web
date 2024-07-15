@@ -164,8 +164,8 @@ const GoRacing = () => {
                     </div>
                 </div>
                 <div className='content-next'>
-                    <Link to={"/community-voices-hub"}>
-                        <Links header={'Next'} description={"CV Hub"} />
+                    <Link to={"/interactive-product-tour"}>
+                        <Links header={'Next'} description={"IPT"} />
                     </Link>
                 </div>
             </section>

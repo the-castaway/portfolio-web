@@ -32,7 +32,7 @@ const ScrollToPlay = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted loading="lazy">
+                            <video className="content-media" loop autoPlay playsInline loading="lazy">
                                 <source src={ScrollToPlayMedia[2].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -44,7 +44,7 @@ const ScrollToPlay = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted loading="lazy">
+                            <video className="content-media" loop autoPlay playsInline loading="lazy">
                                 <source src={ScrollToPlayMedia[3].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -71,7 +71,7 @@ const ScrollToPlay = () => {
                 <div className='content-media-container'>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted loading="lazy">
+                            <video className="content-media" loop autoPlay playsInline loading="lazy">
                                 <source src={ScrollToPlayMedia[0].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -83,7 +83,7 @@ const ScrollToPlay = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted loading="lazy">
+                            <video className="content-media" loop autoPlay playsInline loading="lazy">
                                 <source src={ScrollToPlayMedia[4].src} type="video/webm"></source>
                             </video>
                         </div>
@@ -95,7 +95,7 @@ const ScrollToPlay = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted loading="lazy">
+                            <video className="content-media" loop autoPlay playsInline loading="lazy">
                                 <source src={ScrollToPlayMedia[1].src} type="video/webm"></source>
                             </video>
                         </div>

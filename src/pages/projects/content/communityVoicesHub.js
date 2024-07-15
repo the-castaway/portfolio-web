@@ -131,7 +131,7 @@ const communityVoicesHub = () => {
                     </div>
                     <div className='content-media-node'>
                         <div className='content-media-full'>
-                            <video className="content-media" loop autoPlay muted loading="lazy">
+                            <video className="content-media" loop autoPlay playsInline loading="lazy">
                                 <source src={CommunityVoicesHubMedia[12].src} type="video/webm"></source>
                             </video>
                         </div>
