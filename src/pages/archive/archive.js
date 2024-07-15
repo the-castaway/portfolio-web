@@ -26,7 +26,6 @@ const Archive = () => {
         setActiveThumbnail(thumbnail)
         setActiveNumber(number)
     }
-
     const handleMouseLeave = () => {
         setActiveThumbnail(null)
         setActiveNumber('XXX')

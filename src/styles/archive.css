@@ -69,6 +69,10 @@
     object-fit: cover;
 }
 
+.archive-preview-info {
+    display: block;
+}
+
 /* Projects */
 
 .archive-project-container {
@@ -83,4 +87,73 @@
 .archive-project-list {
     width: 100%;
     height: auto;
+}
+
+@media (max-width: 600px) {
+
+    .archive-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 1600px;
+        height: auto;
+        gap: 20px;
+        padding-top: 15vh;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    /* Preview */
+
+    .archive-preview-container {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: inherit;
+        top: 0;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .archive-preview {
+        display: none;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/5;
+        border: var(--jc-ui-border);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .archive-preview-header {
+        font-size: 32px;
+        height: auto;
+    }
+
+    .archive-preview-info {
+        display: none;
+    }
+
+    /* Projects */
+
+    .archive-project-container {
+        width: 100%;
+        padding-right: 0;
+        padding-top: 0px;
+        padding-bottom: 40px;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    .archive-project-list {
+        width: 100%;
+        height: auto;
+    }
+
+
 }
