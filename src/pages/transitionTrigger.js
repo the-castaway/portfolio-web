@@ -17,6 +17,9 @@ const TransitionTrigger = ({ children }) => {
     else if (location.pathname === "/showcase") {
         timeout = 1000;
     }
+    else if (location.pathname === "/archive") {
+        timeout = 1000;
+    }
     else { timeout = 1000 }
 
     return (
