@@ -125,13 +125,17 @@
     position: sticky;
     top: 0;
     display: flex;
+    justify-content: flex-end;
     align-items: flex-end;
+    aspect-ratio: 4/5;
     padding-bottom: 60px;
     padding-top: 80px;
     box-sizing: border-box;
 }
 
 .about-headshot {
+    position: absolute;
+    bottom: 60px;
     width: 100%;
     height: auto;
     aspect-ratio: 4/5;

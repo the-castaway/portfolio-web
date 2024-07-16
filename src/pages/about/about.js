@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 //transitionContext
@@ -13,16 +13,52 @@ import '../../styles/about.css';
 import { AboutMedia } from "../../media/media";
 
 const About = () => {
+  //refs
+  const about = useRef(HTMLElement);
+  const aboutHeadshotContainer = useRef(HTMLElement);
+  const aboutHeadshot = useRef(HTMLElement);
 
+  //scroll animation timeline
+  const getScrollTL = () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: about.current,
+        markers: false,
+        pin: false, // pin the trigger element while active
+        start: '30% 10%',
+        end: "30% 10%",
+        scrub: false,
+        toggleActions: "play none reverse none",
+        invalidateOnRefresh: true,
+      }
+    });
+    tl.to(aboutHeadshot.current, {
+      top: "80",
+      width: '66.6%',
+      duration: 0.8,
+      ease: "ease",
+    }, 0)
+    return tl;
+  }
+
+  //scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Loading function to load data or
-    // fake it using setTimeout;
-    gsap.registerPlugin(SplitText);
   }, []);
 
+  //intro 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      getScrollTL();
+      // getIntroTL();
+    })
+    return () => {
+      ctx.revert();
+    };
+  }, [])
+
   return (
-    <div className='about'>
+    <div ref={about} className='about'>
       <div className='about-container'>
         <div className='about-content'>
           <div className='about-column-left' />
@@ -240,8 +276,8 @@ const About = () => {
             </div>
           </div>
           <div className='about-column-right'>
-            <div className='about-headshot-container'>
-              <div className='about-headshot'>
+            <div ref={aboutHeadshotContainer} className='about-headshot-container'>
+              <div ref={aboutHeadshot} className='about-headshot'>
                 <img className='about-headshot-media' key={AboutMedia[0].key} src={AboutMedia[0].src} />
               </div>
             </div>
@@ -251,7 +287,6 @@ const About = () => {
       <CTA />
       <Footer instruction={"Scroll Down"} scroll={true} />
     </div>
-
   );
 }
 
