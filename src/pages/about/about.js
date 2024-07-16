@@ -93,7 +93,7 @@ const About = () => {
               </div>
               <div className='about-intro-abilities'>
                 <h4>
-                  Currently
+                  Abilities
                 </h4>
                 <ul>
                   <li>
