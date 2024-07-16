@@ -12,7 +12,7 @@ const TransitionTrigger = ({ children }) => {
         timeout = 1500;
     }
     else if (location.pathname === "/about") {
-        timeout = 200;
+        timeout = 1400;
     }
     else if (location.pathname === "/showcase") {
         timeout = 1000;

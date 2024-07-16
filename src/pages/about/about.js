@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useContext } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
 //transitionContext
@@ -17,6 +17,12 @@ const About = () => {
   const about = useRef(HTMLElement);
   const aboutHeadshotContainer = useRef(HTMLElement);
   const aboutHeadshot = useRef(HTMLElement);
+  const aboutIntro = useRef(HTMLElement);
+  const aboutExperience = useRef(HTMLElement);
+  const aboutEducation = useRef(HTMLElement);
+  const aboutCTA = useRef(HTMLElement);
+  //context
+  const { exit } = useContext(TransitionContext);
 
   //scroll animation timeline
   const getScrollTL = () => {
@@ -41,6 +47,80 @@ const About = () => {
     return tl;
   }
 
+  //intro animation timeline
+  const getIntroTL = () => {
+    const tl = gsap.timeline();
+    tl.from(aboutIntro.current, {
+      duration: 0.8,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.from(aboutExperience.current, {
+      duration: 0.8,
+      delay: 0.2,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.from(aboutEducation.current, {
+      duration: 0.8,
+      delay: 0.4,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.from(aboutHeadshot.current, {
+      duration: 0.8,
+      delay: 0.6,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    return tl;
+  }
+
+  //outro animation timeline
+  const getOutroTL = () => {
+    const tl = gsap.timeline();
+    tl.to(aboutIntro.current, {
+      duration: 0.8,
+      delay: 0.4,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.to(aboutExperience.current, {
+      duration: 0.8,
+      delay: 0.2,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.to(aboutEducation.current, {
+      duration: 0.8,
+      delay: 0,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.to(aboutHeadshot.current, {
+      duration: 0.8,
+      delay: 0.6,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    tl.to(aboutCTA.current, {
+      duration: 0.8,
+      delay: 0.6,
+      y: 50,
+      opacity: 0,
+      ease: 'ease',
+    }, 0)
+    return tl;
+  }
+
   //scroll to top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -50,12 +130,23 @@ const About = () => {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       getScrollTL();
-      // getIntroTL();
+      getIntroTL();
     })
     return () => {
       ctx.revert();
     };
   }, [])
+
+  //outro 
+  useEffect(() => {
+    const ctx = gsap.context(() => { })
+    if (exit) {
+      ctx.add(() => { getOutroTL() })
+    }
+    return () => {
+      ctx.revert();
+    };
+  }, [exit])
 
   return (
     <div ref={about} className='about'>
@@ -63,7 +154,7 @@ const About = () => {
         <div className='about-content'>
           <div className='about-column-left' />
           <div className='about-column-center'>
-            <div className='about-intro'>
+            <div ref={aboutIntro} className='about-intro'>
               <h1 className='about-intro-header'>
                 About
               </h1>
@@ -134,7 +225,7 @@ const About = () => {
                 </ul>
               </div>
             </div>
-            <div className="about-experience">
+            <div ref={aboutExperience} className="about-experience">
               <h2 className='about-experience-header'>
                 Experience
               </h2>
@@ -239,7 +330,7 @@ const About = () => {
                 </ul>
               </div>
             </div>
-            <div className="about-education">
+            <div ref={aboutEducation} className="about-education">
               <h2 className='about-education-header'>
                 Education
               </h2>
@@ -284,7 +375,9 @@ const About = () => {
           </div>
         </div>
       </div>
-      <CTA />
+      <div ref={aboutCTA}>
+        <CTA />
+      </div>
       <Footer instruction={"Scroll Down"} scroll={true} />
     </div>
   );
