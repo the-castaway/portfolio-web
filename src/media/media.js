@@ -1,9 +1,5 @@
-//home
-import metaNews from './thumbnails/thumbnail_meta_news.webp'
-import vr4g from './thumbnails/thumbnail_vr4g.webp'
-import rbs from './thumbnails/thumbnail_rbs_uth.webp'
-import rsvp from './thumbnails/thumbnail_rsvp.webp'
-import headshot from './about/about_headshot.webp'
+//about
+import aboutHeadshot from './about/about_headshot.webp'
 
 //thumbnails
 import iptThumbnail from './thumbnails/ipt_thumbnail.webp'
@@ -111,7 +107,14 @@ import goRacingLootItem from './projects/goRacing/goracing_loot_item.webp'
 export const Media = [
     {
         key: 0,
-        src: metaNews
+        src: aboutHeadshot
+    },
+]
+
+export const AboutMedia = [
+    {
+        key: 0,
+        src: aboutHeadshot
     },
 ]
 

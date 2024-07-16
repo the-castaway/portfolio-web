@@ -1,174 +1,255 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { SplitText } from "gsap/SplitText";
+//transitionContext
+import TransitionContext from '../../context/transitionContext';
 //components
+import Footer from '../../components/footer.react';
+import CTA from '../../components/cta.react';
 //styles
 import '../../styles/home.css';
 import '../../styles/about.css';
 //assets
-import { Media } from "../../media/media";
-
-
-
+import { AboutMedia } from "../../media/media";
 
 const About = () => {
-  //refs
-  //let about = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     // Loading function to load data or
     // fake it using setTimeout;
     gsap.registerPlugin(SplitText);
-    // const header = about.querySelectorAll('.header');
-    // const tl = gsap.timeline(),
-    //   mySplitText = new SplitText(header, { type: "chars" }),
-    //   chars = mySplitText.chars; //an array of all the divs that wrap each character
-
-    // tl.from(chars, {
-    //   duration: 0.4,
-    //   opacity: 0,
-    //   y: 100,
-    //   rotationX: 0,
-    //   ease: "ease",
-    //   stagger: 0.05
-    // });
   }, []);
 
   return (
     <div className='about'>
-      <div className='about-left'>
-        <div className='about-fold'>
-          <div className='about-header'>
-          </div>
-          <div className='about-description'>
-            <h2>
-              Hello again. I'm Jaime.
-            </h2>
-            <p>
-              A results-driven designer and developer with a proven track record in leading design and development efforts for diverse projects.Skilled in crafting captivating user flows, driving innovation, and optimizing content for impactful digital experiences. Adept at vollaborating with clients, designers, and engineers to deliver visually stunning and techically sound solutions.
-            </p>
-          </div>
-        </div>
-        <div className="about-experience">
-          {/* Work Experience */}
-          <div className='about-experience-group'>
-            <div className='about-experience-header'>
-              <h2>
+      <div className='about-container'>
+        <div className='about-content'>
+          <div className='about-column-left' />
+          <div className='about-column-center'>
+            <div className='about-intro'>
+              <h1 className='about-intro-header'>
+                About
+              </h1>
+              <p className='about-intro-description'>
+                Hands-on. Thoughtful. Story-led. I believe in creating beautiful and meaningful experiences that evoke human emotion, serve a greater purpose, and lead to positive action toward our fellow humans and planet.
+              </p>
+              <div className='about-intro-info'>
+                <div className="about-intro-info-currently">
+                  <h4>
+                    Currently
+                  </h4>
+                  <p>
+                    Designer / Engineer @ Meta
+                  </p>
+                </div>
+                <div className="about-intro-info-status">
+                  <h4>
+                    Status
+                  </h4>
+                  <div className='about-intro-info-node-status'>
+                    <div className='about-intro-info-node-icon' />
+                    <p>
+                      Available
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className='about-intro-abilities'>
+                <h4>
+                  Currently
+                </h4>
+                <ul>
+                  <li>
+                    <p>
+                      Creative Direction
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Concept Development
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      UI Design
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      UX
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Prototyping
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Front-end Engineering
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Web development
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="about-experience">
+              <h2 className='about-experience-header'>
                 Experience
               </h2>
+              <div className='about-experiece-node'>
+                <h3>
+                  Design and Engineering Lead for Web @Meta
+                </h3>
+                <h4>
+                  March 2019 - Present
+                </h4>
+                <ul className='about-experience-node-list'>
+                  <li>
+                    <p>
+                      Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className='about-experiece-node'>
+                <h3>
+                  Design and Development Lead @Colorful Notion
+                </h3>
+                <h4>
+                  July 2017 - January 2019
+                </h4>
+                <ul className='about-experience-node-list'>
+                  <li>
+                    <p>
+                      Crafted captivating user experiences for Colorful Notion's mobile app initiatives, ensuring optimal user engagement.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Leveraged user data insights to iterate and refine designs, resulting in continuous improvement and increased user acquisition.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className='about-experiece-node'>
+                <h3>
+                  Design and Development Lead @Wolk
+                </h3>
+                <h4>
+                  July 2017 - January 2019
+                </h4>
+                <ul className='about-experience-node-list'>
+                  <li>
+                    <p>
+                      Spearheaded Wolk's digital branding efforts, ensuring a cohesive and impactful brand presence across all digital channels.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Designed and developed Wolk's desktop app, leveraging Electron and React to create a robust and user-friendly application.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className='about-experiece-node'>
+                <h3>
+                  Designer and Developer @Crosschannel
+                </h3>
+                <h4>
+                  July 2016 - July 2017
+                </h4>
+                <ul className='about-experience-node-list'>
+                  <li>
+                    <p>
+                      Created interactive mobile ads that aligned with partners' business objectives, driving engagement and achieving desired results.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Drove growth and revenue by designing and optimizing content for various marketing campaigns, with a strong focus on improving metrics.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className='about-experiece-node'>
+                <h3>
+                  Designer @Artsigns
+                </h3>
+                <h4>
+                  June 2015 - July 2016
+                </h4>
+                <ul className='about-experience-node-list'>
+                  <li>
+                    <p>
+                      Crafted captivating spatial experiences for clients, effectively capturing and portraying their unique brand identities.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Collaborated closely with clients to generate initial concept art for a wide range of exterior branding requests, including monuments and wall graphics.
+                    </p>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
-            </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
-            </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
-            </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
-            </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
-            </div>
-          </div>
-          {/* Education Experience */}
-          <div className='about-experience-group'>
-            <div className='about-experience-header'>
-              <h2>
+            <div className="about-education">
+              <h2 className='about-education-header'>
                 Education
               </h2>
+              <div className='about-education-node'>
+                <h3>
+                  Continued Studies @Stanford University
+                </h3>
+                <h4>
+                  August 2016 - May 2017
+                </h4>
+                <ul className='about-education-node-list'>
+                  <li>
+                    <p>
+                      Web Design / Development Courses
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div className='about-education-node'>
+                <h3>
+                  Design Studies @San Jose State University
+                </h3>
+                <h4>
+                  August 2010 - May 2015
+                </h4>
+                <ul className='about-education-node-list'>
+                  <li>
+                    <p>
+                      Graphic Design Concentration
+                    </p>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
-            </div>
-            <div className='about-experiece-node'>
-              <h3>
-                Design and Engineering Lead for Web @Meta
-              </h3>
-              <h4>
-                March 2019 - Present
-              </h4>
-              <p>
-                Web lead with a purview over strategy, design, and development of all web projects for the Communications Org.
-                Drove the Meta Web team to embrace innovative technologies and best practices, fostering a culture of continuous adaptation.
-              </p>
+          </div>
+          <div className='about-column-right'>
+            <div className='about-headshot-container'>
+              <div className='about-headshot'>
+                <img className='about-headshot-media' key={AboutMedia[0].key} src={AboutMedia[0].src} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className='about-right'>
-        <div className='about-headshot-container'>
-          <img className='about-headshot' key={Media[4].key} src={Media[4].src} />
-        </div>
-        <div className='about-social'>
-          <a className='linkedin'>
-            linkedin
-          </a>
-          <a className='email'>
-            hello@jaimecastaneda.com
-          </a>
-          <a className='threads'>
-            threads
-          </a>
-        </div>
-      </div>
+      <CTA />
+      <Footer instruction={"Scroll Down"} scroll={true} />
     </div>
 
   );

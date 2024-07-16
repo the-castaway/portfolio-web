@@ -148,24 +148,20 @@ const Nav = () => {
                 </a>
             </nav>
             <div ref={navModal} className="nav-modal">
-
                 <div className="nav-modal-links">
                     <NavLink ref={navModalShowcase} onClick={() => { collapseModal(); }} to="/showcase" exact='true'>
                         <Link header={'Showcase'} description={"Let's get it"} />
                     </NavLink>
-                    {/* <NavLink ref={navModalAbout} onClick={() => { collapseModal(); }} to="/about" exact='true'>
+                    <NavLink ref={navModalAbout} onClick={() => { collapseModal(); }} to="/about" exact='true'>
                         <Link header={'About'} description={"Who is Jaime?"} />
                     </NavLink>
+                    {/*
                     <NavLink ref={navModalLab} onClick={() => { collapseModal(); }} to="/lab" exact='true'>
                         <Link header={'Lab'} description={"Let's explore"} />
                     </NavLink> */}
-                    <div ref={navModalAbout} className="nav-modal-link-inactive">
-                        <Link header={'About'} description={"Soon"} />
-                    </div>
                     <div ref={navModalLab} className="nav-modal-link-inactive">
                         <Link header={'Lab'} description={"Soon"} />
                     </div>
-
                 </div>
                 <div className="nav-modal-contact" ref={navModalContact} >
                     <h2 className="nav-modal-contact-header">
