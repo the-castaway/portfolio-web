@@ -25,8 +25,8 @@ const About = () => {
         trigger: about.current,
         markers: false,
         pin: false, // pin the trigger element while active
-        start: '30% 10%',
-        end: "30% 10%",
+        start: '10% top',
+        end: "10% top",
         scrub: false,
         toggleActions: "play none reverse none",
         invalidateOnRefresh: true,
