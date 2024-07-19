@@ -136,7 +136,7 @@ const InteractiveProductTour = () => {
                         <ul>
                             <li>
                                 <a className="content-collaborator" href='https://www.linkedin.com/in/eugeneteu/' target='_blank'>
-                                    <p>Eugene Teo</p>
+                                    <p>Eugene Teu</p>
                                 </a>
                             </li>
                             <li>
