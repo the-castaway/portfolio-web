@@ -167,7 +167,7 @@ const Showcase = () => {
             <div className='showcase-intro-container'>
                 <div className='showcase-intro-content'>
                     <h2 ref={showcaseIntro} className='showcase-intro-header'>
-                        A Bay Area based creative who's strategy and design unite to shape inspiring projects that resonate&nbsp;with&nbsp;our&nbsp;time.
+                        A Bay Area-based creative whose strategy and design come together to shape inspiring projects that resonate&nbsp;with&nbsp;our&nbsp;time.
                     </h2>
                     <div ref={showcaseInfo} className='showcase-intro-info'>
                         <div className="showcase-intro-info-projects">
